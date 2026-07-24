@@ -1,8 +1,10 @@
-# Testing ANN and MPS signals in FinRL
+# Evaluating ANN and MPS Signals in FinRL
 
-This repository contains my follow-up experiment based on Professor Xiao-Yang
-Liu's suggestion to test a quantum-inspired representation inside a FinRL
-trading agent.
+This repository contains a controlled comparison of ANN and
+matrix-product-state (MPS) prediction signals inside a FinRL PPO trading agent.
+The experiment follows Professor Xiao-Yang Liu's suggestion to test whether a
+quantum-inspired representation that performs well on prediction metrics also
+improves sequential trading decisions.
 
 I compared three PPO agents:
 
@@ -14,7 +16,7 @@ The ANN and MPS models use the same inputs and each has 369 trainable
 parameters. The MPS is a classical tensor-network model. It does not use
 quantum hardware.
 
-## Main result
+## Result
 
 The MPS had slightly better prediction MSE and directional accuracy, but it
 did not produce better trading performance.
@@ -30,18 +32,20 @@ MPS trailed ANN in all three paired seeds. A 20-day block bootstrap gave a
 95% interval of -4.63 to +2.63 percentage points for the MPS-minus-ANN
 annualized return difference.
 
-This is a negative result under one fixed setup, not a general conclusion
-about tensor networks.
+The result is limited to this experimental setup and should not be interpreted
+as a general conclusion about tensor-network methods.
 
-## Experiment dates
+## Experimental protocol
 
 - Encoder training: 2013-2017
 - Encoder validation: 2018
 - PPO training: 2013-2018
 - Out-of-sample test: 2019-2023
 
-All agents used the same 15 stocks, PPO settings, 5,000-step training budget,
-random seeds, and 0.10% transaction cost.
+All agents used the same 15 stocks, PPO architecture, 5,000-step training
+budget, random seeds, and 0.10% transaction cost. The ANN and MPS models used
+the same inputs and each contained 369 trainable parameters. The MPS was
+simulated on classical hardware.
 
 ## Run the experiment
 
