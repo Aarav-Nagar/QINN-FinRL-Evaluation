@@ -1,7 +1,6 @@
 # Testing ANN and MPS Signals in FinRL
 
-**Short technical note**  
-**Aarav Nagar | July 2026**
+**Short technical note | Aarav Nagar | July 2026**
 
 ## Question
 
