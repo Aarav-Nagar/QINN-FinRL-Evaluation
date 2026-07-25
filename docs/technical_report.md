@@ -142,7 +142,7 @@ MPS traded less and had a slightly smaller mean drawdown, but it also produced
 lower return and risk-adjusted performance.
 
 ![Mean equity curves for the three PPO conditions and the equal-weight
-benchmark](results/figures/equity_curves.png)
+benchmark](../results/figures/equity_curves.png)
 
 **Figure 1. Mean out-of-sample equity curves. Shaded regions show variation
 across PPO seeds.**

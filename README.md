@@ -1,53 +1,88 @@
-# Evaluating ANN and MPS Signals in FinRL
+# ANN and MPS Signals in a FinRL PPO Agent
 
-This repository contains a controlled comparison of ANN and
-matrix-product-state (MPS) prediction signals inside a FinRL PPO trading agent.
-The experiment follows Professor Xiao-Yang Liu's suggestion to test whether a
-quantum-inspired representation that performs well on prediction metrics also
-improves sequential trading decisions.
+This repository evaluates whether a quantum-inspired matrix-product-state
+(MPS) prediction signal improves sequential trading decisions relative to a
+parameter-matched artificial neural network (ANN) signal.
 
-I compared three PPO agents:
+The experiment was developed as a follow-up to Professor Xiao-Yang Liu's
+suggestion to test quantum-inspired representations inside a FinRL benchmark,
+rather than evaluating them only as prediction models.
 
-1. the regular FinRL market state;
-2. the same state plus an ANN prediction for each stock; and
-3. the same state plus a matrix-product-state (MPS) prediction for each stock.
+## Review guide
 
-The ANN and MPS models use the same inputs and each has 369 trainable
-parameters. The MPS is a classical tensor-network model. It does not use
-quantum hardware.
+For a concise review of the project:
 
-## Result
+1. Read the
+   [technical report (PDF)](docs/Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.pdf).
+2. Review the exact configuration in
+   [`results/run_manifest.json`](results/run_manifest.json).
+3. See the saved-output guide in [`results/README.md`](results/README.md).
+4. Inspect [`run_experiment.py`](run_experiment.py) and
+   [`test_experiment.py`](test_experiment.py) for the implementation and
+   integrity checks.
 
-The MPS had slightly better prediction MSE and directional accuracy, but it
-did not produce better trading performance.
+An editable
+[Word version of the report](docs/Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.docx)
+is also included.
 
-| Agent | Mean Sharpe | Total return | Max drawdown | Annualized turnover |
+## Research question
+
+When the data, prediction target, parameter count, PPO configuration,
+transaction costs, and random seeds are held constant, does an MPS signal
+improve out-of-sample FinRL trading performance or robustness relative to an
+ANN signal?
+
+## Experimental protocol
+
+Three PPO conditions were compared:
+
+| Condition | State supplied to PPO | State dimension |
+|---|---|---:|
+| Base FinRL | Cash, prices, holdings, and 10 indicators per stock | 181 |
+| ANN signal | Base state plus one frozen ANN prediction per stock | 196 |
+| MPS signal | Base state plus one frozen MPS prediction per stock | 196 |
+
+For the two signal agents, the encoder generated one standardized next-day
+return prediction for each of 15 stocks. The resulting 15-value vector was
+appended as the final indicator block in the PPO state. The encoder remained
+frozen during PPO training.
+
+The ANN and MPS models:
+
+- used the same 13 market inputs and next-day return target;
+- contained exactly 369 trainable parameters each;
+- were fit on 2013-2017 data and validated on 2018; and
+- were evaluated using PPO policies trained on 2013-2018 and tested on the
+  unseen 2019-2023 period.
+
+Each PPO condition used seeds 0, 1, and 2, a 5,000-step training budget, a
+$1,000,000 initial portfolio, and a 0.10% transaction cost on every executed
+buy and sell.
+
+## Main results
+
+The MPS model achieved slightly lower prediction error and higher directional
+accuracy, but this did not produce better trading performance.
+
+| Condition | Mean Sharpe | Total return | Maximum drawdown | Annualized turnover |
 |---|---:|---:|---:|---:|
 | Base FinRL | 0.559 | 73.24% | -40.46% | 26.43% |
 | ANN signal | 0.735 | 104.66% | -27.55% | 27.32% |
 | MPS signal | 0.694 | 94.27% | -26.79% | 24.14% |
+| Equal-weight benchmark | 1.115 | 218.25% | -28.54% | 20.06% |
 
-These are means across PPO seeds 0, 1, and 2 on the 2019-2023 test period.
-MPS trailed ANN in all three paired seeds. A 20-day block bootstrap gave a
-95% interval of -4.63 to +2.63 percentage points for the MPS-minus-ANN
-annualized return difference.
+MPS trailed ANN in all three paired PPO seeds. The annualized mean-return
+difference, MPS minus ANN, was -0.92 percentage points. A moving
+20-trading-day block bootstrap produced a 95% interval from -4.63 to +2.63
+percentage points, which includes zero.
 
-The result is limited to this experimental setup and should not be interpreted
-as a general conclusion about tensor-network methods.
+The supported conclusion is limited: under this configuration and historical
+split, the MPS signal did not improve trading performance relative to the ANN
+signal. This is not a general conclusion about tensor-network methods.
 
-## Experimental protocol
+## Reproduce the reference run
 
-- Encoder training: 2013-2017
-- Encoder validation: 2018
-- PPO training: 2013-2018
-- Out-of-sample test: 2019-2023
-
-All agents used the same 15 stocks, PPO architecture, 5,000-step training
-budget, random seeds, and 0.10% transaction cost. The ANN and MPS models used
-the same inputs and each contained 369 trainable parameters. The MPS was
-simulated on classical hardware.
-
-## Run the experiment
+Use Python 3.12 and install the pinned or minimum dependencies:
 
 ```powershell
 python -m pip install -r requirements.txt
@@ -60,16 +95,48 @@ python run_experiment.py `
 python -m pytest -q test_experiment.py
 ```
 
-The reference results are already included in `results/`. The run manifest
-records the dataset checksum, FinRL commit, settings, and limitations.
+The pipeline downloads and checksum-verifies the processed Nasdaq data, checks
+out the recorded FinRL commit, trains the ANN and MPS encoders, runs the PPO
+conditions, and regenerates the metrics and figures.
 
-## Files
+Additional reproduction details are documented in
+[`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
-- `research_report.md`: short explanation of the setup and results
-- `technical_report.pdf` and `technical_report.docx`: formatted technical note
-- `run_experiment.py`: full experiment pipeline
-- `test_experiment.py`: integrity tests
-- `results/`: per-seed metrics, yearly metrics, equity curves, and bootstrap
-  output
+## Repository structure
 
-This repository is for research and education, not financial advice.
+```text
+.
+|-- README.md
+|-- REPRODUCIBILITY.md
+|-- run_experiment.py
+|-- test_experiment.py
+|-- requirements.txt
+|-- docs/
+|   |-- Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.pdf
+|   |-- Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.docx
+|   |-- technical_report.md
+|   `-- source_notes.md
+`-- results/
+    |-- README.md
+    |-- run_manifest.json
+    |-- signal_metrics.csv
+    |-- ppo_backtest_metrics.csv
+    |-- annual_period_metrics.csv
+    |-- ann_vs_mps_block_bootstrap.csv
+    `-- figures/
+```
+
+## Limitations
+
+- The MPS is a classical tensor-network simulation; no quantum hardware was
+  used.
+- The experiment uses one historical split and a 15-stock Nasdaq subset.
+- Three PPO seeds reveal seed sensitivity but do not support broad statistical
+  generalization.
+- The 5,000-step PPO budget may leave policies undertrained.
+- The cost model includes a fixed transaction fee but not spread, slippage,
+  market impact, taxes, liquidity limits, or borrow costs.
+- Neither signal agent beat the equal-weight benchmark over the full test
+  period.
+
+This repository is for research and education and is not financial advice.
