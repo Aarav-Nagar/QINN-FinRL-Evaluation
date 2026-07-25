@@ -135,11 +135,21 @@ backtest.
 | MPS signal | 94.27% | 0.694 | -26.79% | 24.14% | $1,253.61 |
 | Equal-weight buy-and-hold | 218.25% | 1.115 | -28.54% | 20.06% | $1,000.00 |
 
-The PPO values are means across seeds 0, 1, and 2. MPS produced a lower Sharpe
-than ANN in every paired seed: 0.759 compared with 0.790 for seed 0, 0.726
-compared with 0.812 for seed 1, and 0.596 compared with 0.602 for seed 2.
-MPS traded less and had a slightly smaller mean drawdown, but it also produced
-lower return and risk-adjusted performance.
+The PPO values are means across seeds 0, 1, and 2.
+
+**Table 4. Paired PPO Sharpe ratios by random seed**
+
+| Seed | ANN signal | MPS signal | MPS minus ANN |
+|---:|---:|---:|---:|
+| 0 | 0.790 | 0.759 | -0.032 |
+| 1 | 0.812 | 0.726 | -0.086 |
+| 2 | 0.602 | 0.596 | -0.006 |
+| Mean | 0.735 | 0.694 | -0.041 |
+
+ANN produced a higher Sharpe in all three paired runs. Because only three
+seeds were tested, this is descriptive evidence rather than a high-powered
+significance result. MPS traded less and had a slightly smaller mean drawdown,
+but it also produced lower return and risk-adjusted performance.
 
 ![Mean equity curves for the three PPO conditions and the equal-weight
 benchmark](../results/figures/equity_curves.png)
@@ -155,10 +165,23 @@ difference, MPS minus ANN, was -0.92 percentage points. The 95% interval was
 -4.63 to +2.63 percentage points, and the bootstrap probability that MPS
 exceeded ANN was 31.05%. Because the interval includes zero, the experiment
 does not establish a reliable difference between the two signal agents.
+This interval describes time-series uncertainty conditional on the three
+trained seed-mean policies; it does not replace inference across a larger set
+of independently trained PPO seeds.
 
-The results also varied across calendar years. MPS outperformed ANN in 2020
-and 2023, while ANN outperformed MPS in 2019, 2021, and 2022. Neither signal
-agent beat the equal-weight benchmark over the full test period.
+**Table 5. Mean calendar-year returns across PPO seeds**
+
+| Year | ANN signal | MPS signal | MPS minus ANN |
+|---:|---:|---:|---:|
+| 2019 | 15.69% | 14.85% | -0.84 pp |
+| 2020 | 25.85% | 26.28% | +0.43 pp |
+| 2021 | 20.48% | 18.70% | -1.78 pp |
+| 2022 | -9.24% | -15.79% | -6.55 pp |
+| 2023 | 30.72% | 34.55% | +3.83 pp |
+
+MPS outperformed ANN in 2020 and 2023, while ANN outperformed MPS in 2019,
+2021, and 2022. Neither signal agent beat the equal-weight benchmark over the
+full test period.
 
 ## 4. Discussion
 
@@ -187,9 +210,11 @@ activity became very low later in the test period, suggesting that some
 policies settled into nearly static positions.
 
 Before testing a tensor-network policy architecture, I would strengthen this
-baseline with more random seeds, a longer PPO training budget, and rolling or
-expanding-window retraining. A policy-level comparison would then be easier to
-interpret.
+baseline with 10-20 PPO seeds, a sensitivity sweep over MPS bond dimension, a
+longer PPO training budget, and rolling or expanding-window retraining. These
+tests would show whether the current result persists across policy
+initializations, MPS capacity choices, and market periods. A policy-level
+comparison would then be easier to interpret.
 
 ## 6. Reproducibility
 
@@ -197,6 +222,11 @@ The repository contains the experiment pipeline, integrity tests, daily equity
 curves, per-seed metrics, calendar-year results, bootstrap output, and a run
 manifest with the dataset checksum, FinRL commit, configuration, and known
 limitations.
+
+The exact Python package versions are recorded in `requirements-lock.txt`.
+The reference pipeline forces PPO execution on CPU and uses one PyTorch
+thread. Wall-clock duration was not recorded for the saved run and is
+therefore not reported.
 
 Repository: https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation
 
