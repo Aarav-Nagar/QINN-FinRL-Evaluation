@@ -2,15 +2,30 @@
 
 ## Reference environment
 
-- Python: 3.12
+- Python: 3.12.10
+- NumPy: 2.4.2
+- pandas: 3.0.0
+- Matplotlib: 3.10.8
+- PyTorch: 2.10.0+cpu
 - Stable-Baselines3: 2.9.0
 - Gymnasium: 1.2.3
+- pytest: 9.0.3
 - FinRL commit: `2334a5fe6d30629157f13c3b0319e1637e15e123`
 - Representation seed: 2026
 - PPO seeds: 0, 1, and 2
 
-The remaining Python dependencies and minimum versions are listed in
+The exact direct package versions used to verify the saved artifacts are in
+`requirements-lock.txt`. The broader compatible minimums are in
 `requirements.txt`.
+
+## Compute and runtime record
+
+The experiment script explicitly sets PPO to `device="cpu"` and restricts
+PyTorch to one thread. The saved artifacts were verified on an Intel Core 7
+240H system (10 physical cores, 16 logical processors); the pipeline did not
+use a GPU. Wall-clock duration was not recorded when the saved experiment was
+run, so no runtime estimate is claimed. Future runs should record start time,
+end time, and peak memory alongside the run manifest.
 
 ## Data
 
@@ -30,7 +45,7 @@ The pipeline verifies these SHA-256 checksums before training:
 From the repository root:
 
 ```powershell
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
 python run_experiment.py `
   --data-dir .cache\data `
   --finrl-dir .cache\FinRL `

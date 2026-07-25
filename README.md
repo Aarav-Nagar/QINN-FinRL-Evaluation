@@ -12,12 +12,15 @@ rather than evaluating them only as prediction models.
 
 For a concise review of the project:
 
-1. Read the
+1. Download the
+   [reviewer release](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/releases/tag/v1.0-atl-evaluation),
+   which contains the final PDF and editable Word report.
+2. Read the
    [technical report (PDF)](docs/Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.pdf).
-2. Review the exact configuration in
+3. Review the exact configuration in
    [`results/run_manifest.json`](results/run_manifest.json).
-3. See the saved-output guide in [`results/README.md`](results/README.md).
-4. Inspect [`run_experiment.py`](run_experiment.py) and
+4. See the saved-output guide in [`results/README.md`](results/README.md).
+5. Inspect [`run_experiment.py`](run_experiment.py) and
    [`test_experiment.py`](test_experiment.py) for the implementation and
    integrity checks.
 
@@ -82,10 +85,10 @@ signal. This is not a general conclusion about tensor-network methods.
 
 ## Reproduce the reference run
 
-Use Python 3.12 and install the pinned or minimum dependencies:
+Use Python 3.12 and install the exact artifact-verification environment:
 
 ```powershell
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
 python run_experiment.py `
   --data-dir .cache\data `
   --finrl-dir .cache\FinRL `
@@ -111,6 +114,7 @@ Additional reproduction details are documented in
 |-- run_experiment.py
 |-- test_experiment.py
 |-- requirements.txt
+|-- requirements-lock.txt
 |-- docs/
 |   |-- Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.pdf
 |   |-- Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.docx
