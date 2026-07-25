@@ -8,6 +8,32 @@ The experiment was developed as a follow-up to Professor Xiao-Yang Liu's
 suggestion to test quantum-inspired representations inside a FinRL benchmark,
 rather than evaluating them only as prediction models.
 
+## Development history
+
+The initial commit imports an experiment developed before this standalone
+repository was published. It includes the first complete research snapshot:
+the ANN and MPS models, FinRL integration, saved backtest outputs, integrity
+tests, and an initial report. Subsequent commits and pull requests document
+repository preparation, reviewer-requested analysis, reproducibility
+improvements, and continuing experimental development.
+
+The work progressed through these stages:
+
+1. Compare ANN and quantum-inspired models as stock-return predictors.
+2. Add the ANN and MPS predictions separately to the FinRL PPO state.
+3. Evaluate the agents out of sample with matched seeds and transaction costs.
+4. Report drawdown, turnover, costs, calendar-period results, and uncertainty.
+5. Package the experiment as a reproducible repository and technical report.
+
+Planned follow-up work is tracked publicly:
+
+- [Expand the PPO evaluation to 10-20
+  seeds](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/3)
+- [Run an MPS bond-dimension sensitivity
+  sweep](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/4)
+- [Add rolling or expanding-window
+  evaluation](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/5)
+
 ## Review guide
 
 For a concise review of the project:
