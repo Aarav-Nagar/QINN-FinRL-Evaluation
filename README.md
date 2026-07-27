@@ -34,6 +34,12 @@ Planned follow-up work is tracked publicly:
 - [Add rolling or expanding-window
   evaluation](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/5)
 
+The expanded SecureFinAI short-paper work is governed by the
+[deliverables tracker](docs/PAPER_DELIVERABLES.md) and the prespecified
+[experiment protocol](docs/EXPERIMENT_PROTOCOL.md). Daily milestones,
+verification, and any protocol deviations are retained in the
+[research log](docs/DAILY_LOG.md).
+
 ## Review guide
 
 For a concise review of the project:
