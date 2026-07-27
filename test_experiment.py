@@ -171,6 +171,7 @@ def test_partial_results_resume_complete_condition_seed_pairs(
         ("ANN signal", 0),
     ]
     assert len(curves) == 2
+    assert all(pd.api.types.is_datetime64_any_dtype(curve["date"]) for curve in curves)
 
 
 def test_partial_results_reject_mismatched_run_sets(tmp_path: Path) -> None:
