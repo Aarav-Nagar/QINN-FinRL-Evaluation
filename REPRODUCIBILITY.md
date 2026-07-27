@@ -32,6 +32,14 @@ physical cores, 16 logical processors) using PyTorch `2.10.0+cpu`; they did not
 use a GPU. Wall-clock duration was not recorded for that older reference run,
 so no retrospective runtime estimate is claimed.
 
+The same host exposes an RTX 5060 Laptop GPU. An isolated PyTorch
+`2.10.0+cu130` environment successfully executed CUDA operations, but a matched
+10-epoch engineering benchmark made the signal pipeline slower on CUDA (13.60
+seconds) than CPU (5.50 seconds). The encoders are too small to amortize device
+transfer and kernel-launch overhead in this configuration. Expanded runs
+therefore retain CPU by default; the measurement is preserved under
+`results/smoke/2026-07-27/device_benchmark.csv`.
+
 ## Data
 
 The experiment uses the processed Nasdaq 2013-2023 dataset hosted at:
