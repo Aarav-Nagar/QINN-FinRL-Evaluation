@@ -1232,14 +1232,21 @@ def write_run_status(
 
 def load_partial_results(
     output_dir: Path,
+    config: ExperimentConfig,
 ) -> tuple[list[dict[str, object]], list[pd.DataFrame]]:
     """Load policy checkpoints only when both partial artifacts are consistent."""
     metrics_path = output_dir / "ppo_backtest_metrics.partial.csv"
     curves_path = output_dir / "equity_curves.partial.csv"
+    config_path = output_dir / "partial_config.json"
     if not metrics_path.exists() and not curves_path.exists():
         return [], []
-    if not metrics_path.exists() or not curves_path.exists():
-        raise RuntimeError("Partial metrics and equity curves must exist together")
+    if not metrics_path.exists() or not curves_path.exists() or not config_path.exists():
+        raise RuntimeError(
+            "Partial metrics, equity curves, and configuration must exist together"
+        )
+    saved_config = json.loads(config_path.read_text(encoding="utf-8"))
+    if saved_config != asdict(config):
+        raise RuntimeError("Partial results belong to a different configuration")
     metrics = pd.read_csv(metrics_path)
     curves = pd.read_csv(curves_path)
     required_metric_columns = {"condition", "seed"}
@@ -1257,6 +1264,23 @@ def load_partial_results(
         for _, group in curves.groupby(["condition", "seed"], sort=False)
     ]
     return metrics.to_dict(orient="records"), curve_groups
+
+
+def write_partial_results(
+    output_dir: Path,
+    config: ExperimentConfig,
+    metric_rows: list[dict[str, object]],
+    curve_rows: list[pd.DataFrame],
+) -> None:
+    pd.DataFrame(metric_rows).to_csv(
+        output_dir / "ppo_backtest_metrics.partial.csv", index=False
+    )
+    pd.concat(curve_rows, ignore_index=True).to_csv(
+        output_dir / "equity_curves.partial.csv", index=False
+    )
+    (output_dir / "partial_config.json").write_text(
+        json.dumps(asdict(config), indent=2), encoding="utf-8"
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -1309,7 +1333,7 @@ def main() -> None:
         "ANN signal": FINRL_FEATURES + ["ann_signal"],
         "QINN-MPS signal": FINRL_FEATURES + ["qinn_mps_signal"],
     }
-    partial_metrics, partial_curves = load_partial_results(args.output_dir)
+    partial_metrics, partial_curves = load_partial_results(args.output_dir, config)
     metric_rows: list[dict[str, object]] = partial_metrics
     curve_rows: list[pd.DataFrame] = partial_curves
     completed = {
@@ -1333,11 +1357,8 @@ def main() -> None:
             metric_rows.append(metrics)
             curve_rows.append(curve)
             # Preserve completed policy runs if a long benchmark is interrupted.
-            pd.DataFrame(metric_rows).to_csv(
-                args.output_dir / "ppo_backtest_metrics.partial.csv", index=False
-            )
-            pd.concat(curve_rows, ignore_index=True).to_csv(
-                args.output_dir / "equity_curves.partial.csv", index=False
+            write_partial_results(
+                args.output_dir, config, metric_rows, curve_rows
             )
     benchmark_metrics, benchmark_curve = equal_weight_benchmark(trade, config)
     metric_rows.append(benchmark_metrics)
@@ -1388,6 +1409,7 @@ def main() -> None:
     )
     (args.output_dir / "ppo_backtest_metrics.partial.csv").unlink(missing_ok=True)
     (args.output_dir / "equity_curves.partial.csv").unlink(missing_ok=True)
+    (args.output_dir / "partial_config.json").unlink(missing_ok=True)
     pd.DataFrame([bootstrap]).to_csv(
         args.output_dir / "ann_vs_mps_block_bootstrap.csv", index=False
     )

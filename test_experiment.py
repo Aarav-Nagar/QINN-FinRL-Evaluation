@@ -105,6 +105,10 @@ def test_runtime_metadata_records_environment(monkeypatch) -> None:
 def test_partial_results_resume_complete_condition_seed_pairs(
     tmp_path: Path,
 ) -> None:
+    config = experiment.ExperimentConfig()
+    (tmp_path / "partial_config.json").write_text(
+        experiment.json.dumps(experiment.asdict(config)), encoding="utf-8"
+    )
     pd.DataFrame(
         {
             "condition": ["Base FinRL", "ANN signal"],
@@ -120,7 +124,7 @@ def test_partial_results_resume_complete_condition_seed_pairs(
             "account_value": [100.0, 101.0, 100.0],
         }
     ).to_csv(tmp_path / "equity_curves.partial.csv", index=False)
-    metrics, curves = experiment.load_partial_results(tmp_path)
+    metrics, curves = experiment.load_partial_results(tmp_path, config)
     assert [(row["condition"], row["seed"]) for row in metrics] == [
         ("Base FinRL", 0),
         ("ANN signal", 0),
@@ -129,6 +133,10 @@ def test_partial_results_resume_complete_condition_seed_pairs(
 
 
 def test_partial_results_reject_mismatched_run_sets(tmp_path: Path) -> None:
+    config = experiment.ExperimentConfig()
+    (tmp_path / "partial_config.json").write_text(
+        experiment.json.dumps(experiment.asdict(config)), encoding="utf-8"
+    )
     pd.DataFrame(
         {"condition": ["Base FinRL"], "seed": [0]}
     ).to_csv(tmp_path / "ppo_backtest_metrics.partial.csv", index=False)
@@ -141,7 +149,28 @@ def test_partial_results_reject_mismatched_run_sets(tmp_path: Path) -> None:
         }
     ).to_csv(tmp_path / "equity_curves.partial.csv", index=False)
     with pytest.raises(RuntimeError, match="different runs"):
-        experiment.load_partial_results(tmp_path)
+        experiment.load_partial_results(tmp_path, config)
+
+
+def test_partial_results_reject_different_configuration(tmp_path: Path) -> None:
+    saved = experiment.ExperimentConfig(ppo_timesteps=512)
+    requested = experiment.ExperimentConfig(ppo_timesteps=1024)
+    (tmp_path / "partial_config.json").write_text(
+        experiment.json.dumps(experiment.asdict(saved)), encoding="utf-8"
+    )
+    pd.DataFrame(
+        {"condition": ["Base FinRL"], "seed": [0]}
+    ).to_csv(tmp_path / "ppo_backtest_metrics.partial.csv", index=False)
+    pd.DataFrame(
+        {
+            "condition": ["Base FinRL"],
+            "seed": [0],
+            "date": ["2020-01-01"],
+            "account_value": [100.0],
+        }
+    ).to_csv(tmp_path / "equity_curves.partial.csv", index=False)
+    with pytest.raises(RuntimeError, match="different configuration"):
+        experiment.load_partial_results(tmp_path, requested)
 
 
 def test_metrics_identify_drawdown_and_return() -> None:
