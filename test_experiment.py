@@ -102,6 +102,48 @@ def test_runtime_metadata_records_environment(monkeypatch) -> None:
     assert metadata["elapsed_seconds"] == 12.5
 
 
+def test_partial_results_resume_complete_condition_seed_pairs(
+    tmp_path: Path,
+) -> None:
+    pd.DataFrame(
+        {
+            "condition": ["Base FinRL", "ANN signal"],
+            "seed": [0, 0],
+            "sharpe": [0.5, 0.6],
+        }
+    ).to_csv(tmp_path / "ppo_backtest_metrics.partial.csv", index=False)
+    pd.DataFrame(
+        {
+            "condition": ["Base FinRL", "Base FinRL", "ANN signal"],
+            "seed": [0, 0, 0],
+            "date": ["2020-01-01", "2020-01-02", "2020-01-01"],
+            "account_value": [100.0, 101.0, 100.0],
+        }
+    ).to_csv(tmp_path / "equity_curves.partial.csv", index=False)
+    metrics, curves = experiment.load_partial_results(tmp_path)
+    assert [(row["condition"], row["seed"]) for row in metrics] == [
+        ("Base FinRL", 0),
+        ("ANN signal", 0),
+    ]
+    assert len(curves) == 2
+
+
+def test_partial_results_reject_mismatched_run_sets(tmp_path: Path) -> None:
+    pd.DataFrame(
+        {"condition": ["Base FinRL"], "seed": [0]}
+    ).to_csv(tmp_path / "ppo_backtest_metrics.partial.csv", index=False)
+    pd.DataFrame(
+        {
+            "condition": ["ANN signal"],
+            "seed": [0],
+            "date": ["2020-01-01"],
+            "account_value": [100.0],
+        }
+    ).to_csv(tmp_path / "equity_curves.partial.csv", index=False)
+    with pytest.raises(RuntimeError, match="different runs"):
+        experiment.load_partial_results(tmp_path)
+
+
 def test_metrics_identify_drawdown_and_return() -> None:
     dates = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04"]
     values = [100.0, 110.0, 88.0, 121.0]

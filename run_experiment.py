@@ -1230,6 +1230,35 @@ def write_run_status(
     )
 
 
+def load_partial_results(
+    output_dir: Path,
+) -> tuple[list[dict[str, object]], list[pd.DataFrame]]:
+    """Load policy checkpoints only when both partial artifacts are consistent."""
+    metrics_path = output_dir / "ppo_backtest_metrics.partial.csv"
+    curves_path = output_dir / "equity_curves.partial.csv"
+    if not metrics_path.exists() and not curves_path.exists():
+        return [], []
+    if not metrics_path.exists() or not curves_path.exists():
+        raise RuntimeError("Partial metrics and equity curves must exist together")
+    metrics = pd.read_csv(metrics_path)
+    curves = pd.read_csv(curves_path)
+    required_metric_columns = {"condition", "seed"}
+    required_curve_columns = {"condition", "seed", "date", "account_value"}
+    if not required_metric_columns.issubset(metrics.columns):
+        raise RuntimeError("Partial metrics are missing run identity columns")
+    if not required_curve_columns.issubset(curves.columns):
+        raise RuntimeError("Partial curves are missing run identity columns")
+    metric_keys = set(zip(metrics["condition"], metrics["seed"], strict=True))
+    curve_keys = set(zip(curves["condition"], curves["seed"], strict=True))
+    if metric_keys != curve_keys:
+        raise RuntimeError("Partial metrics and curves contain different runs")
+    curve_groups = [
+        group.copy()
+        for _, group in curves.groupby(["condition", "seed"], sort=False)
+    ]
+    return metrics.to_dict(orient="records"), curve_groups
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, required=True)
@@ -1280,10 +1309,17 @@ def main() -> None:
         "ANN signal": FINRL_FEATURES + ["ann_signal"],
         "QINN-MPS signal": FINRL_FEATURES + ["qinn_mps_signal"],
     }
-    metric_rows: list[dict[str, float | int | str]] = []
-    curve_rows: list[pd.DataFrame] = []
+    partial_metrics, partial_curves = load_partial_results(args.output_dir)
+    metric_rows: list[dict[str, object]] = partial_metrics
+    curve_rows: list[pd.DataFrame] = partial_curves
+    completed = {
+        (str(row["condition"]), int(row["seed"])) for row in metric_rows
+    }
     for condition, indicators in conditions.items():
         for seed in config.ppo_seeds:
+            if (condition, seed) in completed:
+                print(f"Resuming after {condition}, seed={seed}", flush=True)
+                continue
             print(f"Training {condition}, seed={seed} ...", flush=True)
             metrics, curve = run_ppo_condition(
                 condition,
