@@ -126,8 +126,10 @@ python run_experiment.py `
   --finrl-dir .cache\FinRL `
   --output-dir results `
   --timesteps 5000 `
-  --seeds 0 1 2
-python -m pytest -q test_experiment.py
+  --seeds 0 1 2 `
+  --bond-dimension 4 `
+  --encoder-device auto
+python -m pytest -q test_experiment.py test_smoke_matrix.py
 ```
 
 The pipeline downloads and checksum-verifies the processed Nasdaq data, checks
