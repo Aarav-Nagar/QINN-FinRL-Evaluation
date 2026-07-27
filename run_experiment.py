@@ -126,6 +126,30 @@ class ExperimentConfig:
     test_period: str = "2019-01-02 to 2023-12-28"
 
 
+def validate_config(config: ExperimentConfig) -> None:
+    """Reject ambiguous or invalid experiment configurations before training."""
+    if not config.ppo_seeds:
+        raise ValueError("At least one PPO seed is required")
+    if len(set(config.ppo_seeds)) != len(config.ppo_seeds):
+        raise ValueError("PPO seeds must be unique")
+    if any(seed < 0 for seed in config.ppo_seeds):
+        raise ValueError("PPO seeds must be non-negative")
+    if config.ppo_timesteps <= 0:
+        raise ValueError("PPO timesteps must be positive")
+    if config.mps_bond_dimension <= 0:
+        raise ValueError("MPS bond dimension must be positive")
+    if config.encoder_epochs <= 0:
+        raise ValueError("Encoder epochs must be positive")
+    if config.encoder_patience <= 0:
+        raise ValueError("Encoder patience must be positive")
+    if config.encoder_batch_size <= 0:
+        raise ValueError("Encoder batch size must be positive")
+    if config.encoder_learning_rate <= 0:
+        raise ValueError("Encoder learning rate must be positive")
+    if not 0 <= config.transaction_cost < 1:
+        raise ValueError("Transaction cost must be in [0, 1)")
+
+
 def set_global_seed(seed: int) -> None:
     os.environ["PYTHONHASHSEED"] = str(seed)
     random.seed(seed)
@@ -419,7 +443,7 @@ def train_signal_models(
     mps = MPSRegressor(
         len(REPRESENTATION_FEATURES), config.mps_bond_dimension
     )
-    if parameter_count(ann) != parameter_count(mps):
+    if config.mps_bond_dimension == 4 and parameter_count(ann) != parameter_count(mps):
         raise AssertionError(
             f"Parameter mismatch: ANN={parameter_count(ann)}, MPS={parameter_count(mps)}"
         )
@@ -1130,6 +1154,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--timesteps", type=int, default=5_000)
     parser.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
+    parser.add_argument("--bond-dimension", type=int, default=4)
+    parser.add_argument("--encoder-epochs", type=int, default=60)
+    parser.add_argument("--encoder-patience", type=int, default=10)
+    parser.add_argument("--encoder-batch-size", type=int, default=512)
     return parser.parse_args()
 
 
@@ -1137,8 +1165,14 @@ def main() -> None:
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     config = ExperimentConfig(
-        ppo_seeds=tuple(args.seeds), ppo_timesteps=args.timesteps
+        ppo_seeds=tuple(args.seeds),
+        ppo_timesteps=args.timesteps,
+        mps_bond_dimension=args.bond_dimension,
+        encoder_epochs=args.encoder_epochs,
+        encoder_patience=args.encoder_patience,
+        encoder_batch_size=args.encoder_batch_size,
     )
+    validate_config(config)
     env_file = ensure_finrl(args.finrl_dir)
     stock_env_class = load_stock_trading_env(env_file)
     train, trade = read_market_data(args.data_dir)

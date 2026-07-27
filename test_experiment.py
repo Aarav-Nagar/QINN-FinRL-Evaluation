@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import importlib.util
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 import torch
 
 
@@ -22,6 +24,50 @@ def test_parameter_matched_encoders() -> None:
     mps = experiment.MPSRegressor(len(experiment.REPRESENTATION_FEATURES), 4)
     assert experiment.parameter_count(ann) == 369
     assert experiment.parameter_count(mps) == 369
+
+
+def test_bond_dimension_changes_mps_capacity() -> None:
+    counts = [
+        experiment.parameter_count(
+            experiment.MPSRegressor(len(experiment.REPRESENTATION_FEATURES), dimension)
+        )
+        for dimension in (2, 4, 8)
+    ]
+    assert counts == [97, 369, 1441]
+
+
+def test_valid_sensitivity_configs_are_accepted() -> None:
+    for dimension in (2, 4, 8):
+        experiment.validate_config(
+            experiment.ExperimentConfig(
+                ppo_seeds=(0,),
+                ppo_timesteps=512,
+                mps_bond_dimension=dimension,
+                encoder_epochs=1,
+                encoder_patience=1,
+            )
+        )
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    [
+        ("ppo_seeds", (), "At least one PPO seed"),
+        ("ppo_seeds", (0, 0), "unique"),
+        ("ppo_seeds", (-1,), "non-negative"),
+        ("ppo_timesteps", 0, "positive"),
+        ("mps_bond_dimension", 0, "positive"),
+        ("encoder_epochs", 0, "positive"),
+        ("encoder_patience", 0, "positive"),
+        ("encoder_batch_size", 0, "positive"),
+        ("encoder_learning_rate", 0.0, "positive"),
+        ("transaction_cost", 1.0, r"\[0, 1\)"),
+    ],
+)
+def test_invalid_configs_are_rejected(field: str, value, message: str) -> None:
+    config = replace(experiment.ExperimentConfig(), **{field: value})
+    with pytest.raises(ValueError, match=message):
+        experiment.validate_config(config)
 
 
 def test_mps_feature_map_is_unit_normalized() -> None:
