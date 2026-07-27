@@ -16,6 +16,7 @@ hardware and does not claim quantum advantage.
 from __future__ import annotations
 
 import argparse
+import atexit
 import copy
 import hashlib
 import importlib.util
@@ -1278,6 +1279,67 @@ def json_config(config: ExperimentConfig) -> dict[str, object]:
     return json.loads(json.dumps(asdict(config)))
 
 
+def pid_is_running(pid: int) -> bool:
+    if pid <= 0:
+        return False
+    if os.name == "nt":
+        import ctypes
+
+        process = ctypes.windll.kernel32.OpenProcess(0x1000, False, pid)
+        if not process:
+            return False
+        ctypes.windll.kernel32.CloseHandle(process)
+        return True
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+class RunLock:
+    """Prevent concurrent writers from corrupting one experiment directory."""
+
+    def __init__(self, output_dir: Path):
+        self.path = output_dir / ".run.lock"
+        self.pid = os.getpid()
+        self.acquired = False
+
+    def acquire(self) -> None:
+        for _ in range(2):
+            try:
+                descriptor = os.open(
+                    self.path, os.O_CREAT | os.O_EXCL | os.O_WRONLY
+                )
+            except FileExistsError:
+                try:
+                    owner = int(self.path.read_text(encoding="utf-8").strip())
+                except (OSError, ValueError):
+                    owner = -1
+                if pid_is_running(owner):
+                    raise RuntimeError(
+                        f"Output directory is already in use by process {owner}"
+                    )
+                self.path.unlink(missing_ok=True)
+                continue
+            with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+                handle.write(f"{self.pid}\n")
+            self.acquired = True
+            return
+        raise RuntimeError(f"Could not acquire run lock: {self.path}")
+
+    def release(self) -> None:
+        if not self.acquired:
+            return
+        try:
+            owner = int(self.path.read_text(encoding="utf-8").strip())
+        except (OSError, ValueError):
+            owner = -1
+        if owner == self.pid:
+            self.path.unlink(missing_ok=True)
+        self.acquired = False
+
+
 def load_partial_results(
     output_dir: Path,
     config: ExperimentConfig,
@@ -1353,6 +1415,9 @@ def main() -> None:
     started_clock = time.perf_counter()
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    run_lock = RunLock(args.output_dir)
+    run_lock.acquire()
+    atexit.register(run_lock.release)
     config = ExperimentConfig(
         ppo_seeds=tuple(args.seeds),
         ppo_timesteps=args.timesteps,
@@ -1475,6 +1540,7 @@ def main() -> None:
     write_run_status(args.output_dir, config, runtime)
     print(metrics.to_string(index=False))
     print(json.dumps(bootstrap, indent=2))
+    run_lock.release()
 
 
 if __name__ == "__main__":

@@ -221,6 +221,29 @@ def test_json_config_normalizes_tuple_seeds() -> None:
     assert payload["ppo_seeds"] == [0, 2, 4]
 
 
+def test_run_lock_blocks_an_active_writer(tmp_path: Path) -> None:
+    first = experiment.RunLock(tmp_path)
+    first.acquire()
+    try:
+        second = experiment.RunLock(tmp_path)
+        with pytest.raises(RuntimeError, match="already in use"):
+            second.acquire()
+    finally:
+        first.release()
+    assert not (tmp_path / ".run.lock").exists()
+
+
+def test_run_lock_reclaims_stale_owner(tmp_path: Path, monkeypatch) -> None:
+    (tmp_path / ".run.lock").write_text("999999\n", encoding="utf-8")
+    monkeypatch.setattr(experiment, "pid_is_running", lambda pid: False)
+    lock = experiment.RunLock(tmp_path)
+    lock.acquire()
+    assert (tmp_path / ".run.lock").read_text(encoding="utf-8").strip() == str(
+        experiment.os.getpid()
+    )
+    lock.release()
+
+
 def test_metrics_identify_drawdown_and_return() -> None:
     dates = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04"]
     values = [100.0, 110.0, 88.0, 121.0]
