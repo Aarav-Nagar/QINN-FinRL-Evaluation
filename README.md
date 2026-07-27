@@ -38,7 +38,13 @@ The expanded SecureFinAI short-paper work is governed by the
 [deliverables tracker](docs/PAPER_DELIVERABLES.md) and the prespecified
 [experiment protocol](docs/EXPERIMENT_PROTOCOL.md). Daily milestones,
 verification, and any protocol deviations are retained in the
-[research log](docs/DAILY_LOG.md).
+[research log](docs/DAILY_LOG.md). Post-pilot choices are preserved in the
+[experiment decision log](docs/DECISIONS.md).
+
+The first expanded-study result is the matched
+[PPO training-budget pilot](results/pilots/2026-07-27/), which selected 20,000
+steps for the final ten-seed evaluation while retaining the absence of
+established convergence as a limitation.
 
 ## Review guide
 
