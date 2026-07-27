@@ -107,6 +107,35 @@ def write_plan(path: Path, jobs: list[MatrixJob]) -> None:
     )
 
 
+def job_state(job: MatrixJob, output_root: Path) -> str:
+    """Classify an output directory without silently accepting stale results."""
+    output_dir = output_root / job.job_id
+    status_path = output_dir / "run_status.json"
+    manifest_path = output_dir / "run_manifest.json"
+    if not output_dir.exists():
+        return "missing"
+    if not status_path.exists():
+        return "incomplete"
+    payload = json.loads(status_path.read_text(encoding="utf-8"))
+    experiment = payload.get("experiment", {})
+    expected = {
+        "ppo_seeds": list(job.seeds),
+        "ppo_timesteps": job.timesteps,
+        "mps_bond_dimension": job.bond_dimension,
+        "encoder_epochs": job.encoder_epochs,
+        "encoder_patience": job.encoder_patience,
+        "encoder_batch_size": job.encoder_batch_size,
+        "encoder_device": job.encoder_device,
+    }
+    if any(experiment.get(key) != value for key, value in expected.items()):
+        return "stale"
+    if payload.get("runtime", {}).get("status") != "completed":
+        return "incomplete"
+    if not manifest_path.exists():
+        return "incomplete"
+    return "completed"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--phase", required=True)
@@ -124,6 +153,11 @@ def parse_args() -> argparse.Namespace:
         "--encoder-device", choices=("auto", "cpu", "cuda"), default="auto"
     )
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--rerun-completed",
+        action="store_true",
+        help="Run jobs even when matching completed artifacts already exist.",
+    )
     return parser.parse_args()
 
 
@@ -141,10 +175,18 @@ def main() -> None:
     )
     write_plan(args.output_root / "matrix_plan.json", jobs)
     for job in jobs:
+        state = job_state(job, args.output_root)
+        if state == "stale":
+            raise RuntimeError(
+                f"Refusing to overwrite stale configuration: {job.job_id}"
+            )
+        if state == "completed" and not args.rerun_completed:
+            print(f"[skipped: completed] {job.job_id}", flush=True)
+            continue
         command = command_for_job(
             job, args.runner, args.data_dir, args.finrl_dir, args.output_root
         )
-        print(f"[planned] {job.job_id}", flush=True)
+        print(f"[{state}] {job.job_id}", flush=True)
         if not args.dry_run:
             subprocess.run(command, check=True)
 

@@ -64,3 +64,70 @@ def test_write_plan_is_machine_readable(tmp_path: Path) -> None:
     payload = json.loads(destination.read_text(encoding="utf-8"))
     assert [row["bond_dimension"] for row in payload] == [2, 4]
     assert all(row["job_id"].startswith("pilot_") for row in payload)
+
+
+def test_job_state_recognizes_matching_completion(tmp_path: Path) -> None:
+    job = experiment_matrix.MatrixJob(
+        "pilot", 512, 4, (0,), 1, 1, 512, "cpu"
+    )
+    output = tmp_path / job.job_id
+    output.mkdir()
+    payload = {
+        "experiment": {
+            "ppo_seeds": [0],
+            "ppo_timesteps": 512,
+            "mps_bond_dimension": 4,
+            "encoder_epochs": 1,
+            "encoder_patience": 1,
+            "encoder_batch_size": 512,
+            "encoder_device": "cpu",
+        },
+        "runtime": {"status": "completed"},
+    }
+    (output / "run_status.json").write_text(json.dumps(payload), encoding="utf-8")
+    (output / "run_manifest.json").write_text("{}", encoding="utf-8")
+    assert experiment_matrix.job_state(job, tmp_path) == "completed"
+
+
+def test_job_state_rejects_stale_configuration(tmp_path: Path) -> None:
+    job = experiment_matrix.MatrixJob(
+        "pilot", 512, 4, (0,), 1, 1, 512, "cpu"
+    )
+    output = tmp_path / job.job_id
+    output.mkdir()
+    payload = {
+        "experiment": {
+            "ppo_seeds": [0],
+            "ppo_timesteps": 1024,
+            "mps_bond_dimension": 4,
+            "encoder_epochs": 1,
+            "encoder_patience": 1,
+            "encoder_batch_size": 512,
+            "encoder_device": "cpu",
+        },
+        "runtime": {"status": "completed"},
+    }
+    (output / "run_status.json").write_text(json.dumps(payload), encoding="utf-8")
+    assert experiment_matrix.job_state(job, tmp_path) == "stale"
+
+
+def test_job_state_marks_interrupted_run_incomplete(tmp_path: Path) -> None:
+    job = experiment_matrix.MatrixJob(
+        "pilot", 512, 4, (0,), 1, 1, 512, "cpu"
+    )
+    output = tmp_path / job.job_id
+    output.mkdir()
+    payload = {
+        "experiment": {
+            "ppo_seeds": [0],
+            "ppo_timesteps": 512,
+            "mps_bond_dimension": 4,
+            "encoder_epochs": 1,
+            "encoder_patience": 1,
+            "encoder_batch_size": 512,
+            "encoder_device": "cpu",
+        },
+        "runtime": {"status": "running"},
+    }
+    (output / "run_status.json").write_text(json.dumps(payload), encoding="utf-8")
+    assert experiment_matrix.job_state(job, tmp_path) == "incomplete"
