@@ -1,0 +1,3 @@
+device,torch_version,ann_fit_seconds,mps_fit_seconds,signal_inference_seconds,total_signal_pipeline_seconds,total_run_seconds,paper_evidence
+cpu,2.10.0+cpu,1.627022,2.451907,0.046173,5.498193,22.089406,false
+cuda,2.10.0+cu130,4.104114,8.066449,0.066642,13.600691,30.913930,false

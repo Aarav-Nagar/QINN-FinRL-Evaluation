@@ -37,3 +37,20 @@ The host exposed an NVIDIA GeForce RTX 5060 Laptop GPU with 8,151 MiB reported
 VRAM, but the active environment contained PyTorch `2.10.0+cpu`. CUDA was
 therefore unavailable to PyTorch and these runs correctly recorded CPU encoder
 execution. No GPU speedup is claimed.
+
+An isolated, free PyTorch `2.10.0+cu130` installation subsequently verified
+CUDA execution on the RTX 5060 without changing the reference environment.
+Matched 10-epoch device checks are recorded in
+[`device_benchmark.csv`](device_benchmark.csv). CUDA was slower for these small
+encoders:
+
+| Phase | CPU | CUDA |
+|---|---:|---:|
+| ANN fit | 1.63 s | 4.10 s |
+| MPS fit | 2.45 s | 8.07 s |
+| Total signal pipeline | 5.50 s | 13.60 s |
+| End-to-end run | 22.09 s | 30.91 s |
+
+The final experiment should therefore retain CPU encoder execution unless a
+larger workload is separately shown to reverse this result. GPU presence alone
+is not evidence of a speedup.
