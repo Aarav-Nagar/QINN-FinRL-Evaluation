@@ -52,8 +52,8 @@ no quantum hardware is used.
 | Artifact | Completion evidence | Status |
 |---|---|---|
 | Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` reviewed before final runs | In review |
-| Configurable experiment runner | CLI and manifest record seeds, PPO budget, and MPS bond dimension | Existing in part |
-| Automated verification | Focused tests pass for configuration, state construction, and summaries | Existing in part |
+| Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, device, and runtime | Complete |
+| Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, and smoke comparison | Complete: 23 tests |
 | Training-budget pilot | Machine-readable results for 5k, 10k, and 20k steps | Not started |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Not started |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Not started |
