@@ -101,6 +101,24 @@ def test_encoder_history_records_fit_runtime() -> None:
     assert history.attrs["elapsed_seconds"] > 0
 
 
+def test_ppo_training_diagnostics_are_plain_supported_scalars() -> None:
+    class Logger:
+        name_to_value = {
+            "train/approx_kl": np.float32(0.012),
+            "train/explained_variance": 0.75,
+            "train/unsupported": 99.0,
+            "train/loss": np.array([1.0, 2.0]),
+        }
+
+    class Model:
+        logger = Logger()
+
+    diagnostics = experiment.ppo_training_diagnostics(Model())
+    assert set(diagnostics) == {"train_approx_kl", "train_explained_variance"}
+    assert np.isclose(diagnostics["train_approx_kl"], 0.012)
+    assert diagnostics["train_explained_variance"] == 0.75
+
+
 def test_encoder_device_resolution_is_explicit(monkeypatch) -> None:
     monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
     assert experiment.resolve_encoder_device("auto") == torch.device("cpu")

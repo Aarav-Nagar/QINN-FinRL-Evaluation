@@ -754,6 +754,7 @@ def run_ppo_condition(
         device="cpu",
     )
     model.learn(total_timesteps=config.ppo_timesteps, progress_bar=False)
+    training_diagnostics = ppo_training_diagnostics(model)
 
     test_factory = make_environment_factory(
         stock_env_class, trade, indicators, config, seed, record_terminal=True
@@ -793,6 +794,7 @@ def run_ppo_condition(
             "state_features_per_asset": len(indicators),
             "ppo_timesteps": config.ppo_timesteps,
             "condition_elapsed_seconds": time.perf_counter() - started,
+            **training_diagnostics,
         }
     )
     curve["condition"] = condition
@@ -800,6 +802,27 @@ def run_ppo_condition(
     normalized_train.close()
     normalized_test.close()
     return metrics, curve
+
+
+def ppo_training_diagnostics(model) -> dict[str, float]:
+    """Extract the final Stable-Baselines3 training diagnostics as plain floats."""
+    supported = {
+        "train/approx_kl": "train_approx_kl",
+        "train/clip_fraction": "train_clip_fraction",
+        "train/entropy_loss": "train_entropy_loss",
+        "train/explained_variance": "train_explained_variance",
+        "train/learning_rate": "train_learning_rate",
+        "train/loss": "train_loss",
+        "train/policy_gradient_loss": "train_policy_gradient_loss",
+        "train/value_loss": "train_value_loss",
+    }
+    values = getattr(getattr(model, "logger", None), "name_to_value", {})
+    diagnostics: dict[str, float] = {}
+    for source, destination in supported.items():
+        value = values.get(source)
+        if value is not None and np.isscalar(value):
+            diagnostics[destination] = float(value)
+    return diagnostics
 
 
 def equal_weight_benchmark(
