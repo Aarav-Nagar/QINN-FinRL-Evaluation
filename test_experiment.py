@@ -62,6 +62,7 @@ def test_valid_sensitivity_configs_are_accepted() -> None:
         ("encoder_batch_size", 0, "positive"),
         ("encoder_learning_rate", 0.0, "positive"),
         ("transaction_cost", 1.0, r"\[0, 1\)"),
+        ("encoder_device", "tpu", "auto, cpu, cuda"),
     ],
 )
 def test_invalid_configs_are_rejected(field: str, value, message: str) -> None:
@@ -75,6 +76,30 @@ def test_mps_feature_map_is_unit_normalized() -> None:
     mapped = experiment.MPSRegressor.local_feature_map(values)
     norms = torch.linalg.vector_norm(mapped, dim=-1)
     torch.testing.assert_close(norms, torch.ones_like(norms))
+
+
+def test_encoder_device_resolution_is_explicit(monkeypatch) -> None:
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
+    assert experiment.resolve_encoder_device("auto") == torch.device("cpu")
+    assert experiment.resolve_encoder_device("cpu") == torch.device("cpu")
+    with pytest.raises(RuntimeError, match="cannot access CUDA"):
+        experiment.resolve_encoder_device("cuda")
+
+
+def test_runtime_metadata_records_environment(monkeypatch) -> None:
+    monkeypatch.setattr(experiment, "current_git_commit", lambda: "abc123")
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
+    started = experiment.datetime(2026, 7, 27, tzinfo=experiment.UTC)
+    metadata = experiment.runtime_metadata(
+        experiment.ExperimentConfig(encoder_device="auto"),
+        started,
+        elapsed_seconds=12.5,
+    )
+    assert metadata["status"] == "completed"
+    assert metadata["git_commit"] == "abc123"
+    assert metadata["encoder_device_resolved"] == "cpu"
+    assert metadata["ppo_device"] == "cpu"
+    assert metadata["elapsed_seconds"] == 12.5
 
 
 def test_metrics_identify_drawdown_and_return() -> None:

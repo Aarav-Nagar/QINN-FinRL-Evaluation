@@ -22,10 +22,14 @@ import importlib.util
 import json
 import math
 import os
+import platform
 import random
 import subprocess
+import sys
+import time
 import urllib.request
 from dataclasses import asdict, dataclass
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Callable, Iterable
 
@@ -116,6 +120,7 @@ class ExperimentConfig:
     hmax: int = 100
     reward_scaling: float = 1e-4
     mps_bond_dimension: int = 4
+    encoder_device: str = "auto"
     encoder_epochs: int = 60
     encoder_patience: int = 10
     encoder_batch_size: int = 512
@@ -148,6 +153,19 @@ def validate_config(config: ExperimentConfig) -> None:
         raise ValueError("Encoder learning rate must be positive")
     if not 0 <= config.transaction_cost < 1:
         raise ValueError("Transaction cost must be in [0, 1)")
+    if config.encoder_device not in {"auto", "cpu", "cuda"}:
+        raise ValueError("Encoder device must be one of: auto, cpu, cuda")
+
+
+def resolve_encoder_device(requested: str) -> torch.device:
+    """Resolve an encoder device without silently ignoring explicit CUDA use."""
+    if requested == "auto":
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if requested == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError(
+            "CUDA encoder requested, but this PyTorch build cannot access CUDA"
+        )
+    return torch.device(requested)
 
 
 def set_global_seed(seed: int) -> None:
@@ -344,6 +362,7 @@ def fit_encoder(
     x_validation: np.ndarray,
     y_validation: np.ndarray,
     config: ExperimentConfig,
+    device: torch.device,
 ) -> tuple[nn.Module, pd.DataFrame]:
     dataset = TensorDataset(
         torch.as_tensor(x_train, dtype=torch.float32),
@@ -356,8 +375,13 @@ def fit_encoder(
         shuffle=True,
         generator=loader_generator,
     )
-    validation_x = torch.as_tensor(x_validation, dtype=torch.float32)
-    validation_y = torch.as_tensor(y_validation, dtype=torch.float32)
+    model = model.to(device)
+    validation_x = torch.as_tensor(
+        x_validation, dtype=torch.float32, device=device
+    )
+    validation_y = torch.as_tensor(
+        y_validation, dtype=torch.float32, device=device
+    )
     optimizer = torch.optim.Adam(
         model.parameters(), lr=config.encoder_learning_rate, weight_decay=1e-5
     )
@@ -371,6 +395,8 @@ def fit_encoder(
         total_loss = 0.0
         total_samples = 0
         for batch_x, batch_y in loader:
+            batch_x = batch_x.to(device)
+            batch_y = batch_y.to(device)
             optimizer.zero_grad()
             loss = loss_function(model(batch_x), batch_y)
             loss.backward()
@@ -436,6 +462,7 @@ def train_signal_models(
     y_validation = (
         (train.loc[validation_mask, "target_return_1d"] - target_mean) / target_scale
     ).clip(-8, 8).to_numpy(dtype=np.float32)
+    device = resolve_encoder_device(config.encoder_device)
 
     set_global_seed(config.representation_seed)
     ann = ANNRegressor(len(REPRESENTATION_FEATURES))
@@ -448,18 +475,27 @@ def train_signal_models(
             f"Parameter mismatch: ANN={parameter_count(ann)}, MPS={parameter_count(mps)}"
         )
     ann, ann_history = fit_encoder(
-        "ANN", ann, x_train, y_train, x_validation, y_validation, config
+        "ANN", ann, x_train, y_train, x_validation, y_validation, config, device
     )
     mps, mps_history = fit_encoder(
-        "QINN-MPS", mps, x_train, y_train, x_validation, y_validation, config
+        "QINN-MPS",
+        mps,
+        x_train,
+        y_train,
+        x_validation,
+        y_validation,
+        config,
+        device,
     )
 
     def add_signals(frame: pd.DataFrame) -> pd.DataFrame:
         result = frame.copy()
-        inputs = torch.as_tensor(standardized(frame), dtype=torch.float32)
+        inputs = torch.as_tensor(
+            standardized(frame), dtype=torch.float32, device=device
+        )
         with torch.no_grad():
-            result["ann_signal"] = ann(inputs).numpy().clip(-8, 8)
-            result["qinn_mps_signal"] = mps(inputs).numpy().clip(-8, 8)
+            result["ann_signal"] = ann(inputs).cpu().numpy().clip(-8, 8)
+            result["qinn_mps_signal"] = mps(inputs).cpu().numpy().clip(-8, 8)
         return result
 
     train = add_signals(train)
@@ -1097,6 +1133,7 @@ def write_run_manifest(
     config: ExperimentConfig,
     signal_metrics: pd.DataFrame,
     bootstrap: dict[str, float | int],
+    runtime: dict[str, object],
 ) -> None:
     manifest = {
         "experiment": asdict(config),
@@ -1135,6 +1172,7 @@ def write_run_manifest(
             signal_metrics["split"] == "test_2019_2023"
         ].to_dict(orient="records"),
         "paired_block_bootstrap": bootstrap,
+        "runtime": runtime,
         "limitations": [
             "Classical tensor-network simulation; no quantum hardware was used.",
             "One historical train/test split and one 15-stock Nasdaq subset.",
@@ -1144,6 +1182,51 @@ def write_run_manifest(
     }
     (output_dir / "run_manifest.json").write_text(
         json.dumps(manifest, indent=2), encoding="utf-8"
+    )
+
+
+def current_git_commit() -> str:
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        return "unknown"
+
+
+def runtime_metadata(
+    config: ExperimentConfig,
+    started_at: datetime,
+    elapsed_seconds: float | None = None,
+) -> dict[str, object]:
+    resolved_device = resolve_encoder_device(config.encoder_device)
+    metadata: dict[str, object] = {
+        "started_at_utc": started_at.isoformat(),
+        "status": "completed" if elapsed_seconds is not None else "running",
+        "git_commit": current_git_commit(),
+        "python": sys.version.split()[0],
+        "platform": platform.platform(),
+        "torch": torch.__version__,
+        "torch_cuda_build": torch.version.cuda,
+        "cuda_available": torch.cuda.is_available(),
+        "encoder_device_requested": config.encoder_device,
+        "encoder_device_resolved": str(resolved_device),
+        "ppo_device": "cpu",
+    }
+    if torch.cuda.is_available():
+        metadata["cuda_device_name"] = torch.cuda.get_device_name(0)
+    if elapsed_seconds is not None:
+        metadata["completed_at_utc"] = datetime.now(UTC).isoformat()
+        metadata["elapsed_seconds"] = elapsed_seconds
+    return metadata
+
+
+def write_run_status(
+    output_dir: Path, config: ExperimentConfig, runtime: dict[str, object]
+) -> None:
+    payload = {"experiment": asdict(config), "runtime": runtime}
+    (output_dir / "run_status.json").write_text(
+        json.dumps(payload, indent=2), encoding="utf-8"
     )
 
 
@@ -1158,10 +1241,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--encoder-epochs", type=int, default=60)
     parser.add_argument("--encoder-patience", type=int, default=10)
     parser.add_argument("--encoder-batch-size", type=int, default=512)
+    parser.add_argument(
+        "--encoder-device", choices=("auto", "cpu", "cuda"), default="auto"
+    )
     return parser.parse_args()
 
 
 def main() -> None:
+    started_at = datetime.now(UTC)
+    started_clock = time.perf_counter()
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     config = ExperimentConfig(
@@ -1171,8 +1259,12 @@ def main() -> None:
         encoder_epochs=args.encoder_epochs,
         encoder_patience=args.encoder_patience,
         encoder_batch_size=args.encoder_batch_size,
+        encoder_device=args.encoder_device,
     )
     validate_config(config)
+    write_run_status(
+        args.output_dir, config, runtime_metadata(config, started_at)
+    )
     env_file = ensure_finrl(args.finrl_dir)
     stock_env_class = load_stock_trading_env(env_file)
     train, trade = read_market_data(args.data_dir)
@@ -1264,7 +1356,10 @@ def main() -> None:
         args.output_dir / "ann_vs_mps_block_bootstrap.csv", index=False
     )
     save_plots(args.output_dir, curves, encoder_history, metrics)
-    write_run_manifest(args.output_dir, config, signal_metrics, bootstrap)
+    elapsed_seconds = time.perf_counter() - started_clock
+    runtime = runtime_metadata(config, started_at, elapsed_seconds)
+    write_run_manifest(args.output_dir, config, signal_metrics, bootstrap, runtime)
+    write_run_status(args.output_dir, config, runtime)
     print(metrics.to_string(index=False))
     print(json.dumps(bootstrap, indent=2))
 
