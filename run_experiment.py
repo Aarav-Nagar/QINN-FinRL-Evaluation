@@ -1365,7 +1365,7 @@ def load_partial_results(
         raise RuntimeError("Partial metrics are missing run identity columns")
     if not required_curve_columns.issubset(curves.columns):
         raise RuntimeError("Partial curves are missing run identity columns")
-    curves["date"] = pd.to_datetime(curves["date"], errors="raise")
+    curves["date"] = pd.to_datetime(curves["date"], format="mixed", errors="raise")
     metric_keys = set(zip(metrics["condition"], metrics["seed"], strict=True))
     curve_keys = set(zip(curves["condition"], curves["seed"], strict=True))
     if metric_keys != curve_keys:

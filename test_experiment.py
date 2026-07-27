@@ -161,7 +161,7 @@ def test_partial_results_resume_complete_condition_seed_pairs(
         {
             "condition": ["Base FinRL", "Base FinRL", "ANN signal"],
             "seed": [0, 0, 0],
-            "date": ["2020-01-01", "2020-01-02", "2020-01-01"],
+            "date": ["2020-01-01", "2020-01-02 00:00:00", "2020-01-01"],
             "account_value": [100.0, 101.0, 100.0],
         }
     ).to_csv(tmp_path / "equity_curves.partial.csv", index=False)
