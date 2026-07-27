@@ -39,3 +39,8 @@ to +2.63 percentage points.
 
 All PPO summary values are means across seeds 0, 1, and 2. The equal-weight
 benchmark has no PPO seed.
+
+Expanded-study engineering checks are isolated under `smoke/` so their
+reduced-budget outputs cannot be confused with reference or final paper
+evidence. The first end-to-end configuration matrix is documented in
+[`smoke/2026-07-27/`](smoke/2026-07-27/).

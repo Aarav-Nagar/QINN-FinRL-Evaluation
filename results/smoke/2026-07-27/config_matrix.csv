@@ -1,0 +1,4 @@
+bond_dimension,mps_parameter_count,ann_parameter_count,ppo_timesteps,seeds,encoder_epochs,encoder_device,elapsed_seconds,base_sharpe,ann_sharpe,mps_sharpe,paper_evidence
+2,97,369,512,0,1,cpu,20.150608,0.641038,0.843678,0.855805,false
+4,369,369,512,0,1,cpu,20.181038,0.641038,0.843678,0.890474,false
+8,1441,369,512,0,1,cpu,20.598917,0.641038,0.843678,0.886831,false
