@@ -54,7 +54,7 @@ no quantum hardware is used.
 | Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` reviewed before final runs | In review |
 | Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, device, and runtime | Complete |
 | Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, and smoke comparison | Complete: 23 tests |
-| Training-budget pilot | Machine-readable results for 5k, 10k, and 20k steps | Not started |
+| Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Not started |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Not started |
 | Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Not started |
