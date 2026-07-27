@@ -364,6 +364,7 @@ def fit_encoder(
     config: ExperimentConfig,
     device: torch.device,
 ) -> tuple[nn.Module, pd.DataFrame]:
+    started = time.perf_counter()
     dataset = TensorDataset(
         torch.as_tensor(x_train, dtype=torch.float32),
         torch.as_tensor(y_train, dtype=torch.float32),
@@ -428,12 +429,15 @@ def fit_encoder(
             break
     model.load_state_dict(best_state)
     model.eval()
-    return model, pd.DataFrame(history)
+    history_frame = pd.DataFrame(history)
+    history_frame.attrs["elapsed_seconds"] = time.perf_counter() - started
+    return model, history_frame
 
 
 def train_signal_models(
     train: pd.DataFrame, trade: pd.DataFrame, config: ExperimentConfig
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
+    started = time.perf_counter()
     representation_train_end = pd.Timestamp(config.representation_train_end)
     validation_start = pd.Timestamp(config.representation_validation_start)
     training_mask = (
@@ -487,7 +491,10 @@ def train_signal_models(
         config,
         device,
     )
+    ann_elapsed = float(ann_history.attrs["elapsed_seconds"])
+    mps_elapsed = float(mps_history.attrs["elapsed_seconds"])
 
+    inference_started = time.perf_counter()
     def add_signals(frame: pd.DataFrame) -> pd.DataFrame:
         result = frame.copy()
         inputs = torch.as_tensor(
@@ -500,6 +507,7 @@ def train_signal_models(
 
     train = add_signals(train)
     trade = add_signals(trade)
+    inference_elapsed = time.perf_counter() - inference_started
     signal_rows = []
     for split, frame, mask in (
         ("validation_2018", train, validation_mask),
@@ -530,11 +538,19 @@ def train_signal_models(
     )
     metadata.attrs["target_mean"] = target_mean
     metadata.attrs["target_std"] = target_scale
+    runtime = {
+        "device": str(device),
+        "ann_fit_seconds": ann_elapsed,
+        "mps_fit_seconds": mps_elapsed,
+        "signal_inference_seconds": inference_elapsed,
+        "total_signal_pipeline_seconds": time.perf_counter() - started,
+    }
     return (
         train,
         trade,
         pd.DataFrame(signal_rows),
         pd.concat([ann_history, mps_history], ignore_index=True),
+        runtime,
     )
 
 
@@ -707,6 +723,7 @@ def run_ppo_condition(
     trade: pd.DataFrame,
     config: ExperimentConfig,
 ) -> tuple[dict[str, float | int | str], pd.DataFrame]:
+    started = time.perf_counter()
     set_global_seed(seed)
     train_factory = make_environment_factory(
         stock_env_class, train, indicators, config, seed
@@ -775,6 +792,7 @@ def run_ppo_condition(
             "seed": seed,
             "state_features_per_asset": len(indicators),
             "ppo_timesteps": config.ppo_timesteps,
+            "condition_elapsed_seconds": time.perf_counter() - started,
         }
     )
     curve["condition"] = condition
@@ -1134,6 +1152,7 @@ def write_run_manifest(
     signal_metrics: pd.DataFrame,
     bootstrap: dict[str, float | int],
     runtime: dict[str, object],
+    encoder_runtime: dict[str, object],
 ) -> None:
     manifest = {
         "experiment": asdict(config),
@@ -1173,6 +1192,7 @@ def write_run_manifest(
         ].to_dict(orient="records"),
         "paired_block_bootstrap": bootstrap,
         "runtime": runtime,
+        "encoder_runtime": encoder_runtime,
         "limitations": [
             "Classical tensor-network simulation; no quantum hardware was used.",
             "One historical train/test split and one 15-stock Nasdaq subset.",
@@ -1327,7 +1347,7 @@ def main() -> None:
     stock_env_class = load_stock_trading_env(env_file)
     train, trade = read_market_data(args.data_dir)
     train, trade = engineer_representation_features(train, trade)
-    train, trade, signal_metrics, encoder_history = train_signal_models(
+    train, trade, signal_metrics, encoder_history, encoder_runtime = train_signal_models(
         train, trade, config
     )
     train_finrl = finrl_frame(train)
@@ -1421,7 +1441,14 @@ def main() -> None:
     save_plots(args.output_dir, curves, encoder_history, metrics)
     elapsed_seconds = time.perf_counter() - started_clock
     runtime = runtime_metadata(config, started_at, elapsed_seconds)
-    write_run_manifest(args.output_dir, config, signal_metrics, bootstrap, runtime)
+    write_run_manifest(
+        args.output_dir,
+        config,
+        signal_metrics,
+        bootstrap,
+        runtime,
+        encoder_runtime,
+    )
     write_run_status(args.output_dir, config, runtime)
     print(metrics.to_string(index=False))
     print(json.dumps(bootstrap, indent=2))

@@ -78,6 +78,29 @@ def test_mps_feature_map_is_unit_normalized() -> None:
     torch.testing.assert_close(norms, torch.ones_like(norms))
 
 
+def test_encoder_history_records_fit_runtime() -> None:
+    values = np.linspace(-1, 1, 80, dtype=np.float32).reshape(20, 4)
+    targets = np.linspace(-0.2, 0.2, 20, dtype=np.float32)
+    model, history = experiment.fit_encoder(
+        "test",
+        experiment.ANNRegressor(4),
+        values[:16],
+        targets[:16],
+        values[16:],
+        targets[16:],
+        experiment.ExperimentConfig(
+            encoder_epochs=1,
+            encoder_patience=1,
+            encoder_batch_size=8,
+            encoder_device="cpu",
+        ),
+        torch.device("cpu"),
+    )
+    assert isinstance(model, torch.nn.Module)
+    assert history["epoch"].tolist() == [1]
+    assert history.attrs["elapsed_seconds"] > 0
+
+
 def test_encoder_device_resolution_is_explicit(monkeypatch) -> None:
     monkeypatch.setattr(torch.cuda, "is_available", lambda: False)
     assert experiment.resolve_encoder_device("auto") == torch.device("cpu")
