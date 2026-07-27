@@ -21,7 +21,9 @@ def test_build_jobs_is_deterministic() -> None:
         "budget-pilot", [20_000, 5_000], [4], (0, 1, 2), 60, 10, 512, "cpu"
     )
     assert [job.timesteps for job in jobs] == [5_000, 20_000]
-    assert jobs[0].job_id == "budget-pilot_steps5000_bd4_seeds0-1-2_epochs60"
+    assert jobs[0].job_id == (
+        "budget-pilot_steps5000_bd4_seeds0-1-2_epochs60_batch512_cpu"
+    )
 
 
 def test_build_jobs_rejects_duplicate_axes() -> None:

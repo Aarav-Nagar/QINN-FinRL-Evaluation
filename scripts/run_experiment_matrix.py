@@ -29,6 +29,7 @@ class MatrixJob:
         return (
             f"{self.phase}_steps{self.timesteps}_bd{self.bond_dimension}"
             f"_seeds{seed_token}_epochs{self.encoder_epochs}"
+            f"_batch{self.encoder_batch_size}_{self.encoder_device}"
         )
 
 
