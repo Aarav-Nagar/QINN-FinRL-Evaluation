@@ -173,6 +173,13 @@ def test_partial_results_reject_different_configuration(tmp_path: Path) -> None:
         experiment.load_partial_results(tmp_path, requested)
 
 
+def test_json_config_normalizes_tuple_seeds() -> None:
+    payload = experiment.json_config(
+        experiment.ExperimentConfig(ppo_seeds=(0, 2, 4))
+    )
+    assert payload["ppo_seeds"] == [0, 2, 4]
+
+
 def test_metrics_identify_drawdown_and_return() -> None:
     dates = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04"]
     values = [100.0, 110.0, 88.0, 121.0]

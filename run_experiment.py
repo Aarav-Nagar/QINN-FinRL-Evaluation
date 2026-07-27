@@ -1230,6 +1230,11 @@ def write_run_status(
     )
 
 
+def json_config(config: ExperimentConfig) -> dict[str, object]:
+    """Return the configuration in its stable JSON representation."""
+    return json.loads(json.dumps(asdict(config)))
+
+
 def load_partial_results(
     output_dir: Path,
     config: ExperimentConfig,
@@ -1245,7 +1250,7 @@ def load_partial_results(
             "Partial metrics, equity curves, and configuration must exist together"
         )
     saved_config = json.loads(config_path.read_text(encoding="utf-8"))
-    if saved_config != asdict(config):
+    if saved_config != json_config(config):
         raise RuntimeError("Partial results belong to a different configuration")
     metrics = pd.read_csv(metrics_path)
     curves = pd.read_csv(curves_path)
@@ -1279,7 +1284,7 @@ def write_partial_results(
         output_dir / "equity_curves.partial.csv", index=False
     )
     (output_dir / "partial_config.json").write_text(
-        json.dumps(asdict(config), indent=2), encoding="utf-8"
+        json.dumps(json_config(config), indent=2), encoding="utf-8"
     )
 
 
