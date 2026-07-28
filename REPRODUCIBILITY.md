@@ -74,19 +74,59 @@ The run downloads the data, checks out the recorded FinRL commit, trains both
 encoders, trains all PPO conditions, and regenerates the contents of
 `results/`.
 
+## Expanded-study pilot commands
+
+The expanded study selected 20,000 PPO steps after the matched budget pilot.
+The prespecified bond-dimension pilot can be planned and resumed with:
+
+```powershell
+python scripts/run_experiment_matrix.py `
+  --phase dimension-pilot `
+  --data-dir .cache\data `
+  --finrl-dir .cache\FinRL `
+  --output-root work\dimension-pilot `
+  --timesteps 20000 `
+  --bond-dimensions 2 4 8 `
+  --seeds 0 1 2 `
+  --encoder-epochs 60 `
+  --encoder-patience 10 `
+  --encoder-batch-size 512 `
+  --encoder-device cpu
+```
+
+The matrix writes its resolved job plan before execution, skips matching
+completed jobs, and refuses to overwrite stale configurations. Generate the
+guarded capacity summary with:
+
+```powershell
+python scripts/summarize_dimension_pilot.py `
+  work\dimension-pilot\dimension-pilot_steps20000_bd2_seeds0-1-2_epochs60_batch512_cpu `
+  work\dimension-pilot\dimension-pilot_steps20000_bd4_seeds0-1-2_epochs60_batch512_cpu `
+  work\dimension-pilot\dimension-pilot_steps20000_bd8_seeds0-1-2_epochs60_batch512_cpu `
+  --summary-output results\pilots\dimension_summary.csv `
+  --paired-output results\pilots\dimension_paired.csv
+```
+
+The summarizer verifies matched seeds, fixed non-dimension settings, completed
+manifests, required result schemas, and invariant Base/ANN controls before
+writing evidence. The primary dimension is chosen from validation MSE,
+parameter count, and fit time using the rule frozen in
+`docs/EXPERIMENT_PROTOCOL.md`; test-period and trading metrics cannot drive the
+selection.
+
 ## Fixed experimental settings
 
-| Setting | Value |
-|---|---:|
-| Initial portfolio | $1,000,000 |
-| Transaction cost | 0.10% per executed buy or sell |
-| Maximum order | 100 shares per asset per step |
-| PPO training budget | 5,000 environment steps |
-| PPO update epochs | 3 |
-| Reward scaling | `1e-4` |
-| MPS bond dimension | 4 |
-| ANN parameters | 369 |
-| MPS parameters | 369 |
+| Setting | Reference artifact | Expanded study |
+|---|---:|---:|
+| Initial portfolio | $1,000,000 | $1,000,000 |
+| Transaction cost | 0.10% per executed buy or sell | 0.10% per executed buy or sell |
+| Maximum order | 100 shares per asset per step | 100 shares per asset per step |
+| PPO training budget | 5,000 environment steps | 20,000 environment steps |
+| PPO update epochs | 3 | 3 |
+| Reward scaling | `1e-4` | `1e-4` |
+| MPS bond dimension | 4 | Selected by the frozen capacity rule |
+| ANN parameters | 369 | 369 |
+| MPS parameters | 369 | Capacity-dependent |
 
 The detailed feature lists, ticker universe, state formulas, dates, checksums,
 and known limitations are recorded in `results/run_manifest.json`.
@@ -105,6 +145,9 @@ and known limitations are recorded in `results/run_manifest.json`.
 It also checks sensitivity-configuration validation, MPS capacity changes,
 explicit device resolution, and runtime metadata. `test_smoke_matrix.py`
 ensures reduced smoke runs are comparable and remain marked as non-evidentiary.
+`test_experiment_matrix.py` verifies resumable orchestration and stale-result
+protection. `test_budget_pilot.py` and `test_dimension_pilot.py` verify the
+guarded expanded-study summaries and paired comparisons.
 
 ## Scope
 
