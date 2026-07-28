@@ -53,14 +53,14 @@ no quantum hardware is used.
 |---|---|---|
 | Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` reviewed before final runs | In review |
 | Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, device, and runtime | Complete |
-| Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, and smoke comparison | Complete: 23 tests |
+| Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, and smoke comparison | Complete: 48 tests before dimension results |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Not started |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Not started |
 | Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Not started |
 | Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, and costs | Existing for reference run; final pending |
 | Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Existing for reference run; final pending |
-| Short-paper source | IEEE-template source with traceable result references | Not started |
+| Short-paper source | IEEE-template source with traceable result references | Claim registry and source policy created; manuscript pending |
 | Submission PDF | Five pages or fewer; fonts embedded; no clipping or overflow | Not started |
 | Reproducibility package | Environment lock, commands, checksums, manifests, and result index | Existing in part |
 | Repository presentation | README points to final paper, protocol, commands, limitations, and release | Existing in part |
