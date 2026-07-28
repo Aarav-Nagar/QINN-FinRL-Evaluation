@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -141,6 +142,7 @@ def _select_dimension(summary: pd.DataFrame) -> pd.DataFrame:
 
 def summarize(
     run_dirs: list[Path],
+    expected_dimensions: set[int] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     summary_rows: list[dict[str, object]] = []
     paired_rows: list[dict[str, object]] = []
@@ -223,6 +225,12 @@ def summarize(
 
     if not summary_rows:
         raise ValueError("At least one dimension run is required")
+    if expected_dimensions is not None and seen_dimensions != expected_dimensions:
+        raise ValueError(
+            "Dimension set mismatch: "
+            f"expected {sorted(expected_dimensions)}, "
+            f"observed {sorted(seen_dimensions)}"
+        )
     summary = _select_dimension(pd.DataFrame(summary_rows))
     paired = pd.DataFrame(paired_rows).sort_values(
         ["bond_dimension", "seed"]
@@ -230,21 +238,100 @@ def summarize(
     return summary, paired.reset_index(drop=True)
 
 
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def build_artifact_manifest(
+    run_dirs: list[Path],
+    summary: pd.DataFrame,
+    summary_output: Path,
+    paired_output: Path,
+) -> dict[str, object]:
+    inputs = []
+    for run_dir in sorted(run_dirs, key=lambda path: path.name):
+        source_manifest = json.loads(
+            (run_dir / "run_manifest.json").read_text(encoding="utf-8")
+        )
+        inputs.append(
+            {
+                "job_id": run_dir.name,
+                "bond_dimension": int(
+                    source_manifest["experiment"]["mps_bond_dimension"]
+                ),
+                "source_commit": source_manifest["runtime"]["git_commit"],
+                "completed_at_utc": source_manifest["runtime"][
+                    "completed_at_utc"
+                ],
+                "sha256": {
+                    filename: _sha256(run_dir / filename)
+                    for filename in (
+                        "run_manifest.json",
+                        "ppo_backtest_metrics.csv",
+                        "signal_metrics.csv",
+                    )
+                },
+            }
+        )
+    selected_dimension = int(
+        summary.loc[summary["selected_primary"], "bond_dimension"].item()
+    )
+    return {
+        "artifact": "mps_bond_dimension_pilot",
+        "expected_dimensions": [2, 4, 8],
+        "selection": {
+            "validation_mse_relative_tolerance": SELECTION_RELATIVE_TOLERANCE,
+            "tie_breakers": [
+                "mps_parameter_count",
+                "mps_fit_seconds",
+                "bond_dimension",
+            ],
+            "selected_bond_dimension": selected_dimension,
+            "test_or_trading_metrics_used_for_selection": False,
+        },
+        "inputs": inputs,
+        "outputs": {
+            summary_output.name: _sha256(summary_output),
+            paired_output.name: _sha256(paired_output),
+        },
+    }
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dirs", nargs="+", type=Path)
     parser.add_argument("--summary-output", required=True, type=Path)
     parser.add_argument("--paired-output", required=True, type=Path)
+    parser.add_argument("--manifest-output", required=True, type=Path)
+    parser.add_argument(
+        "--expected-dimensions",
+        type=int,
+        nargs="+",
+        default=[2, 4, 8],
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    summary, paired = summarize(args.run_dirs)
+    summary, paired = summarize(
+        args.run_dirs, expected_dimensions=set(args.expected_dimensions)
+    )
     args.summary_output.parent.mkdir(parents=True, exist_ok=True)
     args.paired_output.parent.mkdir(parents=True, exist_ok=True)
+    args.manifest_output.parent.mkdir(parents=True, exist_ok=True)
     summary.to_csv(args.summary_output, index=False)
     paired.to_csv(args.paired_output, index=False)
+    artifact_manifest = build_artifact_manifest(
+        args.run_dirs, summary, args.summary_output, args.paired_output
+    )
+    args.manifest_output.write_text(
+        json.dumps(artifact_manifest, indent=2), encoding="utf-8"
+    )
     print(summary.to_string(index=False))
     print()
     print(paired.to_string(index=False))

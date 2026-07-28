@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -41,7 +42,11 @@ def make_run(
             "mps_fit_seconds": float(dimension),
             "signal_inference_seconds": 0.1,
         },
-        "runtime": {"status": "completed"},
+        "runtime": {
+            "status": "completed",
+            "git_commit": "abc123",
+            "completed_at_utc": "2026-07-28T12:00:00+00:00",
+        },
     }
     (path / "run_manifest.json").write_text(
         json.dumps(manifest), encoding="utf-8"
@@ -158,3 +163,37 @@ def test_summary_reports_missing_portfolio_schema(tmp_path: Path) -> None:
         ValueError, match="Missing portfolio columns.*condition_elapsed_seconds"
     ):
         dimension_summary.summarize([run])
+
+
+def test_summary_requires_expected_dimension_set(tmp_path: Path) -> None:
+    runs = [
+        make_run(tmp_path / "bd2", 2, 1.0),
+        make_run(tmp_path / "bd4", 4, 1.0),
+    ]
+    with pytest.raises(ValueError, match="Dimension set mismatch"):
+        dimension_summary.summarize(
+            runs, expected_dimensions={2, 4, 8}
+        )
+
+
+def test_artifact_manifest_hashes_inputs_and_outputs(tmp_path: Path) -> None:
+    runs = [
+        make_run(tmp_path / "bd2", 2, 1.005),
+        make_run(tmp_path / "bd4", 4, 1.000),
+        make_run(tmp_path / "bd8", 8, 1.020),
+    ]
+    summary, paired = dimension_summary.summarize(
+        runs, expected_dimensions={2, 4, 8}
+    )
+    summary_path = tmp_path / "summary.csv"
+    paired_path = tmp_path / "paired.csv"
+    summary.to_csv(summary_path, index=False)
+    paired.to_csv(paired_path, index=False)
+    manifest = dimension_summary.build_artifact_manifest(
+        runs, summary, summary_path, paired_path
+    )
+    assert manifest["selection"]["selected_bond_dimension"] == 2
+    assert manifest["selection"]["test_or_trading_metrics_used_for_selection"] is False
+    assert len(manifest["inputs"]) == 3
+    expected_hash = hashlib.sha256(summary_path.read_bytes()).hexdigest()
+    assert manifest["outputs"]["summary.csv"] == expected_hash

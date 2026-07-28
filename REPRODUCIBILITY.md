@@ -104,13 +104,16 @@ python scripts/summarize_dimension_pilot.py `
   work\dimension-pilot\dimension-pilot_steps20000_bd4_seeds0-1-2_epochs60_batch512_cpu `
   work\dimension-pilot\dimension-pilot_steps20000_bd8_seeds0-1-2_epochs60_batch512_cpu `
   --summary-output results\pilots\dimension_summary.csv `
-  --paired-output results\pilots\dimension_paired.csv
+  --paired-output results\pilots\dimension_paired.csv `
+  --manifest-output results\pilots\dimension_manifest.json
 ```
 
 The summarizer verifies matched seeds, fixed non-dimension settings, completed
-manifests, required result schemas, and invariant Base/ANN controls before
-writing evidence. The primary dimension is chosen from validation MSE,
-parameter count, and fit time using the rule frozen in
+manifests, all three prespecified dimensions, required result schemas, and
+invariant Base/ANN controls before writing evidence. It hashes each source
+manifest and result table into a generated provenance manifest. The primary
+dimension is chosen from validation MSE, parameter count, and fit time using
+the rule frozen in
 `docs/EXPERIMENT_PROTOCOL.md`; test-period and trading metrics cannot drive the
 selection.
 
