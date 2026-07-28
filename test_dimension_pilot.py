@@ -147,3 +147,14 @@ def test_summary_rejects_control_drift(tmp_path: Path) -> None:
     ]
     with pytest.raises(ValueError, match="control drifted"):
         dimension_summary.summarize(runs)
+
+
+def test_summary_reports_missing_portfolio_schema(tmp_path: Path) -> None:
+    run = make_run(tmp_path / "bd2", 2, 1.0)
+    metrics_path = run / "ppo_backtest_metrics.csv"
+    metrics = pd.read_csv(metrics_path).drop(columns="condition_elapsed_seconds")
+    metrics.to_csv(metrics_path, index=False)
+    with pytest.raises(
+        ValueError, match="Missing portfolio columns.*condition_elapsed_seconds"
+    ):
+        dimension_summary.summarize([run])

@@ -39,6 +39,13 @@ def _load_run(
         raise ValueError(f"Run is not completed: {run_dir}")
 
     portfolio = pd.read_csv(run_dir / "ppo_backtest_metrics.csv")
+    required_portfolio_columns = {"condition", "seed", *PORTFOLIO_METRICS}
+    missing_portfolio_columns = required_portfolio_columns - set(portfolio.columns)
+    if missing_portfolio_columns:
+        raise ValueError(
+            f"Missing portfolio columns in {run_dir}: "
+            f"{sorted(missing_portfolio_columns)}"
+        )
     portfolio = portfolio[portfolio["seed"] >= 0].copy()
     observed_conditions = sorted(portfolio["condition"].unique())
     if observed_conditions != sorted(PPO_CONDITIONS):
@@ -55,6 +62,18 @@ def _load_run(
             raise ValueError(f"Unmatched seeds for {condition} in {run_dir}")
 
     signal = pd.read_csv(run_dir / "signal_metrics.csv")
+    required_signal_columns = {
+        "split",
+        "model",
+        "parameter_count",
+        *SIGNAL_METRICS,
+    }
+    missing_signal_columns = required_signal_columns - set(signal.columns)
+    if missing_signal_columns:
+        raise ValueError(
+            f"Missing signal columns in {run_dir}: "
+            f"{sorted(missing_signal_columns)}"
+        )
     expected_signal_rows = {
         ("validation_2018", "ANN"),
         ("validation_2018", "QINN-MPS"),
