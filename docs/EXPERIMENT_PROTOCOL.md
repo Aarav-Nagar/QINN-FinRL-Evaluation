@@ -69,7 +69,18 @@ strict parameter-matched comparison.
 
 Choose a primary MPS dimension using representation-validation evidence and
 computational practicality before examining its final ten-seed trading
-comparison. Preserve all sensitivity results.
+comparison. The selection rule is:
+
+1. Find the lowest MPS validation-period signal MSE among the prespecified
+   dimensions.
+2. Treat any dimension within 1% of that minimum validation MSE as practically
+   tied.
+3. Within that set, select the dimension with the fewest trainable parameters;
+   use MPS fit time as the final tie-breaker.
+
+Test-period signal metrics and pilot trading performance are descriptive
+sensitivity evidence and must not determine this selection. Preserve all
+sensitivity results.
 
 ### Stage D: final matched evaluation
 
