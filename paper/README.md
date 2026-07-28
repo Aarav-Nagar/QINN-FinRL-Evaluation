@@ -32,3 +32,7 @@ The eventual IEEE source should contain:
 The local machine currently has no TeX compiler, so a submission PDF must not
 be marked verified until the IEEE source is compiled and visually inspected in
 a suitable free TeX environment.
+
+Primary scholarly references already verified for drafting are stored in
+`references.bib`. Repository or dataset citations must remain distinct from
+evidence for empirical performance claims.
