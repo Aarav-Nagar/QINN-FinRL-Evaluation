@@ -173,3 +173,83 @@ Next:
 - Run the prespecified MPS bond-dimension sensitivity at 20,000 PPO steps.
 - Select the primary MPS dimension using validation evidence and computational
   practicality before the final ten-seed comparison.
+
+## 2026-07-28 - Capacity-analysis safeguards and pilot launch
+
+Completed:
+
+1. Confirmed the repository was clean and synchronized before work.
+2. Rechecked open issues 3, 4, and 5 against the deliverables tracker.
+3. Verified the earlier submission audit, configuration work, and budget pilot
+   were already complete, avoiding duplicate work.
+4. Reverified the RTX 5060, driver, reference Python environment, and actual
+   CPU-only PyTorch device.
+5. Ran the pre-change full suite: 43 tests passed.
+6. Prespecified the MPS dimension-selection rule before viewing capacity
+   results.
+7. Implemented a guarded capacity-pilot summarizer.
+8. Added completed-run validation.
+9. Added matched-seed and expected-condition validation.
+10. Added fixed non-dimension configuration validation.
+11. Added signal- and portfolio-schema validation.
+12. Added Base/ANN control-stability validation across dimensions.
+13. Added seed-level MPS-minus-ANN paired outputs.
+14. Added validation, parameter, runtime, and descriptive portfolio summaries.
+15. Required the complete prespecified dimension set before publication.
+16. Added source and output SHA-256 provenance to the generated pilot manifest.
+17. Added eight focused capacity-analysis tests.
+18. Ran the post-change full suite: 51 tests passed.
+19. Documented exact matrix and summarization commands.
+20. Separated the 5k reference configuration from the selected 20k expanded
+    budget in the reproducibility guide.
+21. Created a paper evidence/claim registry with ready and pending claims.
+22. Created a paper-source policy that prohibits estimated or favorable
+    placeholders.
+23. Added five verified primary scholarly references for drafting.
+24. Dry-ran and inspected the exact 20k-step, dimensions 2/4/8, seeds 0/1/2
+    matrix plan.
+25. Launched the resumable capacity matrix on the measured CPU device.
+
+In-progress experiment:
+
+- Raw root:
+  `work/dimension_pilot_2026-07-28` relative to the parent project directory.
+- Matrix: 20,000 PPO steps; dimensions 2, 4, and 8; matched seeds 0, 1, and 2;
+  60 encoder epochs maximum; patience 10; batch size 512; CPU encoder.
+- The first dimension-2 Base/seed-0 checkpoint was preserved.
+- A foreground tool timeout left the original process attached to an abandoned
+  output pipe. After verifying the exact three-process tree and saved
+  checkpoint, that tree was stopped and the same matrix was resumed with
+  stdout/stderr redirected to `matrix.stdout.log` and `matrix.stderr.log`.
+- The resumed process has one writer, an exclusive output lock, increasing CPU
+  time, and an empty stderr log at this checkpoint.
+
+Evidence:
+
+- `docs/EXPERIMENT_PROTOCOL.md`
+- `scripts/summarize_dimension_pilot.py`
+- `test_dimension_pilot.py`
+- `REPRODUCIBILITY.md`
+- `paper/CLAIM_TRACEABILITY.md`
+- `paper/references.bib`
+
+Hardware:
+
+- NVIDIA reports an RTX 5060 Laptop GPU with 8,151 MiB VRAM.
+- The reference PyTorch build is `2.10.0+cpu`; the capacity run uses CPU.
+- Prior matched engineering evidence retained CPU because this small signal
+  pipeline was faster there. No GPU acceleration is claimed.
+
+Protocol deviations:
+
+- None. The experiment settings and selection rule match the frozen protocol.
+- The host sleep/output-pipe delay affects wall-clock timing interpretation but
+  not the saved configuration or endpoint metrics. The completed raw manifests
+  will determine which runtime fields are safe to report.
+
+Next:
+
+- Allow the resumable dimension matrix to complete.
+- Run the guarded summarizer and inspect all provenance hashes.
+- Record the validation-based primary-dimension decision before launching the
+  ten-seed final evaluation.
