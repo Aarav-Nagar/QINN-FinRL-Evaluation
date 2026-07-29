@@ -23,6 +23,11 @@ repository-local, gitignored `local_runs/` directory. Keeping active
 checkpoints inside the repository tree prevents task-workspace cleanup from
 removing a run directory between PPO training and its first checkpoint. Only
 validated, compact summaries and provenance manifests belong in `results/`.
+Checkpoint basenames are deliberately compact (`metrics.partial.csv`,
+`curves.partial.csv`, and `config.partial.json`) so an atomic temporary file
+does not exceed the default Windows path limit after a descriptive matrix job
+identifier is appended. The loader remains compatible with the longer legacy
+checkpoint basenames.
 
 ## Compute and runtime record
 

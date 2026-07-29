@@ -56,7 +56,7 @@ no quantum hardware is used.
 | Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, figures, and smoke comparison | Complete: 66 tests |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Complete: dimension 2 selected by frozen rule |
-| Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Running: dimension 2, 20k steps, seeds 0--9 |
+| Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Running from durable local checkpoints: dimension 2, 20k steps, seeds 0--9 |
 | Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Not started |
 | Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, and costs | Existing for reference run; final pending |
 | Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Capacity figure complete; final-effect pipeline ready |
