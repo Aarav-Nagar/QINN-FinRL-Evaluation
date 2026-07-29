@@ -174,6 +174,33 @@ def test_partial_results_resume_complete_condition_seed_pairs(
     assert all(pd.api.types.is_datetime64_any_dtype(curve["date"]) for curve in curves)
 
 
+def test_partial_writer_recreates_missing_output_directory(
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "removed-before-checkpoint"
+    config = experiment.ExperimentConfig()
+    metric_rows = [
+        {"condition": "Base FinRL", "seed": 0, "sharpe": 0.5}
+    ]
+    curve_rows = [
+        pd.DataFrame(
+            {
+                "condition": ["Base FinRL"],
+                "seed": [0],
+                "date": ["2020-01-01"],
+                "account_value": [100.0],
+            }
+        )
+    ]
+    experiment.write_partial_results(
+        output_dir, config, metric_rows, curve_rows
+    )
+    metrics, curves = experiment.load_partial_results(output_dir, config)
+    assert metrics[0]["condition"] == "Base FinRL"
+    assert len(curves) == 1
+    assert not list(output_dir.glob("*.tmp"))
+
+
 def test_partial_results_reject_mismatched_run_sets(tmp_path: Path) -> None:
     config = experiment.ExperimentConfig()
     (tmp_path / "partial_config.json").write_text(

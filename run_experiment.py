@@ -1383,15 +1383,28 @@ def write_partial_results(
     metric_rows: list[dict[str, object]],
     curve_rows: list[pd.DataFrame],
 ) -> None:
-    pd.DataFrame(metric_rows).to_csv(
-        output_dir / "ppo_backtest_metrics.partial.csv", index=False
-    )
-    pd.concat(curve_rows, ignore_index=True).to_csv(
-        output_dir / "equity_curves.partial.csv", index=False
-    )
-    (output_dir / "partial_config.json").write_text(
-        json.dumps(json_config(config), indent=2), encoding="utf-8"
-    )
+    output_dir.mkdir(parents=True, exist_ok=True)
+    metrics_path = output_dir / "ppo_backtest_metrics.partial.csv"
+    curves_path = output_dir / "equity_curves.partial.csv"
+    config_path = output_dir / "partial_config.json"
+    temporary_metrics = metrics_path.with_suffix(metrics_path.suffix + ".tmp")
+    temporary_curves = curves_path.with_suffix(curves_path.suffix + ".tmp")
+    temporary_config = config_path.with_suffix(config_path.suffix + ".tmp")
+    try:
+        pd.DataFrame(metric_rows).to_csv(temporary_metrics, index=False)
+        pd.concat(curve_rows, ignore_index=True).to_csv(
+            temporary_curves, index=False
+        )
+        temporary_config.write_text(
+            json.dumps(json_config(config), indent=2), encoding="utf-8"
+        )
+        temporary_metrics.replace(metrics_path)
+        temporary_curves.replace(curves_path)
+        temporary_config.replace(config_path)
+    finally:
+        temporary_metrics.unlink(missing_ok=True)
+        temporary_curves.unlink(missing_ok=True)
+        temporary_config.unlink(missing_ok=True)
 
 
 def parse_args() -> argparse.Namespace:
