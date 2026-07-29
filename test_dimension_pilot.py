@@ -26,6 +26,7 @@ def make_run(
     missing_seed: bool = False,
     timesteps: int = 20_000,
     control_offset: float = 0.0,
+    runtime_offset: float = 0.0,
 ) -> Path:
     path.mkdir()
     experiment = {
@@ -71,7 +72,7 @@ def make_run(
                     "max_drawdown": -0.2,
                     "annualized_turnover": 0.3,
                     "total_cost": 100.0,
-                    "condition_elapsed_seconds": 10.0,
+                    "condition_elapsed_seconds": 10.0 + runtime_offset,
                 }
             )
     pd.DataFrame(portfolio_rows).to_csv(
@@ -152,6 +153,16 @@ def test_summary_rejects_control_drift(tmp_path: Path) -> None:
     ]
     with pytest.raises(ValueError, match="control drifted"):
         dimension_summary.summarize(runs)
+
+
+def test_summary_allows_control_runtime_variation(tmp_path: Path) -> None:
+    runs = [
+        make_run(tmp_path / "bd2", 2, 1.0),
+        make_run(tmp_path / "bd4", 4, 1.0, runtime_offset=5.0),
+    ]
+    summary, paired = dimension_summary.summarize(runs)
+    assert len(summary) == 2
+    assert len(paired) == 4
 
 
 def test_summary_reports_missing_portfolio_schema(tmp_path: Path) -> None:

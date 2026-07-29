@@ -26,7 +26,10 @@ SIGNAL_METRICS = [
     "directional_accuracy",
     "information_coefficient",
 ]
-CONTROL_METRICS = ["seed", *PORTFOLIO_METRICS]
+CONTROL_METRICS = [
+    "seed",
+    *(metric for metric in PORTFOLIO_METRICS if metric != "condition_elapsed_seconds"),
+]
 SELECTION_RELATIVE_TOLERANCE = 0.01
 
 
