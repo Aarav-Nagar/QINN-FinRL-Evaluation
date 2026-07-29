@@ -6,5 +6,6 @@ venv/
 .cache/
 data/
 FinRL/
+local_runs/
 *.partial.csv
 ~$*.docx

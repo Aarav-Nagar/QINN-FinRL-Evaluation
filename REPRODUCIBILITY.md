@@ -18,6 +18,12 @@ The exact direct package versions used to verify the saved artifacts are in
 `requirements-lock.txt`. The broader compatible minimums are in
 `requirements.txt`.
 
+Long-running matrices should write resumable raw checkpoints under the
+repository-local, gitignored `local_runs/` directory. Keeping active
+checkpoints inside the repository tree prevents task-workspace cleanup from
+removing a run directory between PPO training and its first checkpoint. Only
+validated, compact summaries and provenance manifests belong in `results/`.
+
 ## Compute and runtime record
 
 The experiment script explicitly sets PPO to `device="cpu"` and restricts
