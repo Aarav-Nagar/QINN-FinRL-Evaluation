@@ -1,0 +1,57 @@
+{
+  "artifact": "mps_bond_dimension_pilot",
+  "expected_dimensions": [
+    2,
+    4,
+    8
+  ],
+  "selection": {
+    "validation_mse_relative_tolerance": 0.01,
+    "tie_breakers": [
+      "mps_parameter_count",
+      "mps_fit_seconds",
+      "bond_dimension"
+    ],
+    "selected_bond_dimension": 2,
+    "test_or_trading_metrics_used_for_selection": false
+  },
+  "inputs": [
+    {
+      "job_id": "dimension-pilot_steps20000_bd2_seeds0-1-2_epochs60_batch512_cpu",
+      "bond_dimension": 2,
+      "source_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
+      "completed_at_utc": "2026-07-28T16:40:58.137808+00:00",
+      "sha256": {
+        "run_manifest.json": "c38c7bfbba0dd1627e55545d75e353628fa868cc45a900b6d4e16240112c92d8",
+        "ppo_backtest_metrics.csv": "2dcaabb10e74f0e866039409371e5ab9643fee48f758fe97314250cf8c5cd008",
+        "signal_metrics.csv": "62676016f271f4cbd70b709d52f9cfb72547df55422433d39311d103d8fa915a"
+      }
+    },
+    {
+      "job_id": "dimension-pilot_steps20000_bd4_seeds0-1-2_epochs60_batch512_cpu",
+      "bond_dimension": 4,
+      "source_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
+      "completed_at_utc": "2026-07-28T16:53:39.877825+00:00",
+      "sha256": {
+        "run_manifest.json": "45ec033fd443e38002c12f3ca7713fbfd6399bbbfaea703636761b00943c0b29",
+        "ppo_backtest_metrics.csv": "f685c2c36f84e14a650e70044b6f237fae27733a8af39f0528560bfeec55ceb5",
+        "signal_metrics.csv": "4daabb6bf1dba1bd9abe22a41ed4db68ce4e8782dab3634825047ecc05552d5b"
+      }
+    },
+    {
+      "job_id": "dimension-pilot_steps20000_bd8_seeds0-1-2_epochs60_batch512_cpu",
+      "bond_dimension": 8,
+      "source_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
+      "completed_at_utc": "2026-07-28T17:09:42.560549+00:00",
+      "sha256": {
+        "run_manifest.json": "9fa080f5c7df58a83661a6f86d04ec25e454327dc2004507b85e5f186089b2a2",
+        "ppo_backtest_metrics.csv": "5494974d89a81c31d43d826f7bef036848d1d419f38d2dd9a4a6de7fd7220ce3",
+        "signal_metrics.csv": "27efd50faf126a796d340f4d329c18add4d231e78a55059a58509e1841a2196a"
+      }
+    }
+  ],
+  "outputs": {
+    "dimension_summary.csv": "f5f477e9406efbc15f98dc79cfdccf30b8c6f365905909450c46efb12f6f6eff",
+    "dimension_paired.csv": "f9c5f08ed10b119a30f418cabc9d002227f9db38070d0459ac7019ffef27c30c"
+  }
+}

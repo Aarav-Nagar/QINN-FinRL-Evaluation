@@ -41,3 +41,39 @@ Supporting artifacts:
 - `results/pilots/2026-07-27/README.md`
 - `results/pilots/2026-07-27/budget_summary.csv`
 - `results/pilots/2026-07-27/budget_paired.csv`
+
+## 2026-07-28 - Primary MPS bond dimension
+
+Decision: use MPS bond dimension 2 for the expanded ten-seed evaluation.
+
+Evidence:
+
+- Prespecified dimensions: 2, 4, and 8.
+- Matched pilot seeds: 0, 1, and 2 at 20,000 PPO steps.
+- Validation MSE: 1.280290, 1.281044, and 1.275307, respectively.
+- All dimensions were within 1% of the minimum validation MSE.
+- Trainable parameters: 97, 369, and 1,441, respectively.
+
+Rationale:
+
+The frozen rule treats dimensions within 1% of the lowest validation MSE as
+practically tied, then chooses the fewest parameters. Dimension 2 therefore
+wins on parsimony. Its longer measured fit time did not invoke the final
+tie-breaker because parameter counts differed.
+
+Guardrails:
+
+- Test-period signal metrics and pilot trading outcomes did not determine the
+  selection.
+- The pilot's paired trading differences remain visible and do not support a
+  stable MPS advantage.
+- The final comparison must use dimension 2, 20,000 PPO steps, and matched
+  seeds 0 through 9 for every condition.
+- The result is a classical MPS simulation, not quantum-hardware execution.
+
+Supporting artifacts:
+
+- `results/pilots/2026-07-28/README.md`
+- `results/pilots/2026-07-28/dimension_summary.csv`
+- `results/pilots/2026-07-28/dimension_paired.csv`
+- `results/pilots/2026-07-28/dimension_manifest.json`
