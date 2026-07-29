@@ -253,3 +253,93 @@ Next:
 - Run the guarded summarizer and inspect all provenance hashes.
 - Record the validation-based primary-dimension decision before launching the
   ten-seed final evaluation.
+
+## 2026-07-28 - Capacity decision and final-evaluation launch
+
+Completed:
+
+1. Confirmed all three 20k-step capacity jobs completed with empty experiment
+   stderr.
+2. Fixed the capacity guard to exclude elapsed runtime from deterministic
+   Base/ANN control comparisons.
+3. Added a regression test that permits runtime variation while retaining
+   metric-drift detection.
+4. Generated the guarded dimension summary, seed-level paired effects, and
+   SHA-256 provenance manifest.
+5. Applied the frozen selection rule without consulting trading outcomes.
+6. Selected MPS bond dimension 2 because all validation MSE values were within
+   1% and dimension 2 had the fewest parameters.
+7. Preserved descriptive pilot trading results showing no stable MPS advantage.
+8. Updated the experiment decision log and paper claim registry.
+9. Added a paper-ready capacity figure in raster and vector formats.
+10. Visually inspected the capacity figure for labels, clipping, and selection
+    wording.
+11. Added tested final-run validation for the exact budget, dimension, seed
+    set, conditions, and result schema.
+12. Added deterministic paired-seed bootstrap and exact sign-test reporting.
+13. Added source/output hashing for the final analysis package.
+14. Added a tested paired-effect figure pipeline for the final result.
+15. Drafted an IEEE-style short-paper source containing verified methods and
+    capacity evidence.
+16. Kept the final-effect and robustness sections explicitly evidence-gated.
+17. Dry-ran and inspected the exact ten-seed matrix plan.
+18. Launched the dimension-2, 20k-step, seeds 0--9 final evaluation on CPU.
+19. Diagnosed a missing-directory failure at the first partial checkpoint.
+20. Hardened checkpoint writes to recreate the exact run directory and replace
+    metrics, curves, and configuration files atomically.
+21. Added a regression test for checkpoint recovery after directory loss.
+22. Resumed the same frozen matrix with separate retained failure/resume logs.
+23. Ran the complete post-change suite: 66 tests passed.
+24. Committed and pushed each independently reviewable checkpoint to `main`.
+
+Capacity evidence:
+
+- Validation MSE for dimensions 2/4/8: 1.280290, 1.281044, and 1.275307.
+- Parameter counts: 97, 369, and 1,441.
+- Mean MPS-minus-ANN pilot Sharpe differences: -0.045, -0.027, and -0.046.
+- MPS exceeded ANN in one of three seeds at every tested dimension.
+- These pilot trading values were not used for dimension selection.
+
+Final evaluation:
+
+- Raw root:
+  `work/final_evaluation_2026-07-28` relative to the parent project directory.
+- Configuration: 20,000 PPO steps; MPS dimension 2; seeds 0 through 9; 60
+  encoder epochs maximum; patience 10; batch size 512; CPU encoder.
+- `matrix.stderr.log` preserves the first checkpoint failure.
+- `resume.stdout.log` and `resume.stderr.log` record the active resumed run.
+- No final performance value is available or claimed at this checkpoint.
+
+Verification:
+
+- Capacity-analysis regression: 9 tests passed.
+- Final-analysis validation: 7 tests passed.
+- Capacity-figure validation: 3 tests passed.
+- Final-figure validation: 3 tests passed.
+- Checkpoint/locking focus: 6 tests passed.
+- Complete suite: 66 tests passed.
+- LaTeX citation keys all resolve; source braces are balanced.
+- No local TeX compiler is available, so the manuscript PDF is not yet
+  compile- or render-verified.
+
+Hardware:
+
+- NVIDIA reports an RTX 5060 Laptop GPU with 8,151 MiB VRAM.
+- Reference PyTorch is `2.10.0+cpu`; CUDA is unavailable in that environment.
+- The resumed final evaluation uses CPU, matching the prior measured device
+  decision. No GPU acceleration is claimed.
+
+Protocol deviations:
+
+- None. The selected dimension, budget, seeds, and encoder settings match the
+  frozen protocol and decision log.
+- The checkpoint incident affects runtime interpretation, not the experiment
+  configuration. Any completed manifest will retain actual runtime metadata.
+
+Next:
+
+- Allow the resumed ten-seed evaluation to complete and validate all 30
+  condition/seed endpoints.
+- Run the final summarizer and paired-effect figure pipeline.
+- Begin the prespecified shifted-period robustness implementation without
+  changing the fixed-split primary estimand.
