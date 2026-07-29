@@ -42,10 +42,19 @@ wording below; it does not mean the final manuscript sentence is frozen.
   arXiv:1707.06347.
 - Liu et al., *FinRL: A Deep Reinforcement Learning Library for Automated Stock
   Trading in Quantitative Finance*, arXiv:2011.09607.
+- Liu et al., *FinRL-Meta: A Universe of Near-Real Market Environments for
+  Data-Driven Deep Reinforcement Learning in Quantitative Finance*,
+  arXiv:2112.06753.
+- Henderson et al., *Deep Reinforcement Learning That Matters*, AAAI 2018,
+  doi:10.1609/aaai.v32i1.11694.
 - Stoudenmire and Schwab, *Supervised Learning with Quantum-Inspired Tensor
   Networks*, arXiv:1605.05775.
+- Efthymiou et al., *TensorNetwork for Machine Learning*, arXiv:1906.06329.
 - Biamonte et al., *Quantum Machine Learning*, Nature 549, 195-202 (2017),
   doi:10.1038/nature23474.
+- Liu and Fang, *Quantum Tensor Networks for Variational Reinforcement
+  Learning*, NeurIPS 2020 Workshop on Quantum Tensor Networks in Machine
+  Learning.
 
 These references establish methods and context. They do not provide evidence
 for this repository's empirical results.

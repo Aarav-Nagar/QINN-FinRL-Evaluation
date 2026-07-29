@@ -29,11 +29,15 @@ The eventual IEEE source should contain:
 6. Acknowledgment of Dr. Xiao-Yang Liu for feedback, without authorship or
    implied endorsement.
 
-`main.tex` now contains an IEEE-style short-paper draft with verified methods
-and capacity evidence. Its final-evaluation section remains explicitly gated;
-numerical placeholders are prohibited. The local machine currently has no TeX
-compiler, so a submission PDF must not be marked verified until the source is
-compiled and visually inspected in a suitable free TeX environment.
+`main.tex` now contains an IEEE-style short-paper draft with a three-part
+related-work synthesis, an explicit research question, bounded contributions,
+verified methods, and capacity evidence. The literature positioning separates
+FinRL infrastructure, supervised MPS predictors, and tensor-network policy
+learning from this paper's frozen-signal evaluation. Its final-evaluation
+section remains explicitly gated; numerical placeholders are prohibited. The
+local machine currently has no TeX compiler, so a submission PDF must not be
+marked verified until the source is compiled and visually inspected in a
+suitable free TeX environment.
 
 Primary scholarly references already verified for drafting are stored in
 `references.bib`. Repository or dataset citations must remain distinct from

@@ -51,29 +51,67 @@ appropriate endpoint for a trading representation.
 Tensor networks have been proposed as compact, quantum-inspired supervised
 models \cite{stoudenmire2016supervised}. They are related to broader quantum
 machine-learning research \cite{biamonte2017quantum}, but a classical tensor
-network does not imply quantum execution or quantum advantage. This paper asks
-whether an MPS next-day-return signal improves out-of-sample PPO trading
-relative to an ANN signal when data, costs, policy architecture, random seeds,
-and training budget are held fixed.
+network does not imply quantum execution or quantum advantage. The resulting
+research question is: \emph{under matched PPO training conditions, does
+appending a validation-selected, classically simulated MPS return signal
+improve out-of-sample trading performance relative to an ANN signal or the
+standard FinRL state?} The question concerns incremental decision value, not
+whether an MPS can fit returns, and it makes no directional assumption about
+an MPS benefit.
 
-Our contribution is an evidence-linked evaluation that (i) separates
-representation selection from trading outcomes, (ii) prespecifies capacity and
-training-budget decisions, (iii) uses matched policy seeds and paired
-uncertainty summaries, and (iv) reports null, negative, or unstable outcomes
-without reframing them as an advantage.
+This study makes three contributions. First, it operationalizes a
+quantum-inspired MPS as a frozen predictive state signal inside a FinRL
+benchmark while keeping the PPO policy, market data, costs, and evaluation
+period classical and matched. Second, it separates representation selection
+from policy evaluation: PPO budget and MPS capacity follow prespecified rules,
+and final ANN--MPS comparisons use paired policy seeds and uncertainty
+summaries. Third, it provides a claim-to-artifact workflow that preserves
+capacity sensitivity, seed variation, and null, negative, or unstable outcomes
+instead of selecting whichever configuration favors MPS.
 
 \section{Related Work}
 
-PPO alternates data collection with multiple epochs of minibatch optimization
-while constraining policy changes through a clipped surrogate objective
-\cite{schulman2017ppo}. FinRL adapts deep reinforcement-learning algorithms,
-market environments, and evaluation tooling to automated trading
-\cite{liu2020finrl}. Quantum-inspired tensor-network models instead factorize a
-high-order representation into locally connected tensors, offering a capacity
-control distinct from a dense ANN \cite{stoudenmire2016supervised}. Prior work
-on quantum tensor networks for variational reinforcement learning motivates
-studying the interface between tensor representations and policy learning
-\cite{liu2020quantumtensor}; our experiment remains wholly classical.
+\textbf{Financial deep reinforcement learning.}
+PPO constrains policy updates with a clipped surrogate objective and reuses
+sampled trajectories for multiple minibatch epochs
+\cite{schulman2017ppo}. FinRL organizes market data, trading environments, DRL
+agents, and backtesting into a reproducible application pipeline
+\cite{liu2020finrl}; FinRL-Meta extends this direction with reusable data
+engineering and market environments \cite{liu2021finrlmeta}. These frameworks
+make controlled trading experiments practical, but they do not establish that
+a predictor with lower supervised error supplies useful information to a
+cost-aware policy. Moreover, deep-RL comparisons can vary materially across
+random seeds and implementation choices \cite{henderson2018deep}. We therefore
+treat the learned signal as the intervention, hold the FinRL/PPO pipeline fixed,
+and report paired policy-seed outcomes rather than a single best run.
+
+\textbf{Tensor networks as learned representations.}
+MPS models factorize a high-order weight tensor into a chain of low-order
+cores. Stoudenmire and Schwab showed that this structure can support
+quantum-inspired supervised learning with parameter growth controlled by bond
+dimension \cite{stoudenmire2016supervised}; later work demonstrated
+automatic-gradient MPS classifiers on image benchmarks
+\cite{efthymiou2019tensornetwork}. Those studies evaluate supervised
+prediction, not sequential portfolio decisions. Here, the MPS is likewise a
+classical contracted model, but it predicts next-day returns and is frozen
+before its signal is appended to the trading state. Bond dimension is treated
+as a capacity choice, and test-period prediction or trading outcomes cannot
+select it.
+
+\textbf{Quantum and tensor-network reinforcement learning.}
+Quantum machine learning broadly includes both algorithms intended for quantum
+hardware and classically executed models inspired by quantum representations
+\cite{biamonte2017quantum}. More specifically, Liu and Fang reformulate a
+finite Markov decision process as a variational energy-minimization problem and
+use an MPS to approximate the policy, evaluating the method on Gridworld
+\cite{liu2020quantumtensor}. Our study does not reproduce that algorithm: it
+does not encode the PPO policy as an MPS, reformulate the Bellman equation as a
+Hamiltonian, execute a quantum circuit, or claim quantum speedup. It tests a
+narrower translational question: whether a classically trained MPS predictor,
+used only as an additional state signal, changes downstream PPO trading under
+matched historical-market conditions. This separation between predictive
+representation and policy optimization is the central distinction from both
+supervised tensor-network benchmarks and tensor-network policy learning.
 
 \section{Methods}
 

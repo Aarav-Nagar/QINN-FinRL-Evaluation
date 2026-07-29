@@ -411,3 +411,37 @@ Next:
 - Generate and visually inspect the paired-effect figure.
 - Publish only validated, hash-linked compact artifacts.
 - Then begin the prespecified temporally shifted robustness evaluation.
+
+## 2026-07-29 - Literature positioning and contribution revision
+
+Completed:
+
+1. Reframed the research question around the incremental decision value of a
+   frozen MPS signal under matched PPO conditions.
+2. Made the Base, ANN-signal, and MPS-signal comparison explicit in the
+   question.
+3. Replaced the broad contribution paragraph with three bounded contributions:
+   the FinRL integration, prespecified matched evaluation, and
+   claim-to-artifact workflow.
+4. Expanded related work into financial DRL, supervised tensor-network
+   learning, and tensor-network RL.
+5. Distinguished FinRL infrastructure from evidence that a supervised signal
+   improves a trading policy.
+6. Added deep-RL seed and implementation variability as motivation for paired
+   policy-seed reporting.
+7. Distinguished supervised MPS prediction from sequential portfolio
+   evaluation.
+8. Distinguished this frozen-signal study from Liu and Fang's MPS policy and
+   Hamiltonian formulation.
+9. Added three primary references and registered all drafting sources in the
+   claim-traceability file.
+10. Verified that every citation key resolves, bibliography keys are unique,
+    TeX/BibTeX braces balance, and the complete 66-test suite passes.
+
+Guardrails:
+
+- No final-evaluation or robustness value was added.
+- The revised text does not claim a quantum circuit, quantum hardware,
+  quantum speedup, or reproduction of the prior variational RL algorithm.
+- A PDF was not produced because no local TeX compiler is available; page
+  count and visual layout remain pending.
