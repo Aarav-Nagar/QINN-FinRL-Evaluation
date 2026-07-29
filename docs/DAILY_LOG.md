@@ -343,3 +343,71 @@ Next:
 - Run the final summarizer and paired-effect figure pipeline.
 - Begin the prespecified shifted-period robustness implementation without
   changing the fixed-split primary estimand.
+
+## 2026-07-29 - Durable final-evaluation recovery
+
+Completed:
+
+1. Reconciled the prior automation handoff with the clean, synchronized
+   repository before making changes.
+2. Rechecked open issues 3, 4, and 5 and retained the final ten-seed evaluation
+   as the highest-value unfinished deliverable.
+3. Verified that neither retained final-evaluation attempt was active.
+4. Confirmed both prior attempts stopped before producing any endpoint metric.
+5. Preserved both failure logs rather than treating the attempts as results.
+6. Reverified the RTX 5060 visibility and 8,151 MiB reported VRAM.
+7. Reverified that the reference PyTorch 2.10.0 build is CPU-only.
+8. Ran the unchanged pre-fix suite with the required dependency path: 66 tests
+   passed.
+9. Moved active raw-checkpoint guidance to a durable, repository-local,
+   gitignored root.
+10. Reproduced the remaining Windows failure on the live workload.
+11. Measured the failing temporary checkpoint path at 264 characters.
+12. Shortened the atomic checkpoint basenames and temporary basenames.
+13. Retained read compatibility with legacy checkpoint basenames.
+14. Extended the checkpoint regression to assert the compact artifact set.
+15. Ran 30 focused experiment tests successfully.
+16. Ran the complete post-fix suite successfully: 66 tests passed.
+17. Restarted the frozen 20,000-step, dimension-2, seeds-0-through-9 matrix
+    without changing any experimental setting.
+18. Verified the real workload wrote the first atomic checkpoint with empty
+    stderr.
+19. Verified continued progress through five completed Base endpoints.
+20. Documented the durable checkpoint policy and updated the deliverables
+    tracker.
+
+Active run:
+
+- Raw root: `local_runs/final_evaluation_2026-07-29`.
+- Configuration: 20,000 PPO steps; MPS dimension 2; seeds 0 through 9; 60
+  encoder epochs maximum; patience 10; batch size 512; CPU encoder.
+- Checkpoints verified at this log point: Base seeds 0 through 4.
+- The partial endpoint values are progress evidence only and are not paper
+  results until all 30 condition/seed endpoints pass the guarded final
+  summarizer.
+- Resume stdout and stderr are retained at the raw root.
+
+Incident:
+
+- The earlier work-directory failures and the first repository-local restart
+  shared one immediate symptom but had different path contexts. The live
+  repository-local reproduction isolated the actionable Windows cause: the
+  descriptive job directory plus `ppo_backtest_metrics.partial.csv.tmp`
+  produced a 264-character path. The compact atomic filenames keep checkpoint
+  paths below that boundary while legacy reads remain supported.
+
+Hardware:
+
+- NVIDIA reports an RTX 5060 Laptop GPU with 8,151 MiB VRAM.
+- Reference Python is 3.12.10 with PyTorch 2.10.0+cpu; CUDA availability is
+  false and device count is zero.
+- The active final matrix uses CPU, consistent with the frozen protocol and
+  prior measured device decision. No GPU acceleration is claimed.
+
+Next:
+
+- Allow the resumable final matrix to complete.
+- Validate all 30 endpoints with `scripts/summarize_final_evaluation.py`.
+- Generate and visually inspect the paired-effect figure.
+- Publish only validated, hash-linked compact artifacts.
+- Then begin the prespecified temporally shifted robustness evaluation.
