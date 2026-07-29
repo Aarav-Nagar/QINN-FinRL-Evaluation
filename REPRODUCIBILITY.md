@@ -117,6 +117,24 @@ the rule frozen in
 `docs/EXPERIMENT_PROTOCOL.md`; test-period and trading metrics cannot drive the
 selection.
 
+The completed pilot selected bond dimension 2. Plan or resume the final matched
+evaluation with:
+
+```powershell
+python scripts/run_experiment_matrix.py `
+  --phase final-evaluation `
+  --data-dir .cache\data `
+  --finrl-dir .cache\FinRL `
+  --output-root work\final-evaluation `
+  --timesteps 20000 `
+  --bond-dimensions 2 `
+  --seeds 0 1 2 3 4 5 6 7 8 9 `
+  --encoder-epochs 60 `
+  --encoder-patience 10 `
+  --encoder-batch-size 512 `
+  --encoder-device cpu
+```
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |

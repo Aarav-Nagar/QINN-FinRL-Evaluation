@@ -53,9 +53,9 @@ no quantum hardware is used.
 |---|---|---|
 | Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` reviewed before final runs | In review |
 | Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, device, and runtime | Complete |
-| Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, and smoke comparison | Complete: 51 tests before dimension results |
+| Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, and smoke comparison | Complete: 52 tests after dimension summary |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
-| Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Running: guarded matrix launched July 28 |
+| Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Complete: dimension 2 selected by frozen rule |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Not started |
 | Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Not started |
 | Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, and costs | Existing for reference run; final pending |
