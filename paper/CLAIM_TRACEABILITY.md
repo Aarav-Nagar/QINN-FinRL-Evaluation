@@ -33,7 +33,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | ID | Planned content | Source | Status |
 |---|---|---|---|
 | F01 | MPS validation error and parameter count by bond dimension | `results/pilots/2026-07-28/dimension_summary.csv`, `results/figures/dimension_sensitivity.pdf` | Ready; PNG and vector PDF generated and visually inspected |
-| F02 | Paired ten-seed MPS-minus-ANN primary effect with uncertainty | Planned final paired artifact | Pending |
+| F02 | Paired ten-seed MPS-minus-ANN primary effect with uncertainty | Planned `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, and `results/figures/final_paired_effect.pdf` | Generation and validation code ready; empirical artifact pending |
 | F03 | Fixed-split versus shifted-window comparison, if legible within the page budget | Planned robustness artifacts | Pending |
 
 ## Primary references verified for drafting

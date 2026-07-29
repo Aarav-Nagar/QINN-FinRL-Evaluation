@@ -135,6 +135,30 @@ python scripts/run_experiment_matrix.py `
   --encoder-device cpu
 ```
 
+After the run reaches `completed`, validate and publish the prespecified final
+artifacts with:
+
+```powershell
+python scripts/summarize_final_evaluation.py `
+  work\final-evaluation\final-evaluation_steps20000_bd2_seeds0-1-2-3-4-5-6-7-8-9_epochs60_batch512_cpu `
+  --condition-output results\final\condition_summary.csv `
+  --paired-output results\final\paired_seed_effects.csv `
+  --inference-output results\final\primary_inference.json `
+  --manifest-output results\final\artifact_manifest.json
+python scripts/plot_final_effect.py `
+  results\final\paired_seed_effects.csv `
+  results\final\primary_inference.json `
+  --png-output results\figures\final_paired_effect.png `
+  --pdf-output results\figures\final_paired_effect.pdf
+```
+
+The final summarizer rejects incomplete runs, any seed set other than 0--9,
+budgets other than 20,000 steps, MPS dimensions other than 2, duplicate or
+unmatched condition/seed rows, and missing schemas. It records a deterministic
+paired-seed bootstrap interval, exact two-sided sign test, and hashes of source
+and output artifacts. The interval describes training-seed uncertainty on one
+fixed historical split; it is not a population-level causal interval.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |
