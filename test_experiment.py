@@ -198,6 +198,9 @@ def test_partial_writer_recreates_missing_output_directory(
     metrics, curves = experiment.load_partial_results(output_dir, config)
     assert metrics[0]["condition"] == "Base FinRL"
     assert len(curves) == 1
+    assert (output_dir / "metrics.partial.csv").exists()
+    assert (output_dir / "curves.partial.csv").exists()
+    assert (output_dir / "config.partial.json").exists()
     assert not list(output_dir.glob("*.tmp"))
 
 

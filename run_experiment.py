@@ -1345,9 +1345,19 @@ def load_partial_results(
     config: ExperimentConfig,
 ) -> tuple[list[dict[str, object]], list[pd.DataFrame]]:
     """Load policy checkpoints only when both partial artifacts are consistent."""
-    metrics_path = output_dir / "ppo_backtest_metrics.partial.csv"
-    curves_path = output_dir / "equity_curves.partial.csv"
-    config_path = output_dir / "partial_config.json"
+    compact_paths = (
+        output_dir / "metrics.partial.csv",
+        output_dir / "curves.partial.csv",
+        output_dir / "config.partial.json",
+    )
+    legacy_paths = (
+        output_dir / "ppo_backtest_metrics.partial.csv",
+        output_dir / "equity_curves.partial.csv",
+        output_dir / "partial_config.json",
+    )
+    metrics_path, curves_path, config_path = (
+        compact_paths if any(path.exists() for path in compact_paths) else legacy_paths
+    )
     if not metrics_path.exists() and not curves_path.exists():
         return [], []
     if not metrics_path.exists() or not curves_path.exists() or not config_path.exists():
@@ -1384,12 +1394,12 @@ def write_partial_results(
     curve_rows: list[pd.DataFrame],
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    metrics_path = output_dir / "ppo_backtest_metrics.partial.csv"
-    curves_path = output_dir / "equity_curves.partial.csv"
-    config_path = output_dir / "partial_config.json"
-    temporary_metrics = metrics_path.with_suffix(metrics_path.suffix + ".tmp")
-    temporary_curves = curves_path.with_suffix(curves_path.suffix + ".tmp")
-    temporary_config = config_path.with_suffix(config_path.suffix + ".tmp")
+    metrics_path = output_dir / "metrics.partial.csv"
+    curves_path = output_dir / "curves.partial.csv"
+    config_path = output_dir / "config.partial.json"
+    temporary_metrics = output_dir / ".metrics.tmp"
+    temporary_curves = output_dir / ".curves.tmp"
+    temporary_config = output_dir / ".config.tmp"
     try:
         pd.DataFrame(metric_rows).to_csv(temporary_metrics, index=False)
         pd.concat(curve_rows, ignore_index=True).to_csv(
@@ -1534,9 +1544,15 @@ def main() -> None:
     annual_summary.to_csv(
         args.output_dir / "annual_period_seed_summary.csv", index=False
     )
-    (args.output_dir / "ppo_backtest_metrics.partial.csv").unlink(missing_ok=True)
-    (args.output_dir / "equity_curves.partial.csv").unlink(missing_ok=True)
-    (args.output_dir / "partial_config.json").unlink(missing_ok=True)
+    for checkpoint_name in (
+        "metrics.partial.csv",
+        "curves.partial.csv",
+        "config.partial.json",
+        "ppo_backtest_metrics.partial.csv",
+        "equity_curves.partial.csv",
+        "partial_config.json",
+    ):
+        (args.output_dir / checkpoint_name).unlink(missing_ok=True)
     pd.DataFrame([bootstrap]).to_csv(
         args.output_dir / "ann_vs_mps_block_bootstrap.csv", index=False
     )
