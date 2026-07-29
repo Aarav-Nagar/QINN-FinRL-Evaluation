@@ -23,6 +23,8 @@ This directory contains the outputs from the reference run using PPO seeds 0,
   seed-to-seed variation.
 - `figures/sharpe_by_condition.png`: Sharpe ratios by condition and PPO seed.
 - `figures/encoder_validation_loss.png`: prediction-model validation loss.
+- `figures/dimension_sensitivity.png` and `.pdf`: paper-ready validation MSE
+  and parameter-count sensitivity for bond dimensions 2, 4, and 8.
 
 ## Key values
 
@@ -44,3 +46,7 @@ Expanded-study engineering checks are isolated under `smoke/` so their
 reduced-budget outputs cannot be confused with reference or final paper
 evidence. The first end-to-end configuration matrix is documented in
 [`smoke/2026-07-27/`](smoke/2026-07-27/).
+
+Expanded-study pilot evidence is indexed under `pilots/`. The guarded
+bond-dimension result and its provenance manifest are documented in
+[`pilots/2026-07-28/`](pilots/2026-07-28/).
