@@ -215,6 +215,13 @@ Remove `--dry-run` only after inspecting `matrix_plan.json`. The resulting job
 identifier contains `shifted`, and `run_status.json` records the exact dates,
 window name, device, seeds, budget, and bond dimension.
 
+On Windows, the equivalent durable launcher writes all output to
+`work\temporal_robustness_2026-07-30\matrix.log`:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_temporal_robustness.ps1
+```
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |
