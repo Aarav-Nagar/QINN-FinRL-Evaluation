@@ -549,3 +549,97 @@ Next:
 - Dry-run the shifted 2017-2018 matrix, then launch or resume all 30 endpoints.
 - Compile and visually inspect the IEEE manuscript once a free local TeX
   toolchain is available.
+
+## 2026-07-30 — Shifted-window implementation and launch
+
+Contributions:
+
+1. Confirmed the repository was clean and synchronized at `42c0a38` before
+   editing.
+2. Rechecked GitHub issues and confirmed temporal robustness issue 5 was the
+   only open issue.
+3. Revalidated the final fixed-split artifacts and the append-only log before
+   starting new work.
+4. Verified the RTX 5060 Laptop GPU, 8,151 MiB VRAM, and driver 610.47.
+5. Confirmed the reference PyTorch 2.10.0 build remains CPU-only.
+6. Added named `primary` and `shifted` experiment windows.
+7. Encoded the exact frozen 2013-2016 training and 2017-2018 evaluation dates.
+8. Added validation that rejects overlapping, misordered, or protocol-drifted
+   dates.
+9. Combined the checksum-verified source periods before selecting the requested
+   PPO window, allowing the earlier evaluation without downloading new data.
+10. Required observed market-data boundaries to match the configured window.
+11. Persisted each row's next trading date during feature engineering.
+12. Excluded encoder fitting rows whose next-day target crosses the fitting
+    boundary.
+13. Excluded early-stopping rows whose next-day target crosses into the
+    2017-2018 evaluation.
+14. Made signal-metric split labels reflect the configured validation and test
+    years.
+15. Extended matrix plans, commands, job identifiers, and stale-result guards
+    with the temporal window.
+16. Preserved backward-compatible primary-window matrix identifiers and
+    completion checks.
+17. Added focused tests for frozen dates, date drift, target-boundary leakage,
+    non-overlap, matrix commands, and distinct shifted job identifiers.
+18. Completed a real shifted-window end-to-end smoke run: one seed, three PPO
+    conditions, 64 steps, bond dimension 2, one encoder epoch, CPU.
+19. Ran the complete suite after implementation: 73 tests passed in 6.74
+    seconds.
+20. Added exact dry-run and durable Windows launcher instructions to the
+    reproducibility guide.
+21. Generated and inspected the complete ten-seed shifted matrix plan before
+    launch.
+22. Detected an initial `git_commit: unknown` provenance failure before any PPO
+    endpoint completed.
+23. Anchored commit discovery to the runner repository and added a focused
+    regression test; 37 focused tests passed.
+24. Preserved the failed-start status under
+    `failed_start_unknown_commit` rather than silently deleting it.
+25. Added a durable PowerShell launcher with a persistent `matrix.log`.
+26. Launched the unchanged ten-seed, 20,000-step, dimension-2 shifted matrix
+    from committed revision `4c8cd2e`.
+27. Verified the active status records every frozen date, CPU execution,
+    PyTorch 2.10.0+cpu, and the full commit SHA.
+
+Smoke evidence:
+
+- Base FinRL Sharpe: 0.408021.
+- ANN signal Sharpe: 0.318421.
+- QINN-MPS signal Sharpe: 0.256108.
+- These 64-step, one-seed values validate execution only and are not paper
+  evidence or model-selection evidence.
+
+Active run:
+
+- Output root:
+  `work/temporal_robustness_2026-07-30`.
+- Job:
+  `temporal-robustness_shifted_steps20000_bd2_seeds0-1-2-3-4-5-6-7-8-9_epochs60_batch512_cpu`.
+- Launcher process at verification: PID 15708.
+- Monitor:
+  `Get-Content work/temporal_robustness_2026-07-30/matrix.log -Wait`.
+- Resume by running `scripts/run_temporal_robustness.ps1` again; partial
+  condition/seed checkpoints are validated before reuse.
+
+Verification:
+
+- Shifted-window smoke run completed all three configured PPO conditions.
+- Full test suite: 73 passed.
+- Provenance-focused suite: 37 passed.
+- PowerShell launcher parsed without syntax errors.
+- Dry-run plan contains one exact frozen matrix and all ten matched seeds.
+
+Commits pushed:
+
+- `72c5ed8` — implement guarded shifted-window evaluation.
+- `bad8584` — anchor run provenance to repository.
+- `4c8cd2e` — add durable robustness launcher.
+
+Next:
+
+- Monitor the active 30-endpoint robustness matrix.
+- After completion, generate a guarded paired summary, inference artifact,
+  hashes, and compact paper table or figure.
+- Integrate the result without changing the fixed protocol or suppressing an
+  unfavorable sign.
