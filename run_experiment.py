@@ -1101,6 +1101,15 @@ def block_bootstrap_ann_vs_mps(
     }
 
 
+def figure_output_path(
+    figures: Path, preferred: str, compact: str
+) -> Path:
+    preferred_path = figures / preferred
+    if len(str(preferred_path)) < 260:
+        return preferred_path
+    return figures / compact
+
+
 def save_plots(
     output_dir: Path,
     curves: pd.DataFrame,
@@ -1135,7 +1144,10 @@ def save_plots(
     plt.legend()
     plt.grid(alpha=0.2)
     plt.tight_layout()
-    plt.savefig(figures / "equity_curves.png", dpi=180)
+    plt.savefig(
+        figure_output_path(figures, "equity_curves.png", "equity.png"),
+        dpi=180,
+    )
     plt.close()
 
     plt.figure(figsize=(9, 5))
@@ -1148,7 +1160,12 @@ def save_plots(
     plt.legend()
     plt.grid(alpha=0.2)
     plt.tight_layout()
-    plt.savefig(figures / "encoder_validation_loss.png", dpi=180)
+    plt.savefig(
+        figure_output_path(
+            figures, "encoder_validation_loss.png", "encoder.png"
+        ),
+        dpi=180,
+    )
     plt.close()
 
     ppo = metrics[metrics["seed"] >= 0]
@@ -1166,7 +1183,12 @@ def save_plots(
     plt.xticks(rotation=12, ha="right")
     plt.grid(axis="y", alpha=0.2)
     plt.tight_layout()
-    plt.savefig(figures / "sharpe_by_condition.png", dpi=180)
+    plt.savefig(
+        figure_output_path(
+            figures, "sharpe_by_condition.png", "sharpe.png"
+        ),
+        dpi=180,
+    )
     plt.close()
 
 
@@ -1220,8 +1242,8 @@ def write_run_manifest(
         "limitations": [
             "Classical tensor-network simulation; no quantum hardware was used.",
             "One historical train/test split and one 15-stock Nasdaq subset.",
-            "Three PPO seeds quantify policy instability but do not establish broad statistical generality.",
-            "The MPS and ANN encoders are parameter-matched, but their inductive biases differ.",
+            f"{len(config.ppo_seeds)} PPO seeds quantify policy instability but do not establish broad statistical generality.",
+            "ANN and MPS parameter counts are reported explicitly; equality applies only to configurations with matching counts.",
         ],
     }
     (output_dir / "run_manifest.json").write_text(
@@ -1272,6 +1294,108 @@ def write_run_status(
     (output_dir / "run_status.json").write_text(
         json.dumps(payload, indent=2), encoding="utf-8"
     )
+
+
+def finalize_existing_results(output_dir: Path) -> None:
+    """Finalize complete tabular artifacts after a post-training interruption."""
+    required_paths = {
+        "status": output_dir / "run_status.json",
+        "signal": output_dir / "signal_metrics.csv",
+        "history": output_dir / "encoder_training_history.csv",
+        "metrics": output_dir / "ppo_backtest_metrics.csv",
+        "curves": output_dir / "equity_curves.csv",
+        "annual": output_dir / "annual_period_metrics.csv",
+        "condition_summary": output_dir / "condition_seed_summary.csv",
+        "annual_summary": output_dir / "annual_period_seed_summary.csv",
+        "bootstrap": output_dir / "ann_vs_mps_block_bootstrap.csv",
+    }
+    missing = [
+        name for name, path in required_paths.items() if not path.is_file()
+    ]
+    if missing:
+        raise RuntimeError(
+            f"Cannot finalize; missing completed artifacts: {sorted(missing)}"
+        )
+    if (output_dir / "run_manifest.json").exists():
+        raise RuntimeError("Run manifest already exists; refusing recovery overwrite")
+
+    status = json.loads(required_paths["status"].read_text(encoding="utf-8"))
+    if status.get("runtime", {}).get("status") != "running":
+        raise RuntimeError("Recovery requires a run status marked running")
+    config = ExperimentConfig(**status["experiment"])
+    validate_config(config)
+
+    metrics = pd.read_csv(required_paths["metrics"])
+    curves = pd.read_csv(required_paths["curves"])
+    signal_metrics = pd.read_csv(required_paths["signal"])
+    encoder_history = pd.read_csv(required_paths["history"])
+    bootstrap_rows = pd.read_csv(required_paths["bootstrap"])
+    expected_keys = {
+        (condition, seed)
+        for condition in ("Base FinRL", "ANN signal", "QINN-MPS signal")
+        for seed in config.ppo_seeds
+    }
+    observed_keys = set(
+        metrics.loc[metrics["seed"] >= 0, ["condition", "seed"]]
+        .itertuples(index=False, name=None)
+    )
+    if observed_keys != expected_keys:
+        raise RuntimeError("Completed metrics do not match configured conditions/seeds")
+    curve_keys = set(
+        curves.loc[curves["seed"] >= 0, ["condition", "seed"]]
+        .drop_duplicates()
+        .itertuples(index=False, name=None)
+    )
+    if curve_keys != expected_keys:
+        raise RuntimeError("Completed curves do not match configured conditions/seeds")
+    if len(bootstrap_rows) != 1:
+        raise RuntimeError("Expected exactly one block-bootstrap result")
+    bootstrap = bootstrap_rows.iloc[0].to_dict()
+
+    run_lock = RunLock(output_dir)
+    run_lock.acquire()
+    try:
+        save_plots(output_dir, curves, encoder_history, metrics)
+        runtime = dict(status["runtime"])
+        started_at = datetime.fromisoformat(str(runtime["started_at_utc"]))
+        latest_artifact = max(
+            path.stat().st_mtime
+            for name, path in required_paths.items()
+            if name != "status"
+        )
+        completed_at = datetime.fromtimestamp(latest_artifact, UTC)
+        runtime.update(
+            {
+                "status": "completed",
+                "completed_at_utc": completed_at.isoformat(),
+                "elapsed_seconds": max(
+                    0.0, (completed_at - started_at).total_seconds()
+                ),
+                "finalization_git_commit": current_git_commit(),
+                "completion_basis": (
+                    "Recovered after post-training plot failure; completion "
+                    "time is the latest required tabular artifact timestamp."
+                ),
+            }
+        )
+        encoder_runtime = {
+            "status": "not_persisted_before_post_training_failure",
+            "note": (
+                "Encoder timing was not recoverable from completed tabular "
+                "artifacts and is not estimated."
+            ),
+        }
+        write_run_manifest(
+            output_dir,
+            config,
+            signal_metrics,
+            bootstrap,
+            runtime,
+            encoder_runtime,
+        )
+        write_run_status(output_dir, config, runtime)
+    finally:
+        run_lock.release()
 
 
 def json_config(config: ExperimentConfig) -> dict[str, object]:
@@ -1431,6 +1555,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--encoder-device", choices=("auto", "cpu", "cuda"), default="auto"
     )
+    parser.add_argument(
+        "--finalize-existing",
+        action="store_true",
+        help="Finalize complete tabular artifacts after a post-training failure.",
+    )
     return parser.parse_args()
 
 
@@ -1438,6 +1567,9 @@ def main() -> None:
     started_at = datetime.now(UTC)
     started_clock = time.perf_counter()
     args = parse_args()
+    if args.finalize_existing:
+        finalize_existing_results(args.output_dir)
+        return
     args.output_dir.mkdir(parents=True, exist_ok=True)
     run_lock = RunLock(args.output_dir)
     run_lock.acquire()

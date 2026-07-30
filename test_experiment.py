@@ -224,6 +224,120 @@ def test_partial_results_reject_mismatched_run_sets(tmp_path: Path) -> None:
         experiment.load_partial_results(tmp_path, config)
 
 
+def test_figure_output_path_uses_compact_name_for_long_windows_path() -> None:
+    figures = Path("C:/") / ("a" * 240)
+    assert experiment.figure_output_path(
+        figures, "encoder_validation_loss.png", "encoder.png"
+    ).name == "encoder.png"
+    assert experiment.figure_output_path(
+        Path("results/figures"),
+        "encoder_validation_loss.png",
+        "encoder.png",
+    ).name == "encoder_validation_loss.png"
+
+
+def test_finalize_existing_results_recovers_completed_tables(
+    tmp_path: Path,
+) -> None:
+    config = experiment.ExperimentConfig()
+    started = experiment.datetime(2026, 7, 29, tzinfo=experiment.UTC)
+    status = {
+        "experiment": experiment.json_config(config),
+        "runtime": {
+            "started_at_utc": started.isoformat(),
+            "status": "running",
+            "git_commit": "training-commit",
+        },
+    }
+    (tmp_path / "run_status.json").write_text(
+        experiment.json.dumps(status), encoding="utf-8"
+    )
+    rows = []
+    curves = []
+    for condition in ("Base FinRL", "ANN signal", "QINN-MPS signal"):
+        for seed in config.ppo_seeds:
+            rows.append(
+                {
+                    "condition": condition,
+                    "seed": seed,
+                    "sharpe": 0.1,
+                }
+            )
+            curves.append(
+                {
+                    "condition": condition,
+                    "seed": seed,
+                    "date": "2020-01-01",
+                    "account_value": 100.0,
+                }
+            )
+    rows.append(
+        {
+            "condition": "Equal-weight buy-and-hold",
+            "seed": -1,
+            "sharpe": 0.1,
+        }
+    )
+    curves.append(
+        {
+            "condition": "Equal-weight buy-and-hold",
+            "seed": -1,
+            "date": "2020-01-01",
+            "account_value": 100.0,
+        }
+    )
+    pd.DataFrame(rows).to_csv(tmp_path / "ppo_backtest_metrics.csv", index=False)
+    pd.DataFrame(curves).to_csv(tmp_path / "equity_curves.csv", index=False)
+    pd.DataFrame(
+        {
+            "split": ["test_2019_2023"],
+            "model": ["ANN"],
+            "parameter_count": [369],
+        }
+    ).to_csv(tmp_path / "signal_metrics.csv", index=False)
+    pd.DataFrame(
+        {
+            "model": ["ANN"],
+            "epoch": [1],
+            "validation_huber": [0.4],
+        }
+    ).to_csv(tmp_path / "encoder_training_history.csv", index=False)
+    for name in (
+        "annual_period_metrics.csv",
+        "condition_seed_summary.csv",
+        "annual_period_seed_summary.csv",
+    ):
+        pd.DataFrame({"value": [1]}).to_csv(tmp_path / name, index=False)
+    pd.DataFrame(
+        {
+            "annualized_mean_return_difference_mps_minus_ann": [0.0],
+            "bootstrap_95pct_lower": [-0.1],
+            "bootstrap_95pct_upper": [0.1],
+            "bootstrap_probability_mps_gt_ann": [0.5],
+            "block_length_days": [20],
+            "bootstrap_samples": [2000],
+        }
+    ).to_csv(tmp_path / "ann_vs_mps_block_bootstrap.csv", index=False)
+
+    experiment.finalize_existing_results(tmp_path)
+
+    manifest = experiment.json.loads(
+        (tmp_path / "run_manifest.json").read_text(encoding="utf-8")
+    )
+    recovered_status = experiment.json.loads(
+        (tmp_path / "run_status.json").read_text(encoding="utf-8")
+    )
+    assert manifest["runtime"]["status"] == "completed"
+    assert manifest["runtime"]["git_commit"] == "training-commit"
+    assert "Recovered after post-training plot failure" in (
+        manifest["runtime"]["completion_basis"]
+    )
+    assert manifest["encoder_runtime"]["status"] == (
+        "not_persisted_before_post_training_failure"
+    )
+    assert recovered_status["runtime"]["status"] == "completed"
+
+
 def test_partial_results_reject_different_configuration(tmp_path: Path) -> None:
     saved = experiment.ExperimentConfig(ppo_timesteps=512)
     requested = experiment.ExperimentConfig(ppo_timesteps=1024)
