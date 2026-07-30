@@ -199,6 +199,22 @@ def test_runtime_metadata_records_environment(monkeypatch) -> None:
     assert metadata["elapsed_seconds"] == 12.5
 
 
+def test_git_commit_discovery_is_anchored_to_runner_repository(monkeypatch) -> None:
+    captured: dict[str, object] = {}
+
+    def fake_check_output(command, **kwargs):
+        captured["command"] = command
+        captured["kwargs"] = kwargs
+        return "abc123\n"
+
+    monkeypatch.setattr(experiment.subprocess, "check_output", fake_check_output)
+    assert experiment.current_git_commit() == "abc123"
+    command = captured["command"]
+    assert command[:2] == ["git", "-C"]
+    assert Path(command[2]) == SCRIPT.resolve().parent
+    assert command[3:] == ["rev-parse", "HEAD"]
+
+
 def test_partial_results_resume_complete_condition_seed_pairs(
     tmp_path: Path,
 ) -> None:
