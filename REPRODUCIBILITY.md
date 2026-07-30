@@ -170,6 +170,23 @@ paired-seed bootstrap interval, exact two-sided sign test, and hashes of source
 and output artifacts. The interval describes training-seed uncertainty on one
 fixed historical split; it is not a population-level causal interval.
 
+If training writes every required table but a later plotting step fails, the
+completed endpoints can be finalized without retraining:
+
+```powershell
+python run_experiment.py `
+  --data-dir . `
+  --finrl-dir . `
+  --output-dir <completed-run-directory> `
+  --finalize-existing
+```
+
+Recovery requires the full configured metrics and equity-curve key sets, all
+required tabular artifacts, a still-running status, and no existing manifest.
+It preserves the training commit, records the finalization commit and recovery
+basis, regenerates plots with Windows-safe filenames, and refuses to estimate
+runtime fields that were not persisted.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |

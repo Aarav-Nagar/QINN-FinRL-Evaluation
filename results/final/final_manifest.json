@@ -1,0 +1,31 @@
+{
+  "artifact": "final_ten_seed_evaluation",
+  "source_commit": "ed368349ad94de13f1ed96ae9d49d2cd1aa9910c",
+  "completed_at_utc": "2026-07-29T21:49:48.950065+00:00",
+  "prespecified_configuration": {
+    "ppo_timesteps": 20000,
+    "mps_bond_dimension": 2,
+    "ppo_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "inputs": {
+    "run_manifest.json": "c82ca3ca9e3bc6f4ae1d6b923926731e306c8bf61dceb225368dcdcdf6d989cd",
+    "ppo_backtest_metrics.csv": "9f0b0448b7391d79d2dc1eb759e52bf02f45bd2c16c66cd107a1f9453903e783",
+    "equity_curves.csv": "7b4abdb6e0e7f8124aa9f40bec7f7e6e3f26113813fbf7a757160bd842f2d03a"
+  },
+  "outputs": {
+    "condition_summary.csv": "78a6031ec1aa4ad18ec1b4ac247ea640093e1f334772b65f03107cdf13be5da2",
+    "paired_seed_effects.csv": "7d87f7b06630fa6abb6b75caa8c98f2baf834a853651ff7d7932480b44f42cd3",
+    "primary_inference.json": "f08d3733acc1040bde41981cded7e88e8233fedf4c19084f5fa667a743fe9f96"
+  }
+}

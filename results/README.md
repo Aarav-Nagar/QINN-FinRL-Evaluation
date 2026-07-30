@@ -25,6 +25,8 @@ This directory contains the outputs from the reference run using PPO seeds 0,
 - `figures/encoder_validation_loss.png`: prediction-model validation loss.
 - `figures/dimension_sensitivity.png` and `.pdf`: paper-ready validation MSE
   and parameter-count sensitivity for bond dimensions 2, 4, and 8.
+- `figures/final_paired_effect.png` and `.pdf`: every matched ten-seed
+  MPS-minus-ANN Sharpe difference, paired mean, and bootstrap interval.
 
 ## Key values
 
@@ -50,3 +52,7 @@ evidence. The first end-to-end configuration matrix is documented in
 Expanded-study pilot evidence is indexed under `pilots/`. The guarded
 bond-dimension result and its provenance manifest are documented in
 [`pilots/2026-07-28/`](pilots/2026-07-28/).
+
+The guarded ten-seed fixed-split evaluation, including every per-seed endpoint,
+full equity curves, paired inference, and SHA-256 provenance, is indexed under
+[`final/`](final/).

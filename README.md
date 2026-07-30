@@ -46,6 +46,13 @@ The first expanded-study result is the matched
 steps for the final ten-seed evaluation while retaining the absence of
 established convergence as a limitation.
 
+The expanded fixed-split evaluation is complete. Across ten matched PPO seeds,
+mean Sharpe was 0.800 for ANN and 0.762 for the selected dimension-2 MPS. The
+mean paired MPS-minus-ANN Sharpe difference was -0.038, with a paired-seed
+bootstrap 95% interval of [-0.089, 0.016]. The full per-seed evidence and
+provenance are under [`results/final/`](results/final/). This bounded result
+does not establish an MPS advantage or general inferiority.
+
 ## Review guide
 
 For a concise review of the project:

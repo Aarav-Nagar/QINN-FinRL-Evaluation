@@ -14,7 +14,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | C04 | The reference moving-block-bootstrap interval for MPS-minus-ANN annualized return includes zero. | `results/ann_vs_mps_block_bootstrap.csv`, `results/run_manifest.json` | Ready. Treat the interval as uncertainty description, not proof of no effect. |
 | C05 | The matched budget pilot selected 20,000 PPO steps because outcomes and diagnostics still changed between 10k and 20k. | `results/pilots/2026-07-27/budget_summary.csv`, `results/pilots/2026-07-27/budget_paired.csv`, `docs/DECISIONS.md` | Ready. State explicitly that convergence was not established. |
 | C06 | MPS validation behavior and computational cost vary with bond dimension; the frozen validation/parsimony rule selected dimension 2. | `results/pilots/2026-07-28/dimension_summary.csv`, `results/pilots/2026-07-28/dimension_manifest.json`, `docs/DECISIONS.md` | Ready. All dimensions were within 1% validation MSE; dimension 2 had the fewest parameters. Trading outcomes did not drive selection. |
-| C07 | The final primary effect is the paired MPS-minus-ANN Sharpe difference across ten matched PPO seeds. | Planned final seed-level and aggregate artifacts | Pending. No value, sign, or uncertainty statement is authorized yet. |
+| C07 | Across ten matched PPO seeds, mean MPS-minus-ANN Sharpe was -0.0382, with a paired-seed bootstrap 95% interval from -0.0892 to 0.0157; MPS was higher in 3/10 seeds. | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/final/final_manifest.json` | Ready. Bound to dimension 2, 20k PPO steps, one fixed historical split; do not call the interval population-level or causal. |
 | C08 | Fixed-split conclusions are or are not directionally stable under a shifted market-period evaluation. | Planned rolling/expanding-window artifacts | Pending. Do not imply temporal robustness from annual slices of the same fixed test period. |
 | C09 | The implementation is a classical MPS/tensor-network simulation and did not execute a quantum circuit or use quantum hardware. | `run_experiment.py`, `results/run_manifest.json`, `docs/EXPERIMENT_PROTOCOL.md` | Ready and required in the abstract/methods or limitations. |
 | C10 | The RTX 5060 was available but CPU was retained after a matched encoder benchmark was faster. | `results/smoke/2026-07-27/device_benchmark.csv`, `REPRODUCIBILITY.md` | Ready as reproducibility context only; it is not a model-performance result. |
@@ -25,7 +25,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 |---|---|---|---|
 | T01 | Data splits, state construction, costs, PPO budget, seeds, and encoder controls | `results/run_manifest.json`, `docs/EXPERIMENT_PROTOCOL.md`, `docs/DECISIONS.md` | Ready for methods; final run manifest still pending |
 | T02 | Bond-dimension validation, parameter, runtime, and descriptive trading sensitivity | `results/pilots/2026-07-28/dimension_summary.csv`, `results/pilots/2026-07-28/dimension_paired.csv` | Ready |
-| T03 | Ten-seed Base, ANN, and selected-MPS portfolio outcomes with paired differences | Planned final evaluation artifacts | Pending |
+| T03 | Ten-seed Base, ANN, and selected-MPS portfolio outcomes with paired differences | `results/final/condition_summary.csv`, `results/final/paired_seed_effects.csv` | Ready |
 | T04 | Shifted-window robustness summary | Planned temporal-robustness artifacts | Pending |
 
 ## Figures
@@ -33,7 +33,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | ID | Planned content | Source | Status |
 |---|---|---|---|
 | F01 | MPS validation error and parameter count by bond dimension | `results/pilots/2026-07-28/dimension_summary.csv`, `results/figures/dimension_sensitivity.pdf` | Ready; PNG and vector PDF generated and visually inspected |
-| F02 | Paired ten-seed MPS-minus-ANN primary effect with uncertainty | Planned `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, and `results/figures/final_paired_effect.pdf` | Generation and validation code ready; empirical artifact pending |
+| F02 | Paired ten-seed MPS-minus-ANN primary effect with uncertainty | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/figures/final_paired_effect.pdf` | Ready; PNG and vector PDF generated, PNG visually inspected |
 | F03 | Fixed-split versus shifted-window comparison, if legible within the page budget | Planned robustness artifacts | Pending |
 
 ## Primary references verified for drafting

@@ -27,10 +27,11 @@ policy evaluation, prespecifies PPO-budget and MPS-capacity selection, and
 retains negative or unstable results. A three-seed capacity pilot found all
 tested MPS bond dimensions within one percent validation mean-squared error;
 the frozen parsimony rule selected bond dimension two (97 parameters).
-Pilot trading differences changed across seeds and did not establish a stable
-MPS advantage. The primary ten-seed comparison and shifted-period robustness
-analysis are intentionally withheld from this draft until their validated,
-hash-linked artifacts complete.
+Pilot trading differences changed across seeds. In the final ten-seed
+comparison, mean Sharpe was 0.800 for ANN and 0.762 for MPS; the paired
+MPS-minus-ANN difference was -0.038 with a paired-seed bootstrap 95\% interval
+of [-0.089, 0.016]. MPS was higher in three seeds. This fixed-split result does
+not establish an MPS advantage. Shifted-period robustness remains pending.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -193,15 +194,57 @@ trading outcomes do not determine selection.}
 Mean pilot MPS-minus-ANN Sharpe differences were \(-0.045\), \(-0.027\), and
 \(-0.046\) for dimensions 2, 4, and 8. Each MPS configuration exceeded ANN in
 one of three matched seeds. These descriptive pilot results do not establish a
-stable advantage and are not substituted for the pending ten-seed estimate.
+stable advantage and are kept separate from the final ten-seed estimate below.
 
-\section{Final Evaluation and Robustness}
+\section{Final Evaluation}
 
-This section is gated on the completed ten-seed manifest, paired-effect
-artifact, and shifted-period robustness evidence. Numerical placeholders are
-prohibited: the submission version will populate this section only from
-generated, hash-linked tables and figures registered in the claim traceability
-file.
+Table~\ref{tab:final} reports all-condition summaries across the ten matched
+PPO seeds. ANN had the highest mean Sharpe (0.800), followed by MPS (0.762) and
+Base FinRL (0.689). The mean paired MPS-minus-ANN Sharpe difference was -0.038
+(standard deviation 0.089; median -0.043). MPS exceeded ANN in three seeds and
+trailed it in seven (Fig.~\ref{fig:final-effect}); the exact two-sided sign-test
+\(p\)-value was 0.344.
+
+\begin{table}[t]
+\caption{Final fixed-split results across ten PPO seeds}
+\label{tab:final}
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Condition & Ann. return & Sharpe & Max drawdown \\
+\midrule
+Base FinRL & 0.154 & 0.689 & -0.420 \\
+ANN signal & 0.170 & 0.800 & -0.298 \\
+MPS signal & 0.167 & 0.762 & -0.331 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{final_paired_effect.pdf}
+\caption{Matched seed-level MPS-minus-ANN Sharpe differences. The horizontal
+line is the paired mean; shading is the deterministic paired-seed bootstrap
+95\% interval.}
+\label{fig:final-effect}
+\end{figure}
+
+The paired-seed bootstrap interval was [-0.089, 0.016] and included zero.
+This interval summarizes policy-training-seed variation for the fixed
+2013--2018/2019--2023 split; it is neither a population-level confidence
+interval nor evidence of equivalence. The MPS signal had slightly lower test
+prediction MSE than ANN (1.500 versus 1.510), yet its mean downstream Sharpe
+was lower. This is the failure mode motivating the paper: a predictive
+improvement need not survive policy optimization, transaction costs, and
+path-dependent portfolio dynamics.
+
+\subsection{Temporal robustness}
+
+The shifted-period analysis remains evidence-gated. Annual slices of the same
+2019--2023 test trajectory are not treated as independent temporal validation,
+and no robustness claim is made until encoders and PPO policies are refit
+without access to each evaluation window.
 
 \section{Limitations}
 
@@ -218,12 +261,13 @@ used.
 
 \section{Conclusion}
 
-The current evidence supports a methodological conclusion: representation
-validation, policy evaluation, and capacity selection must remain distinct.
-The capacity pilot selected a compact MPS without using trading outcomes, while
-its descriptive trading differences were seed-sensitive. The final conclusion
-about downstream performance remains contingent on the prespecified ten-seed
-and temporal-robustness artifacts.
+Representation validation, policy evaluation, and capacity selection must
+remain distinct. The frozen rule selected a compact MPS without using trading
+outcomes, but the final fixed-split comparison did not establish an MPS
+advantage: its slightly lower prediction error accompanied a mean paired
+Sharpe difference of -0.038 with an interval spanning zero. This is a bounded
+classical MPS result, not evidence against tensor networks generally. Temporal
+generalization remains contingent on the prespecified shifted-period analysis.
 
 \section*{Acknowledgment}
 
