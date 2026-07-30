@@ -112,6 +112,7 @@ REPRESENTATION_FEATURES = [
 
 @dataclass(frozen=True)
 class ExperimentConfig:
+    window_name: str = "primary"
     representation_seed: int = 2026
     ppo_seeds: tuple[int, ...] = (0, 1, 2)
     ppo_timesteps: int = 5_000
@@ -128,8 +129,37 @@ class ExperimentConfig:
     encoder_learning_rate: float = 2e-3
     representation_train_end: str = "2017-12-29"
     representation_validation_start: str = "2018-01-01"
+    representation_validation_end: str = "2018-12-28"
+    train_start: str = "2013-01-02"
+    train_end: str = "2018-12-28"
+    test_start: str = "2019-01-02"
+    test_end: str = "2023-12-28"
     train_period: str = "2013-01-02 to 2018-12-28"
     test_period: str = "2019-01-02 to 2023-12-28"
+
+
+WINDOW_OVERRIDES: dict[str, dict[str, str]] = {
+    "primary": {},
+    "shifted": {
+        "window_name": "shifted",
+        "representation_train_end": "2015-12-31",
+        "representation_validation_start": "2016-01-01",
+        "representation_validation_end": "2016-12-30",
+        "train_start": "2013-01-02",
+        "train_end": "2016-12-30",
+        "test_start": "2017-01-03",
+        "test_end": "2018-12-28",
+        "train_period": "2013-01-02 to 2016-12-30",
+        "test_period": "2017-01-03 to 2018-12-28",
+    },
+}
+
+
+def experiment_config_for_window(window: str, **overrides: object) -> ExperimentConfig:
+    """Build a named, prespecified temporal window without date drift."""
+    if window not in WINDOW_OVERRIDES:
+        raise ValueError(f"Unknown experiment window: {window}")
+    return ExperimentConfig(**(WINDOW_OVERRIDES[window] | overrides))
 
 
 def validate_config(config: ExperimentConfig) -> None:
@@ -156,6 +186,44 @@ def validate_config(config: ExperimentConfig) -> None:
         raise ValueError("Transaction cost must be in [0, 1)")
     if config.encoder_device not in {"auto", "cpu", "cuda"}:
         raise ValueError("Encoder device must be one of: auto, cpu, cuda")
+    if config.window_name not in WINDOW_OVERRIDES:
+        raise ValueError("Experiment window must be one of: primary, shifted")
+    dates = {
+        name: pd.Timestamp(getattr(config, name))
+        for name in (
+            "train_start",
+            "representation_train_end",
+            "representation_validation_start",
+            "representation_validation_end",
+            "train_end",
+            "test_start",
+            "test_end",
+        )
+    }
+    if not (
+        dates["train_start"]
+        <= dates["representation_train_end"]
+        < dates["representation_validation_start"]
+        <= dates["representation_validation_end"]
+        <= dates["train_end"]
+        < dates["test_start"]
+        <= dates["test_end"]
+    ):
+        raise ValueError("Experiment dates must be ordered and non-overlapping")
+    expected = ExperimentConfig(**WINDOW_OVERRIDES[config.window_name])
+    window_fields = (
+        "representation_train_end",
+        "representation_validation_start",
+        "representation_validation_end",
+        "train_start",
+        "train_end",
+        "test_start",
+        "test_end",
+    )
+    if any(getattr(config, field) != getattr(expected, field) for field in window_fields):
+        raise ValueError(
+            f"{config.window_name.capitalize()} window dates differ from protocol"
+        )
 
 
 def resolve_encoder_device(requested: str) -> torch.device:
@@ -272,6 +340,7 @@ def engineer_representation_features(
         group["volume_change_5d"] = np.log1p(group["volume"]).diff(5)
         group["vix_scaled"] = group["vix"] / 100.0
         group["target_return_1d"] = close.pct_change().shift(-1)
+        group["target_date"] = group["date"].shift(-1)
         pieces.append(group)
     combined = pd.concat(pieces, ignore_index=True)
     combined[REPRESENTATION_FEATURES] = combined[REPRESENTATION_FEATURES].replace(
@@ -283,6 +352,33 @@ def engineer_representation_features(
     train_out = combined[combined["_period"] == "train"].drop(columns="_period")
     trade_out = combined[combined["_period"] == "trade"].drop(columns="_period")
     return train_out, trade_out
+
+
+def select_experiment_window(
+    train: pd.DataFrame, trade: pd.DataFrame, config: ExperimentConfig
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Select PPO train/evaluation rows from the checksum-verified source data."""
+    combined = pd.concat([train, trade], ignore_index=True)
+    training = combined[
+        combined["date"].between(config.train_start, config.train_end)
+    ].copy()
+    evaluation = combined[
+        combined["date"].between(config.test_start, config.test_end)
+    ].copy()
+    if training.empty or evaluation.empty:
+        raise ValueError("Configured experiment window has no market rows")
+    for name, frame, start, end in (
+        ("training", training, config.train_start, config.train_end),
+        ("evaluation", evaluation, config.test_start, config.test_end),
+    ):
+        observed_start = frame["date"].min().strftime("%Y-%m-%d")
+        observed_end = frame["date"].max().strftime("%Y-%m-%d")
+        if (observed_start, observed_end) != (start, end):
+            raise ValueError(
+                f"{name.capitalize()} window boundary mismatch: "
+                f"{observed_start} to {observed_end}"
+            )
+    return training, evaluation
 
 
 class ANNRegressor(nn.Module):
@@ -435,19 +531,36 @@ def fit_encoder(
     return model, history_frame
 
 
+def representation_masks(
+    train: pd.DataFrame, config: ExperimentConfig
+) -> tuple[pd.Series, pd.Series]:
+    """Build leakage-guarded encoder fit and early-stopping masks."""
+    representation_train_end = pd.Timestamp(config.representation_train_end)
+    validation_start = pd.Timestamp(config.representation_validation_start)
+    validation_end = pd.Timestamp(config.representation_validation_end)
+    training_mask = (
+        (train["date"] <= representation_train_end)
+        & (train["target_date"] <= representation_train_end)
+        & train["target_return_1d"].notna()
+    )
+    validation_mask = (
+        (train["date"] >= validation_start)
+        & (train["date"] <= validation_end)
+        & (train["target_date"] <= validation_end)
+        & train["target_return_1d"].notna()
+    )
+    if not training_mask.any() or not validation_mask.any():
+        raise ValueError("Encoder training and validation windows must be non-empty")
+    return training_mask, validation_mask
+
+
 def train_signal_models(
     train: pd.DataFrame, trade: pd.DataFrame, config: ExperimentConfig
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, object]]:
     started = time.perf_counter()
-    representation_train_end = pd.Timestamp(config.representation_train_end)
+    training_mask, validation_mask = representation_masks(train, config)
     validation_start = pd.Timestamp(config.representation_validation_start)
-    training_mask = (
-        (train["date"] <= representation_train_end)
-        & train["target_return_1d"].notna()
-    )
-    validation_mask = (
-        (train["date"] >= validation_start) & train["target_return_1d"].notna()
-    )
+    validation_end = pd.Timestamp(config.representation_validation_end)
     means = train.loc[training_mask, REPRESENTATION_FEATURES].mean()
     scales = train.loc[training_mask, REPRESENTATION_FEATURES].std().replace(0, 1.0)
     target_mean = float(train.loc[training_mask, "target_return_1d"].mean())
@@ -511,8 +624,13 @@ def train_signal_models(
     inference_elapsed = time.perf_counter() - inference_started
     signal_rows = []
     for split, frame, mask in (
-        ("validation_2018", train, validation_mask),
-        ("test_2019_2023", trade, trade["target_return_1d"].notna()),
+        (f"validation_{validation_start.year}", train, validation_mask),
+        (
+            f"test_{pd.Timestamp(config.test_start).year}_"
+            f"{pd.Timestamp(config.test_end).year}",
+            trade,
+            trade["target_return_1d"].notna(),
+        ),
     ):
         target = (
             (frame.loc[mask, "target_return_1d"] - target_mean) / target_scale
@@ -1549,6 +1667,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--timesteps", type=int, default=5_000)
     parser.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
     parser.add_argument("--bond-dimension", type=int, default=4)
+    parser.add_argument(
+        "--window", choices=tuple(WINDOW_OVERRIDES), default="primary"
+    )
     parser.add_argument("--encoder-epochs", type=int, default=60)
     parser.add_argument("--encoder-patience", type=int, default=10)
     parser.add_argument("--encoder-batch-size", type=int, default=512)
@@ -1574,7 +1695,8 @@ def main() -> None:
     run_lock = RunLock(args.output_dir)
     run_lock.acquire()
     atexit.register(run_lock.release)
-    config = ExperimentConfig(
+    config = experiment_config_for_window(
+        args.window,
         ppo_seeds=tuple(args.seeds),
         ppo_timesteps=args.timesteps,
         mps_bond_dimension=args.bond_dimension,
@@ -1591,6 +1713,7 @@ def main() -> None:
     stock_env_class = load_stock_trading_env(env_file)
     train, trade = read_market_data(args.data_dir)
     train, trade = engineer_representation_features(train, trade)
+    train, trade = select_experiment_window(train, trade, config)
     train, trade, signal_metrics, encoder_history, encoder_runtime = train_signal_models(
         train, trade, config
     )

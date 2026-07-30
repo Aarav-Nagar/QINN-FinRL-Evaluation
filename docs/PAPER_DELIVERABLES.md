@@ -52,12 +52,12 @@ no quantum hardware is used.
 | Artifact | Completion evidence | Status |
 |---|---|---|
 | Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` reviewed before final runs | In review |
-| Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, device, and runtime | Complete |
-| Automated verification | Focused tests pass for configuration, state construction, summaries, provenance, figures, and smoke comparison | Complete: 66 tests |
+| Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, temporal window, device, and runtime | Complete |
+| Automated verification | Focused tests pass for configuration, temporal boundaries, state construction, summaries, provenance, figures, and smoke comparison | Complete: full-suite verification pending after shifted-window implementation |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Complete: dimension 2 selected by frozen rule |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Complete: all 30 PPO endpoints, manifest, and per-seed metrics preserved |
-| Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Exact non-overlapping shifted window prespecified; implementation pending |
+| Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Exact non-overlapping shifted window implemented and smoke-tested; ten-seed run pending |
 | Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, and costs | Complete for fixed split; temporal robustness pending |
 | Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Capacity and final paired-effect figures generated and visually inspected |
 | Short-paper source | IEEE-template source with traceable result references | Fixed-split Methods and Results integrated; robustness pending |

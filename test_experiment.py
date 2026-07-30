@@ -49,6 +49,62 @@ def test_valid_sensitivity_configs_are_accepted() -> None:
         )
 
 
+def test_shifted_window_matches_frozen_protocol() -> None:
+    config = experiment.experiment_config_for_window("shifted")
+    experiment.validate_config(config)
+    assert config.representation_train_end == "2015-12-31"
+    assert config.representation_validation_start == "2016-01-01"
+    assert config.representation_validation_end == "2016-12-30"
+    assert config.train_end == "2016-12-30"
+    assert config.test_start == "2017-01-03"
+    assert config.test_end == "2018-12-28"
+
+
+def test_named_window_rejects_date_drift() -> None:
+    config = replace(
+        experiment.experiment_config_for_window("shifted"),
+        test_start="2017-01-04",
+    )
+    with pytest.raises(ValueError, match="differ from protocol"):
+        experiment.validate_config(config)
+
+
+def test_representation_masks_exclude_targets_crossing_boundaries() -> None:
+    frame = pd.DataFrame(
+        {
+            "date": pd.to_datetime(
+                ["2015-12-30", "2015-12-31", "2016-01-04", "2016-12-30"]
+            ),
+            "target_date": pd.to_datetime(
+                ["2015-12-31", "2016-01-04", "2016-01-05", "2017-01-03"]
+            ),
+            "target_return_1d": [0.1, 0.2, 0.3, 0.4],
+        }
+    )
+    training, validation = experiment.representation_masks(
+        frame, experiment.experiment_config_for_window("shifted")
+    )
+    assert frame.loc[training, "date"].dt.strftime("%Y-%m-%d").tolist() == [
+        "2015-12-30"
+    ]
+    assert frame.loc[validation, "date"].dt.strftime("%Y-%m-%d").tolist() == [
+        "2016-01-04"
+    ]
+
+
+def test_select_experiment_window_uses_nonoverlapping_boundaries() -> None:
+    dates = pd.to_datetime(
+        ["2013-01-02", "2016-12-30", "2017-01-03", "2018-12-28"]
+    )
+    frame = pd.DataFrame({"date": dates, "tic": ["AAPL"] * len(dates)})
+    training, evaluation = experiment.select_experiment_window(
+        frame.iloc[:2], frame.iloc[2:], experiment.experiment_config_for_window("shifted")
+    )
+    assert training["date"].max() < evaluation["date"].min()
+    assert training["date"].dt.year.tolist() == [2013, 2016]
+    assert evaluation["date"].dt.year.tolist() == [2017, 2018]
+
+
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [

@@ -187,6 +187,34 @@ It preserves the training commit, records the finalization commit and recovery
 basis, regenerates plots with Windows-safe filenames, and refuses to estimate
 runtime fields that were not persisted.
 
+## Shifted-window robustness run
+
+The non-overlapping dates in `docs/ROBUSTNESS_PROTOCOL.md` are implemented as
+the named `shifted` window. The runner rejects date drift from that protocol
+and excludes encoder rows whose next-day target crosses either the fitting or
+validation boundary. Plan the complete matched matrix with:
+
+```powershell
+python scripts/run_experiment_matrix.py `
+  --phase temporal-robustness `
+  --window shifted `
+  --data-dir .cache\data `
+  --finrl-dir .cache\FinRL `
+  --output-root work\temporal-robustness `
+  --timesteps 20000 `
+  --bond-dimensions 2 `
+  --seeds 0 1 2 3 4 5 6 7 8 9 `
+  --encoder-epochs 60 `
+  --encoder-patience 10 `
+  --encoder-batch-size 512 `
+  --encoder-device cpu `
+  --dry-run
+```
+
+Remove `--dry-run` only after inspecting `matrix_plan.json`. The resulting job
+identifier contains `shifted`, and `run_status.json` records the exact dates,
+window name, device, seeds, budget, and bond dimension.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |

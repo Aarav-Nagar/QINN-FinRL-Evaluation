@@ -15,6 +15,7 @@ from pathlib import Path
 @dataclass(frozen=True)
 class MatrixJob:
     phase: str
+    window: str
     timesteps: int
     bond_dimension: int
     seeds: tuple[int, ...]
@@ -26,8 +27,9 @@ class MatrixJob:
     @property
     def job_id(self) -> str:
         seed_token = "-".join(str(seed) for seed in self.seeds)
+        window_token = "" if self.window == "primary" else f"_{self.window}"
         return (
-            f"{self.phase}_steps{self.timesteps}_bd{self.bond_dimension}"
+            f"{self.phase}{window_token}_steps{self.timesteps}_bd{self.bond_dimension}"
             f"_seeds{seed_token}_epochs{self.encoder_epochs}"
             f"_batch{self.encoder_batch_size}_{self.encoder_device}"
         )
@@ -35,6 +37,7 @@ class MatrixJob:
 
 def build_jobs(
     phase: str,
+    window: str,
     timesteps: list[int],
     bond_dimensions: list[int],
     seeds: tuple[int, ...],
@@ -54,6 +57,7 @@ def build_jobs(
     jobs = [
         MatrixJob(
             phase=phase,
+            window=window,
             timesteps=steps,
             bond_dimension=dimension,
             seeds=seeds,
@@ -85,6 +89,8 @@ def command_for_job(
         str(output_root / job.job_id),
         "--timesteps",
         str(job.timesteps),
+        "--window",
+        job.window,
         "--seeds",
         *(str(seed) for seed in job.seeds),
         "--bond-dimension",
@@ -119,7 +125,7 @@ def job_state(job: MatrixJob, output_root: Path) -> str:
         return "incomplete"
     payload = json.loads(status_path.read_text(encoding="utf-8"))
     experiment = payload.get("experiment", {})
-    expected = {
+    expected: dict[str, object] = {
         "ppo_seeds": list(job.seeds),
         "ppo_timesteps": job.timesteps,
         "mps_bond_dimension": job.bond_dimension,
@@ -128,6 +134,8 @@ def job_state(job: MatrixJob, output_root: Path) -> str:
         "encoder_batch_size": job.encoder_batch_size,
         "encoder_device": job.encoder_device,
     }
+    if job.window != "primary":
+        expected["window_name"] = job.window
     if any(experiment.get(key) != value for key, value in expected.items()):
         return "stale"
     if payload.get("runtime", {}).get("status") != "completed":
@@ -140,6 +148,7 @@ def job_state(job: MatrixJob, output_root: Path) -> str:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--phase", required=True)
+    parser.add_argument("--window", choices=("primary", "shifted"), default="primary")
     parser.add_argument("--runner", type=Path, default=Path("run_experiment.py"))
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--finrl-dir", type=Path, required=True)
@@ -166,6 +175,7 @@ def main() -> None:
     args = parse_args()
     jobs = build_jobs(
         args.phase,
+        args.window,
         args.timesteps,
         args.bond_dimensions,
         tuple(args.seeds),
