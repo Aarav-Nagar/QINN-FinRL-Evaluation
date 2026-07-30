@@ -40,6 +40,8 @@ The expanded SecureFinAI short-paper work is governed by the
 verification, and any protocol deviations are retained in the
 [research log](docs/DAILY_LOG.md). Post-pilot choices are preserved in the
 [experiment decision log](docs/DECISIONS.md).
+The exact non-overlapping shifted-window design is frozen in the
+[temporal robustness protocol](docs/ROBUSTNESS_PROTOCOL.md).
 
 The first expanded-study result is the matched
 [PPO training-budget pilot](results/pilots/2026-07-27/), which selected 20,000

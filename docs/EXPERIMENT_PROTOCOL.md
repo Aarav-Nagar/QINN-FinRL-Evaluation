@@ -96,6 +96,11 @@ Window boundaries must prevent representation training, PPO training, or
 normalization from observing its evaluation period. If full PPO retraining is
 computationally infeasible, label any reduced robustness analysis as secondary.
 
+The exact pre-outcome shifted window, fixed seed set, settings, boundary
+controls, estimand, and interpretation rules are frozen in
+`docs/ROBUSTNESS_PROTOCOL.md`. That document governs Stage E where it is more
+specific than this general protocol.
+
 ## Outcomes
 
 ### Primary outcome
