@@ -4,9 +4,12 @@
 
 The scientific evidence entering this paper is now limited to the
 prespecified capacity pilot, the corrected primary ten-seed evaluation, and
-the prespecified shifted-window ten-seed evaluation. The exact values and
-SHA-256 hashes are recorded in
-`results/SCIENTIFIC_RESULTS_FREEZE.json`.
+the prespecified shifted-window ten-seed evaluation. Those original values and
+SHA-256 hashes remain unchanged in `results/SCIENTIFIC_RESULTS_FREEZE.json`.
+A documented horizon-length confound then justified one separately versioned
+exploratory extension: the three-window equal-length panel frozen before its
+two new outcomes. Its hashes and reporting rule are recorded in
+`results/robustness/equal_windows/equal_window_manifest.json`.
 
 ## Frozen scope
 
@@ -15,6 +18,7 @@ SHA-256 hashes are recorded in
 | Capacity pilot | Bond dimensions 2, 4, and 8; PPO seeds 0--2; 20,000 steps | Select dimension 2 using validation MSE and parsimony |
 | Primary evaluation | 2019--2023; Base, ANN, and MPS; PPO seeds 0--9 | Primary fixed-split result |
 | Shifted evaluation | 2017--2018; Base, ANN, and MPS; PPO seeds 0--9 | Prespecified temporal sensitivity result |
+| Equal-length extension | 2017--2018, 2019--2020, and 2021--2022; four-year training and two-year evaluation spans; PPO seeds 0--9 | Exploratory horizon/training-window sensitivity |
 
 ## Frozen conclusions
 
@@ -30,6 +34,14 @@ SHA-256 hashes are recorded in
 - The sign reversal supports evaluation-window sensitivity. It does not
   establish a stable MPS advantage, quantum advantage, or a general result
   about tensor networks.
+- Equal-length panel: paired mean MPS-minus-ANN Sharpe is +0.086245,
+  +0.092451, and +0.139662 across the three chronological cells. MPS is
+  higher in 9/10, 7/10, and 6/10 seeds.
+- The latter two seed-bootstrap intervals, [-0.007979, 0.196643] and
+  [-0.067971, 0.338489], include zero. The original five-year primary estimate
+  remains negative.
+- The panel therefore supports horizon and training-window sensitivity, not a
+  stable MPS advantage or a causal market-regime explanation.
 
 ## Verification
 
@@ -63,11 +75,12 @@ scientific value or frozen evidence file may change only if a documented
 error is found. A new experiment may enter this paper only after documenting
 the methodological gap, freezing its protocol before inspecting outcomes,
 and versioning it separately. Existing unfavorable or inconclusive evidence
-must remain visible.
+must remain visible. The equal-window extension satisfies this rule through
+`docs/EQUAL_WINDOW_PROTOCOL.md`; it does not alter the original freeze
+manifest.
 
-GitHub issue 5, a broader rolling or expanding-window study, remains useful
-future work. It is not required to reinterpret or replace the two frozen
-windows in this short paper.
+No additional date window may be added in response to the equal-panel results.
+A different stock universe remains useful future work.
 
 ## QA boundary
 

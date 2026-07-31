@@ -28,7 +28,7 @@ SIGNAL_METRICS = [
     "information_coefficient",
 ]
 BOOTSTRAP_SAMPLES = 10_000
-BOOTSTRAP_SEED = 20_260_731
+BOOTSTRAP_SEED = 20_260_728
 COMMON_CONFIGURATION: dict[str, object] = {
     "ppo_seeds": SEEDS,
     "ppo_timesteps": 20_000,
@@ -142,10 +142,10 @@ def load_window(
 
 
 def paired_bootstrap(
-    values: pd.Series, *, seed_offset: int
+    values: pd.Series,
 ) -> tuple[float, float]:
     array = values.to_numpy(dtype=float)
-    rng = np.random.default_rng(BOOTSTRAP_SEED + seed_offset)
+    rng = np.random.default_rng(BOOTSTRAP_SEED)
     indices = rng.integers(0, len(array), size=(BOOTSTRAP_SAMPLES, len(array)))
     means = array[indices].mean(axis=1)
     lower, upper = np.quantile(means, [0.025, 0.975])
@@ -160,7 +160,7 @@ def summarize(
     paired_summary_rows: list[dict[str, object]] = []
     signal_rows: list[dict[str, object]] = []
 
-    for window_index, label in enumerate(WINDOWS):
+    for label in WINDOWS:
         _, metrics, signal = loaded[label]
         for condition in CONDITIONS:
             selected = metrics[metrics["condition"] == condition]
@@ -176,16 +176,13 @@ def summarize(
 
         pivot = metrics.pivot(index="seed", columns="condition")
         paired = pd.DataFrame({"window": label, "seed": SEEDS})
-        for metric_index, metric in enumerate(PORTFOLIO_METRICS):
+        for metric in PORTFOLIO_METRICS:
             column = f"mps_minus_ann_{metric}"
             paired[column] = (
                 pivot[metric]["QINN-MPS signal"] - pivot[metric]["ANN signal"]
             ).to_numpy()
             differences = paired[column]
-            lower, upper = paired_bootstrap(
-                differences,
-                seed_offset=window_index * len(PORTFOLIO_METRICS) + metric_index,
-            )
+            lower, upper = paired_bootstrap(differences)
             paired_summary_rows.append(
                 {
                     "window": label,

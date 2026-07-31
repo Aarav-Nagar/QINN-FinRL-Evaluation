@@ -767,3 +767,96 @@ QA boundary:
 
 - The full 60-endpoint PPO matrices were not retrained; their completed endpoint tables, curves, configurations, commits, and hashes remain frozen.
 - Manuscript compilation, page-count/font checks, and rendered visual inspection remain separate submission QA tasks.
+
+## 2026-07-31 - Equal-length temporal robustness extension
+
+Completed:
+
+1. Inspected the clean worktree, open temporal-robustness issue, completed
+   evidence, recent commits, daily log, active processes, and runtime hardware.
+2. Identified a genuine design gap before new outcomes: the primary and
+   shifted comparisons changed evaluation length and training-history length
+   together.
+3. Froze `docs/EQUAL_WINDOW_PROTOCOL.md` before viewing either new outcome.
+4. Prespecified non-overlapping 2017--2018, 2019--2020, and 2021--2022
+   two-year evaluations.
+5. Fixed every cell to a four-year PPO training span, three encoder-fit years,
+   one validation year, 20,000 steps, dimension 2, and matched seeds 0--9.
+6. Reused the exact completed 2017--2018 run rather than duplicating it.
+7. Added guarded named configurations for the two new windows.
+8. Extended orchestration, date-drift validation, period-label validation,
+   leakage-boundary tests, and distinct job identifiers.
+9. Generated and inspected both complete dry-run matrix plans before training.
+10. Completed reduced Base/ANN/MPS smoke runs for both new windows; these are
+    execution evidence only and do not enter the paper.
+11. Committed and pushed the protocol and implementation before full outcomes.
+12. Detected a primary-window-specific manifest filter near the start of the
+    first full run, stopped only its exact process tree, and preserved three
+    completed Base checkpoints.
+13. Bound manifest signal evidence to each configured test window and added a
+    focused regression test before resuming the unchanged matrix.
+14. Resumed the first matrix from matching checkpoints with one durable writer.
+15. Completed all 30 endpoints for 2019--2020 in 865.206 seconds.
+16. Completed all 30 endpoints for 2021--2022 in 972.014 seconds.
+17. Confirmed both manifests record Python 3.12.10, PyTorch 2.10.0+cpu, CUDA
+    unavailable, and actual CPU execution.
+18. Added a guarded cross-window summarizer that rejects incomplete runs,
+    control/date drift, missing seeds, duplicate keys, and missing signal rows.
+19. Reused the existing deterministic 10,000-resample seed-bootstrap procedure
+    so the 2017--2018 interval remains byte-for-number consistent.
+20. Generated condition, paired-seed, paired-metric, prediction-quality, and
+    bounded-inference tables for every fixed window.
+21. Generated a seed-level PNG and vector-PDF equal-window effect figure.
+22. Independently recomputed all condition means, paired Sharpe differences,
+    win counts, and input/output hashes from the raw run bundles.
+23. Preserved both complete run bundles, matrix plans, manifests, curves,
+    tables, figures, and derived provenance under `results/robustness/`.
+24. Integrated the exploratory panel into the abstract, Methods, Results table,
+    limitations, conclusion, scientific-freeze registry, and claim traceability.
+25. Updated the repository overview, reproducibility commands, experiment
+    protocol routing, deliverables tracker, and focused evidence tests.
+
+Verified equal-window results:
+
+- 2017--2018: ANN mean Sharpe 0.627464; MPS 0.713709; paired difference
+  +0.086245; 9/10 positive seeds; interval [0.001119, 0.194500].
+- 2019--2020: ANN mean Sharpe 0.870327; MPS 0.962777; paired difference
+  +0.092451; 7/10 positive seeds; interval [-0.007979, 0.196643].
+- 2021--2022: ANN mean Sharpe 0.037627; MPS 0.177289; paired difference
+  +0.139662; 6/10 positive seeds; interval [-0.067971, 0.338489].
+- Paired MPS-minus-ANN annual-return means were +0.022534, +0.030742, and
+  +0.040504 across the three cells.
+- Paired maximum-drawdown means were -0.006829, +0.005217, and +0.067607;
+  turnover means were +0.022726, +0.003620, and -0.025992; modeled-cost means
+  were +$41.23, +$1.98, and -$42.20.
+- MPS test MSE was lower in the first two cells but higher in 2021--2022
+  (1.525238 versus 1.506480 for ANN), despite positive mean Sharpe differences
+  in every equal-length cell.
+
+Verification:
+
+- Focused equal-window configuration, analysis, figure, and evidence suite:
+  10 tests passed.
+- Full repository suite: 100 tests passed in 4.84 seconds.
+- Original scientific freeze: 38 hashes, 60 primary/shifted PPO endpoints,
+  three capacity dimensions, and five original paper claim groups verified.
+- Independent evidence check: 90 equal-window condition/seed rows across all
+  three cells, all manifests and derived hashes matched.
+
+Interpretation boundary:
+
+- Positive mean Sharpe in all three equal-length cells is useful exploratory
+  evidence, but the two new intervals include zero and the five-year primary
+  estimate remains negative.
+- The result supports evaluation-horizon and training-window sensitivity, not
+  stable MPS superiority or a causal market-regime explanation.
+- No additional date window will be added in response to these outcomes.
+
+QA boundary:
+
+- The generated PNG is structurally valid at 2130 by 1163 pixels and the
+  vector PDF has a valid PDF signature.
+- Direct visual reinspection remains blocked by the current Windows ACL image
+  path; visual QA is not claimed.
+- IEEE manuscript compilation, page-budget inspection, font embedding, and
+  rendered overflow checks remain pending because no TeX engine is installed.

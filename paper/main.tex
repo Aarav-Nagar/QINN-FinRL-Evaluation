@@ -31,10 +31,12 @@ Pilot trading differences changed across seeds. In the corrected final
 comparison, mean Sharpe was 0.821 for ANN and 0.784 for MPS; the paired
 MPS-minus-ANN difference was -0.037 with a paired-seed bootstrap 95\% interval
 of [-0.113, 0.045]. MPS was higher in three of ten seeds. In a prespecified
-shifted 2017--2018 evaluation, MPS mean Sharpe was 0.714 versus 0.627 for ANN
-and was higher in nine seeds, but the moving-block-bootstrap interval for the
-annualized return difference included zero. The sign reversal indicates window
-sensitivity rather than a stable MPS advantage.
+equal-length robustness panel, mean MPS-minus-ANN Sharpe was +0.086, +0.092,
+and +0.140 for 2017--2018, 2019--2020, and 2021--2022. The latter two
+seed-bootstrap intervals included zero. In the first cell,
+MPS mean Sharpe was 0.714 versus 0.627 for ANN.
+The five-year primary result had the opposite sign. The evidence indicates
+horizon and training-window sensitivity rather than a stable MPS advantage.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -165,6 +167,13 @@ they are not causal or population-level intervals. A secondary protocol,
 frozen before its outcomes were inspected, shifts encoder fitting through
 2015, encoder validation and PPO fitting through 2016, and portfolio evaluation
 to 2017--2018. It retains the same models, 20,000-step budget, costs, and seeds.
+A further protocol, also frozen before its new outcomes, compares three
+non-overlapping two-year evaluations: 2017--2018, 2019--2020, and 2021--2022.
+Each has a four-year PPO training span, with three encoder-fit years followed
+by one validation year. The first cell reuses the completed shifted run; the
+other two refit encoders and PPO chronologically. This panel controls
+evaluation- and training-span length but cannot isolate a causal market-regime
+effect.
 
 \section{Capacity Pilot}
 
@@ -250,21 +259,44 @@ path-dependent portfolio dynamics.
 
 \subsection{Temporal robustness}
 
-The shifted protocol refit both encoders and PPO without access to its
-2017--2018 evaluation window. Mean Sharpe was 0.714 for MPS, 0.627 for ANN, and
-0.652 for Base FinRL. The paired MPS-minus-ANN mean was +0.086 with a
-paired-seed bootstrap interval of [0.001, 0.195]; MPS was higher in nine seeds
-and the two-sided sign-test \(p\)-value was 0.021. However, the annualized
-MPS-minus-ANN return difference was +2.34 percentage points and its 20-day
-moving-block-bootstrap interval was [-0.83, 5.98] percentage points. This
-window therefore favors MPS directionally, but the opposite primary-window
-sign and return interval spanning zero support window sensitivity rather than
-a stable architecture-wide advantage.
+Table~\ref{tab:equal-windows} reports the fixed equal-length panel. Mean
+MPS-minus-ANN Sharpe is positive in all three two-year cells. The
+2017--2018 interval excludes zero narrowly, while the 2019--2020 and
+2021--2022 intervals include zero and seed dispersion increases in the last
+cell. Mean Sharpe was 0.714 for MPS, 0.627 for ANN in the reused first cell;
+the paired MPS-minus-ANN mean was +0.086 with a paired-seed bootstrap interval
+of [0.001, 0.195]. The original shifted-window annualized-return difference
+remains +2.34 percentage points with a 20-day moving-block-bootstrap interval of
+[-0.83, 5.98] percentage points.
+
+\begin{table}[t]
+\caption{Exploratory equal-length temporal robustness}
+\label{tab:equal-windows}
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Window & ANN Sharpe & MPS Sharpe & $\Delta$ Sharpe & Wins \\
+\midrule
+2017--2018 & 0.627 & 0.714 & +0.086 & 9/10 \\
+2019--2020 & 0.870 & 0.963 & +0.092 & 7/10 \\
+2021--2022 & 0.038 & 0.177 & +0.140 & 6/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+MPS test MSE is slightly lower in the first two cells but higher in
+2021--2022 (1.525 versus 1.506 for ANN), even though its mean trading Sharpe
+is higher in all three. Thus prediction-quality differences do not explain
+the portfolio pattern monotonically. Together with the negative five-year
+primary estimate, the panel supports sensitivity to evaluation horizon and
+training-window design, not a stable architecture-wide advantage.
 
 \section{Limitations}
 
-The study uses a small 15-stock universe and only two historical evaluation
-windows; the shifted window is not an independent market universe.
+The study uses one small 15-stock universe, one five-year primary evaluation,
+and three two-year secondary windows. Two secondary windows fall inside the
+primary calendar span, so these are not independent replications.
 The MPS is reconstructed from the stated research direction rather than an
 unavailable original implementation. Capacity matching is exact only for the
 reference dimension-4 ANN comparison; the selected dimension-2 model is a
@@ -281,11 +313,12 @@ Representation validation, policy evaluation, and capacity selection must
 remain distinct. The frozen rule selected a compact MPS without using trading
 outcomes, but the corrected primary comparison did not establish an MPS
 advantage: its slightly lower prediction error accompanied a mean paired
-Sharpe difference of -0.037 with an interval spanning zero. The prespecified
-earlier window reversed the mean sign and favored MPS in nine seeds, while its
-return-difference interval still included zero. Together these are bounded,
-classical MPS results showing evaluation-window sensitivity, not a stable
-advantage or evidence against tensor networks generally.
+Sharpe difference of -0.037 with an interval spanning zero. All three
+equal-length two-year cells have positive mean differences, but the two new
+intervals also span zero and prediction-quality direction is inconsistent.
+The opposite five-year and two-year patterns are bounded, classical MPS
+evidence of evaluation-window sensitivity and training-window dependence,
+not a stable advantage or evidence against tensor networks generally.
 
 \section*{Acknowledgment}
 

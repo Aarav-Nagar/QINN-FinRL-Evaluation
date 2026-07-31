@@ -1,0 +1,79 @@
+{
+  "artifact": "equal_length_temporal_robustness",
+  "protocol": "docs/EQUAL_WINDOW_PROTOCOL.md",
+  "windows": {
+    "2017-2018": {
+      "window_name": "shifted",
+      "representation_train_end": "2015-12-31",
+      "representation_validation_start": "2016-01-01",
+      "representation_validation_end": "2016-12-30",
+      "train_start": "2013-01-02",
+      "train_end": "2016-12-30",
+      "test_start": "2017-01-03",
+      "test_end": "2018-12-28"
+    },
+    "2019-2020": {
+      "window_name": "equal_2019_2020",
+      "representation_train_end": "2017-12-29",
+      "representation_validation_start": "2018-01-01",
+      "representation_validation_end": "2018-12-28",
+      "train_start": "2015-01-02",
+      "train_end": "2018-12-28",
+      "test_start": "2019-01-02",
+      "test_end": "2020-12-31"
+    },
+    "2021-2022": {
+      "window_name": "equal_2021_2022",
+      "representation_train_end": "2019-12-31",
+      "representation_validation_start": "2020-01-02",
+      "representation_validation_end": "2020-12-31",
+      "train_start": "2017-01-03",
+      "train_end": "2020-12-31",
+      "test_start": "2021-01-04",
+      "test_end": "2022-12-30"
+    }
+  },
+  "common_configuration": {
+    "ppo_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "ppo_timesteps": 20000,
+    "mps_bond_dimension": 2,
+    "representation_seed": 2026,
+    "encoder_epochs": 60,
+    "encoder_patience": 10,
+    "encoder_batch_size": 512,
+    "encoder_device": "cpu",
+    "transaction_cost": 0.001,
+    "initial_amount": 1000000
+  },
+  "inputs": {
+    "protocol": "dc7577dde3bba4d8692457cd0e5fff9a4bd197acee729e846c2f7eeccf97547c",
+    "2017-2018/run_manifest.json": "27ce7514956eef5521b0598711021fc87186253c4bb0dd28a0852e5a9a3edced",
+    "2017-2018/ppo_backtest_metrics.csv": "410058884d3f2b69191a7975b306b15f955093f17a900f522c015c46c7e7e647",
+    "2017-2018/signal_metrics.csv": "73df7879815a04badd5a10910051ed50ea488255226aa7db42a8ed76afb2b03e",
+    "2019-2020/run_manifest.json": "83ecd83c19985af7a0e09bfb2f737914b3cbafab99a1b5cfa693140f096365f3",
+    "2019-2020/ppo_backtest_metrics.csv": "163df0f2ede95eabc36ef589464f339c0b65858f53347c240ae3005165b0a1e5",
+    "2019-2020/signal_metrics.csv": "b5405338b940a767deb960f3ff85249b360cd447d2babc7231a7903414f4f3e4",
+    "2021-2022/run_manifest.json": "819200a5446e63c8e5ad2cc077853c9d38ccad41e06773de94f53c40e495612f",
+    "2021-2022/ppo_backtest_metrics.csv": "4b0e1f6fcf9bfe37afef538eeceb4b2ffce73be52132de2c1653c24293d09226",
+    "2021-2022/signal_metrics.csv": "9587422edddc9665ea575680743bd2fe24c5a453b534164582f1d4f34650f9a5"
+  },
+  "outputs": {
+    "window_condition_summary.csv": "d3cd2fc0a838e3d9652d5e31cf9dce57802663f8cc520a3bdfd2cad18d8ce72f",
+    "window_paired_seed_effects.csv": "c67ecab1ea04a84ec4dba7454dfa7e7bab1791ae0f0fa6da7fddd48d738292ed",
+    "window_paired_metric_summary.csv": "05b7f1dec398a56f158368ccbb004c9383e1cda46c02c584b1d213a82e1b7773",
+    "window_signal_quality.csv": "9a3bb652f047847d4b02e129baf41c927a750f20f13c1429e266e8cd7d235c2f",
+    "equal_window_inference.json": "c824202f287ac44d6b34901bb739bb7290075907c4fc77b186fe7fb038c31018"
+  },
+  "reporting_rule": "Report every fixed window, including unfavorable results; interpret patterns as exploratory."
+}

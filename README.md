@@ -39,6 +39,8 @@ verification, and any protocol deviations are retained in the
 [experiment decision log](docs/DECISIONS.md).
 The exact non-overlapping shifted-window design is frozen in the
 [temporal robustness protocol](docs/ROBUSTNESS_PROTOCOL.md).
+The equal-length two-year extension is separately frozen in the
+[equal-window protocol](docs/EQUAL_WINDOW_PROTOCOL.md).
 
 The first expanded-study result is the matched
 [PPO training-budget pilot](results/pilots/2026-07-27/), which selected 20,000
@@ -57,6 +59,16 @@ annualized-return block-bootstrap interval included zero. Its evidence is under
 [`results/robustness/shifted/`](results/robustness/shifted/). The opposite
 window signs support evaluation-window sensitivity, not stable MPS superiority.
 
+The exploratory equal-length panel is also complete. Mean paired MPS-minus-ANN
+Sharpe was +0.086, +0.092, and +0.140 in the 2017--2018, 2019--2020, and
+2021--2022 two-year evaluations. MPS was higher in 9/10, 7/10, and 6/10
+matched seeds, respectively. The two new seed-bootstrap intervals include
+zero, and the five-year primary estimate remains negative. This is useful
+evidence of horizon and training-window sensitivity, not a stable advantage.
+Complete tables, per-seed differences, manifests, and interpretation limits
+are under
+[`results/robustness/equal_windows/`](results/robustness/equal_windows/).
+
 ## Review guide
 
 For a concise review of the current short-paper study:
@@ -64,7 +76,8 @@ For a concise review of the current short-paper study:
 1. Read the IEEE-style source in [`paper/main.tex`](paper/main.tex).
 2. Review the corrected primary and shifted evidence under
    [`results/final/`](results/final/) and
-   [`results/robustness/shifted/`](results/robustness/shifted/).
+   [`results/robustness/shifted/`](results/robustness/shifted/), then inspect
+   the [`equal-window panel`](results/robustness/equal_windows/).
 3. Follow every manuscript claim through
    [`paper/CLAIM_TRACEABILITY.md`](paper/CLAIM_TRACEABILITY.md).
 4. Use [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for exact commands,
@@ -91,7 +104,9 @@ $1,000,000 initial portfolio, a 0.10% transaction cost on each executed buy
 or sell, 20,000 training steps, and matched seeds 0--9. The primary PPO fit
 period is 2013--2018 and its untouched evaluation period is 2019--2023. The
 prespecified shifted analysis fits PPO through 2016 and evaluates on
-2017--2018.
+2017--2018. The exploratory equal-length extension uses three non-overlapping
+two-year evaluations, each preceded by the same four-year PPO training span
+and three-year encoder-fit plus one-year validation split.
 
 Both encoders use the same 13 inputs, next-day return target, fit/validation
 boundaries, and frozen-signal integration. The ANN has 369 trainable
@@ -105,9 +120,13 @@ is not parameter matched.
 Exact tickers, feature lists, temporal boundaries, source-data checksums,
 state dimensions, dependencies, and runtime metadata are recorded in
 `results/final/run_manifest.json` and
-`results/robustness/shifted/run_manifest.json`. The compact capacity-pilot
-inputs are retained under `results/pilots/2026-07-28/raw/`. These results are
-frozen by `results/SCIENTIFIC_RESULTS_FREEZE.json`.
+`results/robustness/shifted/run_manifest.json`; the two new complete manifests
+and cross-window provenance are under `results/robustness/equal_windows/`.
+The compact capacity-pilot inputs are retained under
+`results/pilots/2026-07-28/raw/`. The original evidence is frozen by
+`results/SCIENTIFIC_RESULTS_FREEZE.json`; the exploratory extension is
+separately frozen by
+`results/robustness/equal_windows/equal_window_manifest.json`.
 
 ## Historical reference protocol
 

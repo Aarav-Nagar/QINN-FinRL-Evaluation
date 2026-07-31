@@ -1,0 +1,26 @@
+{
+  "analysis_role": "exploratory equal-length temporal robustness",
+  "windows": [
+    "2017-2018",
+    "2019-2020",
+    "2021-2022"
+  ],
+  "primary_panel_metric": "paired MPS-minus-ANN annualized Sharpe",
+  "mean_sharpe_sign_pattern": "positive_in_all_windows",
+  "windows_with_positive_mean_sharpe_difference": 3,
+  "windows_with_negative_mean_sharpe_difference": 0,
+  "bootstrap_samples_per_window_metric": 10000,
+  "bootstrap_base_seed": 20260728,
+  "metric_orientation": {
+    "sharpe": "higher is better",
+    "annual_return": "higher is better",
+    "max_drawdown": "higher means a less severe drawdown",
+    "annualized_turnover": "lower means less trading",
+    "total_cost": "lower means lower modeled transaction cost",
+    "mse": "lower is better",
+    "mae": "lower is better",
+    "directional_accuracy": "higher is better",
+    "information_coefficient": "higher is better"
+  },
+  "interpretation_boundary": "All windows are reported. The panel is exploratory, is not pooled into a universal effect, and cannot identify a market-regime cause."
+}

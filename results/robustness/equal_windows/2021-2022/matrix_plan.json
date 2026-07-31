@@ -1,0 +1,25 @@
+[
+  {
+    "phase": "equal-window",
+    "window": "equal_2021_2022",
+    "timesteps": 20000,
+    "bond_dimension": 2,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "encoder_epochs": 60,
+    "encoder_patience": 10,
+    "encoder_batch_size": 512,
+    "encoder_device": "cpu",
+    "job_id": "equal-window_equal_2021_2022_steps20000_bd2_seeds0-1-2-3-4-5-6-7-8-9_epochs60_batch512_cpu"
+  }
+]

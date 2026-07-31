@@ -101,6 +101,13 @@ controls, estimand, and interpretation rules are frozen in
 `docs/ROBUSTNESS_PROTOCOL.md`. That document governs Stage E where it is more
 specific than this general protocol.
 
+After the shifted result exposed an evaluation-length confound, the separately
+versioned `docs/EQUAL_WINDOW_PROTOCOL.md` froze a three-cell extension before
+its two new outcomes. It fixes four-year PPO training spans, three-year
+encoder-fit spans, one-year validation spans, two-year evaluation spans, and
+the same ten seeds and model controls. It governs that exploratory extension
+without altering the primary or shifted estimands.
+
 ## Outcomes
 
 ### Primary outcome

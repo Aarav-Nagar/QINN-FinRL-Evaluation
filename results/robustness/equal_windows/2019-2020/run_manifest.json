@@ -1,0 +1,162 @@
+{
+  "experiment": {
+    "window_name": "equal_2019_2020",
+    "representation_seed": 2026,
+    "ppo_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "ppo_timesteps": 20000,
+    "ppo_update_epochs": 3,
+    "transaction_cost": 0.001,
+    "initial_amount": 1000000,
+    "hmax": 100,
+    "reward_scaling": 0.0001,
+    "mps_bond_dimension": 2,
+    "encoder_device": "cpu",
+    "encoder_epochs": 60,
+    "encoder_patience": 10,
+    "encoder_batch_size": 512,
+    "encoder_learning_rate": 0.002,
+    "representation_train_end": "2017-12-29",
+    "representation_validation_start": "2018-01-01",
+    "representation_validation_end": "2018-12-28",
+    "train_start": "2015-01-02",
+    "train_end": "2018-12-28",
+    "test_start": "2019-01-02",
+    "test_end": "2020-12-31",
+    "train_period": "2015-01-02 to 2018-12-28",
+    "test_period": "2019-01-02 to 2020-12-31"
+  },
+  "tickers": [
+    "AAPL",
+    "AMD",
+    "AMGN",
+    "AMZN",
+    "COST",
+    "FANG",
+    "GILD",
+    "HON",
+    "INTC",
+    "MSFT",
+    "NFLX",
+    "NVDA",
+    "PEP",
+    "SBUX",
+    "XEL"
+  ],
+  "finrl_features": [
+    "macd",
+    "boll_ub",
+    "boll_lb",
+    "rsi_30",
+    "cci_30",
+    "dx_30",
+    "close_30_sma",
+    "close_60_sma",
+    "vix",
+    "turbulence"
+  ],
+  "representation_features": [
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "price_to_sma_30",
+    "price_to_sma_60",
+    "macd_scaled",
+    "bollinger_position",
+    "bollinger_width",
+    "rsi_scaled",
+    "cci_scaled",
+    "dx_scaled",
+    "volume_change_5d",
+    "vix_scaled"
+  ],
+  "state_construction": {
+    "base_formula": "cash + 15 prices + 15 holdings + 10 indicators x 15 assets",
+    "base_dimension": 181,
+    "signal_formula": "base state + one frozen encoder prediction per asset",
+    "signal_dimension": 196,
+    "signal_position": "appended as the final per-asset technical-indicator block",
+    "signal_scale": "standardized next-day return prediction clipped to [-8, 8]"
+  },
+  "turnover_definition": {
+    "daily_turnover": "sum(abs(executed shares) * pre-trade price) / beginning-of-step portfolio value",
+    "cumulative_turnover": "sum of daily turnover over the evaluation period",
+    "annualized_turnover": "mean daily turnover x 252",
+    "interpretation": "gross one-way turnover; buys and sells both contribute to traded notional"
+  },
+  "ann_parameter_count": 369,
+  "mps_parameter_count": 97,
+  "finrl_repository": "https://github.com/AI4Finance-Foundation/FinRL.git",
+  "finrl_commit": "2334a5fe6d30629157f13c3b0319e1637e15e123",
+  "dataset_repository": "https://huggingface.co/datasets/benstaf/nasdaq_2013_2023",
+  "dataset_sha256": {
+    "train_data_2013_2018.csv": "92eb993137595e9c461091e9f3569295d0050f5536c75b707468ba6d2197657b",
+    "trade_data_2019_2023.csv": "01587b66236b5563df8f871f0110bbf752f1c593427a346192c20e271efffd3b"
+  },
+  "signal_test_metrics": [
+    {
+      "split": "test_2019_2020",
+      "model": "ANN",
+      "parameter_count": 369,
+      "mse": 1.7701251724115228,
+      "mae": 0.8229555219484215,
+      "directional_accuracy": 0.5106270627062707,
+      "information_coefficient": -0.004039475157125987
+    },
+    {
+      "split": "test_2019_2020",
+      "model": "QINN-MPS",
+      "parameter_count": 97,
+      "mse": 1.7645545171243509,
+      "mae": 0.8216796759428765,
+      "directional_accuracy": 0.5056105610561056,
+      "information_coefficient": 0.08017698339999729
+    }
+  ],
+  "paired_block_bootstrap": {
+    "annualized_mean_return_difference_mps_minus_ann": 0.026820401944021573,
+    "bootstrap_95pct_lower": 0.006815950871188915,
+    "bootstrap_95pct_upper": 0.04732767283782061,
+    "bootstrap_probability_mps_gt_ann": 0.9945,
+    "block_length_days": 20,
+    "bootstrap_samples": 2000
+  },
+  "runtime": {
+    "started_at_utc": "2026-07-31T21:57:41.386026+00:00",
+    "status": "completed",
+    "git_commit": "3b6ecf3d5689e9103ca3ba7748f0f126a8c84026",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cpu",
+    "torch_cuda_build": null,
+    "cuda_available": false,
+    "encoder_device_requested": "cpu",
+    "encoder_device_resolved": "cpu",
+    "ppo_device": "cpu",
+    "completed_at_utc": "2026-07-31T22:12:06.659676+00:00",
+    "elapsed_seconds": 865.2062870000082
+  },
+  "encoder_runtime": {
+    "device": "cpu",
+    "ann_fit_seconds": 0.9372233000176493,
+    "mps_fit_seconds": 1.489640599989798,
+    "signal_inference_seconds": 0.015638599987141788,
+    "total_signal_pipeline_seconds": 3.2371264999965206
+  },
+  "limitations": [
+    "Classical tensor-network simulation; no quantum hardware was used.",
+    "One historical train/test split and one 15-stock Nasdaq subset.",
+    "10 PPO seeds quantify policy instability but do not establish broad statistical generality.",
+    "ANN and MPS parameter counts are reported explicitly; equality applies only to configurations with matching counts."
+  ]
+}

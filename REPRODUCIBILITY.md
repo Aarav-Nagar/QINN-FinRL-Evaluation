@@ -266,6 +266,45 @@ unmatched seeds, duplicate condition/seed rows, and missing schemas for both
 primary and shifted evaluations. Distinct artifact labels prevent the
 secondary robustness evidence from being mistaken for the primary estimand.
 
+## Equal-length temporal robustness panel
+
+The extension in `docs/EQUAL_WINDOW_PROTOCOL.md` reuses the completed
+2017--2018 shifted cell and adds 2019--2020 and 2021--2022. Each cell has a
+four-year PPO training span, three encoder-fit years, one encoder-validation
+year, a two-year evaluation, 20,000 PPO steps, and matched seeds 0--9.
+
+On Windows, launch or resume both new matrices with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_equal_window_robustness.ps1
+```
+
+Matching completed jobs are skipped; incomplete jobs resume only when their
+saved configuration matches. The two published run bundles are under
+`results/robustness/equal_windows/2019-2020/` and `2021-2022/`.
+
+Regenerate the guarded panel and paired-effect figure with:
+
+```powershell
+python scripts\summarize_equal_windows.py `
+  --window-2017-2018 results\robustness\shifted `
+  --window-2019-2020 results\robustness\equal_windows\2019-2020 `
+  --window-2021-2022 results\robustness\equal_windows\2021-2022 `
+  --output-dir .cache\reproduced-equal-windows `
+  --protocol docs\EQUAL_WINDOW_PROTOCOL.md
+python scripts\plot_equal_windows.py `
+  --paired .cache\reproduced-equal-windows\window_paired_seed_effects.csv `
+  --summary .cache\reproduced-equal-windows\window_paired_metric_summary.csv `
+  --png-output .cache\reproduced-equal-windows\equal_window_paired_effect.png `
+  --pdf-output .cache\reproduced-equal-windows\equal_window_paired_effect.pdf
+```
+
+The summarizer rejects incomplete status, date or control drift, missing or
+duplicate condition/seed keys, and missing ANN/MPS signal rows. It hashes the
+protocol, all three source manifests, raw portfolio metrics, signal metrics,
+and every derived table. The panel is exploratory: all windows are reported,
+the cells are not pooled, and no market-regime cause is inferred.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |
@@ -281,7 +320,10 @@ secondary robustness evidence from being mistaken for the primary estimand.
 | MPS parameters | 369 | Capacity-dependent |
 
 The detailed feature lists, ticker universe, state formulas, dates, checksums,
-and known limitations are recorded in `results/final/run_manifest.json` for the corrected primary and in `results/robustness/shifted/run_manifest.json` for the secondary window.
+and known limitations are recorded in `results/final/run_manifest.json` for
+the corrected primary, `results/robustness/shifted/run_manifest.json` for the
+secondary window, and the two complete manifests under
+`results/robustness/equal_windows/` for the equal-length extension.
 
 ## Integrity tests
 
@@ -302,6 +344,10 @@ orchestration and stale-result protection. `test_budget_pilot.py` and
 `test_dimension_pilot.py` verify guarded pilot summaries. The final-evaluation
 and figure tests validate matched ten-seed evidence, distinct primary/shifted
 provenance labels, deterministic inference, and paper-facing plots.
+`test_equal_window_summary.py`, `test_equal_window_figure.py`, and
+`test_equal_window_evidence.py` additionally bind the three fixed windows,
+every requested paired metric, prediction quality, input/output hashes,
+manuscript values, and PNG/PDF structure.
 
 ## Scope
 
