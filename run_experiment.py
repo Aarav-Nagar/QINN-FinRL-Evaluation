@@ -1383,7 +1383,11 @@ def write_run_manifest(
             filename: metadata["sha256"] for filename, metadata in DATA_FILES.items()
         },
         "signal_test_metrics": signal_metrics[
-            signal_metrics["split"] == "test_2019_2023"
+            signal_metrics["split"]
+            == (
+                f"test_{pd.Timestamp(config.test_start).year}_"
+                f"{pd.Timestamp(config.test_end).year}"
+            )
         ].to_dict(orient="records"),
         "paired_block_bootstrap": bootstrap,
         "runtime": runtime,

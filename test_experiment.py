@@ -470,6 +470,45 @@ def test_finalize_existing_results_recovers_completed_tables(
     assert recovered_status["runtime"]["status"] == "completed"
 
 
+def test_run_manifest_uses_the_configured_test_split(tmp_path: Path) -> None:
+    config = experiment.experiment_config_for_window("equal_2021_2022")
+    signal_metrics = pd.DataFrame(
+        [
+            {
+                "split": "test_2019_2023",
+                "model": "ANN",
+                "mse": 9.0,
+            },
+            {
+                "split": "test_2021_2022",
+                "model": "ANN",
+                "mse": 1.0,
+            },
+            {
+                "split": "test_2021_2022",
+                "model": "QINN-MPS",
+                "mse": 0.9,
+            },
+        ]
+    )
+    experiment.write_run_manifest(
+        tmp_path,
+        config,
+        signal_metrics,
+        {},
+        {"status": "completed"},
+        {"device": "cpu"},
+    )
+    manifest = experiment.json.loads(
+        (tmp_path / "run_manifest.json").read_text(encoding="utf-8")
+    )
+    assert [row["split"] for row in manifest["signal_test_metrics"]] == [
+        "test_2021_2022",
+        "test_2021_2022",
+    ]
+    assert [row["mse"] for row in manifest["signal_test_metrics"]] == [1.0, 0.9]
+
+
 def test_partial_results_reject_different_configuration(tmp_path: Path) -> None:
     saved = experiment.ExperimentConfig(ppo_timesteps=512)
     requested = experiment.ExperimentConfig(ppo_timesteps=1024)
