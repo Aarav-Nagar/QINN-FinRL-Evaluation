@@ -53,7 +53,7 @@ no quantum hardware is used.
 |---|---|---|
 | Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` and `docs/ROBUSTNESS_PROTOCOL.md` frozen before their outcomes | Complete |
 | Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, temporal window, device, and runtime | Complete |
-| Automated verification | Configuration, boundaries, state construction, summaries, provenance hashes, published evidence, figures, and smoke comparison | Complete: 79 tests passed on 2026-07-31 |
+| Automated verification | Configuration, boundaries, state construction, summaries, provenance hashes, published evidence, figures, and smoke comparison | Complete: 84 tests passed on 2026-07-31 |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Complete: dimension 2 selected by frozen rule |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Complete: corrected 30-endpoint package, status, manifest, curves, and per-seed metrics preserved |
@@ -62,7 +62,7 @@ no quantum hardware is used.
 | Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Corrected primary and shifted figures regenerated; structural checks pass, visual reinspection pending |
 | Short-paper source | IEEE-template source with traceable result references | Corrected primary and shifted Methods, Results, limitations, and conclusion integrated |
 | Submission PDF | Five pages or fewer; fonts embedded; no clipping or overflow | Not started |
-| Reproducibility package | Environment lock, commands, checksums, manifests, and result index | Complete for evidence integration; clean-clone verification remains |
+| Reproducibility package | Environment lock, commands, checksums, manifests, raw capacity inputs, and result index | Complete: fresh environment, clean checkout, source acquisition, smoke run, and artifact regeneration verified |
 | Repository presentation | README points to current paper, corrected evidence, protocol, commands, and limitations | Complete; final release link remains |
 | Final archive | Tagged, checksummed, release-ready bundle | Not started |
 

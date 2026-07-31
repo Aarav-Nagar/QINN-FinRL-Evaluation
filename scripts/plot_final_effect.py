@@ -7,6 +7,8 @@ import argparse
 import json
 from pathlib import Path
 
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -76,7 +78,11 @@ def plot_final_effect(
     for output in (png_output, pdf_output):
         output.parent.mkdir(parents=True, exist_ok=True)
     figure.savefig(png_output, dpi=300, bbox_inches="tight")
-    figure.savefig(pdf_output, bbox_inches="tight")
+    figure.savefig(
+        pdf_output,
+        bbox_inches="tight",
+        metadata={"CreationDate": None, "ModDate": None},
+    )
     plt.close(figure)
 
 

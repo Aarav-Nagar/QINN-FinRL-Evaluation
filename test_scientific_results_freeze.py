@@ -17,7 +17,7 @@ SPEC.loader.exec_module(results_freeze)
 def test_scientific_results_freeze_matches_published_evidence() -> None:
     report = results_freeze.verify_freeze(ROOT)
     assert report == {
-        "frozen_hashes": 29,
+        "frozen_hashes": 38,
         "primary_ppo_endpoints": 30,
         "shifted_ppo_endpoints": 30,
         "capacity_dimensions": 3,

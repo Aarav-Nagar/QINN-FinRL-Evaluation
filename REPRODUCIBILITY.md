@@ -18,6 +18,27 @@ The exact direct package versions used to verify the saved artifacts are in
 `requirements-lock.txt`. The broader compatible minimums are in
 `requirements.txt`.
 
+## Clean-checkout verification
+
+From a directory outside the source repository, run:
+
+```powershell
+git clone https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation.git qinn-clean
+Set-Location qinn-clean
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-lock.txt
+python -m pip check
+python scripts\verify_scientific_results_freeze.py
+python -m pytest -q
+```
+
+`requirements-lock.txt` pins every direct package used by the pipeline and
+tests. The installer resolves their transitive dependencies; a successful
+`pip check` confirms that resolved environment has no broken requirements.
+The lock is not an offline wheel archive, so network access is required when
+the packages are not already cached.
+
 Long-running matrices should write resumable raw checkpoints under the
 repository-local, gitignored `local_runs/` directory. Keeping active
 checkpoints inside the repository tree prevents task-workspace cleanup from
@@ -95,7 +116,7 @@ python scripts/run_experiment_matrix.py `
   --phase dimension-pilot `
   --data-dir .cache\data `
   --finrl-dir .cache\FinRL `
-  --output-root work\dimension-pilot `
+  --output-root local_runs\dimension-pilot `
   --timesteps 20000 `
   --bond-dimensions 2 4 8 `
   --seeds 0 1 2 `
@@ -111,12 +132,12 @@ guarded capacity summary with:
 
 ```powershell
 python scripts/summarize_dimension_pilot.py `
-  work\dimension-pilot\dimension-pilot_steps20000_bd2_seeds0-1-2_epochs60_batch512_cpu `
-  work\dimension-pilot\dimension-pilot_steps20000_bd4_seeds0-1-2_epochs60_batch512_cpu `
-  work\dimension-pilot\dimension-pilot_steps20000_bd8_seeds0-1-2_epochs60_batch512_cpu `
-  --summary-output results\pilots\dimension_summary.csv `
-  --paired-output results\pilots\dimension_paired.csv `
-  --manifest-output results\pilots\dimension_manifest.json
+  results\pilots\2026-07-28\raw\dimension-pilot_steps20000_bd2_seeds0-1-2_epochs60_batch512_cpu `
+  results\pilots\2026-07-28\raw\dimension-pilot_steps20000_bd4_seeds0-1-2_epochs60_batch512_cpu `
+  results\pilots\2026-07-28\raw\dimension-pilot_steps20000_bd8_seeds0-1-2_epochs60_batch512_cpu `
+  --summary-output .cache\reproduced-capacity\dimension_summary.csv `
+  --paired-output .cache\reproduced-capacity\dimension_paired.csv `
+  --manifest-output .cache\reproduced-capacity\dimension_manifest.json
 ```
 
 The summarizer verifies matched seeds, fixed non-dimension settings, completed
@@ -136,7 +157,7 @@ python scripts/run_experiment_matrix.py `
   --phase final-evaluation `
   --data-dir .cache\data `
   --finrl-dir .cache\FinRL `
-  --output-root work\final-evaluation `
+  --output-root local_runs\final-evaluation `
   --timesteps 20000 `
   --bond-dimensions 2 `
   --seeds 0 1 2 3 4 5 6 7 8 9 `
@@ -146,22 +167,22 @@ python scripts/run_experiment_matrix.py `
   --encoder-device cpu
 ```
 
-After the run reaches `completed`, validate and publish the prespecified final
-artifacts with:
+After the run reaches `completed`, validate and reproduce the prespecified
+final artifacts in a disposable cache directory with:
 
 ```powershell
 python scripts/summarize_final_evaluation.py `
-  work\final-evaluation\final-evaluation_steps20000_bd2_seeds0-1-2-3-4-5-6-7-8-9_epochs60_batch512_cpu `
-  --condition-output results\final\condition_summary.csv `
-  --paired-output results\final\paired_seed_effects.csv `
-  --inference-output results\final\primary_inference.json `
-  --manifest-output results\final\final_manifest.json `
+  results\final `
+  --condition-output .cache\reproduced-primary\condition_summary.csv `
+  --paired-output .cache\reproduced-primary\paired_seed_effects.csv `
+  --inference-output .cache\reproduced-primary\primary_inference.json `
+  --manifest-output .cache\reproduced-primary\final_manifest.json `
   --artifact-name final_ten_seed_evaluation
 python scripts/plot_final_effect.py `
-  results\final\paired_seed_effects.csv `
-  results\final\primary_inference.json `
-  --png-output results\figures\final_paired_effect.png `
-  --pdf-output results\figures\final_paired_effect.pdf
+  .cache\reproduced-primary\paired_seed_effects.csv `
+  .cache\reproduced-primary\primary_inference.json `
+  --png-output .cache\reproduced-primary\final_paired_effect.png `
+  --pdf-output .cache\reproduced-primary\final_paired_effect.pdf
 ```
 
 The final summarizer rejects incomplete runs, any seed set other than 0--9,
@@ -201,7 +222,7 @@ python scripts/run_experiment_matrix.py `
   --window shifted `
   --data-dir .cache\data `
   --finrl-dir .cache\FinRL `
-  --output-root work\temporal-robustness `
+  --output-root local_runs\temporal-robustness `
   --timesteps 20000 `
   --bond-dimensions 2 `
   --seeds 0 1 2 3 4 5 6 7 8 9 `
@@ -228,16 +249,16 @@ Regenerate its guarded summaries and paired-effect figure with:
 
 ```powershell
 python scripts/summarize_final_evaluation.py results/robustness/shifted `
-  --condition-output results/robustness/shifted/condition_summary.csv `
-  --paired-output results/robustness/shifted/paired_seed_effects.csv `
-  --inference-output results/robustness/shifted/robustness_inference.json `
-  --manifest-output results/robustness/shifted/robustness_manifest.json `
+  --condition-output .cache/reproduced-shifted/condition_summary.csv `
+  --paired-output .cache/reproduced-shifted/paired_seed_effects.csv `
+  --inference-output .cache/reproduced-shifted/robustness_inference.json `
+  --manifest-output .cache/reproduced-shifted/robustness_manifest.json `
   --artifact-name shifted_window_ten_seed_evaluation
 python scripts/plot_final_effect.py `
-  results/robustness/shifted/paired_seed_effects.csv `
-  results/robustness/shifted/robustness_inference.json `
-  --png-output results/figures/shifted_paired_effect.png `
-  --pdf-output results/figures/shifted_paired_effect.pdf
+  .cache/reproduced-shifted/paired_seed_effects.csv `
+  .cache/reproduced-shifted/robustness_inference.json `
+  --png-output .cache/reproduced-shifted/shifted_paired_effect.png `
+  --pdf-output .cache/reproduced-shifted/shifted_paired_effect.pdf
 ```
 
 The same guarded summarizer rejects incomplete status, configuration drift,

@@ -77,5 +77,6 @@ def test_plot_writes_png_and_pdf(tmp_path: Path) -> None:
     final_figure.plot_final_effect(paired, inference, png, pdf)
     assert png.read_bytes().startswith(b"\x89PNG")
     assert pdf.read_bytes().startswith(b"%PDF")
+    assert b"/CreationDate" not in pdf.read_bytes()
     assert png.stat().st_size > 10_000
     assert pdf.stat().st_size > 1_000

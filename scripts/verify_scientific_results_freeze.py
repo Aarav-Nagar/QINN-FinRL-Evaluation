@@ -22,9 +22,13 @@ SUMMARY_METRICS = (
     "total_cost",
 )
 
+TEXT_SUFFIXES = {".csv", ".json", ".md", ".py", ".txt"}
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    payload = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        payload = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def _assert_close(actual: float, expected: float) -> None:

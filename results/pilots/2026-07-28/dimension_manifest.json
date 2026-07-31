@@ -1,5 +1,6 @@
 {
   "artifact": "mps_bond_dimension_pilot",
+  "hash_policy": "Text inputs and outputs are normalized to LF before SHA-256; binary files are hashed as stored.",
   "expected_dimensions": [
     2,
     4,
@@ -22,9 +23,9 @@
       "source_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
       "completed_at_utc": "2026-07-28T16:40:58.137808+00:00",
       "sha256": {
-        "run_manifest.json": "c38c7bfbba0dd1627e55545d75e353628fa868cc45a900b6d4e16240112c92d8",
-        "ppo_backtest_metrics.csv": "2dcaabb10e74f0e866039409371e5ab9643fee48f758fe97314250cf8c5cd008",
-        "signal_metrics.csv": "62676016f271f4cbd70b709d52f9cfb72547df55422433d39311d103d8fa915a"
+        "run_manifest.json": "b3357c27a68e503742a4d539b2ce3c9ea744e437cec1e90983c13b632c946550",
+        "ppo_backtest_metrics.csv": "f0b1876deca5241ac6becfd157a77388d163d1c7c78d18e3c7f000e1d6dca7bd",
+        "signal_metrics.csv": "8369b511dd3efcd120d403510198ebb2eb8689770cddd441ccb911eda11b64c5"
       }
     },
     {
@@ -33,9 +34,9 @@
       "source_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
       "completed_at_utc": "2026-07-28T16:53:39.877825+00:00",
       "sha256": {
-        "run_manifest.json": "45ec033fd443e38002c12f3ca7713fbfd6399bbbfaea703636761b00943c0b29",
-        "ppo_backtest_metrics.csv": "f685c2c36f84e14a650e70044b6f237fae27733a8af39f0528560bfeec55ceb5",
-        "signal_metrics.csv": "4daabb6bf1dba1bd9abe22a41ed4db68ce4e8782dab3634825047ecc05552d5b"
+        "run_manifest.json": "c99af51bf2e215f19c5399ff28ff721aaccb16c4aef163f579d1b962c1aa779c",
+        "ppo_backtest_metrics.csv": "c3e76b0425336c7f8460630cc524daab6420a3537664c1440f6e14e260a45a7a",
+        "signal_metrics.csv": "668334b3413e8746bfbab862f4d4b6611c6d2667f8d33eca7bfb778993f677d2"
       }
     },
     {
@@ -44,14 +45,14 @@
       "source_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
       "completed_at_utc": "2026-07-28T17:09:42.560549+00:00",
       "sha256": {
-        "run_manifest.json": "9fa080f5c7df58a83661a6f86d04ec25e454327dc2004507b85e5f186089b2a2",
-        "ppo_backtest_metrics.csv": "5494974d89a81c31d43d826f7bef036848d1d419f38d2dd9a4a6de7fd7220ce3",
-        "signal_metrics.csv": "27efd50faf126a796d340f4d329c18add4d231e78a55059a58509e1841a2196a"
+        "run_manifest.json": "afec302182b73304e11460ecad26d42a424f19e802809334e3577b5437034c78",
+        "ppo_backtest_metrics.csv": "9a744e7595f9fbfbbbb1f81908de69ee4f20e31643085bdb4613fab229d37bc8",
+        "signal_metrics.csv": "24bbd4661ee01560ea58c7b749387f72af68396c910213adc431223ad5b05457"
       }
     }
   ],
   "outputs": {
-    "dimension_summary.csv": "f5f477e9406efbc15f98dc79cfdccf30b8c6f365905909450c46efb12f6f6eff",
-    "dimension_paired.csv": "f9c5f08ed10b119a30f418cabc9d002227f9db38070d0459ac7019ffef27c30c"
+    "dimension_summary.csv": "3fb464f43fe2ee5a78ad36b923aa51bd7afeb276a25a75ddd05bd0f238909cd5",
+    "dimension_paired.csv": "7701d5db37231a4e9a1772bbd477d426f15f601cb66e5c558d8bee49aba9c70d"
   }
 }

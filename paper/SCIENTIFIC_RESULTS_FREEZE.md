@@ -42,7 +42,8 @@ py -3.12 scripts\verify_scientific_results_freeze.py
 
 The verifier:
 
-1. checks every frozen SHA-256 digest;
+1. checks all 38 frozen SHA-256 digests, including the nine compact raw
+   capacity-pilot source files, using cross-platform canonical text hashing;
 2. independently recomputes condition summaries from raw PPO rows;
 3. recomputes all paired seed effects, seed-bootstrap intervals, and sign
    tests;

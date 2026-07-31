@@ -3,11 +3,15 @@
 
 The experiment is intentionally an ablation:
 
-1. Fit parameter-matched ANN and matrix-product-state (MPS) regressors to the
-   same 13 market features and next-day return target.
+1. Fit ANN and matrix-product-state (MPS) regressors to the same 13 market
+   features and next-day return target while recording their capacities.
 2. Add either prediction as one extra signal to the standard FinRL state.
 3. Train the same PPO agent with the same costs, dates, assets, and seeds.
-4. Evaluate chronologically on the untouched 2019-2023 trading period.
+4. Evaluate chronologically on the configured untouched primary or shifted
+   trading period.
+
+Bond dimension 4 is parameter matched to the ANN; the paper's selected
+dimension 2 is a validation/parsimony choice and is not parameter matched.
 
 This is a classical tensor-network experiment. It does not run on quantum
 hardware and does not claim quantum advantage.
@@ -570,16 +574,16 @@ def train_signal_models(
 
     def standardized(frame: pd.DataFrame) -> np.ndarray:
         values = (frame[REPRESENTATION_FEATURES] - means) / scales
-        return values.clip(-8, 8).to_numpy(dtype=np.float32)
+        return values.clip(-8, 8).to_numpy(dtype=np.float32, copy=True)
 
     x_train = standardized(train.loc[training_mask])
     y_train = (
         (train.loc[training_mask, "target_return_1d"] - target_mean) / target_scale
-    ).clip(-8, 8).to_numpy(dtype=np.float32)
+    ).clip(-8, 8).to_numpy(dtype=np.float32, copy=True)
     x_validation = standardized(train.loc[validation_mask])
     y_validation = (
         (train.loc[validation_mask, "target_return_1d"] - target_mean) / target_scale
-    ).clip(-8, 8).to_numpy(dtype=np.float32)
+    ).clip(-8, 8).to_numpy(dtype=np.float32, copy=True)
     device = resolve_encoder_device(config.encoder_device)
 
     set_global_seed(config.representation_seed)

@@ -2,7 +2,7 @@
 
 This repository evaluates whether a quantum-inspired matrix-product-state
 (MPS) prediction signal improves sequential trading decisions relative to a
-capacity-controlled artificial neural network (ANN) signal.
+capacity-recorded artificial neural network (ANN) signal.
 
 The experiment was developed as a follow-up to Dr. Xiao-Yang Liu's
 suggestion to test quantum-inspired representations inside a FinRL benchmark,
@@ -78,12 +78,38 @@ not contain the corrected SecureFinAI ten-seed and shifted-window evidence.
 
 ## Research question
 
-When the data, prediction target, parameter count, PPO configuration,
-transaction costs, and random seeds are held constant, does an MPS signal
-improve out-of-sample FinRL trading performance or robustness relative to an
-ANN signal?
+When the data, prediction target, PPO configuration, transaction costs, and
+random seeds are held constant, does a validation-selected MPS signal improve
+out-of-sample FinRL trading performance or temporal robustness relative to an
+ANN signal and the standard FinRL state?
 
-## Experimental protocol
+## Current SecureFinAI protocol
+
+The frozen short-paper study uses 15 Nasdaq stocks and compares Base FinRL,
+an ANN signal, and a classical MPS signal. All three PPO conditions use a
+$1,000,000 initial portfolio, a 0.10% transaction cost on each executed buy
+or sell, 20,000 training steps, and matched seeds 0--9. The primary PPO fit
+period is 2013--2018 and its untouched evaluation period is 2019--2023. The
+prespecified shifted analysis fits PPO through 2016 and evaluates on
+2017--2018.
+
+Both encoders use the same 13 inputs, next-day return target, fit/validation
+boundaries, and frozen-signal integration. The ANN has 369 trainable
+parameters. The selected bond-dimension-2 MPS has 97 parameters; it was chosen
+before the final evaluation because its validation MSE was within 1% of the
+best tested MPS and it was the smallest eligible model. Bond dimension 4 has
+369 parameters and is the exactly parameter-matched sensitivity condition.
+Capacity is therefore recorded and tested, but the selected final ANN/MPS pair
+is not parameter matched.
+
+Exact tickers, feature lists, temporal boundaries, source-data checksums,
+state dimensions, dependencies, and runtime metadata are recorded in
+`results/final/run_manifest.json` and
+`results/robustness/shifted/run_manifest.json`. The compact capacity-pilot
+inputs are retained under `results/pilots/2026-07-28/raw/`. These results are
+frozen by `results/SCIENTIFIC_RESULTS_FREEZE.json`.
+
+## Historical reference protocol
 
 Three PPO conditions were compared:
 
@@ -110,7 +136,7 @@ Each PPO condition used seeds 0, 1, and 2, a 5,000-step training budget, a
 $1,000,000 initial portfolio, and a 0.10% transaction cost on every executed
 buy and sell.
 
-## Main results
+## Historical reference results
 
 The MPS model achieved slightly lower prediction error and higher directional
 accuracy, but this did not produce better trading performance.
@@ -131,7 +157,7 @@ The supported conclusion is limited: under this configuration and historical
 split, the MPS signal did not improve trading performance relative to the ANN
 signal. This is not a general conclusion about tensor-network methods.
 
-## Reproduce the reference run
+## Reproduce the historical reference run
 
 Use Python 3.12 and install the exact artifact-verification environment:
 
@@ -180,7 +206,7 @@ Additional reproduction details are documented in
     `-- figures/
 ```
 
-## Limitations
+## Historical reference limitations
 
 - The MPS is a classical tensor-network simulation; no quantum hardware was
   used.

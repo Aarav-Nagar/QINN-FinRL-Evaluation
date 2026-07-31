@@ -716,3 +716,54 @@ Next:
 - Compile the IEEE manuscript in a free TeX environment and inspect every page.
 - Reconcile the draft to the five-page limit, if necessary.
 - Run clean-clone reproduction and prepare the release-ready archive/checklist.
+## 2026-07-31 - Methodology and clean-checkout reproducibility audit
+
+Completed:
+
+1. Reconciled the primary and shifted dataset boundaries against code and frozen manifests.
+2. Verified the exact 15-stock universe in the implementation and both final manifests.
+3. Verified the 10 FinRL indicators and 13 encoder features across code and evidence.
+4. Confirmed the 0.10% executed buy/sell cost, initial cash, order cap, and reward scale.
+5. Confirmed matched PPO seeds 0--9 and the frozen 20,000-step budget.
+6. Corrected public wording that implied the selected 97-parameter MPS was parameter matched.
+7. Documented dimension 4 as the 369-parameter matched sensitivity model.
+8. Created a no-local-hardlinks clean clone and a fresh Python 3.12 virtual environment.
+9. Installed every direct pinned dependency and obtained a clean `pip check`.
+10. Downloaded and checksum-verified both source datasets from the clean clone.
+11. Checked out the recorded FinRL commit and imported `StockTradingEnv`.
+12. Audited real-data feature finiteness, sample counts, and next-day target boundaries.
+13. Completed a reduced end-to-end shifted-window Base/ANN/MPS smoke run.
+14. Reproduced primary and shifted summaries byte for byte from committed run bundles.
+15. Packaged the nine compact source files required to regenerate the capacity pilot.
+16. Made text hashing invariant to CRLF/LF checkout behavior.
+17. Made summary CSV/JSON output use deterministic LF line endings.
+18. Removed timestamp metadata from publication PDFs and forced headless figure rendering.
+19. Added methodology-contract tests binding code, manifests, raw sources, and public docs.
+20. Published a detailed methodology/reproducibility audit and portable clean-clone commands.
+
+Clean-checkout evidence:
+
+- Source rows: 22,635 train and 18,855 trade; all 15 tickers present.
+- Primary encoder rows: 18,870 fit and 3,735 validation.
+- Shifted encoder rows: 11,325 fit and 3,765 validation.
+- Source SHA-256 checksums and FinRL commit matched the frozen manifests.
+- Fresh environment: Python 3.12.10, PyTorch 2.10.0+cpu, CUDA unavailable.
+- Reduced smoke Sharpe: Base 0.408021, ANN 0.318421, MPS 0.256108; execution evidence only.
+
+Verification:
+
+- Scientific freeze: 38 hashes, 60 PPO endpoints, 3 capacity dimensions, and 5 paper claim groups verified.
+- Focused deterministic-artifact suite: 16 tests passed.
+- Methodology/reproducibility contract suite: 3 tests passed.
+- Full repository suite: 84 tests passed in 6.00 seconds.
+- Regenerated primary, shifted, and capacity summary artifacts matched committed evidence byte for byte.
+
+Hardware actually used:
+
+- The audit, clean-checkout smoke run, summaries, and tests used CPU only.
+- The installed fresh PyTorch build was 2.10.0+cpu; no GPU acceleration is claimed.
+
+QA boundary:
+
+- The full 60-endpoint PPO matrices were not retrained; their completed endpoint tables, curves, configurations, commits, and hashes remain frozen.
+- Manuscript compilation, page-count/font checks, and rendered visual inspection remain separate submission QA tasks.

@@ -206,5 +206,31 @@ def test_artifact_manifest_hashes_inputs_and_outputs(tmp_path: Path) -> None:
     assert manifest["selection"]["selected_bond_dimension"] == 2
     assert manifest["selection"]["test_or_trading_metrics_used_for_selection"] is False
     assert len(manifest["inputs"]) == 3
-    expected_hash = hashlib.sha256(summary_path.read_bytes()).hexdigest()
+    payload = summary_path.read_bytes().replace(b"\r\n", b"\n")
+    expected_hash = hashlib.sha256(payload).hexdigest()
     assert manifest["outputs"]["summary.csv"] == expected_hash
+
+
+def test_writer_uses_lf_and_records_hash_policy(tmp_path: Path) -> None:
+    runs = [
+        make_run(tmp_path / "bd2", 2, 1.005),
+        make_run(tmp_path / "bd4", 4, 1.000),
+        make_run(tmp_path / "bd8", 8, 1.020),
+    ]
+    summary_path = tmp_path / "summary.csv"
+    paired_path = tmp_path / "paired.csv"
+    manifest_path = tmp_path / "manifest.json"
+    dimension_summary.write_artifacts(
+        runs,
+        summary_path,
+        paired_path,
+        manifest_path,
+        expected_dimensions={2, 4, 8},
+    )
+    for path in (summary_path, paired_path, manifest_path):
+        assert b"\r" not in path.read_bytes()
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest["hash_policy"].startswith("Text inputs and outputs")
+    assert manifest["outputs"]["summary.csv"] == dimension_summary._sha256(
+        summary_path
+    )

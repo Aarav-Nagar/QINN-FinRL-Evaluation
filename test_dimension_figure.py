@@ -57,3 +57,4 @@ def test_plot_writes_png_and_pdf(tmp_path: Path) -> None:
     assert pdf.read_bytes().startswith(b"%PDF")
     assert png.stat().st_size > 10_000
     assert pdf.stat().st_size > 1_000
+    assert b"/CreationDate" not in pdf.read_bytes()

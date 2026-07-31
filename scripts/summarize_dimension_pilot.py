@@ -31,6 +31,7 @@ CONTROL_METRICS = [
     *(metric for metric in PORTFOLIO_METRICS if metric != "condition_elapsed_seconds"),
 ]
 SELECTION_RELATIVE_TOLERANCE = 0.01
+TEXT_SUFFIXES = {".csv", ".json", ".md", ".py", ".txt"}
 
 
 def _load_run(
@@ -242,11 +243,10 @@ def summarize(
 
 
 def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
+    payload = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        payload = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def build_artifact_manifest(
@@ -285,6 +285,10 @@ def build_artifact_manifest(
     )
     return {
         "artifact": "mps_bond_dimension_pilot",
+        "hash_policy": (
+            "Text inputs and outputs are normalized to LF before SHA-256; "
+            "binary files are hashed as stored."
+        ),
         "expected_dimensions": [2, 4, 8],
         "selection": {
             "validation_mse_relative_tolerance": SELECTION_RELATIVE_TOLERANCE,
@@ -304,6 +308,31 @@ def build_artifact_manifest(
     }
 
 
+def write_artifacts(
+    run_dirs: list[Path],
+    summary_output: Path,
+    paired_output: Path,
+    manifest_output: Path,
+    *,
+    expected_dimensions: set[int],
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    summary, paired = summarize(
+        run_dirs, expected_dimensions=expected_dimensions
+    )
+    summary_output.parent.mkdir(parents=True, exist_ok=True)
+    paired_output.parent.mkdir(parents=True, exist_ok=True)
+    manifest_output.parent.mkdir(parents=True, exist_ok=True)
+    summary.to_csv(summary_output, index=False, lineterminator="\n")
+    paired.to_csv(paired_output, index=False, lineterminator="\n")
+    artifact_manifest = build_artifact_manifest(
+        run_dirs, summary, summary_output, paired_output
+    )
+    manifest_output.write_bytes(
+        (json.dumps(artifact_manifest, indent=2) + "\n").encode("utf-8")
+    )
+    return summary, paired
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dirs", nargs="+", type=Path)
@@ -321,19 +350,12 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    summary, paired = summarize(
-        args.run_dirs, expected_dimensions=set(args.expected_dimensions)
-    )
-    args.summary_output.parent.mkdir(parents=True, exist_ok=True)
-    args.paired_output.parent.mkdir(parents=True, exist_ok=True)
-    args.manifest_output.parent.mkdir(parents=True, exist_ok=True)
-    summary.to_csv(args.summary_output, index=False)
-    paired.to_csv(args.paired_output, index=False)
-    artifact_manifest = build_artifact_manifest(
-        args.run_dirs, summary, args.summary_output, args.paired_output
-    )
-    args.manifest_output.write_text(
-        json.dumps(artifact_manifest, indent=2), encoding="utf-8"
+    summary, paired = write_artifacts(
+        args.run_dirs,
+        args.summary_output,
+        args.paired_output,
+        args.manifest_output,
+        expected_dimensions=set(args.expected_dimensions),
     )
     print(summary.to_string(index=False))
     print()

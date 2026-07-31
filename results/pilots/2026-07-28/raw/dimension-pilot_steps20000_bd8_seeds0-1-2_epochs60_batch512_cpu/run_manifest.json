@@ -1,0 +1,149 @@
+{
+  "experiment": {
+    "representation_seed": 2026,
+    "ppo_seeds": [
+      0,
+      1,
+      2
+    ],
+    "ppo_timesteps": 20000,
+    "ppo_update_epochs": 3,
+    "transaction_cost": 0.001,
+    "initial_amount": 1000000,
+    "hmax": 100,
+    "reward_scaling": 0.0001,
+    "mps_bond_dimension": 8,
+    "encoder_device": "cpu",
+    "encoder_epochs": 60,
+    "encoder_patience": 10,
+    "encoder_batch_size": 512,
+    "encoder_learning_rate": 0.002,
+    "representation_train_end": "2017-12-29",
+    "representation_validation_start": "2018-01-01",
+    "train_period": "2013-01-02 to 2018-12-28",
+    "test_period": "2019-01-02 to 2023-12-28"
+  },
+  "tickers": [
+    "AAPL",
+    "AMD",
+    "AMGN",
+    "AMZN",
+    "COST",
+    "FANG",
+    "GILD",
+    "HON",
+    "INTC",
+    "MSFT",
+    "NFLX",
+    "NVDA",
+    "PEP",
+    "SBUX",
+    "XEL"
+  ],
+  "finrl_features": [
+    "macd",
+    "boll_ub",
+    "boll_lb",
+    "rsi_30",
+    "cci_30",
+    "dx_30",
+    "close_30_sma",
+    "close_60_sma",
+    "vix",
+    "turbulence"
+  ],
+  "representation_features": [
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "price_to_sma_30",
+    "price_to_sma_60",
+    "macd_scaled",
+    "bollinger_position",
+    "bollinger_width",
+    "rsi_scaled",
+    "cci_scaled",
+    "dx_scaled",
+    "volume_change_5d",
+    "vix_scaled"
+  ],
+  "state_construction": {
+    "base_formula": "cash + 15 prices + 15 holdings + 10 indicators x 15 assets",
+    "base_dimension": 181,
+    "signal_formula": "base state + one frozen encoder prediction per asset",
+    "signal_dimension": 196,
+    "signal_position": "appended as the final per-asset technical-indicator block",
+    "signal_scale": "standardized next-day return prediction clipped to [-8, 8]"
+  },
+  "turnover_definition": {
+    "daily_turnover": "sum(abs(executed shares) * pre-trade price) / beginning-of-step portfolio value",
+    "cumulative_turnover": "sum of daily turnover over the evaluation period",
+    "annualized_turnover": "mean daily turnover x 252",
+    "interpretation": "gross one-way turnover; buys and sells both contribute to traded notional"
+  },
+  "ann_parameter_count": 369,
+  "mps_parameter_count": 1441,
+  "finrl_repository": "https://github.com/AI4Finance-Foundation/FinRL.git",
+  "finrl_commit": "2334a5fe6d30629157f13c3b0319e1637e15e123",
+  "dataset_repository": "https://huggingface.co/datasets/benstaf/nasdaq_2013_2023",
+  "dataset_sha256": {
+    "train_data_2013_2018.csv": "92eb993137595e9c461091e9f3569295d0050f5536c75b707468ba6d2197657b",
+    "trade_data_2019_2023.csv": "01587b66236b5563df8f871f0110bbf752f1c593427a346192c20e271efffd3b"
+  },
+  "signal_test_metrics": [
+    {
+      "split": "test_2019_2023",
+      "model": "ANN",
+      "parameter_count": 369,
+      "mse": 1.5101247632433117,
+      "mae": 0.7994253095003222,
+      "directional_accuracy": 0.5025477707006369,
+      "information_coefficient": 0.011945895505735016
+    },
+    {
+      "split": "test_2019_2023",
+      "model": "QINN-MPS",
+      "parameter_count": 1441,
+      "mse": 1.5039282841324733,
+      "mae": 0.7970863964070021,
+      "directional_accuracy": 0.5143312101910829,
+      "information_coefficient": 0.02893118313320262
+    }
+  ],
+  "paired_block_bootstrap": {
+    "annualized_mean_return_difference_mps_minus_ann": 0.017285908032701237,
+    "bootstrap_95pct_lower": -0.040390302117140064,
+    "bootstrap_95pct_upper": 0.07398786560818085,
+    "bootstrap_probability_mps_gt_ann": 0.7265,
+    "block_length_days": 20,
+    "bootstrap_samples": 2000
+  },
+  "runtime": {
+    "started_at_utc": "2026-07-28T16:53:42.364623+00:00",
+    "status": "completed",
+    "git_commit": "85c0b95c1719023f74eca9cdf7d888eac87b322c",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cpu",
+    "torch_cuda_build": null,
+    "cuda_available": false,
+    "encoder_device_requested": "cpu",
+    "encoder_device_resolved": "cpu",
+    "ppo_device": "cpu",
+    "completed_at_utc": "2026-07-28T17:09:42.560549+00:00",
+    "elapsed_seconds": 960.1308705997653
+  },
+  "encoder_runtime": {
+    "device": "cpu",
+    "ann_fit_seconds": 2.952544799540192,
+    "mps_fit_seconds": 9.30442039994523,
+    "signal_inference_seconds": 0.07683119969442487,
+    "total_signal_pipeline_seconds": 13.461857399903238
+  },
+  "limitations": [
+    "Classical tensor-network simulation; no quantum hardware was used.",
+    "One historical train/test split and one 15-stock Nasdaq subset.",
+    "Three PPO seeds quantify policy instability but do not establish broad statistical generality.",
+    "The MPS and ANN encoders are parameter-matched, but their inductive biases differ."
+  ]
+}
