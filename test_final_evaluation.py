@@ -119,9 +119,32 @@ def test_writer_hashes_source_and_outputs(tmp_path: Path) -> None:
     )
     payload = json.loads(manifest.read_text(encoding="utf-8"))
     assert payload["artifact"] == "final_ten_seed_evaluation"
+    assert b"\r\n" not in condition.read_bytes()
+    assert b"\r\n" not in paired.read_bytes()
+    assert b"\r\n" not in inference.read_bytes()
+    assert b"\r\n" not in manifest.read_bytes()
     assert payload["prespecified_configuration"]["ppo_seeds"] == list(range(10))
     assert set(payload["outputs"]) == {
         condition.name,
         paired.name,
         inference.name,
     }
+
+def test_writer_accepts_distinct_robustness_artifact_name(
+    tmp_path: Path,
+) -> None:
+    run = make_run(tmp_path / "run")
+    condition = tmp_path / "out" / "condition.csv"
+    paired = tmp_path / "out" / "paired.csv"
+    inference = tmp_path / "out" / "inference.json"
+    manifest = tmp_path / "out" / "manifest.json"
+    final_summary.write_artifacts(
+        run,
+        condition,
+        paired,
+        inference,
+        manifest,
+        artifact_name="shifted_window_ten_seed_evaluation",
+    )
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    assert payload["artifact"] == "shifted_window_ten_seed_evaluation"

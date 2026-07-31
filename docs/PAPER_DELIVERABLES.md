@@ -1,6 +1,6 @@
 # SecureFinAI Short-Paper Deliverables
 
-Last verified: 2026-07-27
+Last verified: 2026-07-31
 
 ## Submission target
 
@@ -51,19 +51,19 @@ no quantum hardware is used.
 
 | Artifact | Completion evidence | Status |
 |---|---|---|
-| Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` reviewed before final runs | In review |
+| Frozen experiment protocol | `docs/EXPERIMENT_PROTOCOL.md` and `docs/ROBUSTNESS_PROTOCOL.md` frozen before their outcomes | Complete |
 | Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, temporal window, device, and runtime | Complete |
-| Automated verification | Focused tests pass for configuration, temporal boundaries, state construction, summaries, provenance, figures, and smoke comparison | Complete: full-suite verification pending after shifted-window implementation |
+| Automated verification | Configuration, boundaries, state construction, summaries, provenance hashes, published evidence, figures, and smoke comparison | Complete: 79 tests passed on 2026-07-31 |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Complete: dimension 2 selected by frozen rule |
-| Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Complete: all 30 PPO endpoints, manifest, and per-seed metrics preserved |
-| Temporal robustness | At least one rolling or expanding-window evaluation, or a documented compute-bound omission | Exact non-overlapping shifted window implemented and smoke-tested; ten-seed run pending |
-| Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, and costs | Complete for fixed split; temporal robustness pending |
-| Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Capacity and final paired-effect figures generated and visually inspected |
-| Short-paper source | IEEE-template source with traceable result references | Fixed-split Methods and Results integrated; robustness pending |
+| Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Complete: corrected 30-endpoint package, status, manifest, curves, and per-seed metrics preserved |
+| Temporal robustness | At least one non-overlapping refit/evaluation window with unchanged controls | Complete: shifted 2017--2018 30-endpoint evaluation imported with guarded provenance |
+| Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, and costs | Complete for corrected primary and shifted window |
+| Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Corrected primary and shifted figures regenerated; structural checks pass, visual reinspection pending |
+| Short-paper source | IEEE-template source with traceable result references | Corrected primary and shifted Methods, Results, limitations, and conclusion integrated |
 | Submission PDF | Five pages or fewer; fonts embedded; no clipping or overflow | Not started |
-| Reproducibility package | Environment lock, commands, checksums, manifests, and result index | Existing in part |
-| Repository presentation | README points to final paper, protocol, commands, limitations, and release | Existing in part |
+| Reproducibility package | Environment lock, commands, checksums, manifests, and result index | Complete for evidence integration; clean-clone verification remains |
+| Repository presentation | README points to current paper, corrected evidence, protocol, commands, and limitations | Complete; final release link remains |
 | Final archive | Tagged, checksummed, release-ready bundle | Not started |
 
 ## Dated execution plan

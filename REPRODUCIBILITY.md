@@ -12,7 +12,7 @@
 - pytest: 9.0.3
 - FinRL commit: `2334a5fe6d30629157f13c3b0319e1637e15e123`
 - Representation seed: 2026
-- PPO seeds: 0, 1, and 2
+- PPO seeds: 0, 1, and 2 for the reference run; 0--9 for final and shifted evaluations
 
 The exact direct package versions used to verify the saved artifacts are in
 `requirements-lock.txt`. The broader compatible minimums are in
@@ -155,7 +155,8 @@ python scripts/summarize_final_evaluation.py `
   --condition-output results\final\condition_summary.csv `
   --paired-output results\final\paired_seed_effects.csv `
   --inference-output results\final\primary_inference.json `
-  --manifest-output results\final\artifact_manifest.json
+  --manifest-output results\final\final_manifest.json `
+  --artifact-name final_ten_seed_evaluation
 python scripts/plot_final_effect.py `
   results\final\paired_seed_effects.csv `
   results\final\primary_inference.json `
@@ -222,6 +223,28 @@ On Windows, the equivalent durable launcher writes all output to
 powershell -ExecutionPolicy Bypass -File scripts\run_temporal_robustness.ps1
 ```
 
+The completed shifted run is published under `results/robustness/shifted/`.
+Regenerate its guarded summaries and paired-effect figure with:
+
+```powershell
+python scripts/summarize_final_evaluation.py results/robustness/shifted `
+  --condition-output results/robustness/shifted/condition_summary.csv `
+  --paired-output results/robustness/shifted/paired_seed_effects.csv `
+  --inference-output results/robustness/shifted/robustness_inference.json `
+  --manifest-output results/robustness/shifted/robustness_manifest.json `
+  --artifact-name shifted_window_ten_seed_evaluation
+python scripts/plot_final_effect.py `
+  results/robustness/shifted/paired_seed_effects.csv `
+  results/robustness/shifted/robustness_inference.json `
+  --png-output results/figures/shifted_paired_effect.png `
+  --pdf-output results/figures/shifted_paired_effect.pdf
+```
+
+The same guarded summarizer rejects incomplete status, configuration drift,
+unmatched seeds, duplicate condition/seed rows, and missing schemas for both
+primary and shifted evaluations. Distinct artifact labels prevent the
+secondary robustness evidence from being mistaken for the primary estimand.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |
@@ -237,7 +260,7 @@ powershell -ExecutionPolicy Bypass -File scripts\run_temporal_robustness.ps1
 | MPS parameters | 369 | Capacity-dependent |
 
 The detailed feature lists, ticker universe, state formulas, dates, checksums,
-and known limitations are recorded in `results/run_manifest.json`.
+and known limitations are recorded in `results/final/run_manifest.json` for the corrected primary and in `results/robustness/shifted/run_manifest.json` for the secondary window.
 
 ## Integrity tests
 
@@ -251,11 +274,13 @@ and known limitations are recorded in `results/run_manifest.json`.
 - seed-summary confidence interval calculations.
 
 It also checks sensitivity-configuration validation, MPS capacity changes,
-explicit device resolution, and runtime metadata. `test_smoke_matrix.py`
-ensures reduced smoke runs are comparable and remain marked as non-evidentiary.
-`test_experiment_matrix.py` verifies resumable orchestration and stale-result
-protection. `test_budget_pilot.py` and `test_dimension_pilot.py` verify the
-guarded expanded-study summaries and paired comparisons.
+explicit device resolution, temporal target boundaries, and runtime metadata.
+`test_smoke_matrix.py` ensures reduced smoke runs are comparable and remain
+marked as non-evidentiary. `test_experiment_matrix.py` verifies resumable
+orchestration and stale-result protection. `test_budget_pilot.py` and
+`test_dimension_pilot.py` verify guarded pilot summaries. The final-evaluation
+and figure tests validate matched ten-seed evidence, distinct primary/shifted
+provenance labels, deterministic inference, and paper-facing plots.
 
 ## Scope
 

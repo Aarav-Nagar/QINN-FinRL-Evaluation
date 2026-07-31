@@ -1,0 +1,2 @@
+annualized_mean_return_difference_mps_minus_ann,bootstrap_95pct_lower,bootstrap_95pct_upper,bootstrap_probability_mps_gt_ann,block_length_days,bootstrap_samples
+-0.008092681304767894,-0.03004199057068126,0.013658488512104692,0.2295,20,2000

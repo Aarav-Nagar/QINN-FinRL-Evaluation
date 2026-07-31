@@ -1,7 +1,7 @@
 {
   "artifact": "final_ten_seed_evaluation",
-  "source_commit": "ed368349ad94de13f1ed96ae9d49d2cd1aa9910c",
-  "completed_at_utc": "2026-07-29T21:49:48.950065+00:00",
+  "source_commit": "c5515ba367bdc3e5103ef341d5e9c593e5983e78",
+  "completed_at_utc": "2026-07-30T19:03:57.563746+00:00",
   "prespecified_configuration": {
     "ppo_timesteps": 20000,
     "mps_bond_dimension": 2,
@@ -19,13 +19,13 @@
     ]
   },
   "inputs": {
-    "run_manifest.json": "c82ca3ca9e3bc6f4ae1d6b923926731e306c8bf61dceb225368dcdcdf6d989cd",
-    "ppo_backtest_metrics.csv": "9f0b0448b7391d79d2dc1eb759e52bf02f45bd2c16c66cd107a1f9453903e783",
-    "equity_curves.csv": "7b4abdb6e0e7f8124aa9f40bec7f7e6e3f26113813fbf7a757160bd842f2d03a"
+    "run_manifest.json": "3fbefe3618ba1531f3fc3d73024ddf9733c37421924a9956930f755b3f8db98e",
+    "ppo_backtest_metrics.csv": "bed5ec180950663179690c8733c90b70b2d523c4096d40b8a0dbddb3615ab30b",
+    "equity_curves.csv": "8f4726c2099edf13fe6835326710ac036a8bd41a9da438ffd90c060426f1f261"
   },
   "outputs": {
-    "condition_summary.csv": "78a6031ec1aa4ad18ec1b4ac247ea640093e1f334772b65f03107cdf13be5da2",
-    "paired_seed_effects.csv": "7d87f7b06630fa6abb6b75caa8c98f2baf834a853651ff7d7932480b44f42cd3",
-    "primary_inference.json": "f08d3733acc1040bde41981cded7e88e8233fedf4c19084f5fa667a743fe9f96"
+    "condition_summary.csv": "b982e7097d8c4245900d74e6b030432bd86f13f39d3ff7ecec7aab19801a489c",
+    "paired_seed_effects.csv": "df583772f9b983a77283ae31060f48251869cdb87b29d57471e8f6198a8fc7be",
+    "primary_inference.json": "8e224a2a50b9252507745634cc8156090f6cb497f66964993923252d6b10e550"
   }
 }

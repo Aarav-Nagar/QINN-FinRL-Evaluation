@@ -2,9 +2,9 @@
 
 This repository evaluates whether a quantum-inspired matrix-product-state
 (MPS) prediction signal improves sequential trading decisions relative to a
-parameter-matched artificial neural network (ANN) signal.
+capacity-controlled artificial neural network (ANN) signal.
 
-The experiment was developed as a follow-up to Professor Xiao-Yang Liu's
+The experiment was developed as a follow-up to Dr. Xiao-Yang Liu's
 suggestion to test quantum-inspired representations inside a FinRL benchmark,
 rather than evaluating them only as prediction models.
 
@@ -25,14 +25,11 @@ The work progressed through these stages:
 4. Report drawdown, turnover, costs, calendar-period results, and uncertainty.
 5. Package the experiment as a reproducible repository and technical report.
 
-Planned follow-up work is tracked publicly:
-
-- [Expand the PPO evaluation to 10-20
-  seeds](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/3)
-- [Run an MPS bond-dimension sensitivity
-  sweep](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/4)
-- [Add rolling or expanding-window
-  evaluation](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/5)
+The expanded work was tracked publicly through issues for the
+[ten-seed evaluation](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/3),
+[bond-dimension sensitivity](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/4),
+and [temporal robustness](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/issues/5).
+The completed evidence is now indexed under `results/`.
 
 The expanded SecureFinAI short-paper work is governed by the
 [deliverables tracker](docs/PAPER_DELIVERABLES.md) and the prespecified
@@ -48,32 +45,36 @@ The first expanded-study result is the matched
 steps for the final ten-seed evaluation while retaining the absence of
 established convergence as a limitation.
 
-The expanded fixed-split evaluation is complete. Across ten matched PPO seeds,
-mean Sharpe was 0.800 for ANN and 0.762 for the selected dimension-2 MPS. The
-mean paired MPS-minus-ANN Sharpe difference was -0.038, with a paired-seed
-bootstrap 95% interval of [-0.089, 0.016]. The full per-seed evidence and
-provenance are under [`results/final/`](results/final/). This bounded result
-does not establish an MPS advantage or general inferiority.
+The boundary-corrected fixed-split evaluation is complete. Across ten matched
+PPO seeds, mean Sharpe was 0.821 for ANN and 0.784 for the selected dimension-2
+MPS. The mean paired MPS-minus-ANN Sharpe difference was -0.037, with a
+paired-seed bootstrap 95% interval of [-0.113, 0.045]. Full per-seed evidence
+and provenance are under [`results/final/`](results/final/).
+
+The prespecified shifted 2017--2018 evaluation is also complete. MPS mean
+Sharpe was 0.714 versus 0.627 for ANN and was higher in 9/10 seeds, while the
+annualized-return block-bootstrap interval included zero. Its evidence is under
+[`results/robustness/shifted/`](results/robustness/shifted/). The opposite
+window signs support evaluation-window sensitivity, not stable MPS superiority.
 
 ## Review guide
 
-For a concise review of the project:
+For a concise review of the current short-paper study:
 
-1. Download the
-   [reviewer release](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/releases/tag/v1.0-atl-evaluation),
-   which contains the final PDF and editable Word report.
-2. Read the
-   [technical report (PDF)](docs/Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.pdf).
-3. Review the exact configuration in
-   [`results/run_manifest.json`](results/run_manifest.json).
-4. See the saved-output guide in [`results/README.md`](results/README.md).
-5. Inspect [`run_experiment.py`](run_experiment.py) and
-   [`test_experiment.py`](test_experiment.py) for the implementation and
-   integrity checks.
+1. Read the IEEE-style source in [`paper/main.tex`](paper/main.tex).
+2. Review the corrected primary and shifted evidence under
+   [`results/final/`](results/final/) and
+   [`results/robustness/shifted/`](results/robustness/shifted/).
+3. Follow every manuscript claim through
+   [`paper/CLAIM_TRACEABILITY.md`](paper/CLAIM_TRACEABILITY.md).
+4. Use [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for exact commands,
+   environments, boundaries, and artifact generation.
+5. Inspect [`run_experiment.py`](run_experiment.py), the orchestration scripts,
+   and the test suite for implementation and integrity checks.
 
-An editable
-[Word version of the report](docs/Aarav_Nagar_ANN_MPS_FinRL_Technical_Report.docx)
-is also included.
+The earlier [reviewer release](https://github.com/Aarav-Nagar/QINN-FinRL-Evaluation/releases/tag/v1.0-atl-evaluation)
+and long-form PDF/Word report remain historical reference snapshots; they do
+not contain the corrected SecureFinAI ten-seed and shifted-window evidence.
 
 ## Research question
 

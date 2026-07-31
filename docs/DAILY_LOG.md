@@ -643,3 +643,76 @@ Next:
   hashes, and compact paper table or figure.
 - Integrate the result without changing the fixed protocol or suppressing an
   unfavorable sign.
+
+## 2026-07-31 — Corrected evidence and shifted-window paper integration
+
+Completed:
+
+1. Confirmed the paper repository was clean at `c5515ba` before integration.
+2. Verified the corrected primary run completed all 30 Base/ANN/MPS endpoints
+   for seeds 0--9 with no duplicate condition/seed keys.
+3. Verified the prespecified shifted run completed the same 30-endpoint matched
+   matrix with the frozen 2017--2018 evaluation window.
+4. Imported final metrics, curves, signal evidence, training histories, status,
+   manifests, annual analyses, and block-bootstrap results for both windows.
+5. Extended the guarded final summarizer with a stable `--artifact-name`
+   option so primary and secondary evidence cannot share a provenance label.
+6. Added a focused test for distinct shifted-window provenance labeling.
+7. Regenerated the corrected primary condition summary, paired seed effects,
+   deterministic inference JSON, and hash manifest.
+8. Generated the corresponding guarded shifted-window summary, paired effects,
+   inference JSON, and distinct robustness manifest.
+9. Verified every recorded input and output SHA-256 hash through published-
+   evidence regression tests.
+10. Regenerated corrected primary diagnostic figures and the paired-effect PNG
+    and vector PDF.
+11. Generated a separate shifted paired-effect PNG and vector PDF without
+    displacing the primary figure.
+12. Added published-evidence tests that load both completed manifests, require
+    ten seeds per condition, validate hash provenance, and bind manuscript
+    numbers to generated artifacts.
+13. Updated the abstract with the corrected primary result and the bounded
+    shifted-window sign reversal.
+14. Documented the next-day target boundary guard explicitly in Methods.
+15. Replaced every stale primary table and narrative value with corrected
+    results: ANN Sharpe 0.821, MPS 0.784, paired difference -0.0366, and
+    paired-seed interval [-0.1129, 0.0448].
+16. Integrated the shifted result: MPS Sharpe 0.714 versus ANN 0.627, 9/10 MPS
+    seed wins, paired difference +0.0862, and seed-bootstrap interval
+    [0.0011, 0.1945].
+17. Preserved the more cautious time-series result: annualized return difference
+    +2.34 percentage points with 20-day block-bootstrap interval
+    [-0.83, 5.98] percentage points.
+18. Updated limitations and conclusion to describe evaluation-window
+    sensitivity rather than stable MPS superiority.
+19. Updated claim traceability, result indexes, repository presentation,
+    reproduction commands, and the deliverables tracker.
+20. Distinguished the older three-seed root artifacts from the corrected
+    manuscript evidence to prevent accidental citation drift.
+21. Ran the focused integration suite: 15 tests passed in 2.33 seconds.
+22. Ran the full repository suite: 79 tests passed in 9.15 seconds.
+
+Verified results:
+
+- Corrected primary mean Sharpe: Base 0.689390, ANN 0.821005, MPS 0.784397.
+- Corrected primary MPS-minus-ANN paired Sharpe: -0.036607; 3/10 positive
+  seeds; seed-bootstrap interval [-0.112857, 0.044800].
+- Shifted mean Sharpe: Base 0.652458, ANN 0.627464, MPS 0.713709.
+- Shifted MPS-minus-ANN paired Sharpe: +0.086245; 9/10 positive seeds;
+  seed-bootstrap interval [0.001119, 0.194500].
+- Both runs record Python 3.12.10, PyTorch 2.10.0+cpu, CUDA unavailable, and
+  actual CPU execution. No new model training was performed during integration.
+
+QA boundary:
+
+- PNG and PDF files were regenerated and pass automated structural tests.
+- Direct visual reinspection was blocked by the current Windows ACL image-view
+  path, so visual QA is not claimed.
+- No TeX compiler is installed locally; page-count, overflow, font embedding,
+  and rendered-PDF inspection remain pending.
+
+Next:
+
+- Compile the IEEE manuscript in a free TeX environment and inspect every page.
+- Reconcile the draft to the five-page limit, if necessary.
+- Run clean-clone reproduction and prepare the release-ready archive/checklist.

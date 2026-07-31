@@ -147,18 +147,19 @@ def write_artifacts(
     paired_output: Path,
     inference_output: Path,
     manifest_output: Path,
+    artifact_name: str = "final_ten_seed_evaluation",
 ) -> None:
     manifest, metrics = load_final_run(run_dir)
     condition, paired, inference = summarize(metrics)
     for path in (condition_output, paired_output, inference_output, manifest_output):
         path.parent.mkdir(parents=True, exist_ok=True)
-    condition.to_csv(condition_output, index=False)
-    paired.to_csv(paired_output, index=False)
-    inference_output.write_text(
-        json.dumps(inference, indent=2) + "\n", encoding="utf-8"
+    condition.to_csv(condition_output, index=False, lineterminator="\n")
+    paired.to_csv(paired_output, index=False, lineterminator="\n")
+    inference_output.write_bytes(
+        (json.dumps(inference, indent=2) + "\n").encode("utf-8")
     )
     provenance = {
-        "artifact": "final_ten_seed_evaluation",
+        "artifact": artifact_name,
         "source_commit": manifest["runtime"].get("git_commit"),
         "completed_at_utc": manifest["runtime"].get("completed_at_utc"),
         "prespecified_configuration": {
@@ -179,8 +180,8 @@ def write_artifacts(
             inference_output.name: sha256(inference_output),
         },
     }
-    manifest_output.write_text(
-        json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
+    manifest_output.write_bytes(
+        (json.dumps(provenance, indent=2) + "\n").encode("utf-8")
     )
     print(condition.to_string(index=False))
     print()
@@ -196,6 +197,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--paired-output", required=True, type=Path)
     parser.add_argument("--inference-output", required=True, type=Path)
     parser.add_argument("--manifest-output", required=True, type=Path)
+    parser.add_argument(
+        "--artifact-name",
+        default="final_ten_seed_evaluation",
+        help="Stable provenance label for the summarized evaluation.",
+    )
     return parser.parse_args()
 
 
@@ -207,6 +213,7 @@ def main() -> None:
         args.paired_output,
         args.inference_output,
         args.manifest_output,
+        args.artifact_name,
     )
 
 

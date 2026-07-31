@@ -33,9 +33,9 @@ The eventual IEEE source should contain:
 related-work synthesis, an explicit research question, bounded contributions,
 verified methods, and capacity evidence. The literature positioning separates
 FinRL infrastructure, supervised MPS predictors, and tensor-network policy
-learning from this paper's frozen-signal evaluation. The guarded fixed-split
-ten-seed result is now integrated from hash-linked artifacts; temporal
-robustness remains explicitly gated and numerical placeholders are prohibited.
+learning from this paper's frozen-signal evaluation. The boundary-corrected fixed-split and prespecified shifted-window ten-seed
+results are integrated from hash-linked artifacts. The manuscript reports their
+sign reversal as window sensitivity and prohibits unsupported favorable claims.
 The local machine currently has no TeX compiler, so a submission PDF must not
 be marked verified until the source is compiled and visually inspected in a
 suitable free TeX environment.

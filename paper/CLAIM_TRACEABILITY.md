@@ -14,8 +14,8 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | C04 | The reference moving-block-bootstrap interval for MPS-minus-ANN annualized return includes zero. | `results/ann_vs_mps_block_bootstrap.csv`, `results/run_manifest.json` | Ready. Treat the interval as uncertainty description, not proof of no effect. |
 | C05 | The matched budget pilot selected 20,000 PPO steps because outcomes and diagnostics still changed between 10k and 20k. | `results/pilots/2026-07-27/budget_summary.csv`, `results/pilots/2026-07-27/budget_paired.csv`, `docs/DECISIONS.md` | Ready. State explicitly that convergence was not established. |
 | C06 | MPS validation behavior and computational cost vary with bond dimension; the frozen validation/parsimony rule selected dimension 2. | `results/pilots/2026-07-28/dimension_summary.csv`, `results/pilots/2026-07-28/dimension_manifest.json`, `docs/DECISIONS.md` | Ready. All dimensions were within 1% validation MSE; dimension 2 had the fewest parameters. Trading outcomes did not drive selection. |
-| C07 | Across ten matched PPO seeds, mean MPS-minus-ANN Sharpe was -0.0382, with a paired-seed bootstrap 95% interval from -0.0892 to 0.0157; MPS was higher in 3/10 seeds. | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/final/final_manifest.json` | Ready. Bound to dimension 2, 20k PPO steps, one fixed historical split; do not call the interval population-level or causal. |
-| C08 | Fixed-split conclusions are or are not directionally stable under a shifted market-period evaluation. | Planned rolling/expanding-window artifacts | Pending. Do not imply temporal robustness from annual slices of the same fixed test period. |
+| C07 | In the corrected ten-seed primary evaluation, mean MPS-minus-ANN Sharpe was -0.0366, with a paired-seed bootstrap 95% interval from -0.1129 to 0.0448; MPS was higher in 3/10 seeds. | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/final/final_manifest.json` | Ready. Bound to dimension 2, 20k PPO steps, one fixed historical split; do not call the interval population-level or causal. |
+| C08 | In the prespecified shifted 2017--2018 evaluation, mean MPS-minus-ANN Sharpe was +0.0862, MPS was higher in 9/10 seeds, and the seed-bootstrap interval was [0.0011, 0.1945]; the annualized return block-bootstrap interval [-0.0083, 0.0598] included zero. | `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json`, `results/robustness/shifted/ann_vs_mps_block_bootstrap.csv`, `results/robustness/shifted/robustness_manifest.json` | Ready as secondary window-specific evidence. Report the sign reversal and do not call it a stable or architecture-wide MPS advantage. |
 | C09 | The implementation is a classical MPS/tensor-network simulation and did not execute a quantum circuit or use quantum hardware. | `run_experiment.py`, `results/run_manifest.json`, `docs/EXPERIMENT_PROTOCOL.md` | Ready and required in the abstract/methods or limitations. |
 | C10 | The RTX 5060 was available but CPU was retained after a matched encoder benchmark was faster. | `results/smoke/2026-07-27/device_benchmark.csv`, `REPRODUCIBILITY.md` | Ready as reproducibility context only; it is not a model-performance result. |
 
@@ -23,18 +23,18 @@ wording below; it does not mean the final manuscript sentence is frozen.
 
 | ID | Planned content | Source | Status |
 |---|---|---|---|
-| T01 | Data splits, state construction, costs, PPO budget, seeds, and encoder controls | `results/run_manifest.json`, `docs/EXPERIMENT_PROTOCOL.md`, `docs/DECISIONS.md` | Ready for methods; final run manifest still pending |
+| T01 | Data splits, state construction, costs, PPO budget, seeds, encoder controls, and corrected target boundaries | `results/final/run_manifest.json`, `results/final/run_status.json`, `docs/EXPERIMENT_PROTOCOL.md`, `docs/DECISIONS.md` | Ready |
 | T02 | Bond-dimension validation, parameter, runtime, and descriptive trading sensitivity | `results/pilots/2026-07-28/dimension_summary.csv`, `results/pilots/2026-07-28/dimension_paired.csv` | Ready |
 | T03 | Ten-seed Base, ANN, and selected-MPS portfolio outcomes with paired differences | `results/final/condition_summary.csv`, `results/final/paired_seed_effects.csv` | Ready |
-| T04 | Shifted-window robustness summary | Planned temporal-robustness artifacts | Pending |
+| T04 | Shifted-window Base, ANN, and MPS outcomes with paired differences | `results/robustness/shifted/condition_summary.csv`, `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json` | Ready |
 
 ## Figures
 
 | ID | Planned content | Source | Status |
 |---|---|---|---|
 | F01 | MPS validation error and parameter count by bond dimension | `results/pilots/2026-07-28/dimension_summary.csv`, `results/figures/dimension_sensitivity.pdf` | Ready; PNG and vector PDF generated and visually inspected |
-| F02 | Paired ten-seed MPS-minus-ANN primary effect with uncertainty | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/figures/final_paired_effect.pdf` | Ready; PNG and vector PDF generated, PNG visually inspected |
-| F03 | Fixed-split versus shifted-window comparison, if legible within the page budget | Planned robustness artifacts | Pending |
+| F02 | Corrected paired ten-seed MPS-minus-ANN primary effect with uncertainty | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/figures/final_paired_effect.pdf` | Ready; PNG and vector PDF regenerated; structural validation complete, visual reinspection pending |
+| F03 | Shifted-window paired seed-level effect, available if legible within the page budget | `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json`, `results/figures/shifted_paired_effect.pdf` | Ready; not currently included in the manuscript to preserve page budget |
 
 ## Primary references verified for drafting
 

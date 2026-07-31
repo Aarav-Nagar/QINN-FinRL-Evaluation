@@ -1,58 +1,51 @@
 # Saved Results
 
-This directory contains the outputs from the reference run using PPO seeds 0,
-1, and 2.
+## Evidence hierarchy
 
-## Primary result files
+1. [`final/`](final/) is the corrected primary ten-seed 2019--2023 evaluation
+   used by the manuscript.
+2. [`robustness/shifted/`](robustness/shifted/) is the prespecified secondary
+   ten-seed 2017--2018 evaluation.
+3. [`pilots/`](pilots/) contains the guarded PPO-budget and MPS-capacity
+   selection evidence.
+4. Root-level tables are the older three-seed reference study. They remain
+   preserved for audit history but are not the final manuscript evidence.
+5. [`smoke/`](smoke/) contains reduced engineering checks and cannot support
+   performance claims.
 
-| File | Contents |
-|---|---|
-| `run_manifest.json` | Full configuration, dates, state construction, checksums, feature lists, and limitations |
-| `signal_metrics.csv` | ANN and MPS prediction metrics on the 2019-2023 test period |
-| `ppo_backtest_metrics.csv` | Full-period portfolio metrics for every condition and seed |
-| `ann_vs_mps_block_bootstrap.csv` | Paired MPS-minus-ANN return difference and 95% block-bootstrap interval |
-| `annual_period_metrics.csv` | Calendar-year metrics for every condition and seed |
-| `condition_seed_summary.csv` | Full-period means and exploratory seed-level intervals |
-| `annual_period_seed_summary.csv` | Calendar-year summaries across seeds |
-| `equity_curves.csv` | Daily account value, returns, executed notional, turnover, and costs |
-| `encoder_training_history.csv` | ANN and MPS training and validation loss by epoch |
+## Corrected primary result
 
-## Figures
+| Condition | Mean annual return | Mean Sharpe | Mean max drawdown |
+|---|---:|---:|---:|
+| Base FinRL | 15.36% | 0.689 | -41.96% |
+| ANN signal | 17.96% | 0.821 | -34.07% |
+| MPS signal | 17.04% | 0.784 | -31.97% |
 
-- `figures/equity_curves.png`: mean out-of-sample equity curves and
-  seed-to-seed variation.
-- `figures/sharpe_by_condition.png`: Sharpe ratios by condition and PPO seed.
-- `figures/encoder_validation_loss.png`: prediction-model validation loss.
-- `figures/dimension_sensitivity.png` and `.pdf`: paper-ready validation MSE
-  and parameter-count sensitivity for bond dimensions 2, 4, and 8.
-- `figures/final_paired_effect.png` and `.pdf`: every matched ten-seed
-  MPS-minus-ANN Sharpe difference, paired mean, and bootstrap interval.
+The mean paired MPS-minus-ANN Sharpe difference is -0.0366 with paired-seed
+bootstrap interval [-0.1129, 0.0448]. MPS is higher in 3/10 matched seeds.
 
-## Key values
+## Shifted-window result
 
-| Condition | Mean Sharpe | Total return | Maximum drawdown | Annualized turnover | Total cost |
-|---|---:|---:|---:|---:|---:|
-| Base FinRL | 0.559 | 73.24% | -40.46% | 26.43% | $1,375.38 |
-| ANN signal | 0.735 | 104.66% | -27.55% | 27.32% | $1,429.65 |
-| MPS signal | 0.694 | 94.27% | -26.79% | 24.14% | $1,253.61 |
-| Equal-weight benchmark | 1.115 | 218.25% | -28.54% | 20.06% | $1,000.00 |
+| Condition | Mean annual return | Mean Sharpe | Mean max drawdown |
+|---|---:|---:|---:|
+| Base FinRL | 10.73% | 0.652 | -21.50% |
+| ANN signal | 9.36% | 0.627 | -23.04% |
+| MPS signal | 11.61% | 0.714 | -23.73% |
 
-The paired annualized mean-return difference, MPS minus ANN, was -0.92
-percentage points. The moving 20-day block-bootstrap 95% interval was -4.63
-to +2.63 percentage points.
+The shifted mean paired Sharpe difference is +0.0862 and MPS is higher in 9/10
+seeds, while the annualized-return block-bootstrap interval includes zero. The
+sign reversal supports window sensitivity rather than stable MPS superiority.
 
-All PPO summary values are means across seeds 0, 1, and 2. The equal-weight
-benchmark has no PPO seed.
+## Paper-facing figures
 
-Expanded-study engineering checks are isolated under `smoke/` so their
-reduced-budget outputs cannot be confused with reference or final paper
-evidence. The first end-to-end configuration matrix is documented in
-[`smoke/2026-07-27/`](smoke/2026-07-27/).
+- `figures/dimension_sensitivity.png` and `.pdf`: MPS validation MSE and
+  parameter-count sensitivity.
+- `figures/final_paired_effect.png` and `.pdf`: corrected primary paired Sharpe
+  differences and seed-bootstrap interval.
+- `figures/shifted_paired_effect.png` and `.pdf`: shifted paired Sharpe
+  differences, available if the page budget permits.
+- `figures/equity_curves.png`, `sharpe_by_condition.png`, and
+  `encoder_validation_loss.png`: corrected primary diagnostics.
 
-Expanded-study pilot evidence is indexed under `pilots/`. The guarded
-bond-dimension result and its provenance manifest are documented in
-[`pilots/2026-07-28/`](pilots/2026-07-28/).
-
-The guarded ten-seed fixed-split evaluation, including every per-seed endpoint,
-full equity curves, paired inference, and SHA-256 provenance, is indexed under
-[`final/`](final/).
+Every paper claim is mapped to its exact artifact in
+[`../paper/CLAIM_TRACEABILITY.md`](../paper/CLAIM_TRACEABILITY.md).

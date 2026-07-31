@@ -27,11 +27,14 @@ policy evaluation, prespecifies PPO-budget and MPS-capacity selection, and
 retains negative or unstable results. A three-seed capacity pilot found all
 tested MPS bond dimensions within one percent validation mean-squared error;
 the frozen parsimony rule selected bond dimension two (97 parameters).
-Pilot trading differences changed across seeds. In the final ten-seed
-comparison, mean Sharpe was 0.800 for ANN and 0.762 for MPS; the paired
-MPS-minus-ANN difference was -0.038 with a paired-seed bootstrap 95\% interval
-of [-0.089, 0.016]. MPS was higher in three seeds. This fixed-split result does
-not establish an MPS advantage. Shifted-period robustness remains pending.
+Pilot trading differences changed across seeds. In the corrected final
+comparison, mean Sharpe was 0.821 for ANN and 0.784 for MPS; the paired
+MPS-minus-ANN difference was -0.037 with a paired-seed bootstrap 95\% interval
+of [-0.113, 0.045]. MPS was higher in three of ten seeds. In a prespecified
+shifted 2017--2018 evaluation, MPS mean Sharpe was 0.714 versus 0.627 for ANN
+and was higher in nine seeds, but the moving-block-bootstrap interval for the
+annualized return difference included zero. The sign reversal indicates window
+sensitivity rather than a stable MPS advantage.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -122,8 +125,10 @@ The experiment uses 15 Nasdaq stocks from a saved, checksum-verified processed
 dataset. Encoder fitting uses 2013--2017 observations, 2018 is reserved for
 encoder validation and early stopping, PPO policies train on 2013--2018, and
 portfolio evaluation uses 2019--2023. Neither encoder nor PPO fitting uses the
-2019--2023 return target. A recorded FinRL commit and dependency lock bind the
-software environment.
+2019--2023 return target. Encoder-fit and validation rows are retained only
+when their next-trading-day target also remains inside the corresponding
+period, preventing a boundary target from entering model selection. A recorded
+FinRL commit and dependency lock bind the software environment.
 
 \subsection{Representations and state construction}
 
@@ -156,7 +161,10 @@ The primary final estimand is the mean paired MPS-minus-ANN Sharpe difference
 across PPO seeds 0--9. We report every seed, the standard deviation, a
 deterministic paired-seed bootstrap interval, and an exact two-sided sign test.
 These quantities describe training-seed uncertainty on one historical split;
-they are not causal or population-level intervals.
+they are not causal or population-level intervals. A secondary protocol,
+frozen before its outcomes were inspected, shifts encoder fitting through
+2015, encoder validation and PPO fitting through 2016, and portfolio evaluation
+to 2017--2018. It retains the same models, 20,000-step budget, costs, and seeds.
 
 \section{Capacity Pilot}
 
@@ -199,11 +207,12 @@ stable advantage and are kept separate from the final ten-seed estimate below.
 \section{Final Evaluation}
 
 Table~\ref{tab:final} reports all-condition summaries across the ten matched
-PPO seeds. ANN had the highest mean Sharpe (0.800), followed by MPS (0.762) and
-Base FinRL (0.689). The mean paired MPS-minus-ANN Sharpe difference was -0.038
-(standard deviation 0.089; median -0.043). MPS exceeded ANN in three seeds and
-trailed it in seven (Fig.~\ref{fig:final-effect}); the exact two-sided sign-test
-\(p\)-value was 0.344.
+PPO seeds after the boundary-corrected rerun. ANN had the highest mean Sharpe
+(0.821), followed by MPS (0.784) and Base FinRL (0.689). The mean paired
+MPS-minus-ANN Sharpe difference was -0.037 (standard deviation 0.134; median
+-0.087). MPS exceeded ANN in three seeds and trailed it in seven
+(Fig.~\ref{fig:final-effect}); the exact two-sided sign-test \(p\)-value was
+0.344.
 
 \begin{table}[t]
 \caption{Final fixed-split results across ten PPO seeds}
@@ -215,8 +224,8 @@ trailed it in seven (Fig.~\ref{fig:final-effect}); the exact two-sided sign-test
 Condition & Ann. return & Sharpe & Max drawdown \\
 \midrule
 Base FinRL & 0.154 & 0.689 & -0.420 \\
-ANN signal & 0.170 & 0.800 & -0.298 \\
-MPS signal & 0.167 & 0.762 & -0.331 \\
+ANN signal & 0.180 & 0.821 & -0.341 \\
+MPS signal & 0.170 & 0.784 & -0.320 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -230,25 +239,32 @@ line is the paired mean; shading is the deterministic paired-seed bootstrap
 \label{fig:final-effect}
 \end{figure}
 
-The paired-seed bootstrap interval was [-0.089, 0.016] and included zero.
+The paired-seed bootstrap interval was [-0.113, 0.045] and included zero.
 This interval summarizes policy-training-seed variation for the fixed
 2013--2018/2019--2023 split; it is neither a population-level confidence
 interval nor evidence of equivalence. The MPS signal had slightly lower test
-prediction MSE than ANN (1.500 versus 1.510), yet its mean downstream Sharpe
+prediction MSE than ANN (1.504 versus 1.515), yet its mean downstream Sharpe
 was lower. This is the failure mode motivating the paper: a predictive
 improvement need not survive policy optimization, transaction costs, and
 path-dependent portfolio dynamics.
 
 \subsection{Temporal robustness}
 
-The shifted-period analysis remains evidence-gated. Annual slices of the same
-2019--2023 test trajectory are not treated as independent temporal validation,
-and no robustness claim is made until encoders and PPO policies are refit
-without access to each evaluation window.
+The shifted protocol refit both encoders and PPO without access to its
+2017--2018 evaluation window. Mean Sharpe was 0.714 for MPS, 0.627 for ANN, and
+0.652 for Base FinRL. The paired MPS-minus-ANN mean was +0.086 with a
+paired-seed bootstrap interval of [0.001, 0.195]; MPS was higher in nine seeds
+and the two-sided sign-test \(p\)-value was 0.021. However, the annualized
+MPS-minus-ANN return difference was +2.34 percentage points and its 20-day
+moving-block-bootstrap interval was [-0.83, 5.98] percentage points. This
+window therefore favors MPS directionally, but the opposite primary-window
+sign and return interval spanning zero support window sensitivity rather than
+a stable architecture-wide advantage.
 
 \section{Limitations}
 
-The study uses a small 15-stock universe and one principal historical split.
+The study uses a small 15-stock universe and only two historical evaluation
+windows; the shifted window is not an independent market universe.
 The MPS is reconstructed from the stated research direction rather than an
 unavailable original implementation. Capacity matching is exact only for the
 reference dimension-4 ANN comparison; the selected dimension-2 model is a
@@ -263,11 +279,13 @@ used.
 
 Representation validation, policy evaluation, and capacity selection must
 remain distinct. The frozen rule selected a compact MPS without using trading
-outcomes, but the final fixed-split comparison did not establish an MPS
+outcomes, but the corrected primary comparison did not establish an MPS
 advantage: its slightly lower prediction error accompanied a mean paired
-Sharpe difference of -0.038 with an interval spanning zero. This is a bounded
-classical MPS result, not evidence against tensor networks generally. Temporal
-generalization remains contingent on the prespecified shifted-period analysis.
+Sharpe difference of -0.037 with an interval spanning zero. The prespecified
+earlier window reversed the mean sign and favored MPS in nine seeds, while its
+return-difference interval still included zero. Together these are bounded,
+classical MPS results showing evaluation-window sensitivity, not a stable
+advantage or evidence against tensor networks generally.
 
 \section*{Acknowledgment}
 
