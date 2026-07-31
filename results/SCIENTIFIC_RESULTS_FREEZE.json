@@ -1,0 +1,163 @@
+{
+  "artifact": "qinn_finrl_scientific_results_freeze",
+  "freeze_date": "2026-07-31",
+  "status": "final_for_short_paper",
+  "scope": {
+    "capacity_pilot": "MPS bond dimensions 2, 4, and 8; PPO seeds 0-2",
+    "primary_evaluation": "2019-2023 evaluation; Base, ANN, and MPS; PPO seeds 0-9",
+    "shifted_evaluation": "2017-2018 evaluation; Base, ANN, and MPS; PPO seeds 0-9"
+  },
+  "change_policy": {
+    "current_results_are_final": true,
+    "new_experiment_default": "out_of_scope",
+    "exception": "A new experiment may enter the paper only after a documented methodological gap, a frozen protocol, and a separately versioned evidence bundle.",
+    "prohibited": "Do not replace, suppress, or relabel an unfavorable frozen result."
+  },
+  "claims": {
+    "capacity": {
+      "tested_bond_dimensions": [
+        2,
+        4,
+        8
+      ],
+      "selected_bond_dimension": 2,
+      "selected_parameter_count": 97,
+      "validation_mse": {
+        "2": 1.280290334352489,
+        "4": 1.2810438681275351,
+        "8": 1.2753067463841223
+      },
+      "fit_seconds": {
+        "2": 48.67921010032296,
+        "4": 4.739175699651241,
+        "8": 9.30442039994523
+      },
+      "mps_minus_ann_sharpe_mean": {
+        "2": -0.045113906063509734,
+        "4": -0.02663148027483031,
+        "8": -0.045862630867272526
+      }
+    },
+    "primary": {
+      "window": "2019-2023",
+      "condition_means": {
+        "Base FinRL": {
+          "annual_return": 0.1536293294079333,
+          "sharpe": 0.68939010827456,
+          "max_drawdown": -0.4196074067599387
+        },
+        "ANN signal": {
+          "annual_return": 0.1795818223203814,
+          "sharpe": 0.8210048315496895,
+          "max_drawdown": -0.340700549459378
+        },
+        "QINN-MPS signal": {
+          "annual_return": 0.17038885161255707,
+          "sharpe": 0.78439743209746,
+          "max_drawdown": -0.31971628114399325
+        }
+      },
+      "paired_sharpe": {
+        "mean": -0.036607399452229385,
+        "standard_deviation": 0.13418785905217795,
+        "median": -0.08689264028490279,
+        "positive_seeds": 3,
+        "negative_seeds": 7,
+        "bootstrap_95pct": [
+          -0.11285747038011881,
+          0.044800013579467196
+        ],
+        "exact_two_sided_sign_test_p": 0.34375
+      },
+      "test_prediction_mse": {
+        "ANN": 1.5149170491665962,
+        "QINN-MPS": 1.504235024080147
+      },
+      "moving_block_annualized_return_difference": {
+        "point": -0.008092681304767894,
+        "bootstrap_95pct": [
+          -0.03004199057068126,
+          0.013658488512104692
+        ],
+        "block_length_days": 20,
+        "bootstrap_samples": 2000
+      }
+    },
+    "shifted": {
+      "window": "2017-2018",
+      "condition_means": {
+        "Base FinRL": {
+          "annual_return": 0.10728713045901825,
+          "sharpe": 0.652457738470061,
+          "max_drawdown": -0.2149845527289361
+        },
+        "ANN signal": {
+          "annual_return": 0.09360450842037224,
+          "sharpe": 0.6274637144159894,
+          "max_drawdown": -0.23043598514191763
+        },
+        "QINN-MPS signal": {
+          "annual_return": 0.11613817350527286,
+          "sharpe": 0.7137091951839826,
+          "max_drawdown": -0.2372650130662092
+        }
+      },
+      "paired_sharpe": {
+        "mean": 0.08624548076799318,
+        "standard_deviation": 0.16955308662384752,
+        "median": 0.020410574512788715,
+        "positive_seeds": 9,
+        "negative_seeds": 1,
+        "bootstrap_95pct": [
+          0.0011190756593376478,
+          0.1945001427822182
+        ],
+        "exact_two_sided_sign_test_p": 0.021484375
+      },
+      "test_prediction_mse": {
+        "ANN": 1.0174808707249379,
+        "QINN-MPS": 1.006685629279959
+      },
+      "moving_block_annualized_return_difference": {
+        "point": 0.023429385581565362,
+        "bootstrap_95pct": [
+          -0.008341074963139591,
+          0.05979104280079912
+        ],
+        "block_length_days": 20,
+        "bootstrap_samples": 2000
+      }
+    }
+  },
+  "sha256": {
+    "results/final/final_manifest.json": "0c5e926ab2fef39e2584652e8d1bc0f0fd06887e5612a250f6a2f47ebb8ba76f",
+    "results/final/run_manifest.json": "3fbefe3618ba1531f3fc3d73024ddf9733c37421924a9956930f755b3f8db98e",
+    "results/final/ppo_backtest_metrics.csv": "bed5ec180950663179690c8733c90b70b2d523c4096d40b8a0dbddb3615ab30b",
+    "results/final/equity_curves.csv": "8f4726c2099edf13fe6835326710ac036a8bd41a9da438ffd90c060426f1f261",
+    "results/final/condition_summary.csv": "b982e7097d8c4245900d74e6b030432bd86f13f39d3ff7ecec7aab19801a489c",
+    "results/final/paired_seed_effects.csv": "df583772f9b983a77283ae31060f48251869cdb87b29d57471e8f6198a8fc7be",
+    "results/final/primary_inference.json": "8e224a2a50b9252507745634cc8156090f6cb497f66964993923252d6b10e550",
+    "results/final/signal_metrics.csv": "6687d43948a45a0c9c623a99fc8759159e7a7932c2f02e2836b9041d15fe33b2",
+    "results/final/ann_vs_mps_block_bootstrap.csv": "bd8e5fce2d404e81a8acd93285eccd432cbb531ecccdd2b90221e9f63be23fc2",
+    "results/figures/final_paired_effect.png": "3e6aa50a6818eb4b6f2f5a58fcddf98ca84b8cae3e0da43adf4a833cabdea79f",
+    "results/figures/final_paired_effect.pdf": "83067d8fec4a6522af20eca345d9cc1d1050c0f4dfe4378ea621b16a33ce81c5",
+    "results/robustness/shifted/robustness_manifest.json": "1b5a5dacb8b5a2abb7bad099a66c2bc03e864b234befdd026328035983055096",
+    "results/robustness/shifted/run_manifest.json": "27ce7514956eef5521b0598711021fc87186253c4bb0dd28a0852e5a9a3edced",
+    "results/robustness/shifted/ppo_backtest_metrics.csv": "410058884d3f2b69191a7975b306b15f955093f17a900f522c015c46c7e7e647",
+    "results/robustness/shifted/equity_curves.csv": "580ebe6e3eba90ae22e052528a69ba0ae861e0682ea7331faaf27307b5d212ea",
+    "results/robustness/shifted/condition_summary.csv": "c80959b72fd6183847e66a4bd82300887f9684306277b42786883ce7be6859c0",
+    "results/robustness/shifted/paired_seed_effects.csv": "ab2a4b659ba045fd0f7af7bfce1c9299e94792eabfc0a4266eafad1b1f19d0ef",
+    "results/robustness/shifted/robustness_inference.json": "4680c533bc2c675ffe589f7ba758aac1c73024e352323f38c02886b600197e13",
+    "results/robustness/shifted/signal_metrics.csv": "73df7879815a04badd5a10910051ed50ea488255226aa7db42a8ed76afb2b03e",
+    "results/robustness/shifted/ann_vs_mps_block_bootstrap.csv": "d7c5ba96aa03c153bcc7b0eb1e618639c631573c675b5345234e822e189768d6",
+    "results/figures/shifted_paired_effect.png": "6712dd63d719d1bf159a7d06dade71ff977cb9ad35822cd9390e11754f544fe2",
+    "results/figures/shifted_paired_effect.pdf": "a50ff42655a16bde16e38ab4a581a5bd63ec8518be30129c592e06b99efb7d23",
+    "results/pilots/2026-07-28/dimension_manifest.json": "a13a803a3fc881714d05e29af0716fcfecc58b3d541fa0cef49f9b14178669fb",
+    "results/pilots/2026-07-28/dimension_summary.csv": "f5f477e9406efbc15f98dc79cfdccf30b8c6f365905909450c46efb12f6f6eff",
+    "results/pilots/2026-07-28/dimension_paired.csv": "f9c5f08ed10b119a30f418cabc9d002227f9db38070d0459ac7019ffef27c30c",
+    "results/figures/dimension_sensitivity.png": "3fd3e979ade890bd80d90639a2c4e92e563d57d6a8c00317bfc4a58e1c603a1d",
+    "results/figures/dimension_sensitivity.pdf": "05dcac8676ed0912d41db40c6595690b08c815789bd8606215f614936266ea0f",
+    "scripts/plot_final_effect.py": "59c1b64a404e26eb9317be1145dc2022b9da054a850d01995325c2124cf0612f",
+    "scripts/plot_dimension_pilot.py": "87ad56af9dc54a7c5239172824222fcf4c303581e12d3ade198121f9c5021d60"
+  }
+}
