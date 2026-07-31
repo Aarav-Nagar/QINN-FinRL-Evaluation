@@ -148,7 +148,16 @@ def job_state(job: MatrixJob, output_root: Path) -> str:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--phase", required=True)
-    parser.add_argument("--window", choices=("primary", "shifted"), default="primary")
+    parser.add_argument(
+        "--window",
+        choices=(
+            "primary",
+            "shifted",
+            "equal_2019_2020",
+            "equal_2021_2022",
+        ),
+        default="primary",
+    )
     parser.add_argument("--runner", type=Path, default=Path("run_experiment.py"))
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--finrl-dir", type=Path, required=True)

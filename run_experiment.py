@@ -156,6 +156,30 @@ WINDOW_OVERRIDES: dict[str, dict[str, str]] = {
         "train_period": "2013-01-02 to 2016-12-30",
         "test_period": "2017-01-03 to 2018-12-28",
     },
+    "equal_2019_2020": {
+        "window_name": "equal_2019_2020",
+        "representation_train_end": "2017-12-29",
+        "representation_validation_start": "2018-01-01",
+        "representation_validation_end": "2018-12-28",
+        "train_start": "2015-01-02",
+        "train_end": "2018-12-28",
+        "test_start": "2019-01-02",
+        "test_end": "2020-12-31",
+        "train_period": "2015-01-02 to 2018-12-28",
+        "test_period": "2019-01-02 to 2020-12-31",
+    },
+    "equal_2021_2022": {
+        "window_name": "equal_2021_2022",
+        "representation_train_end": "2019-12-31",
+        "representation_validation_start": "2020-01-02",
+        "representation_validation_end": "2020-12-31",
+        "train_start": "2017-01-03",
+        "train_end": "2020-12-31",
+        "test_start": "2021-01-04",
+        "test_end": "2022-12-30",
+        "train_period": "2017-01-03 to 2020-12-31",
+        "test_period": "2021-01-04 to 2022-12-30",
+    },
 }
 
 
@@ -191,7 +215,8 @@ def validate_config(config: ExperimentConfig) -> None:
     if config.encoder_device not in {"auto", "cpu", "cuda"}:
         raise ValueError("Encoder device must be one of: auto, cpu, cuda")
     if config.window_name not in WINDOW_OVERRIDES:
-        raise ValueError("Experiment window must be one of: primary, shifted")
+        allowed = ", ".join(WINDOW_OVERRIDES)
+        raise ValueError(f"Experiment window must be one of: {allowed}")
     dates = {
         name: pd.Timestamp(getattr(config, name))
         for name in (
@@ -223,6 +248,8 @@ def validate_config(config: ExperimentConfig) -> None:
         "train_end",
         "test_start",
         "test_end",
+        "train_period",
+        "test_period",
     )
     if any(getattr(config, field) != getattr(expected, field) for field in window_fields):
         raise ValueError(

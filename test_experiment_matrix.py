@@ -80,6 +80,15 @@ def test_shifted_job_id_is_distinct_without_changing_primary_ids() -> None:
     assert shifted.job_id.startswith("robustness_shifted_steps")
 
 
+@pytest.mark.parametrize("window", ["equal_2019_2020", "equal_2021_2022"])
+def test_equal_window_job_ids_are_distinct(window: str) -> None:
+    job = experiment_matrix.build_jobs(
+        "equal-window", window, [20_000], [2], tuple(range(10)), 60, 10, 512, "cpu"
+    )[0]
+    assert window in job.job_id
+    assert job.seeds == tuple(range(10))
+
+
 def test_job_state_recognizes_matching_completion(tmp_path: Path) -> None:
     job = experiment_matrix.MatrixJob(
         "pilot", "primary", 512, 4, (0,), 1, 1, 512, "cpu"

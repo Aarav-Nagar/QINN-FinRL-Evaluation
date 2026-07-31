@@ -60,10 +60,70 @@ def test_shifted_window_matches_frozen_protocol() -> None:
     assert config.test_end == "2018-12-28"
 
 
+@pytest.mark.parametrize(
+    (
+        "window",
+        "train_start",
+        "fit_end",
+        "validation_start",
+        "train_end",
+        "test_start",
+        "test_end",
+    ),
+    [
+        (
+            "equal_2019_2020",
+            "2015-01-02",
+            "2017-12-29",
+            "2018-01-01",
+            "2018-12-28",
+            "2019-01-02",
+            "2020-12-31",
+        ),
+        (
+            "equal_2021_2022",
+            "2017-01-03",
+            "2019-12-31",
+            "2020-01-02",
+            "2020-12-31",
+            "2021-01-04",
+            "2022-12-30",
+        ),
+    ],
+)
+def test_equal_length_windows_match_frozen_protocol(
+    window: str,
+    train_start: str,
+    fit_end: str,
+    validation_start: str,
+    train_end: str,
+    test_start: str,
+    test_end: str,
+) -> None:
+    config = experiment.experiment_config_for_window(window)
+    experiment.validate_config(config)
+    assert config.train_start == train_start
+    assert config.representation_train_end == fit_end
+    assert config.representation_validation_start == validation_start
+    assert config.representation_validation_end == train_end
+    assert config.train_end == train_end
+    assert config.test_start == test_start
+    assert config.test_end == test_end
+
+
 def test_named_window_rejects_date_drift() -> None:
     config = replace(
         experiment.experiment_config_for_window("shifted"),
         test_start="2017-01-04",
+    )
+    with pytest.raises(ValueError, match="differ from protocol"):
+        experiment.validate_config(config)
+
+
+def test_named_window_rejects_period_label_drift() -> None:
+    config = replace(
+        experiment.experiment_config_for_window("equal_2019_2020"),
+        test_period="2019 through 2021",
     )
     with pytest.raises(ValueError, match="differ from protocol"):
         experiment.validate_config(config)
