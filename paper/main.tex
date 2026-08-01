@@ -37,6 +37,9 @@ seed-bootstrap intervals included zero. In the first cell,
 MPS mean Sharpe was 0.714 versus 0.627 for ANN.
 The five-year primary result had the opposite sign. The evidence indicates
 horizon and training-window sensitivity rather than a stable MPS advantage.
+A post-hoc same-policy prefix analysis was nearly tied at one year and favored
+ANN in mean Sharpe at every two- through five-year cutoff; all five intervals
+included zero.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -173,7 +176,12 @@ Each has a four-year PPO training span, with three encoder-fit years followed
 by one validation year. The first cell reuses the completed shifted run; the
 other two refit encoders and PPO chronologically. This panel controls
 evaluation- and training-span length but cannot isolate a causal market-regime
-effect.
+effect. After those results were known, a separately declared post-hoc
+diagnostic re-scores every cumulative one- through five-year prefix of the
+frozen 2019--2023 primary equity curves. It holds the trained policies, seeds,
+and 2019 start fixed, performs no retraining, and reports all available
+year-end cutoffs. The prefixes are nested and therefore cannot be treated as
+independent replications or a causal horizon experiment.
 
 \section{Capacity Pilot}
 
@@ -292,6 +300,38 @@ the portfolio pattern monotonically. Together with the negative five-year
 primary estimate, the panel supports sensitivity to evaluation horizon and
 training-window design, not a stable architecture-wide advantage.
 
+
+Table~\ref{tab:nested-horizons} isolates descriptive evaluation-horizon
+accumulation by retaining the same trained policies and 2019 start. The
+one-year mean is effectively tied (+0.005), although MPS is higher in only
+4/10 seeds and the interval is wide. ANN has higher mean Sharpe at every
+two- through five-year cutoff. All five paired-seed intervals include zero.
+
+\begin{table}[t]
+\caption{Post-hoc nested horizon diagnostic}
+\label{tab:nested-horizons}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Cumulative years & 1 & 2 & 3 & 4 & 5 \\
+\midrule
+ANN Sharpe & 1.549 & 1.087 & 1.168 & 0.597 & 0.821 \\
+MPS Sharpe & 1.553 & 1.024 & 1.086 & 0.568 & 0.784 \\
+$\Delta$ Sharpe & +0.005 & -0.063 & -0.082 & -0.028 & -0.037 \\
+MPS wins & 4/10 & 2/10 & 3/10 & 3/10 & 3/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Mean MPS-minus-ANN annualized return is negative at every cutoff. MPS turnover
+and modeled cost are higher at one year but lower from years two through five;
+the lower trading intensity does not reverse the return or Sharpe ordering.
+Evaluation length alone therefore does not reproduce the positive equal-window
+MPS means when policies and the start date are fixed. Training-window changes,
+calendar exposure, policy refitting, and their interaction remain
+observationally entangled.
 \section{Limitations}
 
 The study uses one small 15-stock universe, one five-year primary evaluation,
@@ -300,7 +340,9 @@ primary calendar span, so these are not independent replications.
 The MPS is reconstructed from the stated research direction rather than an
 unavailable original implementation. Capacity matching is exact only for the
 reference dimension-4 ANN comparison; the selected dimension-2 model is a
-parsimony-controlled sensitivity choice. PPO optimization can remain unstable
+parsimony-controlled sensitivity choice. The nested horizon diagnostic was
+specified only after earlier outcomes were known, and its cumulative prefixes
+share observations, policies, and seeds. PPO optimization can remain unstable
 at the largest tested budget, and ten seeds still provide limited uncertainty
 resolution. Backtests omit several production frictions, including market
 impact, borrow constraints, and latency. Most importantly, all tensor
@@ -317,8 +359,11 @@ Sharpe difference of -0.037 with an interval spanning zero. All three
 equal-length two-year cells have positive mean differences, but the two new
 intervals also span zero and prediction-quality direction is inconsistent.
 The opposite five-year and two-year patterns are bounded, classical MPS
-evidence of evaluation-window sensitivity and training-window dependence,
-not a stable advantage or evidence against tensor networks generally.
+evidence of evaluation-window sensitivity and training-window dependence.
+The same-policy prefix diagnostic is near zero at one year and negative from
+two through five years, with every interval spanning zero; it therefore
+narrows rather than resolves the mechanism. These results show no stable
+advantage and are not evidence against tensor networks generally.
 
 \section*{Acknowledgment}
 

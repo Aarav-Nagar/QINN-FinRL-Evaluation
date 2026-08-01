@@ -51,16 +51,16 @@ no quantum hardware is used.
 
 | Artifact | Completion evidence | Status |
 |---|---|---|
-| Frozen experiment protocol | Primary, shifted, and equal-window protocols frozen before their governed outcomes | Complete |
+| Frozen experiment protocol | Primary, shifted, equal-window, and separately declared post-hoc nested-horizon protocols | Complete |
 | Configurable experiment runner | CLI and manifest record seeds, PPO budget, MPS dimension, temporal window, device, and runtime | Complete |
-| Automated verification | Configuration, boundaries, state construction, summaries, provenance hashes, published evidence, figures, and smoke comparison | Complete: 100 tests passed on 2026-07-31 |
+| Automated verification | Configuration, boundaries, state construction, summaries, provenance hashes, published evidence, figures, and smoke comparison | Complete: 114 tests passed on 2026-07-31 |
 | Training-budget pilot | Matched 5k, 10k, and 20k results with PPO diagnostics | Complete: 20k selected |
 | Bond-dimension study | Machine-readable results for dimensions 2, 4, and 8, including parameter count and runtime | Complete: dimension 2 selected by frozen rule |
 | Matched final evaluation | Ten matched PPO seeds for base, ANN, and selected MPS configuration | Complete: corrected 30-endpoint package, status, manifest, curves, and per-seed metrics preserved |
 | Temporal robustness | At least one non-overlapping refit/evaluation window with unchanged controls | Complete: shifted evidence plus three-cell equal-length panel; 120 total primary/secondary PPO endpoints preserved |
-| Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, costs, and prediction quality | Complete for primary, shifted, and all equal-length cells |
-| Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Equal-window PNG/vector PDF added; structural checks pass, visual reinspection pending |
-| Short-paper source | IEEE-template source with traceable result references | Primary and exploratory equal-window Methods, Results, limitations, and conclusion integrated |
+| Statistics | Paired seed differences, uncertainty intervals, drawdown, turnover, costs, and prediction quality | Complete for primary, shifted, equal-window cells, and same-policy one- through five-year prefixes |
+| Figures | Legible equity/performance figure and sensitivity/uncertainty figure | Equal-window and nested-horizon PNG/vector PDFs added; structural checks pass, visual reinspection pending |
+| Short-paper source | IEEE-template source with traceable result references | Primary, equal-window, and post-hoc nested-horizon Methods, Results, limitations, and conclusion integrated |
 | Submission PDF | Five pages or fewer; fonts embedded; no clipping or overflow | Not started |
 | Reproducibility package | Environment lock, commands, checksums, manifests, raw capacity inputs, and result index | Complete: fresh environment, clean checkout, source acquisition, smoke run, and artifact regeneration verified |
 | Repository presentation | README points to current paper, corrected evidence, protocol, commands, and limitations | Complete; final release link remains |

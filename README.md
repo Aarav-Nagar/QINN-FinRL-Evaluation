@@ -41,6 +41,9 @@ The exact non-overlapping shifted-window design is frozen in the
 [temporal robustness protocol](docs/ROBUSTNESS_PROTOCOL.md).
 The equal-length two-year extension is separately frozen in the
 [equal-window protocol](docs/EQUAL_WINDOW_PROTOCOL.md).
+The later same-policy cumulative-prefix diagnostic is declared in the
+[nested-horizon protocol](docs/NESTED_HORIZON_PROTOCOL.md) and remains
+explicitly post hoc.
 
 The first expanded-study result is the matched
 [PPO training-budget pilot](results/pilots/2026-07-27/), which selected 20,000
@@ -69,6 +72,17 @@ Complete tables, per-seed differences, manifests, and interpretation limits
 are under
 [`results/robustness/equal_windows/`](results/robustness/equal_windows/).
 
+The post-hoc nested-horizon diagnostic re-scores the same frozen primary
+policies over every cumulative one- through five-year prefix. Mean paired
+MPS-minus-ANN Sharpe is +0.005, -0.063, -0.082, -0.028, and -0.037; MPS is
+higher in 4/10, 2/10, 3/10, 3/10, and 3/10 seeds. Every interval includes
+zero. The nearly tied one-year mean and negative two- through five-year means
+show that evaluation length alone does not reproduce the positive equal-window
+panel when the trained policies and 2019 start are fixed. This is dependent,
+post-hoc evidence, not a causal horizon effect. The complete tables and
+manifest are under
+[`results/robustness/nested_horizons/`](results/robustness/nested_horizons/).
+
 ## Review guide
 
 For a concise review of the current short-paper study:
@@ -77,7 +91,8 @@ For a concise review of the current short-paper study:
 2. Review the corrected primary and shifted evidence under
    [`results/final/`](results/final/) and
    [`results/robustness/shifted/`](results/robustness/shifted/), then inspect
-   the [`equal-window panel`](results/robustness/equal_windows/).
+   the [`equal-window panel`](results/robustness/equal_windows/) and
+   [`nested-horizon diagnostic`](results/robustness/nested_horizons/).
 3. Follow every manuscript claim through
    [`paper/CLAIM_TRACEABILITY.md`](paper/CLAIM_TRACEABILITY.md).
 4. Use [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for exact commands,

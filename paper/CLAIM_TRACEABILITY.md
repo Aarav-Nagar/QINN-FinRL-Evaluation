@@ -20,6 +20,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | C10 | The RTX 5060 was available but CPU was retained after a matched encoder benchmark was faster. | `results/smoke/2026-07-27/device_benchmark.csv`, `REPRODUCIBILITY.md` | Ready as reproducibility context only; it is not a model-performance result. |
 | C11 | Across the prespecified equal-length 2017--2018, 2019--2020, and 2021--2022 panels, mean MPS-minus-ANN Sharpe was +0.0862, +0.0925, and +0.1397; MPS was higher in 9/10, 7/10, and 6/10 seeds. The latter intervals [-0.0080, 0.1966] and [-0.0680, 0.3385] included zero. | `results/robustness/equal_windows/window_paired_metric_summary.csv`, `results/robustness/equal_windows/window_paired_seed_effects.csv`, `results/robustness/equal_windows/equal_window_manifest.json` | Ready as exploratory equal-length evidence. Report all windows and the negative five-year primary estimate; do not pool the cells or attribute them causally to market regimes. |
 
+| C12 | Re-scoring the same frozen primary policies over cumulative one- through five-year prefixes gives paired mean MPS-minus-ANN Sharpe of +0.0048, -0.0626, -0.0821, -0.0284, and -0.0366; MPS is higher in 4/10, 2/10, 3/10, 3/10, and 3/10 seeds, and every interval includes zero. | `results/robustness/nested_horizons/horizon_paired_metric_summary.csv`, `results/robustness/nested_horizons/horizon_paired_seed_effects.csv`, `results/robustness/nested_horizons/nested_horizon_manifest.json` | Ready only as post-hoc nested evidence. Report all five dependent prefixes, disclose that the five-year primary outcome was known, and do not claim a causal horizon effect. |
 ## Tables
 
 | ID | Planned content | Source | Status |
@@ -30,6 +31,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | T04 | Shifted-window Base, ANN, and MPS outcomes with paired differences | `results/robustness/shifted/condition_summary.csv`, `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json` | Ready |
 | T05 | Equal-length two-year ANN/MPS Sharpe means, paired differences, seed wins, secondary risk/cost metrics, and signal quality | `results/robustness/equal_windows/window_condition_summary.csv`, `results/robustness/equal_windows/window_paired_metric_summary.csv`, `results/robustness/equal_windows/window_signal_quality.csv` | Ready; exploratory and unpooled |
 
+| T06 | One- through five-year cumulative ANN/MPS Sharpe means, paired differences, wins, return, drawdown, turnover, and cost | `results/robustness/nested_horizons/horizon_condition_summary.csv`, `results/robustness/nested_horizons/horizon_paired_metric_summary.csv` | Ready; post hoc, nested, and noncausal |
 ## Figures
 
 | ID | Planned content | Source | Status |
@@ -39,6 +41,7 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | F03 | Shifted-window paired seed-level effect, available if legible within the page budget | `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json`, `results/figures/shifted_paired_effect.pdf` | Ready; not currently included in the manuscript to preserve page budget |
 | F04 | Equal-length seed-level Sharpe differences and descriptive intervals | `results/robustness/equal_windows/window_paired_seed_effects.csv`, `results/robustness/equal_windows/window_paired_metric_summary.csv`, `results/figures/equal_window_paired_effect.pdf` | Ready as a repository artifact; PNG/PDF structure verified, visual inspection pending, not included in the manuscript page budget |
 
+| F05 | Same-policy paired Sharpe differences across every cumulative one- through five-year prefix | `results/robustness/nested_horizons/horizon_paired_seed_effects.csv`, `results/robustness/nested_horizons/horizon_paired_metric_summary.csv`, `results/figures/nested_horizon_paired_effect.pdf` | Ready as a repository artifact; manifest-bound PNG/PDF structure verified, visual inspection pending |
 ## Primary references verified for drafting
 
 - Schulman et al., *Proximal Policy Optimization Algorithms*,

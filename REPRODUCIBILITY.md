@@ -305,6 +305,38 @@ protocol, all three source manifests, raw portfolio metrics, signal metrics,
 and every derived table. The panel is exploratory: all windows are reported,
 the cells are not pooled, and no market-regime cause is inferred.
 
+
+## Post-hoc nested evaluation-horizon diagnostic
+
+This deterministic analysis uses the frozen primary curves and does not train
+an encoder or PPO policy. It reports every one- through five-year cumulative
+prefix so the requested one- through three-year view cannot stop selectively.
+
+```powershell
+python scripts\summarize_nested_horizons.py `
+  --run-dir results\final `
+  --freeze results\SCIENTIFIC_RESULTS_FREEZE.json `
+  --protocol docs\NESTED_HORIZON_PROTOCOL.md `
+  --output-dir .cache\reproduced-nested-horizons
+python scripts\plot_nested_horizons.py `
+  --paired .cache\reproduced-nested-horizons\horizon_paired_seed_effects.csv `
+  --summary .cache\reproduced-nested-horizons\horizon_paired_metric_summary.csv `
+  --png-output .cache\reproduced-nested-horizons\nested_horizon.png `
+  --pdf-output .cache\reproduced-nested-horizons\nested_horizon.pdf `
+  --manifest .cache\reproduced-nested-horizons\nested_horizon_manifest.json
+```
+
+The scorer validates the scientific-freeze hashes, primary configuration,
+three PPO conditions, seeds 0--9, common daily grid, all five year-end
+cutoffs, and exact reproduction of the frozen five-year metrics. It explicitly
+validates and excludes the saved equal-weight benchmark from the PPO
+condition comparison. The manifest binds all generated tables and both figure
+formats to their sources and scripts.
+
+The prefixes share policies, seeds, dates, and observations. Treat them as
+post-hoc descriptive evidence, not independent replications, a causal trend,
+or an optimized evaluation horizon.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |
@@ -348,6 +380,10 @@ provenance labels, deterministic inference, and paper-facing plots.
 `test_equal_window_evidence.py` additionally bind the three fixed windows,
 every requested paired metric, prediction quality, input/output hashes,
 manuscript values, and PNG/PDF structure.
+`test_nested_horizon_summary.py`, `test_nested_horizon_figure.py`, and
+`test_nested_horizon_evidence.py` validate all five cumulative prefixes,
+benchmark exclusion, exact five-year reproduction, paired metrics, source and
+output hashes, post-hoc paper wording, and manifest-bound figure files.
 
 ## Scope
 

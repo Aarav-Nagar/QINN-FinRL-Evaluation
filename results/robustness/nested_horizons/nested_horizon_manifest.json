@@ -1,0 +1,41 @@
+{
+  "artifact": "nested_evaluation_horizon_analysis",
+  "analysis_role": "post-hoc exploratory",
+  "protocol": "docs/NESTED_HORIZON_PROTOCOL.md",
+  "fixed_source": "results/final/equity_curves.csv",
+  "retraining": false,
+  "horizons_years": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "inputs": {
+    "protocol": "94207a5359ff0d9283837815acbf8b90f7424b2e88c697ba84820c87ce5be711",
+    "scientific_freeze": "4537691f6d9e8d7cccbed78be6ce44828e85130fea178bf1961931dcc849f2c3",
+    "run_manifest.json": "3fbefe3618ba1531f3fc3d73024ddf9733c37421924a9956930f755b3f8db98e",
+    "ppo_backtest_metrics.csv": "bed5ec180950663179690c8733c90b70b2d523c4096d40b8a0dbddb3615ab30b",
+    "equity_curves.csv": "8f4726c2099edf13fe6835326710ac036a8bd41a9da438ffd90c060426f1f261"
+  },
+  "outputs": {
+    "horizon_seed_metrics.csv": "76cbf5e8a25ed1da52adbf947d415263d4cd83e15c2583b55c05bb03049f0602",
+    "horizon_condition_summary.csv": "544e35c7b9d0789ab4d57282a594eba2bdbd4d868e579fdbd263e933b1dff4b7",
+    "horizon_paired_seed_effects.csv": "108217e2bf747575d8bbc626c32302988fb9617d28e295e1c008418e86b51f08",
+    "horizon_paired_metric_summary.csv": "a55803bc5402366cea33e13acdf8e7e4ac33eadb2b6530ec45d350182d63bcfc",
+    "nested_horizon_inference.json": "20ab9978f7c89889beba650b1f322e7b271c527fb840c799537f38d18a5ddbde"
+  },
+  "reporting_rule": "Report all one- through five-year cumulative prefixes; do not select a stopping point; interpret only as nested post-hoc evidence.",
+  "figure_generator": {
+    "script": "scripts/plot_nested_horizons.py",
+    "script_sha256": "8a1950a46b2329c02a8caa56d3199151b0154694c71801fe132f22450f9fc4b3",
+    "sources": {
+      "horizon_paired_seed_effects.csv": "108217e2bf747575d8bbc626c32302988fb9617d28e295e1c008418e86b51f08",
+      "horizon_paired_metric_summary.csv": "a55803bc5402366cea33e13acdf8e7e4ac33eadb2b6530ec45d350182d63bcfc"
+    }
+  },
+  "figures": {
+    "nested_horizon_paired_effect.png": "a3faa89dc72a328dd66f9e88bf6b15caf149f5b2be68bf05775925699d220667",
+    "nested_horizon_paired_effect.pdf": "01dfa8b1f395794af1c7d47788b29e52f4ddc678c54c5d29c8aefeba7f6034b8"
+  }
+}

@@ -26,6 +26,7 @@ change the role or conclusion of any frozen experiment.
 | Primary evaluation | 2019--2023; Base, ANN, and MPS; PPO seeds 0--9 | Primary fixed-split result |
 | Shifted evaluation | 2017--2018; Base, ANN, and MPS; PPO seeds 0--9 | Prespecified temporal sensitivity result |
 | Equal-length extension | 2017--2018, 2019--2020, and 2021--2022; four-year training and two-year evaluation spans; PPO seeds 0--9 | Exploratory horizon/training-window sensitivity |
+| Nested-horizon diagnostic | Same frozen primary policies and 2019 start; cumulative one- through five-year prefixes; PPO seeds 0--9 | Post-hoc, dependent horizon description; no retraining |
 
 ## Frozen conclusions
 
@@ -49,6 +50,13 @@ change the role or conclusion of any frozen experiment.
   remains negative.
 - The panel therefore supports horizon and training-window sensitivity, not a
   stable MPS advantage or a causal market-regime explanation.
+- Nested primary prefixes: paired mean MPS-minus-ANN Sharpe is +0.004826,
+  -0.062583, -0.082111, -0.028449, and -0.036607 for cumulative one- through
+  five-year endpoints. MPS is higher in 4/10, 2/10, 3/10, 3/10, and 3/10
+  seeds, and every interval includes zero.
+- This post-hoc path shows that evaluation length alone does not reproduce the
+  positive equal-window means when policies and the 2019 start are fixed. It
+  cannot identify a causal horizon effect or select an optimal horizon.
 
 ## Verification
 

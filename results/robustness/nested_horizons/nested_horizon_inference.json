@@ -1,0 +1,39 @@
+{
+  "analysis_role": "post-hoc exploratory nested evaluation-horizon analysis",
+  "source": "frozen 2019-2023 primary equity curves; no retraining",
+  "horizons_years": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "organizing_metric": "paired MPS-minus-ANN annualized Sharpe",
+  "mean_sharpe_differences": [
+    0.0048261270533650254,
+    -0.06258299590009872,
+    -0.08211122426764186,
+    -0.02844903366675155,
+    -0.03660739945222944
+  ],
+  "mps_higher_mean_sharpe_horizons": [
+    1
+  ],
+  "ann_higher_mean_sharpe_horizons": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "adjacent_mean_sign_changes": 1,
+  "sharpe_intervals_including_zero": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "bootstrap_samples_per_horizon_metric": 10000,
+  "bootstrap_seed": 20260728,
+  "interpretation_boundary": "All cumulative prefixes are reported. They are nested, dependent, and post hoc; changes cannot establish a causal horizon effect or a stable representation advantage."
+}

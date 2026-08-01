@@ -860,3 +860,98 @@ QA boundary:
   path; visual QA is not claimed.
 - IEEE manuscript compilation, page-budget inspection, font embedding, and
   rendered overflow checks remain pending because no TeX engine is installed.
+
+## 2026-07-31 - Post-hoc nested evaluation-horizon diagnostic
+
+Completed:
+
+1. Converted the requested one-, two-, and three-year comparison into a
+   same-policy cumulative-prefix design anchored on 2019-01-02.
+2. Added mandatory four- and five-year prefixes to prevent selective stopping.
+3. Documented that the negative five-year primary result was already known
+   when the follow-up design was written.
+4. Froze and pushed `docs/NESTED_HORIZON_PROTOCOL.md` before computing any new
+   prefix outcome.
+5. Kept both completed experiments and the original scientific freeze intact;
+   the new evidence is separately versioned and explicitly post hoc.
+6. Reused only the frozen primary daily equity curves; no encoder or PPO model
+   was retrained.
+7. Verified the frozen source hashes, primary configuration, 20,000-step
+   budget, dimension 2, costs, seeds 0--9, and 2019--2023 boundaries.
+8. Detected, validated, and explicitly excluded the saved equal-weight
+   benchmark from the three PPO-condition comparison.
+9. Required one identical daily date grid across Base, ANN, MPS, all ten seeds,
+   and the benchmark.
+10. Implemented metric-compatible prefix scoring for return, volatility,
+    Sharpe, drawdown, turnover, traded notional, and modeled cost.
+11. Generated all 150 condition/seed/horizon metric rows and all 50 matched
+    MPS-minus-ANN seed rows.
+12. Generated condition summaries, five-metric paired summaries, deterministic
+    seed-bootstrap intervals, and bounded inference metadata.
+13. Required the five-year prefix to reproduce every frozen primary condition,
+    seed, and metric within numerical tolerance.
+14. Generated a seed-level PNG and vector-PDF nested-horizon effect figure.
+15. Bound the protocol, frozen sources, derived tables, plotting script, and
+    both figure formats through SHA-256 provenance.
+16. Added an evidence README with the complete result path, secondary metrics,
+    artifact map, reproduction commands, and interpretation limits.
+17. Integrated the post-hoc design and complete one- through five-year result
+    into the abstract, Methods, Results table, limitations, and conclusion.
+18. Added claim, table, and figure traceability plus repository overview,
+    reproduction, scientific-freeze, and deliverables documentation.
+
+Verified nested-horizon results:
+
+- One year: ANN mean Sharpe 1.548594; MPS 1.553420; paired difference
+  +0.004826; MPS higher in 4/10 seeds; interval [-0.464850, 0.509062].
+- Two years: ANN mean Sharpe 1.086569; MPS 1.023986; paired difference
+  -0.062583; MPS higher in 2/10 seeds; interval [-0.155890, 0.052248].
+- Three years: ANN mean Sharpe 1.168339; MPS 1.086227; paired difference
+  -0.082111; MPS higher in 3/10 seeds; interval [-0.194423, 0.035542].
+- Four years: ANN mean Sharpe 0.596813; MPS 0.568364; paired difference
+  -0.028449; MPS higher in 3/10 seeds; interval [-0.108988, 0.055582].
+- Five years: ANN mean Sharpe 0.821005; MPS 0.784397; paired difference
+  -0.036607; MPS higher in 3/10 seeds; interval [-0.112857, 0.044800].
+- Paired annualized-return differences were -0.003744, -0.011347, -0.018265,
+  -0.007644, and -0.009193 from one through five years.
+- MPS annualized turnover and modeled cost were higher at one year and lower
+  at every two- through five-year cutoff.
+- MPS mean maximum drawdown was less severe at one year, more severe at years
+  two and three, and less severe at years four and five.
+- Every paired seed-bootstrap interval for every reported portfolio metric
+  included zero.
+
+Verification:
+
+- Focused nested-horizon scoring, figure, and evidence suite: 14 tests passed.
+- Full repository suite: 114 tests passed in 9.95 seconds.
+- Original scientific freeze: 38 hashes, 60 primary/shifted PPO endpoints,
+  three capacity dimensions, and five original paper claim groups verified.
+- Five-year prefix metrics reproduce the frozen primary endpoint exactly.
+- Evidence bundle contains 150 condition/seed/horizon rows, 50 paired seed
+  rows, 25 paired metric summaries, and 15 condition summaries.
+
+Hardware actually used:
+
+- The diagnostic, tests, summaries, and figures used CPU only.
+- No model training was performed, so GPU acceleration was neither needed nor
+  claimed.
+
+Interpretation boundary:
+
+- The one-year mean is effectively tied and is positive despite only 4/10 MPS
+  seed wins, showing substantial seed dispersion.
+- ANN has higher mean Sharpe at every two- through five-year cutoff, but every
+  interval includes zero; no stable winner is established.
+- Evaluation length alone does not reproduce the positive equal-window panel
+  when policies and the 2019 start are fixed.
+- The nested prefixes are dependent and post hoc. They cannot identify whether
+  training-window changes, calendar exposure, refitting, compounding, or their
+  interaction causes the cross-design difference.
+
+QA boundary:
+
+- PNG/PDF signatures and manifest hashes validate automatically.
+- Direct visual inspection and compiled IEEE page-budget/overflow checks remain
+  pending because the current image-view path and local TeX toolchain are
+  unavailable.
