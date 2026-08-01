@@ -6,6 +6,12 @@ This protocol defines the analyses planned for the SecureFinAI short paper
 before the expanded results are observed. Deviations must be dated, justified,
 and retained in the daily log.
 
+A later user-requested evaluation-horizon decomposition is prespecified in
+`docs/NESTED_HORIZON_PROTOCOL.md`. It re-scores every one- through five-year
+cumulative prefix of the already-frozen 2019--2023 primary equity curves
+without retraining. It is explicitly post hoc and exploratory and does not
+alter the primary or equal-window evidence.
+
 ## Objective and hypotheses
 
 The objective is to test whether appending a frozen learned return signal to a

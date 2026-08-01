@@ -11,6 +11,13 @@ exploratory extension: the three-window equal-length panel frozen before its
 two new outcomes. Its hashes and reporting rule are recorded in
 `results/robustness/equal_windows/equal_window_manifest.json`.
 
+After those outcomes were known, the repository owner requested a cumulative
+one-, two-, and three-year horizon view. Before computing those new prefixes,
+`docs/NESTED_HORIZON_PROTOCOL.md` separately locked all available one- through
+five-year prefixes of the frozen primary equity curves. The added four- and
+five-year cutoffs prevent selective stopping. This post-hoc analysis cannot
+change the role or conclusion of any frozen experiment.
+
 ## Frozen scope
 
 | Evidence | Frozen configuration | Role in paper |
@@ -75,11 +82,17 @@ scientific value or frozen evidence file may change only if a documented
 error is found. A new experiment may enter this paper only after documenting
 the methodological gap, freezing its protocol before inspecting outcomes,
 and versioning it separately. Existing unfavorable or inconclusive evidence
-must remain visible. The equal-window extension satisfies this rule through
+must remain visible.
+
+The nested-horizon analysis is a deterministic re-scoring of the frozen
+primary curves rather than a newly trained date-window experiment. It is
+post hoc, reports every available cumulative cutoff, and is governed by
+`docs/NESTED_HORIZON_PROTOCOL.md`. The equal-window extension is governed by
 `docs/EQUAL_WINDOW_PROTOCOL.md`; it does not alter the original freeze
 manifest.
 
-No additional date window may be added in response to the equal-panel results.
+No additional independently trained date window may be added in response to
+the equal-panel results.
 A different stock universe remains useful future work.
 
 ## QA boundary
