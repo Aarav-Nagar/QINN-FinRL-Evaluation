@@ -337,6 +337,32 @@ The prefixes share policies, seeds, dates, and observations. Treat them as
 post-hoc descriptive evidence, not independent replications, a causal trend,
 or an optimized evaluation horizon.
 
+## Post-hoc market-state trend audit
+
+This analysis uses the saved daily curves from all three non-overlapping
+two-year windows. Benchmark-only thresholds define direction, trailing
+volatility, drawdown, and return-tail states before ANN and MPS differences
+are calculated.
+
+```powershell
+python scripts\summarize_market_states.py `
+  --window-2017-2018 results\robustness\shifted `
+  --window-2019-2020 results\robustness\equal_windows\2019-2020 `
+  --window-2021-2022 results\robustness\equal_windows\2021-2022 `
+  --protocol docs\MARKET_STATE_TREND_PROTOCOL.md `
+  --output-dir .cache\reproduced-market-states
+```
+
+The scorer requires completed manifests, the frozen dates and controls, seeds
+0--9, identical daily grids, all prespecified states, and exact reproduction of
+the saved annual metrics. It writes 270 state/seed effects, 27 state summaries,
+300 calendar-year paired metric rows, 30 annual summaries, a three-row exact
+direction decomposition, and a manifest binding every source and output hash.
+
+The analysis is post hoc. State categories overlap, only three two-year
+windows are available, and seed-bootstrap intervals do not capture historical
+calendar uncertainty. It supports descriptive failure analysis only.
+
 ## Fixed experimental settings
 
 | Setting | Reference artifact | Expanded study |
@@ -384,6 +410,9 @@ manuscript values, and PNG/PDF structure.
 `test_nested_horizon_evidence.py` validate all five cumulative prefixes,
 benchmark exclusion, exact five-year reproduction, paired metrics, source and
 output hashes, post-hoc paper wording, and manifest-bound figure files.
+`test_market_state_trends.py` validates state partitions, matched-seed scoring,
+the additive direction reconciliation, deterministic intervals, complete
+output row counts, and every source/output hash.
 
 ## Scope
 

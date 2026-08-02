@@ -6,11 +6,17 @@
    used by the manuscript.
 2. [`robustness/shifted/`](robustness/shifted/) is the prespecified secondary
    ten-seed 2017--2018 evaluation.
-3. [`pilots/`](pilots/) contains the guarded PPO-budget and MPS-capacity
+3. [`robustness/equal_windows/`](robustness/equal_windows/) is the exploratory
+   three-cell, non-overlapping two-year panel.
+4. [`robustness/nested_horizons/`](robustness/nested_horizons/) is the
+   same-policy one- through five-year post-hoc diagnostic.
+5. [`robustness/market_states/`](robustness/market_states/) is the post-hoc
+   benchmark-state and calendar-year audit of the equal-length panel.
+6. [`pilots/`](pilots/) contains the guarded PPO-budget and MPS-capacity
    selection evidence.
-4. Root-level tables are the older three-seed reference study. They remain
+7. Root-level tables are the older three-seed reference study. They remain
    preserved for audit history but are not the final manuscript evidence.
-5. [`smoke/`](smoke/) contains reduced engineering checks and cannot support
+8. [`smoke/`](smoke/) contains reduced engineering checks and cannot support
    performance claims.
 
 ## Corrected primary result

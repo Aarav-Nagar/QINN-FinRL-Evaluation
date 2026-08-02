@@ -1,0 +1,10 @@
+state_family,state,n_windows,equal_window_mean_annualized_return_difference,minimum_window_difference,maximum_window_difference,positive_windows,negative_windows,zero_windows,sign_consistent_across_windows
+benchmark_direction,negative,3,-0.031122778155206126,-0.0663208805795967,-0.0055916029912134345,0,3,0,True
+benchmark_direction,nonnegative,3,0.07829552908760738,0.04989335460978215,0.09940572354769676,3,0,0,True
+benchmark_drawdown,at_or_above_prior_peak,3,0.12831734556370294,0.02908509478697354,0.2814391638654926,3,0,0,True
+benchmark_drawdown,below_prior_peak,3,0.013197177467470053,0.006111749640258383,0.02618972798775652,3,0,0,True
+benchmark_return_tail,bottom_decile,3,-0.051228683331899005,-0.19467286135720308,0.16949403559684212,1,2,0,False
+benchmark_return_tail,middle_80pct,3,0.02326616828453129,0.01657675583098269,0.03569233948557391,3,0,0,True
+benchmark_return_tail,top_decile,3,0.16656784710957687,0.09997094710617152,0.28769026863340674,3,0,0,True
+benchmark_volatility,high,3,0.022897924614482413,0.009301671185075395,0.03607057837330095,3,0,0,True
+benchmark_volatility,low,3,0.0402053015151335,0.019283944898450485,0.07588982034591206,3,0,0,True

@@ -83,6 +83,19 @@ post-hoc evidence, not a causal horizon effect. The complete tables and
 manifest are under
 [`results/robustness/nested_horizons/`](results/robustness/nested_horizons/).
 
+A separate post-hoc market-state audit uses the three non-overlapping
+equal-length windows and the saved equal-weight benchmark, without retraining.
+MPS-minus-ANN annualized mean-return differences were negative on benchmark
+down days in all three windows (-6.63, -0.56, and -2.15 percentage points) and
+positive on nonnegative days (+8.56, +4.99, and +9.94 points). This suggests
+the exploratory equal-window advantage was concentrated in upside capture,
+not downside protection. Every direction-state seed-bootstrap interval
+included zero, downside-risk differences were inconsistent, and the audit is
+post hoc; it is therefore a failure-analysis clue rather than a new headline
+performance claim. The full 27-cell state panel, six calendar years, exact
+direction decomposition, and provenance manifest are under
+[`results/robustness/market_states/`](results/robustness/market_states/).
+
 ## Review guide
 
 For a concise review of the current short-paper study:

@@ -955,3 +955,80 @@ QA boundary:
 - Direct visual inspection and compiled IEEE page-budget/overflow checks remain
   pending because the current image-view path and local TeX toolchain are
   unavailable.
+
+## 2026-08-02 - Post-hoc market-state and calendar trend audit
+
+Completed:
+
+1. Prespecified the market-state questions before calculating their outcomes.
+2. Preserved the corrected primary, equal-window, nested-horizon, and original
+   scientific-freeze artifacts without retraining or changing their claims.
+3. Limited the audit to the three complete non-overlapping two-year windows.
+4. Required the saved equal-weight benchmark to define every market state
+   independently of ANN or MPS outcomes.
+5. Defined complete direction, 20-session volatility, drawdown, return-tail,
+   and calendar-year views with no outcome-driven alternate thresholds.
+6. Validated completed manifests, exact dates, 20,000 PPO steps, dimension 2,
+   and matched seeds 0--9.
+7. Required identical ANN, MPS, and benchmark daily grids within every window.
+8. Rejected missing, duplicate, unexpected, or non-finite curve rows.
+9. Generated 270 window/state/seed conditional effect rows.
+10. Generated all 27 prespecified window/state summary cells.
+11. Added deterministic ten-seed bootstrap intervals for every state cell.
+12. Calculated conditional mean-return and downside-deviation differences.
+13. Generated a nine-row equal-weight cross-window sign audit.
+14. Exactly decomposed each full-window mean daily difference into benchmark
+    down-day and nonnegative-day contributions.
+15. Recomputed the saved annual metrics from daily curves and required exact
+    agreement before using them.
+16. Generated 300 paired calendar-year/seed/metric rows and 30 summaries.
+17. Reported annual return, Sharpe, drawdown, turnover, and modeled cost for
+    all six calendar years.
+18. Bound the protocol, script, three curve files, three annual tables, three
+    manifests, and every generated output through SHA-256.
+19. Added six focused tests for state partitions, matched scoring, complete
+    cells, deterministic intervals, exact decomposition, and provenance.
+20. Documented the full favorable, unfavorable, and null result pattern in the
+    evidence bundle and repository indexes.
+
+Verified findings:
+
+- MPS-minus-ANN annualized mean-return differences on benchmark-down days were
+  -6.63, -0.56, and -2.15 percentage points across 2017--2018, 2019--2020,
+  and 2021--2022.
+- The corresponding nonnegative-day differences were +8.56, +4.99, and +9.94
+  points. Every direction-state seed-bootstrap interval included zero.
+- Down days offset 53.7%, 8.0%, and 20.5% of the positive nonnegative-day
+  contribution, leaving reconciled full-window annualized mean differences of
+  +2.34, +2.68, and +4.05 points.
+- Top-decile benchmark days favored MPS in all three windows, while
+  bottom-decile signs were negative, negative, then positive with wide
+  intervals.
+- Both high- and low-volatility state means were positive in all three
+  windows; no specifically high-volatility explanation is supported.
+- Mean annual return and Sharpe differences were positive in five of six
+  years. The only intervals excluding zero were positive in 2018 for both
+  metrics and negative in 2017 for Sharpe.
+- Downside-deviation, turnover, and modeled-cost differences changed signs
+  across windows or years and do not provide a stable mechanism.
+
+Verification:
+
+- Focused market-state suite: 6 tests passed.
+- Full repository suite: 120 tests passed in 21.38 seconds.
+- All 27 market-state cells and six calendar years were present.
+- All saved annual metrics reproduced directly from daily curves.
+- Every generated and source hash matched the manifest.
+
+Hardware actually used:
+
+- The audit, bootstrap calculations, documentation, and tests used CPU only.
+- No encoder or PPO training was performed, so the RTX 5060 was not used.
+
+Interpretation boundary:
+
+- The main new clue is upside capture rather than downside protection.
+- The states overlap, only three windows are available, and intervals reflect
+  seed dispersion rather than calendar-sample uncertainty.
+- This evidence is post hoc and should remain secondary to the frozen primary
+  and prespecified shifted results.

@@ -1,0 +1,78 @@
+{
+  "analysis_role": "post-hoc exploratory market-state trend audit",
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 20260802,
+  "calendar_years_with_negative_mean_return_difference": 1,
+  "calendar_years_with_negative_mean_sharpe_difference": 1,
+  "calendar_years_with_positive_mean_return_difference": 5,
+  "calendar_years_with_positive_mean_sharpe_difference": 5,
+  "consistent_market_state_signs": [
+    {
+      "equal_window_mean_annualized_return_difference": -0.031122778155206126,
+      "sign": "negative",
+      "state": "negative",
+      "state_family": "benchmark_direction"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.07829552908760738,
+      "sign": "positive",
+      "state": "nonnegative",
+      "state_family": "benchmark_direction"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.12831734556370294,
+      "sign": "positive",
+      "state": "at_or_above_prior_peak",
+      "state_family": "benchmark_drawdown"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.013197177467470053,
+      "sign": "positive",
+      "state": "below_prior_peak",
+      "state_family": "benchmark_drawdown"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.02326616828453129,
+      "sign": "positive",
+      "state": "middle_80pct",
+      "state_family": "benchmark_return_tail"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.16656784710957687,
+      "sign": "positive",
+      "state": "top_decile",
+      "state_family": "benchmark_return_tail"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.022897924614482413,
+      "sign": "positive",
+      "state": "high",
+      "state_family": "benchmark_volatility"
+    },
+    {
+      "equal_window_mean_annualized_return_difference": 0.0402053015151335,
+      "sign": "positive",
+      "state": "low",
+      "state_family": "benchmark_volatility"
+    }
+  ],
+  "interpretation": "Descriptive conditional evidence only; states overlap, windows are few, and seed intervals do not represent calendar uncertainty.",
+  "market_state_cells": 27,
+  "ppo_seeds_per_window": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "windows": [
+    "2017-2018",
+    "2019-2020",
+    "2021-2022"
+  ]
+}
