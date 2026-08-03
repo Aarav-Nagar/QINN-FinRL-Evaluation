@@ -409,10 +409,36 @@ manuscript values, and PNG/PDF structure.
 `test_nested_horizon_summary.py`, `test_nested_horizon_figure.py`, and
 `test_nested_horizon_evidence.py` validate all five cumulative prefixes,
 benchmark exclusion, exact five-year reproduction, paired metrics, source and
-output hashes, post-hoc paper wording, and manifest-bound figure files.
+output hashes, repository-only manuscript curation, and manifest-bound figure files.
 `test_market_state_trends.py` validates state partitions, matched-seed scoring,
 the additive direction reconciliation, deterministic intervals, complete
 output row counts, and every source/output hash.
+
+## Paper build and presentation checks
+
+The short paper uses the free IEEE conference template and compiles with MiKTeX
+or TeX Live. From `paper/`, run:
+
+```powershell
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
+Then verify page count, page size, embedded fonts, and rendered pages:
+
+```powershell
+pdfinfo main.pdf
+pdffonts main.pdf
+pdftoppm -png -r 150 main.pdf ..\tmp\pdfs\paper
+```
+
+The compiled PDF is a presentation artifact: it must not change or override the
+hash-frozen scientific results. Before release, inspect every rendered page for
+clipping, overlap, unreadable figures, broken references, and unbalanced final
+columns. Keep auxiliary TeX files and review renders under `tmp/`; freeze the
+submission PDF only after these checks pass.
 
 ## Scope
 

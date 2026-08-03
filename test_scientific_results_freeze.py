@@ -21,5 +21,5 @@ def test_scientific_results_freeze_matches_published_evidence() -> None:
         "primary_ppo_endpoints": 30,
         "shifted_ppo_endpoints": 30,
         "capacity_dimensions": 3,
-        "paper_claim_groups": 5,
+        "paper_claim_groups": 6,
     }

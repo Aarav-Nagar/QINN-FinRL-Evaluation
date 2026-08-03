@@ -107,7 +107,7 @@ def test_nested_horizon_saved_rows_reproduce_frozen_curves_and_claims() -> None:
     MODULE.validate_full_horizon(saved, final_metrics)
 
 
-def test_nested_horizon_paper_and_visuals_retain_reporting_boundaries() -> None:
+def test_nested_horizon_artifacts_and_curation_retain_boundaries() -> None:
     inference = json.loads(
         (EVIDENCE / "nested_horizon_inference.json").read_text(encoding="utf-8")
     )
@@ -127,18 +127,15 @@ def test_nested_horizon_paper_and_visuals_retain_reporting_boundaries() -> None:
         assert boundary in protocol
 
     paper = (ROOT / "paper" / "main.tex").read_text(encoding="utf-8")
-    for token in (
-        "+0.005",
-        "-0.063",
-        "-0.082",
-        "-0.028",
-        "-0.037",
-        "4/10",
-        "2/10",
-        "post-hoc",
-        "All five paired-seed intervals include zero",
-    ):
-        assert token in paper
+    assert "\\label{tab:nested-horizons}" not in paper
+    assert "Post-hoc nested horizon diagnostic" not in paper
+
+    traceability = (ROOT / "paper" / "CLAIM_TRACEABILITY.md").read_text(
+        encoding="utf-8"
+    )
+    assert "T06" in traceability
+    assert "F05" in traceability
+    assert "repository-only" in traceability
 
     png = FIGURES / "nested_horizon_paired_effect.png"
     pdf = FIGURES / "nested_horizon_paired_effect.pdf"

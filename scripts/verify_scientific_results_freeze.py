@@ -344,6 +344,13 @@ def _verify_paper(root: Path) -> int:
             "evaluation-window sensitivity",
             "not a stable",
         ),
+        "exploratory": (
+            "benchmark-down days",
+            "-6.63, -0.56, and -2.15 percentage points",
+            "+8.56, +4.99, and +9.94 points",
+            "Every direction-state seed-bootstrap interval",
+            "not a causal market-regime result",
+        ),
     }
     for group, fragments in claim_groups.items():
         for fragment in fragments:
@@ -354,6 +361,8 @@ def _verify_paper(root: Path) -> int:
     for stale in (
         "mean Sharpe was 0.800 for ANN",
         "Shifted-period robustness remains pending",
+        "\\label{tab:nested-horizons}",
+        "dimension_sensitivity.pdf",
     ):
         if stale in paper:
             raise AssertionError(f"Stale paper claim returned: {stale}")

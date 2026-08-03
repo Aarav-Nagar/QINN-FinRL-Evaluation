@@ -21,27 +21,31 @@ wording below; it does not mean the final manuscript sentence is frozen.
 | C11 | Across the prespecified equal-length 2017--2018, 2019--2020, and 2021--2022 panels, mean MPS-minus-ANN Sharpe was +0.0862, +0.0925, and +0.1397; MPS was higher in 9/10, 7/10, and 6/10 seeds. The latter intervals [-0.0080, 0.1966] and [-0.0680, 0.3385] included zero. | `results/robustness/equal_windows/window_paired_metric_summary.csv`, `results/robustness/equal_windows/window_paired_seed_effects.csv`, `results/robustness/equal_windows/equal_window_manifest.json` | Ready as exploratory equal-length evidence. Report all windows and the negative five-year primary estimate; do not pool the cells or attribute them causally to market regimes. |
 
 | C12 | Re-scoring the same frozen primary policies over cumulative one- through five-year prefixes gives paired mean MPS-minus-ANN Sharpe of +0.0048, -0.0626, -0.0821, -0.0284, and -0.0366; MPS is higher in 4/10, 2/10, 3/10, 3/10, and 3/10 seeds, and every interval includes zero. | `results/robustness/nested_horizons/horizon_paired_metric_summary.csv`, `results/robustness/nested_horizons/horizon_paired_seed_effects.csv`, `results/robustness/nested_horizons/nested_horizon_manifest.json` | Ready only as post-hoc nested evidence. Report all five dependent prefixes, disclose that the five-year primary outcome was known, and do not claim a causal horizon effect. |
+| C13 | In the post-hoc benchmark-direction audit, MPS-minus-ANN annualized mean-return differences were -6.63, -0.56, and -2.15 percentage points on benchmark-down days and +8.56, +4.99, and +9.94 points on nonnegative days; every direction-state seed-bootstrap interval included zero. | `results/robustness/market_states/market_state_summary.csv`, `results/robustness/market_states/direction_contribution.csv`, `results/robustness/market_states/market_state_manifest.json` | Ready only as a bounded exploratory clue. State that the audit was declared after the equal-window outcomes, do not claim downside protection or a causal regime effect, and do not treat seed intervals as calendar-sample uncertainty. |
+
 ## Tables
 
 | ID | Planned content | Source | Status |
 |---|---|---|---|
 | T01 | Data splits, state construction, costs, PPO budget, seeds, encoder controls, and corrected target boundaries | `results/final/run_manifest.json`, `results/final/run_status.json`, `docs/EXPERIMENT_PROTOCOL.md`, `docs/DECISIONS.md` | Ready |
-| T02 | Bond-dimension validation, parameter, runtime, and descriptive trading sensitivity | `results/pilots/2026-07-28/dimension_summary.csv`, `results/pilots/2026-07-28/dimension_paired.csv` | Ready |
+| T02 | Bond-dimension validation, parameter, runtime, and descriptive trading sensitivity | `results/pilots/2026-07-28/dimension_summary.csv`, `results/pilots/2026-07-28/dimension_paired.csv` | Ready; retained as the manuscript's single capacity presentation |
 | T03 | Ten-seed Base, ANN, and selected-MPS portfolio outcomes with paired differences | `results/final/condition_summary.csv`, `results/final/paired_seed_effects.csv` | Ready |
 | T04 | Shifted-window Base, ANN, and MPS outcomes with paired differences | `results/robustness/shifted/condition_summary.csv`, `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json` | Ready |
 | T05 | Equal-length two-year ANN/MPS Sharpe means, paired differences, seed wins, secondary risk/cost metrics, and signal quality | `results/robustness/equal_windows/window_condition_summary.csv`, `results/robustness/equal_windows/window_paired_metric_summary.csv`, `results/robustness/equal_windows/window_signal_quality.csv` | Ready; exploratory and unpooled |
 
-| T06 | One- through five-year cumulative ANN/MPS Sharpe means, paired differences, wins, return, drawdown, turnover, and cost | `results/robustness/nested_horizons/horizon_condition_summary.csv`, `results/robustness/nested_horizons/horizon_paired_metric_summary.csv` | Ready; post hoc, nested, and noncausal |
+| T06 | One- through five-year cumulative ANN/MPS Sharpe means, paired differences, wins, return, drawdown, turnover, and cost | `results/robustness/nested_horizons/horizon_condition_summary.csv`, `results/robustness/nested_horizons/horizon_paired_metric_summary.csv` | Ready as repository-only evidence; intentionally excluded from the short paper because the dependent post-hoc prefixes add limited value within the page budget |
+
 ## Figures
 
 | ID | Planned content | Source | Status |
 |---|---|---|---|
-| F01 | MPS validation error and parameter count by bond dimension | `results/pilots/2026-07-28/dimension_summary.csv`, `results/figures/dimension_sensitivity.pdf` | Ready; PNG and vector PDF generated and visually inspected |
+| F01 | MPS validation error and parameter count by bond dimension | `results/pilots/2026-07-28/dimension_summary.csv`, `results/figures/dimension_sensitivity.pdf` | Ready as a repository artifact; the manuscript retains Table T02 and omits this redundant figure |
 | F02 | Corrected paired ten-seed MPS-minus-ANN primary effect with uncertainty | `results/final/paired_seed_effects.csv`, `results/final/primary_inference.json`, `results/figures/final_paired_effect.pdf` | Ready; PNG and vector PDF regenerated; structural validation complete, visual reinspection pending |
 | F03 | Shifted-window paired seed-level effect, available if legible within the page budget | `results/robustness/shifted/paired_seed_effects.csv`, `results/robustness/shifted/robustness_inference.json`, `results/figures/shifted_paired_effect.pdf` | Ready; not currently included in the manuscript to preserve page budget |
 | F04 | Equal-length seed-level Sharpe differences and descriptive intervals | `results/robustness/equal_windows/window_paired_seed_effects.csv`, `results/robustness/equal_windows/window_paired_metric_summary.csv`, `results/figures/equal_window_paired_effect.pdf` | Ready as a repository artifact; PNG/PDF structure verified, visual inspection pending, not included in the manuscript page budget |
 
-| F05 | Same-policy paired Sharpe differences across every cumulative one- through five-year prefix | `results/robustness/nested_horizons/horizon_paired_seed_effects.csv`, `results/robustness/nested_horizons/horizon_paired_metric_summary.csv`, `results/figures/nested_horizon_paired_effect.pdf` | Ready as a repository artifact; manifest-bound PNG/PDF structure verified, visual inspection pending |
+| F05 | Same-policy paired Sharpe differences across every cumulative one- through five-year prefix | `results/robustness/nested_horizons/horizon_paired_seed_effects.csv`, `results/robustness/nested_horizons/horizon_paired_metric_summary.csv`, `results/figures/nested_horizon_paired_effect.pdf` | Ready as a repository-only artifact; intentionally excluded from the short paper |
+
 ## Primary references verified for drafting
 
 - Schulman et al., *Proximal Policy Optimization Algorithms*,

@@ -77,3 +77,8 @@ def test_manuscript_uses_corrected_published_results() -> None:
     assert "Mean Sharpe was 0.714 for MPS, 0.627 for ANN" in manuscript
     assert "Shifted-period robustness remains pending" not in manuscript
     assert "mean Sharpe was 0.800 for ANN and 0.762 for MPS" not in manuscript
+    assert "-6.63, -0.56, and -2.15 percentage points" in manuscript
+    assert "+8.56, +4.99, and +9.94 points" in manuscript
+    assert "not a causal market-regime result" in manuscript
+    assert "\\label{tab:nested-horizons}" not in manuscript
+    assert "dimension_sensitivity.pdf" not in manuscript

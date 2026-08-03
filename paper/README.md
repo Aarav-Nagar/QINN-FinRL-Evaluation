@@ -36,9 +36,11 @@ FinRL infrastructure, supervised MPS predictors, and tensor-network policy
 learning from this paper's frozen-signal evaluation. The boundary-corrected fixed-split and prespecified shifted-window ten-seed
 results are integrated from hash-linked artifacts. The manuscript reports their
 sign reversal as window sensitivity and prohibits unsupported favorable claims.
-The local machine currently has no TeX compiler, so a submission PDF must not
-be marked verified until the source is compiled and visually inspected in a
-suitable free TeX environment.
+The manuscript now compiles locally with MiKTeX to four IEEE-format pages.
+The nested-horizon table and redundant capacity figure remain reproducible
+repository artifacts but are intentionally excluded from the short-paper page
+budget. A release PDF must still pass font, clipping, and human visual checks
+before it is frozen.
 
 Primary scholarly references already verified for drafting are stored in
 `references.bib`. Repository or dataset citations must remain distinct from

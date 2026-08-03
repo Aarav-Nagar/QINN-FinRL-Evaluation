@@ -1032,3 +1032,99 @@ Interpretation boundary:
   seed dispersion rather than calendar-sample uncertainty.
 - This evidence is post hoc and should remain secondary to the frozen primary
   and prespecified shifted results.
+
+## 2026-08-03 - Short-paper evidence curation and PDF QA
+
+Completed:
+
+1. Inspected branch status, recent commits, remotes, working-tree changes, and the
+   append-only daily log before editing.
+2. Confirmed the GitHub repository has no open issues.
+3. Inventoried the frozen primary, shifted, equal-window, nested-horizon, and
+   market-state evidence without changing any scientific output.
+4. Verified the local RTX 5060 Laptop GPU is available with 8,151 MiB reported
+   memory, but correctly kept this paper-only run on CPU.
+5. Compiled the pre-edit manuscript to establish a four-page baseline.
+6. Removed the dependent post-hoc nested-horizon result from the abstract.
+7. Removed its design paragraph from Methods while preserving the repository
+   protocol, evidence, manifests, tests, and figures.
+8. Removed the nested-horizon table and extended Results narrative from the
+   short paper rather than presenting dependent prefixes as replications.
+9. Removed the redundant bond-dimension figure while retaining the exact
+   capacity table and repository figure.
+10. Kept the corrected 2019--2023 ten-seed comparison as the headline result.
+11. Kept the prespecified 2017--2018 shift and complete three-window equal-length
+    panel as the main temporal robustness evidence.
+12. Added one bounded post-hoc market-state paragraph reporting all three
+    unfavorable benchmark-down and favorable nonnegative-day differences.
+13. Stated explicitly that every direction-state seed-bootstrap interval
+    includes zero.
+14. Framed the market-state pattern as a possible upside-capture clue rather
+    than downside protection or a causal regime result.
+15. Updated Limitations to disclose overlapping states, only three windows, and
+    the distinction between seed variation and historical-sample uncertainty.
+16. Updated the Conclusion without changing the primary finding or claiming a
+    stable MPS advantage.
+17. Added claim C13 linking the market-state wording to its summary,
+    decomposition, and manifest artifacts.
+18. Marked the nested-horizon table/figure and capacity figure as intentionally
+    repository-only in the traceability registry.
+19. Extended the scientific-freeze verifier to require the bounded market-state
+    wording and reject reintroduction of the nested table or redundant figure.
+20. Updated focused tests so nested-horizon artifacts remain fully validated
+    while manuscript curation is enforced separately.
+21. Added portable LaTeX/BibTeX build, PDF metadata, font, and render commands to
+    the reproducibility guide.
+22. Replaced a stale manual page break after automated rendering exposed an
+    empty right column on page four.
+23. Added standard final-page balancing and moved its trigger to a first-column
+    location, eliminating the package warning.
+24. Verified a four-page, US-letter PDF with all ten fonts embedded, no
+    unresolved references, no overfull/underfull boxes, and safe render margins.
+25. Updated the paper README and deliverables tracker with the evidence hierarchy,
+    build status, and remaining human-review boundary.
+
+Verification:
+
+- Focused manuscript/evidence suite: 14 tests passed in 17.32 seconds.
+- Full repository suite: 120 tests passed in 94.87 seconds.
+- PDF: four pages, 612 by 792 points, 152,536 bytes, PDF 1.5.
+- Font audit: ten distinct Type 1 fonts; all embedded.
+- LaTeX audit: zero unresolved-reference, overfull, underfull, or balance
+  warnings after the final compile.
+- Render audit: all pages nonblank; minimum detected edge margin exceeded 99
+  pixels at 150 DPI. Final-page text column endpoints were 165.1 and 168.2
+  PDF points, confirming balanced references.
+- The original scientific-result tables, manifests, and experiment outputs were
+  not modified or regenerated.
+
+Hardware actually used:
+
+- Intel Core 7 240H CPU, 10 cores and 16 logical processors.
+- Approximately 34.0 GB installed physical memory.
+- RTX 5060 Laptop GPU availability was verified, but no training or CUDA work
+  was performed or claimed.
+
+Interpretation boundary:
+
+- The five-year primary estimate remains negative and uncertain.
+- The two-year panel remains exploratory; its positive means do not establish a
+  stable architecture-wide advantage.
+- The market-state result is post-hoc and describes seed dispersion on three
+  historical windows, not population or causal uncertainty.
+- Nested-horizon evidence remains preserved for audit and supplement use; its
+  removal from the short paper is curation, not suppression.
+
+Remaining QA boundary:
+
+- Automated rendering and geometry checks passed, but direct human visual
+  inspection inside this run was blocked by the Windows ACL image-view path.
+- The author must read the compiled PDF visually and confirm the corresponding
+  email/submission metadata before the August 5 artifact freeze.
+- No paper submission, email, authorship change, registration, or external claim
+  was made.
+
+Next milestone:
+
+- August 4: complete the full prose/reference consistency pass, visually inspect
+  all four pages, confirm submission metadata, and prepare the final checklist.
