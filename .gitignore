@@ -7,5 +7,8 @@ venv/
 data/
 FinRL/
 local_runs/
+.atl/
+atl_mps_agent/artifacts/*.pt
+atl_mps_agent/artifacts/*.json
 *.partial.csv
 ~$*.docx

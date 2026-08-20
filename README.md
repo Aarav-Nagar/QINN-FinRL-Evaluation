@@ -8,6 +8,19 @@ The experiment was developed as a follow-up to Dr. Xiao-Yang Liu's
 suggestion to test quantum-inspired representations inside a FinRL benchmark,
 rather than evaluating them only as prediction models.
 
+## Agentic Trading Lab integration
+
+The [`atl_mps_agent`](atl_mps_agent) package adapts the classical MPS
+formulation to Agentic Trading Lab's hourly external-agent contract. It trains
+on an earlier ATL snapshot window, produces risk-bounded decisions in a later
+held-out backtest, and keeps its live API credentials and generated model
+artifact out of Git. See the [ATL MPS agent runbook](docs/ATL_MPS_AGENT.md) and
+the [verified hosted integration result](docs/ATL_MPS_AGENT_RESULT.md).
+
+This is an ATL-specific research prototype, not the paper's daily FinRL PPO
+policy. The two systems share the MPS feature map and tensor contraction, but
+their data, universe, decision policy, and results are separate.
+
 ## Development history
 
 The initial commit imports an experiment developed before this standalone
