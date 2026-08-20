@@ -1,13 +1,15 @@
 from __future__ import annotations
 
 from pathlib import Path
+from datetime import datetime, timedelta, timezone
 
 import numpy as np
 import torch
 
-from atl_mps_agent.features import FEATURE_NAMES, build_supervised_rows, snapshot_features
-from atl_mps_agent.model import MPSRegressor, parameter_count
+from atl_mps_agent.features import FEATURE_NAMES, audit_features, build_supervised_rows, snapshot_features
+from atl_mps_agent.model import MPSRegressor, MatchedANNRegressor, parameter_count
 from atl_mps_agent.policy import MPSPolicy
+from atl_mps_agent.benchmark import run_benchmark
 
 
 def sample_snapshot(price: float, cash: float = 1000.0) -> dict:
@@ -42,12 +44,32 @@ def sample_snapshot(price: float, cash: float = 1000.0) -> dict:
 
 def test_mps_bond_four_has_recorded_369_parameters():
     assert parameter_count(MPSRegressor(13, 4)) == 369
+    assert parameter_count(MatchedANNRegressor()) == 369
 
 
 def test_snapshot_feature_contract_is_finite_and_thirteen_dimensional():
     values = snapshot_features(sample_snapshot(200.0), "AAPL", {"AAPL": [195.0]})
     assert values.shape == (len(FEATURE_NAMES),) == (13,)
     assert np.isfinite(values).all()
+
+
+def test_predictor_features_do_not_depend_on_portfolio_state():
+    history = {"AAPL": [195.0], "MSFT": [405.0]}
+    cash_only = sample_snapshot(200.0, cash=1000.0)
+    invested = sample_snapshot(200.0, cash=0.0)
+    invested["current_holdings"] = {"AAPL": {"shares": 5}}
+    assert np.array_equal(
+        snapshot_features(cash_only, "AAPL", history),
+        snapshot_features(invested, "AAPL", history),
+    )
+
+
+def test_zero_placeholder_indicators_do_not_create_extreme_ratios():
+    snapshot = sample_snapshot(200.0)
+    for key in ("sma20", "sma50", "bb_upper", "bb_lower"):
+        snapshot["top_signals"]["AAPL"][key] = 0.0
+    values = snapshot_features(snapshot, "AAPL", {"AAPL": [199.0]})
+    assert np.max(np.abs(values)) <= 1.0
 
 
 def test_supervised_target_uses_the_following_snapshot():
@@ -58,18 +80,26 @@ def test_supervised_target_uses_the_following_snapshot():
     aapl = next(index for index, row in enumerate(rows) if row["symbol"] == "AAPL")
     assert inputs.shape[1] == 13
     assert targets[aapl] == np.float32(1.0)
+    audit = audit_features(inputs, rows)
+    assert audit["row_count"] == len(rows)
+    assert audit["nonfinite_total"] == 0
 
 
 def test_policy_emits_atl_action_contract(tmp_path: Path):
     model = MPSRegressor(13, 4)
     artifact = {
-        "schema_version": 1,
+        "schema_version": 2,
         "model_type": "classical_mps_regressor",
         "feature_names": list(FEATURE_NAMES),
         "bond_dimension": 4,
         "parameter_count": 369,
         "feature_means": [0.0] * 13,
         "feature_scales": [1.0] * 13,
+        "calibration": {
+            "trade_threshold_pp": -999.0,
+            "residual_rmse_pp": 0.5,
+            "abstain_without_positive_validation_edge": True,
+        },
         "state_dict": model.state_dict(),
     }
     path = tmp_path / "model.pt"
@@ -79,4 +109,50 @@ def test_policy_emits_atl_action_contract(tmp_path: Path):
     required = {"action", "symbol", "confidence", "reasoning", "position_size"}
     assert required <= set(actions[0])
     assert actions[0]["action"] in {"buy", "sell", "hold"}
+    assert actions[0]["action"] == "hold"
     assert 0.0 <= actions[0]["confidence"] <= 1.0
+
+
+def test_benchmark_writes_matched_cost_aware_evidence(tmp_path: Path):
+    snapshots = []
+    start = datetime(2026, 1, 5, 10, tzinfo=timezone.utc)
+    symbols = ("AAPL", "MSFT", "JPM", "NKE")
+    for step in range(24):
+        signals = {}
+        for offset, symbol in enumerate(symbols):
+            wave = np.sin((step + 1) * (offset + 1) * 0.7)
+            price = 100.0 + 5.0 * offset + 0.3 * step + wave
+            signals[symbol] = {
+                "price": price,
+                "rsi": 50.0 + 30.0 * wave,
+                "macd": 0.3 * wave,
+                "macd_signal": 0.2 * np.cos(step + offset),
+                "sma20": price * (1.0 - 0.01 * wave),
+                "sma50": price * (1.0 - 0.015 * np.cos(step * 0.5 + offset)),
+                "bb_upper": price * (1.03 + 0.002 * offset + 0.002 * wave),
+                "bb_lower": price * (0.97 - 0.002 * offset),
+            }
+        snapshots.append(
+            {
+                "timestamp": (start + timedelta(hours=step)).isoformat(),
+                "top_signals": signals,
+                "portfolio": {"cash": 1000.0, "total_equity": 1000.0},
+                "current_holdings": {},
+            }
+        )
+    result = run_benchmark(
+        snapshots,
+        tmp_path,
+        train_end=snapshots[12]["timestamp"],
+        validation_end=snapshots[17]["timestamp"],
+        test_start=snapshots[18]["timestamp"],
+        test_end=snapshots[-1]["timestamp"],
+        seeds=(0,),
+        epochs=3,
+        patience=2,
+    )
+    assert result["configuration"]["mps_parameters"] == 369
+    assert result["configuration"]["ann_parameters"] == 369
+    assert result["split"]["test_rows"] > 0
+    assert (tmp_path / "benchmark_results.json").is_file()
+    assert (tmp_path / "benchmark_seed_results.csv").is_file()

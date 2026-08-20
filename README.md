@@ -11,11 +11,11 @@ rather than evaluating them only as prediction models.
 ## Agentic Trading Lab integration
 
 The [`atl_mps_agent`](atl_mps_agent) package adapts the classical MPS
-formulation to Agentic Trading Lab's hourly external-agent contract. It trains
-on an earlier ATL snapshot window, produces risk-bounded decisions in a later
-held-out backtest, and keeps its live API credentials and generated model
-artifact out of Git. See the [ATL MPS agent runbook](docs/ATL_MPS_AGENT.md) and
-the [verified hosted integration result](docs/ATL_MPS_AGENT_RESULT.md).
+formulation to Agentic Trading Lab's hourly external-agent contract. Version 2
+uses market-only features, validation-calibrated abstention, signal persistence,
+and explicit turnover controls. See the [ATL MPS agent runbook](docs/ATL_MPS_AGENT.md),
+[v2 protocol](docs/ATL_MPS_AGENT_V2_PROTOCOL.md), and
+[hosted integration evidence](docs/ATL_MPS_AGENT_RESULT.md).
 
 This is an ATL-specific research prototype, not the paper's daily FinRL PPO
 policy. The two systems share the MPS feature map and tensor contraction, but

@@ -16,14 +16,16 @@ from torch import nn
 class MPSRegressor(nn.Module):
     """Matrix-product-state regressor with a quantum-style local feature map."""
 
-    def __init__(self, feature_count: int = 13, bond_dimension: int = 4):
+    def __init__(
+        self, feature_count: int = 13, bond_dimension: int = 4, *, seed: int = 2026
+    ):
         super().__init__()
         if feature_count < 2:
             raise ValueError("feature_count must be at least 2")
         if bond_dimension < 1:
             raise ValueError("bond_dimension must be positive")
         ranks = [1] + [bond_dimension] * (feature_count - 1) + [1]
-        generator = torch.Generator().manual_seed(2026)
+        generator = torch.Generator().manual_seed(seed)
         cores = []
         for left_rank, right_rank in zip(ranks[:-1], ranks[1:]):
             scale = 1.0 / math.sqrt(2 * left_rank)
@@ -52,6 +54,25 @@ class MPSRegressor(nn.Module):
         for site, core in enumerate(self.cores):
             state = torch.einsum("br,ris,bi->bs", state, core, local[:, site, :])
         return state.squeeze(-1) + self.bias
+
+
+class MatchedANNRegressor(nn.Module):
+    """A 369-parameter neural baseline matched to the 13-input MPS."""
+
+    def __init__(self, feature_count: int = 13):
+        super().__init__()
+        if feature_count != 13:
+            raise ValueError("The matched architecture is defined for 13 features")
+        self.network = nn.Sequential(
+            nn.Linear(13, 20),
+            nn.Tanh(),
+            nn.Linear(20, 4),
+            nn.Tanh(),
+            nn.Linear(4, 1),
+        )
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        return self.network(inputs).squeeze(-1)
 
 
 def parameter_count(model: nn.Module) -> int:

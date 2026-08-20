@@ -8,12 +8,13 @@ import secrets
 from pathlib import Path
 
 from .client import ATLClient
+from .benchmark import run_benchmark
 from .policy import MPSPolicy
 from .training import train_from_snapshots
 
 
 def hold_strategy(snapshot: dict, valid_symbols: list[str]) -> list[dict]:
-    symbol = "AAPL" if "AAPL" in valid_symbols else valid_symbols[0]
+    symbol = "AAPL" if "AAPL" in valid_symbols else (valid_symbols[0] if valid_symbols else "AAPL")
     return [
         {
             "action": "hold",
@@ -35,8 +36,18 @@ def parser() -> argparse.ArgumentParser:
     collect.add_argument("--end", required=True)
     collect.add_argument("--output", type=Path, required=True)
     train = sub.add_parser("train")
-    train.add_argument("--snapshots", type=Path, required=True)
+    train.add_argument("--snapshots", type=Path, nargs="+", required=True)
     train.add_argument("--artifact", type=Path, required=True)
+    train.add_argument("--train-end")
+    train.add_argument("--validation-end")
+    train.add_argument("--seed", type=int, default=2026)
+    benchmark = sub.add_parser("benchmark")
+    benchmark.add_argument("--snapshots", type=Path, nargs="+", required=True)
+    benchmark.add_argument("--output-dir", type=Path, required=True)
+    benchmark.add_argument("--train-end", required=True)
+    benchmark.add_argument("--validation-end", required=True)
+    benchmark.add_argument("--test-start", required=True)
+    benchmark.add_argument("--test-end", required=True)
     register = sub.add_parser("register")
     register.add_argument("--credentials", type=Path, required=True)
     register.add_argument("--source-repo", required=True)
@@ -64,17 +75,40 @@ def main() -> None:
         )
         print(json.dumps({"run": result["run"], "snapshots": str(args.output)}, indent=2))
     elif args.command == "train":
-        snapshots = json.loads(args.snapshots.read_text(encoding="utf-8"))
-        summary = train_from_snapshots(snapshots, args.artifact)
+        snapshots = []
+        for path in args.snapshots:
+            snapshots.extend(json.loads(path.read_text(encoding="utf-8")))
+        snapshots = list({str(item.get("timestamp")): item for item in snapshots}.values())
+        summary = train_from_snapshots(
+            snapshots,
+            args.artifact,
+            seed=args.seed,
+            train_end=args.train_end,
+            validation_end=args.validation_end,
+        )
         print(json.dumps(summary, indent=2))
+    elif args.command == "benchmark":
+        snapshots = []
+        for path in args.snapshots:
+            snapshots.extend(json.loads(path.read_text(encoding="utf-8")))
+        unique = {str(item.get("timestamp")): item for item in snapshots}
+        summary = run_benchmark(
+            list(unique.values()),
+            args.output_dir,
+            train_end=args.train_end,
+            validation_end=args.validation_end,
+            test_start=args.test_start,
+            test_end=args.test_end,
+        )
+        print(json.dumps({"split": summary["split"], "paired_inference": summary["paired_inference"]}, indent=2))
     elif args.command == "register":
         owner_session = "aarav-mps-agent-" + secrets.token_hex(12)
         client = ATLClient(session_id=owner_session)
         response = client.register_agent(
-            name="Aarav MPS Signal Agent",
+            name="Aarav MPS Signal Agent v2",
             description=(
-                "Research prototype using a classical bond-dimension-4 MPS trained on "
-                "earlier ATL hourly snapshots; risk-bounded historical simulation only."
+                "Cost-aware classical bond-dimension-4 MPS with market-only features, "
+                "validation-calibrated abstention, and leakage-safe ATL evaluation."
             ),
             source_repo=args.source_repo,
         )
@@ -108,8 +142,8 @@ def main() -> None:
         result = client.run_loop(
             args.start,
             args.end,
-            agent_name="Aarav MPS Signal Agent",
-            model_name="classical-mps-bond-4",
+            agent_name="Aarav MPS Signal Agent v2",
+            model_name="classical-mps-bond-4-v2",
             strategy=policy.decide,
         )
         args.result.parent.mkdir(parents=True, exist_ok=True)

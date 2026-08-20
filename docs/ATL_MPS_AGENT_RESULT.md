@@ -2,6 +2,34 @@
 
 Verified on August 20, 2026 against the hosted Agentic Trading Lab API.
 
+## Version 2 hosted verification
+
+- Registered agent ID: `agent_63a8501e0235`
+- Agent/model label: `Aarav MPS Signal Agent v2` /
+  `classical-mps-bond-4-v2`
+- Evaluation: April 15 through May 15, 2026
+- ATL run: `ext_20260820_234121_d91eafa4`
+- Decisions: 161
+- Trades: 0
+- Decision timeouts: 0
+- Initial/final equity: $1,000.00 / $1,000.00
+- Total return / maximum drawdown: 0.0000% / 0.0000%
+
+The zero-trade outcome is the frozen validation behavior, not a failed runner:
+no validation threshold showed positive modeled edge after transaction cost, so
+v2 disabled entries and submitted explicit hold decisions throughout the hosted
+run. ATL's native DJIA reference returned +2.6990% with -1.6561% maximum
+drawdown, so v2 did not beat the passive index. ATL's whole-share buy-and-hold
+reference returned 0%, but it bought zero of ten requested symbols with the
+$1,000 allocation and is therefore not an invested comparison.
+
+ATL records LLM-call and token estimates for external decision submissions.
+This implementation calls no LLM API, so those platform fields are not treated
+as actual model usage. The immutable v2 agent-version identifier is added after
+the evidence commit is published.
+
+## Version 1 prototype
+
 ## Registered agent
 
 - Name: `Aarav MPS Signal Agent`

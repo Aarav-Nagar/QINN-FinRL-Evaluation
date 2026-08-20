@@ -9,7 +9,8 @@ hardware.
 
 - The model is a classical MPS regressor with the same cosine/sine local
   feature map and sequential tensor contraction used in `run_experiment.py`.
-- It uses 13 dimensionless market and portfolio inputs.
+- It uses 13 dimensionless market-only inputs. Portfolio state is confined to
+  execution and risk controls.
 - Bond dimension 4 gives 369 trainable parameters.
 
 ## What is different
@@ -24,12 +25,17 @@ presented as results from the other.
 
 ```powershell
 py -3.12 -m atl_mps_agent.cli collect `
-  --start 2026-04-01 --end 2026-04-11 `
-  --output .atl/training_snapshots.json
+  --start 2026-01-05 --end 2026-02-01 `
+  --output .atl/v2_train_january.json
+
+# Repeat collection for February and March-April as specified in the v2 protocol.
 
 py -3.12 -m atl_mps_agent.cli train `
-  --snapshots .atl/training_snapshots.json `
-  --artifact atl_mps_agent/artifacts/atl_mps_bond4.pt
+  --snapshots .atl/v2_train_january.json .atl/v2_train_february.json `
+    .atl/v2_train_march_validation.json `
+  --train-end 2026-03-31T23:59:59 `
+  --validation-end 2026-04-10T23:59:59 `
+  --artifact atl_mps_agent/artifacts/atl_mps_v2.pt
 
 py -3.12 -m atl_mps_agent.cli register `
   --credentials .atl/credentials.json `
@@ -37,7 +43,7 @@ py -3.12 -m atl_mps_agent.cli register `
 
 py -3.12 -m atl_mps_agent.cli run `
   --start 2026-04-15 --end 2026-04-16 `
-  --artifact atl_mps_agent/artifacts/atl_mps_bond4.pt `
+  --artifact atl_mps_agent/artifacts/atl_mps_v2.pt `
   --credentials .atl/credentials.json `
   --result .atl/held_out_result.json
 ```
@@ -47,6 +53,7 @@ API key is written only to `.atl/credentials.json`, which is gitignored.
 
 ## Interpretation boundary
 
-This is a historical-simulation research agent. A short held-out run verifies
-the integration and decision trace, not trading superiority, production
-readiness, or safety for real capital.
+This is a historical-simulation research agent. Its offline comparison uses the
+same rows, costs, parameters, splits, and seeds for the MPS and matched ANN.
+The hosted ATL run separately verifies the integer-order integration trace.
+Neither is evidence of production readiness or safety for real capital.
