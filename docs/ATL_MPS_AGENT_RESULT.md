@@ -25,8 +25,19 @@ $1,000 allocation and is therefore not an invested comparison.
 
 ATL records LLM-call and token estimates for external decision submissions.
 This implementation calls no LLM API, so those platform fields are not treated
-as actual model usage. The immutable v2 agent-version identifier is added after
-the evidence commit is published.
+as actual model usage.
+
+## Immutable ATL version
+
+- Agent version ID: `agv_28edcd572581`
+- Semantic version: `2.0.0`
+- Evidence code commit: `fcae56fb5855f57bd852473f02d41ab91a0f22a3`
+- ATL configuration hash: `7f84796f4046f0cf`
+- Verification level: `self_reported`
+- Live trading enabled: `false`
+
+The ATL version points to the published commit containing the model artifact,
+hashed evidence manifest, benchmark outputs, tests, protocol, and Agent Card.
 
 ## Version 1 prototype
 
