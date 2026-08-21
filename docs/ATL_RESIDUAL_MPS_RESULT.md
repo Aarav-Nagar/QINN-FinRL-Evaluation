@@ -37,7 +37,7 @@ self-reported rather than maintainer-reviewed.
 | Rank correlation | 0.1772 | 0.2233 |
 | Mean member uncertainty | 0.01341 pp | 0.02265 pp |
 
-The ANN remained modestly better on every primary prediction metric. V3 is a
+The ANN remained modestly better on every primary prediction metric. The residual-MPS ensemble is a
 stronger tensor-network architecture than v2, but this fresh test does not show
 that it is a better forecaster than the matched ANN.
 
@@ -75,7 +75,7 @@ invested comparison.
 
 ## Conclusion
 
-V3 provides a materially better technical architecture: residual tensor and
+The current agent provides a materially better technical architecture: residual tensor and
 linear paths, exact parameter matching, a cross-sectional ranking objective,
 deep-ensemble uncertainty, temporal-gap correction, and frozen validation
 gating. The honest scientific result remains bounded: architecture quality and

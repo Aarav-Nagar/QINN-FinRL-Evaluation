@@ -37,7 +37,7 @@ correct cross-sectional ordering rather than only point prediction.
 - Fresh one-time test: May 18-June 30, 2026.
 
 Rows whose target crosses a split, overnight, or weekend boundary are removed.
-V3 also resets lagged-price history whenever observations are more than two
+The current pipeline also resets lagged-price history whenever observations are more than two
 hours apart, so Friday-to-Monday changes cannot be mislabeled as hourly inputs.
 Normalization is fit on training rows only.
 

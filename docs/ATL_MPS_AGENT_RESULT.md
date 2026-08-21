@@ -20,7 +20,7 @@ The existing agent was upgraded in place so its earlier v1/v2 runs remain
 traceable. ATL's public agent endpoint confirmed the new name, model label,
 runtime metadata, latest hosted run, and three-version run history after the
 update. Full residual-MPS results and claim boundaries are in
-`docs/ATL_RESIDUAL_MPS_V3_RESULT.md`.
+`docs/ATL_RESIDUAL_MPS_RESULT.md`.
 
 ## Version 2 hosted verification
 
