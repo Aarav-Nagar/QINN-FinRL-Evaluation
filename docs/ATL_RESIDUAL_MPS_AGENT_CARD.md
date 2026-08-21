@@ -34,6 +34,13 @@ and offline diagnostics are reported separately. The trend overlay means
 performance cannot be attributed to the MPS alone; MPS-only and trend-only
 controls are therefore required.
 
+The replication audit found that separately collected ATL snapshots shared all
+224 timestamps and identical overlapping prices with hosted-captured snapshots,
+but only 22.77% of candidate symbol sets and none of the full indicator payloads
+matched. Offline comparisons must therefore use snapshots captured inside the
+same hosted run context. Under that correction the selected system was positive,
+but the matched ANN combination produced the same portfolio result.
+
 ## Frozen evaluation
 
 The hosted July 1-August 16, 2026 run returned +1.2936% gross with 11 trades,

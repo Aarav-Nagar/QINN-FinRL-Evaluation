@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "artifact": "atl_replication_evidence_manifest",
+  "protocol_commit": "673b4c7064c1725cbdfb79848c7eaef5fa209273",
+  "snapshot_capture_fix_commit": "97d9a33ea3d1b1b4c1e35d662f085daf7028d9f9",
+  "original_policy_freeze_commit": "7e2a926663d1a94572084cc9ee77609d39aade9f",
+  "policy_changed_after_original_freeze": false,
+  "same_window_run_ids": [
+    "ext_20260821_152912_49e74732",
+    "ext_20260821_154414_5f333614",
+    "ext_20260821_154958_09af96ad"
+  ],
+  "extension_run_ids": [
+    "ext_20260821_154520_e1507a25",
+    "ext_20260821_155038_5a68570f"
+  ],
+  "same_window_exact_replication": true,
+  "extension_classification": "flat",
+  "overall_assessment": "share_with_caveats",
+  "files_sha256": {
+    "../../../docs/ATL_REPLICATION_PROTOCOL.md": "92723e9ba0ba18213f4c8f6cd06d1d2329449a6c1c638be590e5265393c06a0b",
+    "../../../docs/ATL_REPLICATION_RESULT.md": "05b2b6af162ebfdbaa9eadcf8f2bbffeeba51ee0da78e2bd6fe4479c4a30775e",
+    "replication_audit.json": "0639f4b56d7984478e7b5e509b14985786aef6bda33077349ca15a8e1f342ab2",
+    "cost_sensitivity.csv": "730d58c62301fc2e3ed4c346fcdb5af57ea40e694723f04aebdbe67248e8a4dd",
+    "weekly_decomposition.csv": "886d135566eb033946cb4be751512b41ce2caeb2fc0900646d39153b211c648a",
+    "feature_consistency.csv": "5228568d2694a9b5a22414295605d3f973c059860e6dd81b8c2d650ae44a95c3",
+    "hosted_context_benchmark/current_benchmark_results.json": "8dcdb4e3a14e76cea456cf59ab4a7340dfffcae42025f74582a91d3f89ec3e16",
+    "hosted_context_benchmark/current_system_results.csv": "154cb4f88bd2416e31f67918a484c5be762e74995586d08189f3ec5266c5f277",
+    "../../artifacts/atl_residual_mps_current.pt": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
+    "../../replication_audit.py": "e1fa37c416acb8d1d1ab42553c5e6aed2da00c45d22aacde3aca9bd1a6d81b86"
+  }
+}

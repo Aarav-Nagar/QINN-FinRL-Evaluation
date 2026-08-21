@@ -13,6 +13,7 @@ from .deployment_policy import DeploymentMPSPolicy
 from .deployment_benchmark import run_deployment_benchmark
 from .deployment_training import train_deployment_ensemble
 from .policy import MPSPolicy
+from .replication_audit import run_replication_audit
 from .training import train_from_snapshots
 from .v3_benchmark import run_v3_benchmark
 from .v3_policy import ResidualMPSEnsemblePolicy
@@ -107,6 +108,17 @@ def parser() -> argparse.ArgumentParser:
     benchmark_deployment.add_argument("--validation-end", required=True)
     benchmark_deployment.add_argument("--test-start", required=True)
     benchmark_deployment.add_argument("--test-end", required=True)
+    replication = sub.add_parser("audit-replication")
+    replication.add_argument("--same-window-results", type=Path, nargs="+", required=True)
+    replication.add_argument("--original-snapshots", type=Path, nargs="+", required=True)
+    replication.add_argument("--hosted-snapshots", type=Path, required=True)
+    replication.add_argument("--extension-results", type=Path, nargs="+", required=True)
+    replication.add_argument("--extension-snapshots", type=Path, required=True)
+    replication.add_argument("--artifact", type=Path, required=True)
+    replication.add_argument("--hosted-context-benchmark", type=Path)
+    replication.add_argument("--extension-djia-return-pct", type=float, required=True)
+    replication.add_argument("--extension-buyhold-return-pct", type=float, required=True)
+    replication.add_argument("--output-dir", type=Path, required=True)
     return root
 
 
@@ -228,6 +240,47 @@ def main() -> None:
                     "split": result["split"],
                     "prediction_metrics": result["prediction_metrics"],
                     "systems": result["systems"],
+                },
+                indent=2,
+            )
+        )
+    elif args.command == "audit-replication":
+        same_window_results = [
+            json.loads(path.read_text(encoding="utf-8"))
+            for path in args.same_window_results
+        ]
+        original_snapshots = [
+            json.loads(path.read_text(encoding="utf-8"))
+            for path in args.original_snapshots
+        ]
+        extension_results = [
+            json.loads(path.read_text(encoding="utf-8"))
+            for path in args.extension_results
+        ]
+        result = run_replication_audit(
+            same_window_results,
+            original_snapshots,
+            json.loads(args.hosted_snapshots.read_text(encoding="utf-8")),
+            extension_results,
+            json.loads(args.extension_snapshots.read_text(encoding="utf-8")),
+            args.output_dir,
+            artifact_path=args.artifact,
+            hosted_context_benchmark=(
+                json.loads(
+                    args.hosted_context_benchmark.read_text(encoding="utf-8")
+                )
+                if args.hosted_context_benchmark
+                else None
+            ),
+            extension_djia_return_pct=args.extension_djia_return_pct,
+            extension_buyhold_return_pct=args.extension_buyhold_return_pct,
+        )
+        print(
+            json.dumps(
+                {
+                    "same_window_replication": result["same_window_replication"],
+                    "temporal_extension": result["temporal_extension"],
+                    "overall_assessment": result["overall_assessment"],
                 },
                 indent=2,
             )

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "artifact": "current_next_session_deployment_evaluation",
+  "freeze_commit": "7e2a926663d1a94572084cc9ee77609d39aade9f",
+  "architecture_selected_without_fresh_test": true,
+  "fresh_test_consumed_once": true,
+  "quantum_hardware": false,
+  "fresh_dataset_sha256": "90719862ba5697ee5dcd63916458014bb773aad1d98d426a12b21e953f2b8860",
+  "artifact_sha256": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
+  "split": {
+    "test_start": "2026-07-01T00:00:00",
+    "test_end": "2026-08-15T23:59:59",
+    "snapshot_count": 224,
+    "decision_days": 32,
+    "prediction_rows": 824
+  },
+  "configuration": {
+    "selected_policy": {
+      "name": "gated_mps_trend_weekly",
+      "model_weight": 0.75,
+      "uncertainty_z": 0.5,
+      "max_positions": 3,
+      "rebalance_days": 5,
+      "positive_trend_gate": true
+    },
+    "transaction_cost_bps_per_traded_notional": 10.0,
+    "target_horizon_steps": 7,
+    "mps_parameters_per_member": 586,
+    "ann_parameters_per_member": 586,
+    "ensemble_members": 5,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "prediction_metrics": {
+    "residual_mps": {
+      "mse_pp2": 6.203028203621129,
+      "mae_pp": 1.6378221265828685,
+      "directional_accuracy": 0.816747572815534,
+      "mean_within_timestamp_rank_ic": 0.3187203791469194
+    },
+    "matched_ann": {
+      "mse_pp2": 6.205104373176738,
+      "mae_pp": 1.6375711598674862,
+      "directional_accuracy": 0.8143203883495146,
+      "mean_within_timestamp_rank_ic": 0.31712931618144885
+    },
+    "mps_mean_uncertainty_pp": 0.21610192954540253,
+    "ann_mean_uncertainty_pp": 0.07853440195322037
+  },
+  "systems": {
+    "selected_mps_trend": {
+      "initial_equity": 1000.0,
+      "final_equity": 1012.8343613999999,
+      "total_return_pct": 1.2834361399999938,
+      "maximum_drawdown_pct": -1.8664294254641556,
+      "trade_count": 13,
+      "cumulative_turnover_multiple": 3.6234386,
+      "modeled_cost_pct_initial": 0.36234386000000013,
+      "invested_day_fraction": 0.34375,
+      "decision_days": 32,
+      "ending_holdings": {
+        "DIS": 3,
+        "MRK": 2,
+        "KO": 3
+      }
+    },
+    "matched_ann_trend": {
+      "initial_equity": 1000.0,
+      "final_equity": 1012.8343613999999,
+      "total_return_pct": 1.2834361399999938,
+      "maximum_drawdown_pct": -1.8664294254641556,
+      "trade_count": 13,
+      "cumulative_turnover_multiple": 3.6234386,
+      "modeled_cost_pct_initial": 0.36234386000000013,
+      "invested_day_fraction": 0.34375,
+      "decision_days": 32,
+      "ending_holdings": {
+        "DIS": 3,
+        "MRK": 2,
+        "KO": 3
+      }
+    },
+    "mps_only_rank": {
+      "initial_equity": 1000.0,
+      "final_equity": 1002.2715165999999,
+      "total_return_pct": 0.2271516600000023,
+      "maximum_drawdown_pct": -2.693040320761164,
+      "trade_count": 35,
+      "cumulative_turnover_multiple": 9.511283400000002,
+      "modeled_cost_pct_initial": 0.9511283399999999,
+      "invested_day_fraction": 0.96875,
+      "decision_days": 32,
+      "ending_holdings": {
+        "DIS": 3,
+        "KO": 3,
+        "MRK": 2
+      }
+    },
+    "trend_only": {
+      "initial_equity": 1000.0,
+      "final_equity": 1002.8776795000001,
+      "total_return_pct": 0.2877679500000063,
+      "maximum_drawdown_pct": -2.661535725249764,
+      "trade_count": 13,
+      "cumulative_turnover_multiple": 3.7356205,
+      "modeled_cost_pct_initial": 0.3735620500000001,
+      "invested_day_fraction": 0.34375,
+      "decision_days": 32,
+      "ending_holdings": {
+        "DIS": 3,
+        "MRK": 2,
+        "NVDA": 1
+      }
+    },
+    "fixed_initial_trend_basket": {
+      "initial_equity": 1000.0,
+      "final_equity": 1060.0830999999998,
+      "total_return_pct": 6.008309999999972,
+      "maximum_drawdown_pct": -1.6308687366705987,
+      "trade_count": 3,
+      "cumulative_turnover_multiple": 0.8787999999999999,
+      "modeled_cost_pct_initial": 0.08788,
+      "invested_day_fraction": 0.96875,
+      "decision_days": 32,
+      "ending_holdings": {
+        "WMT": 3,
+        "JPM": 1,
+        "HON": 1
+      }
+    },
+    "cash": {
+      "initial_equity": 1000.0,
+      "final_equity": 1000.0,
+      "total_return_pct": 0.0,
+      "maximum_drawdown_pct": 0.0,
+      "trade_count": 0,
+      "cumulative_turnover_multiple": 0.0,
+      "modeled_cost_pct_initial": 0.0,
+      "invested_day_fraction": 0.0,
+      "decision_days": 32,
+      "ending_holdings": {}
+    }
+  }
+}

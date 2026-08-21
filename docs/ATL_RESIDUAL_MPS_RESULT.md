@@ -53,11 +53,12 @@ component created the hosted profit.
 ## Replay discrepancy and control results
 
 The offline stateful replay returned -3.5493% for the selected system, while the
-hosted ATL engine returned +1.2936% gross. The replay cannot update a held
-symbol's price when it leaves ATL's changing `top_signals` subset; the hosted
-engine retains that information through `current_holdings`. The replay also
-generated 21 trades versus ATL's 11. It is retained as a diagnostic and is not
-silently substituted for the authoritative platform result.
+hosted ATL engine returned +1.2936% gross. The replication audit later found the
+dominant cause: although prices matched, the separately collected weekly files
+matched the hosted candidate symbol set on only 22.77% of timestamps and none of
+the complete indicator payloads. The replay also generated 21 trades versus
+ATL's 11. It is retained as a data-lineage diagnostic and is not silently
+substituted for the authoritative platform result.
 
 | Approximate offline system | Return after modeled cost |
 |---|---:|
@@ -71,6 +72,13 @@ silently substituted for the authoritative platform result.
 This is a useful weakness finding: predictive improvements did not reliably
 translate into portfolio ranking value, and the offline evaluator needs a full
 held-symbol price feed before it can serve as an execution-faithful oracle.
+
+Rerunning the frozen controls on snapshots captured inside the hosted execution
+produced +1.2834% after modeled cost for both the selected MPS+trend system and
+the matched ANN+trend system, +0.2272% for MPS-only, and +0.2878% for trend-only.
+The corrected context resolves the sign discrepancy but still does not show
+unique MPS portfolio value. See `docs/ATL_REPLICATION_RESULT.md` for the exact
+three-run replication, temporal extension, cost stress, and data-quality audit.
 
 ## Supported conclusion
 
