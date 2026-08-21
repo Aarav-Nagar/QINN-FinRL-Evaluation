@@ -123,6 +123,8 @@ def snapshot_features(
 
 def build_supervised_rows(
     snapshots: Iterable[dict[str, Any]],
+    *,
+    reset_history_on_gap: bool = False,
 ) -> tuple[np.ndarray, np.ndarray, list[dict[str, Any]]]:
     """Build current-feature/next-hour-return pairs in chronological order."""
 
@@ -133,6 +135,21 @@ def build_supervised_rows(
     metadata: list[dict[str, Any]] = []
     for index, current in enumerate(ordered[:-1]):
         following = ordered[index + 1]
+        if reset_history_on_gap and index > 0:
+            try:
+                previous_time = datetime.fromisoformat(
+                    str(ordered[index - 1].get("timestamp"))
+                )
+                current_observation_time = datetime.fromisoformat(
+                    str(current.get("timestamp"))
+                )
+                gap_hours = (
+                    current_observation_time - previous_time
+                ).total_seconds() / 3600.0
+                if gap_hours > 2.0:
+                    history.clear()
+            except (TypeError, ValueError):
+                history.clear()
         current_signals = current.get("top_signals") or {}
         next_signals = following.get("top_signals") or {}
         try:

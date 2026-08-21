@@ -12,5 +12,7 @@ atl_mps_agent/artifacts/*.pt
 atl_mps_agent/artifacts/*.json
 !atl_mps_agent/artifacts/atl_mps_v2.pt
 !atl_mps_agent/artifacts/atl_mps_v2.json
+!atl_mps_agent/artifacts/atl_residual_mps_v3.pt
+!atl_mps_agent/artifacts/atl_residual_mps_v3.json
 *.partial.csv
 ~$*.docx

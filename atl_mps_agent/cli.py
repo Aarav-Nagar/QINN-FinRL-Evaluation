@@ -11,6 +11,9 @@ from .client import ATLClient
 from .benchmark import run_benchmark
 from .policy import MPSPolicy
 from .training import train_from_snapshots
+from .v3_benchmark import run_v3_benchmark
+from .v3_policy import ResidualMPSEnsemblePolicy
+from .v3_training import train_v3_ensemble
 
 
 def hold_strategy(snapshot: dict, valid_symbols: list[str]) -> list[dict]:
@@ -48,6 +51,18 @@ def parser() -> argparse.ArgumentParser:
     benchmark.add_argument("--validation-end", required=True)
     benchmark.add_argument("--test-start", required=True)
     benchmark.add_argument("--test-end", required=True)
+    train_v3 = sub.add_parser("train-v3")
+    train_v3.add_argument("--snapshots", type=Path, nargs="+", required=True)
+    train_v3.add_argument("--artifact", type=Path, required=True)
+    train_v3.add_argument("--train-end", required=True)
+    train_v3.add_argument("--validation-end", required=True)
+    benchmark_v3 = sub.add_parser("benchmark-v3")
+    benchmark_v3.add_argument("--snapshots", type=Path, nargs="+", required=True)
+    benchmark_v3.add_argument("--output-dir", type=Path, required=True)
+    benchmark_v3.add_argument("--train-end", required=True)
+    benchmark_v3.add_argument("--validation-end", required=True)
+    benchmark_v3.add_argument("--test-start", required=True)
+    benchmark_v3.add_argument("--test-end", required=True)
     register = sub.add_parser("register")
     register.add_argument("--credentials", type=Path, required=True)
     register.add_argument("--source-repo", required=True)
@@ -57,6 +72,12 @@ def parser() -> argparse.ArgumentParser:
     run.add_argument("--artifact", type=Path, required=True)
     run.add_argument("--credentials", type=Path, required=True)
     run.add_argument("--result", type=Path, required=True)
+    run_v3 = sub.add_parser("run-v3")
+    run_v3.add_argument("--start", required=True)
+    run_v3.add_argument("--end", required=True)
+    run_v3.add_argument("--artifact", type=Path, required=True)
+    run_v3.add_argument("--credentials", type=Path, required=True)
+    run_v3.add_argument("--result", type=Path, required=True)
     return root
 
 
@@ -101,6 +122,43 @@ def main() -> None:
             test_end=args.test_end,
         )
         print(json.dumps({"split": summary["split"], "paired_inference": summary["paired_inference"]}, indent=2))
+    elif args.command in {"train-v3", "benchmark-v3"}:
+        snapshots = []
+        for path in args.snapshots:
+            snapshots.extend(json.loads(path.read_text(encoding="utf-8")))
+        snapshots = list({str(item.get("timestamp")): item for item in snapshots}.values())
+        if args.command == "train-v3":
+            summary = train_v3_ensemble(
+                snapshots,
+                args.artifact,
+                train_end=args.train_end,
+                validation_end=args.validation_end,
+            )
+            print(json.dumps(summary, indent=2))
+        else:
+            summary = run_v3_benchmark(
+                snapshots,
+                args.output_dir,
+                train_end=args.train_end,
+                validation_end=args.validation_end,
+                test_start=args.test_start,
+                test_end=args.test_end,
+            )
+            print(
+                json.dumps(
+                    {
+                        "split": summary["split"],
+                        "paired_member_inference": summary[
+                            "paired_member_inference"
+                        ],
+                        "mps_ensemble": summary["mps_ensemble"],
+                        "matched_ann_ensemble": summary[
+                            "matched_ann_ensemble"
+                        ],
+                    },
+                    indent=2,
+                )
+            )
     elif args.command == "register":
         owner_session = "aarav-mps-agent-" + secrets.token_hex(12)
         client = ATLClient(session_id=owner_session)
@@ -144,6 +202,20 @@ def main() -> None:
             args.end,
             agent_name="Aarav MPS Signal Agent v2",
             model_name="classical-mps-bond-4-v2",
+            strategy=policy.decide,
+        )
+        args.result.parent.mkdir(parents=True, exist_ok=True)
+        args.result.write_text(json.dumps(result, indent=2), encoding="utf-8")
+        print(json.dumps({"run": result["run"], "metrics": result["metrics"]}, indent=2))
+    elif args.command == "run-v3":
+        credentials = json.loads(args.credentials.read_text(encoding="utf-8"))
+        client = ATLClient(api_key=credentials["api_key"])
+        policy = ResidualMPSEnsemblePolicy(args.artifact)
+        result = client.run_loop(
+            args.start,
+            args.end,
+            agent_name="Aarav Residual MPS Ensemble v3",
+            model_name="residual-mps-ensemble-v3",
             strategy=policy.decide,
         )
         args.result.parent.mkdir(parents=True, exist_ok=True)

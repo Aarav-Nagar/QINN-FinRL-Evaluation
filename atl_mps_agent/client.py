@@ -132,15 +132,19 @@ class ATLClient:
         code_commit: str,
         config: dict[str, Any],
         verification_level: str = "self_reported",
+        architecture: str = "classical matrix product state",
+        model_backbones: list[str] | None = None,
     ) -> dict[str, Any]:
+        if model_backbones is None:
+            model_backbones = ["bond-dimension-4 MPS", "13 market-only features"]
         return self._request(
             "POST",
             f"/api/v1/agents/{agent_id}/versions",
             {
                 "version": version,
                 "execution_mode": "external",
-                "architecture": "classical matrix product state",
-                "model_backbones": ["bond-dimension-4 MPS", "13 market-only features"],
+                "architecture": architecture,
+                "model_backbones": model_backbones,
                 "decision_frequency": "1h",
                 "code_commit": code_commit,
                 "config": config,

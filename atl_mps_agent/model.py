@@ -75,5 +75,40 @@ class MatchedANNRegressor(nn.Module):
         return self.network(inputs).squeeze(-1)
 
 
+class ResidualMPSRegressor(nn.Module):
+    """Bond-5 MPS with a learnable linear residual path (586 parameters)."""
+
+    def __init__(self, feature_count: int = 13, *, seed: int = 2026):
+        super().__init__()
+        if feature_count != 13:
+            raise ValueError("The residual architecture is defined for 13 features")
+        self.mps = MPSRegressor(feature_count, bond_dimension=5, seed=seed)
+        self.linear_weight = nn.Parameter(torch.zeros(feature_count))
+        self.mps_scale = nn.Parameter(torch.ones(()))
+        self.linear_scale = nn.Parameter(torch.ones(()))
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        return self.mps_scale * self.mps(inputs) + self.linear_scale * (
+            inputs @ self.linear_weight
+        )
+
+
+class MatchedANNV3Regressor(nn.Module):
+    """A one-hidden-layer ANN exactly matched to v3's 586 parameters."""
+
+    def __init__(self, feature_count: int = 13):
+        super().__init__()
+        if feature_count != 13:
+            raise ValueError("The matched architecture is defined for 13 features")
+        self.network = nn.Sequential(
+            nn.Linear(13, 39),
+            nn.Tanh(),
+            nn.Linear(39, 1),
+        )
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        return self.network(inputs).squeeze(-1)
+
+
 def parameter_count(model: nn.Module) -> int:
     return sum(parameter.numel() for parameter in model.parameters())

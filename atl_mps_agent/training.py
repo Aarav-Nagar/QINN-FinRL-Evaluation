@@ -35,8 +35,11 @@ def prepare_dataset(
     *,
     train_end: str | None = None,
     validation_end: str | None = None,
+    reset_history_on_gap: bool = False,
 ) -> dict[str, Any]:
-    inputs, targets, rows = build_supervised_rows(snapshots)
+    inputs, targets, rows = build_supervised_rows(
+        snapshots, reset_history_on_gap=reset_history_on_gap
+    )
     audit = audit_features(inputs, rows)
     audit["raw_input_coverage"] = audit_raw_inputs(snapshots)
     timestamps = np.asarray([str(item["timestamp"]) for item in rows])

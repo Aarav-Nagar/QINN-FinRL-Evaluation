@@ -17,6 +17,12 @@ and explicit turnover controls. See the [ATL MPS agent runbook](docs/ATL_MPS_AGE
 [v2 protocol](docs/ATL_MPS_AGENT_V2_PROTOCOL.md), and
 [hosted integration evidence](docs/ATL_MPS_AGENT_RESULT.md).
 
+Version 3 adds an exactly parameter-matched residual-MPS/ANN ensemble study,
+rank-aware training, ensemble uncertainty, and temporal-gap correction. See the
+[v3 protocol](docs/ATL_RESIDUAL_MPS_V3_PROTOCOL.md),
+[fresh-window result](docs/ATL_RESIDUAL_MPS_V3_RESULT.md), and
+[v3 Agent Card](docs/ATL_RESIDUAL_MPS_V3_AGENT_CARD.md).
+
 This is an ATL-specific research prototype, not the paper's daily FinRL PPO
 policy. The two systems share the MPS feature map and tensor contraction, but
 their data, universe, decision policy, and results are separate.
