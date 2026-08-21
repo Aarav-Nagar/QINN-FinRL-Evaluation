@@ -135,3 +135,11 @@ The honest finding is stronger and narrower than “the agent made money”:
 
 This package is ready to share as a reproducibility and failure-analysis
 contribution, with these caveats kept visible.
+
+## Next registered test
+
+Before new data exists, the follow-up window is fixed as August 24 through
+September 18, 2026, with execution no earlier than September 21. It will use the
+unchanged artifact, one primary hosted run, one exact rerun, hosted-context
+controls, cost stress, weekly concentration, and the same data-quality audit.
+The frozen specification is in `docs/ATL_PROSPECTIVE_REPLICATION_PROTOCOL.md`.

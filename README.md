@@ -26,7 +26,9 @@ See the [residual-MPS protocol](docs/ATL_RESIDUAL_MPS_PROTOCOL.md),
 [Agent Card](docs/ATL_RESIDUAL_MPS_AGENT_CARD.md). The later
 [replication audit](docs/ATL_REPLICATION_RESULT.md) records three exact
 same-window hosted runs, a flat four-day temporal extension, corrected-context
-controls, cost stress, and ATL input-lineage drift.
+controls, cost stress, and ATL input-lineage drift. The next untouched
+[prospective multi-week protocol](docs/ATL_PROSPECTIVE_REPLICATION_PROTOCOL.md)
+was registered before its August 24-September 18 window begins.
 
 Its first frozen July-August hosted ATL evaluation returned +1.2936% gross and
 +0.9850% after the prespecified 10-basis-point estimate on each recorded trade
