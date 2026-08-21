@@ -93,6 +93,7 @@ def parser() -> argparse.ArgumentParser:
     run_deployment.add_argument("--artifact", type=Path, required=True)
     run_deployment.add_argument("--credentials", type=Path, required=True)
     run_deployment.add_argument("--result", type=Path, required=True)
+    run_deployment.add_argument("--snapshots", type=Path)
     benchmark_deployment = sub.add_parser("benchmark-deployment")
     benchmark_deployment.add_argument(
         "--development-snapshots", type=Path, nargs="+", required=True
@@ -289,6 +290,7 @@ def main() -> None:
             agent_name="Aarav Residual MPS Ensemble",
             model_name="residual-mps-ensemble",
             strategy=policy.decide,
+            snapshots_path=args.snapshots,
         )
         args.result.parent.mkdir(parents=True, exist_ok=True)
         args.result.write_text(json.dumps(result, indent=2), encoding="utf-8")

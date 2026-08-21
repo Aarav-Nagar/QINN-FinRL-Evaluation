@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 import numpy as np
 import torch
 
+from atl_mps_agent.cli import parser as cli_parser
 from atl_mps_agent.features import FEATURE_NAMES, audit_features, build_supervised_rows, snapshot_features
 from atl_mps_agent.model import (
     MPSRegressor,
@@ -230,6 +231,27 @@ def test_deployment_policy_buys_affordable_whole_share(tmp_path: Path):
     actions = DeploymentMPSPolicy(path).decide(sample_snapshot(200.0), ["AAPL", "MSFT"])
     assert any(action["action"] == "buy" for action in actions)
     assert all(action["position_size"] == int(action["position_size"]) for action in actions)
+
+
+def test_deployment_cli_accepts_replication_snapshot_capture():
+    args = cli_parser().parse_args(
+        [
+            "run-deployment",
+            "--start",
+            "2026-07-01",
+            "--end",
+            "2026-08-16",
+            "--artifact",
+            "model.pt",
+            "--credentials",
+            "credentials.json",
+            "--result",
+            "result.json",
+            "--snapshots",
+            "snapshots.json",
+        ]
+    )
+    assert args.snapshots == Path("snapshots.json")
 
 
 def test_policy_emits_atl_action_contract(tmp_path: Path):
