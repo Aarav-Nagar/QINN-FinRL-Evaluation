@@ -19,10 +19,10 @@ The complete comparison, offline discrepancy, and claim boundaries are in
 - Agent/model label: `Aarav Residual MPS Ensemble` /
   `residual-mps-ensemble`
 - Registered agent ID: `agent_63a8501e0235`
-- Immutable version ID: `agv_63e931b72e43`
-- Semantic version: `3.0.0`
-- Evidence code commit: `8af8e49b535e3609ccc46fd8a6c461fddcc317f4`
-- ATL configuration hash: `b587aeba5195dc64`
+- Immutable version ID: `agv_c23fdf3230ad`
+- Semantic version: `4.0.0`
+- Evidence code commit: `5b92dcb76f75c38a86ed00923da924b565d73771`
+- ATL configuration hash: `e8a8c1f2c51de43f`
 - Architecture: five-member bond-dimension-5 residual-MPS ensemble
 - Parameters: 586 per member, 2,930 total
 - Verification level: `self_reported`

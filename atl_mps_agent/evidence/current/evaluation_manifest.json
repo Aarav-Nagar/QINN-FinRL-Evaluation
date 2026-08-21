@@ -25,7 +25,7 @@
     "../../artifacts/atl_residual_mps_current.json": "ff2c7739aab8bfc9f1e452d3aea8d2c972314e2d2e417e12b6de9a7c96b337a4",
     "../../../docs/ATL_RESIDUAL_MPS_PROTOCOL.md": "8be0f75c1c3d171eb7f62ca82fac26610ca5af128fee524e8c65c576609f714f",
     "../../../docs/ATL_RESIDUAL_MPS_AGENT_CARD.md": "57371fc52969fd8dbb59574c7521625e26248c1403b17773f0e92d9a8d4251b9",
-    "../../../docs/ATL_RESIDUAL_MPS_RESULT.md": "34f7b1ea8dc7f0a89edd65467b5c58eb0b45b2a62d55c869e280d4d95d1b5770",
+    "../../../docs/ATL_RESIDUAL_MPS_RESULT.md": "2354fe9a4b7cc024f0e4c7185d4b803caac0ed8f2e5d71577138f39e198f090e",
     "../../../README.md": "52670442ec2128f71a1ab03f633175a31e94080542ae095b76fdf1382572d438"
   },
   "claim_boundary": "One positive hosted historical window, not alpha, statistical significance, future profitability, or MPS superiority."

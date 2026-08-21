@@ -22,6 +22,13 @@ $3,086.6736 total recorded buy/sell notional, using the 10-basis-point cost
 declared before evaluation. It is therefore an explicit estimate, not an ATL
 native net-return field.
 
+The single public agent remains `Aarav Residual MPS Ensemble`
+(`agent_63a8501e0235`), without a version suffix in its name. ATL's immutable
+release record is `agv_c23fdf3230ad` (semantic version `4.0.0`), bound to public
+evidence commit `5b92dcb76f75c38a86ed00923da924b565d73771` with configuration
+hash `e8a8c1f2c51de43f`. Verification is currently self-reported and live trading
+is disabled.
+
 The architecture remained the validation-selected 75% uncertainty-adjusted MPS
 rank, 25% observable trend rank, positive-trend gate, three whole-share slots,
 and five-session rebalance. June validation was +3.5011% after modeled cost;
@@ -77,7 +84,7 @@ or MPS superiority.
 The sections below preserve the earlier one-hour forecasting experiment and its
 zero-exposure hosted result as historical evidence.
 
-## Published ATL version
+## Earlier one-hour ensemble ATL version
 
 - Agent: `Aarav Residual MPS Ensemble` (`agent_63a8501e0235`).
 - Model label: `residual-mps-ensemble`.
