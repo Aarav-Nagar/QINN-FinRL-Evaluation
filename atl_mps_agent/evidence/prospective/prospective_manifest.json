@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "artifact": "atl_prospective_replication_registration",
+  "registration_commit": "4ea061a55fb45c61c0adeb8cacd3ef0f0b122e76",
+  "registered_at_date": "2026-08-21",
+  "outcome_observed": false,
+  "window_selected_by": "next non-overlapping complete four-week block",
+  "window_start": "2026-08-24",
+  "window_end_exclusive": "2026-09-19",
+  "earliest_execution": "2026-09-21T18:00:00-04:00",
+  "original_policy_freeze_commit": "7e2a926663d1a94572084cc9ee77609d39aade9f",
+  "immutable_agent_version_id": "agv_c23fdf3230ad",
+  "policy_changed_for_prospective_test": false,
+  "primary_endpoint": "estimated return after 10 basis points per recorded traded notional",
+  "required_outcome_classification": [
+    "positive",
+    "flat",
+    "negative",
+    "incomplete"
+  ],
+  "files_sha256": {
+    "../../../docs/ATL_PROSPECTIVE_REPLICATION_PROTOCOL.md": "a8abdbc562261775c876376cea46da22cd9fe5272f2c45202f3320fbe85524d6",
+    "../../artifacts/atl_residual_mps_current.pt": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6"
+  }
+}
