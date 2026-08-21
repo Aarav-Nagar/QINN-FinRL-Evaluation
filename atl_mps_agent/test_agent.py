@@ -167,6 +167,45 @@ def test_whole_share_simulator_can_hold_low_turnover_positive_exposure():
     assert result["trade_count"] <= 2
 
 
+def test_whole_share_simulator_keeps_unused_position_slots_in_cash():
+    snapshots = []
+    predictions = {}
+    for index, price in enumerate((100.0, 110.0)):
+        timestamp = f"2026-01-0{index + 1}T10:00:00-05:00"
+        snapshots.append(
+            {
+                "timestamp": timestamp,
+                "top_signals": {
+                    "AAA": {
+                        "price": price,
+                        "sma20": price - 1.0,
+                        "sma50": price - 2.0,
+                    }
+                },
+            }
+        )
+        predictions[timestamp] = {
+            "AAA": {"mean_pp": 1.0, "uncertainty_pp": 0.0}
+        }
+    result = simulate_whole_share_policy(
+        snapshots,
+        predictions,
+        {
+            "name": "one_visible_name",
+            "model_weight": 1.0,
+            "uncertainty_z": 0.0,
+            "max_positions": 3,
+            "rebalance_days": 5,
+            "positive_trend_gate": False,
+        },
+        start="2026-01-01T00:00:00",
+        end="2026-01-02T23:59:59",
+        transaction_cost_bps=0.0,
+    )
+    assert result["ending_holdings"] == {"AAA": 3}
+    assert result["final_equity"] == 1030.0
+
+
 def test_deployment_policy_buys_affordable_whole_share(tmp_path: Path):
     models = [ResidualMPSRegressor(seed=seed) for seed in (0, 1)]
     artifact = {

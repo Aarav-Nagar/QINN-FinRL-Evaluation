@@ -22,8 +22,14 @@ study, next-session rank-aware training, ensemble uncertainty, whole-share
 portfolio calibration, a positive-trend exposure gate, and low-turnover weekly
 rebalancing.
 See the [residual-MPS protocol](docs/ATL_RESIDUAL_MPS_PROTOCOL.md),
-[fresh-window result](docs/ATL_RESIDUAL_MPS_RESULT.md), and
+[frozen evaluation result](docs/ATL_RESIDUAL_MPS_RESULT.md), and
 [Agent Card](docs/ATL_RESIDUAL_MPS_AGENT_CARD.md).
+
+Its first frozen July-August hosted ATL evaluation returned +1.2936% gross and
++0.9850% after the prespecified 10-basis-point estimate on each recorded trade
+notional, with 11 trades and zero timeouts. It underperformed ATL's +4.5710%
+DJIA reference; the result demonstrates a working positive historical agent,
+not alpha or expected future profit.
 
 This is an ATL-specific research prototype, not the paper's daily FinRL PPO
 policy. The two systems share the MPS feature map and tensor contraction, but

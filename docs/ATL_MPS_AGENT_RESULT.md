@@ -2,6 +2,18 @@
 
 Verified on August 20, 2026 against the hosted Agentic Trading Lab API.
 
+## Current positive hosted result
+
+The same single registered agent now runs the frozen next-session,
+trend-gated residual-MPS policy. Its July 1-August 16, 2026 ATL run
+`ext_20260821_152912_49e74732` returned +1.2936% gross with 11 trades,
+-2.6894% maximum drawdown, 224 decisions, and zero timeouts. Applying the
+prespecified 10-basis-point estimate to every recorded buy and sell gives
++0.9850% after estimated costs. ATL's DJIA reference returned +4.5710%.
+
+The complete comparison, offline discrepancy, and claim boundaries are in
+`docs/ATL_RESIDUAL_MPS_RESULT.md`.
+
 ## Current registered architecture
 
 - Agent/model label: `Aarav Residual MPS Ensemble` /

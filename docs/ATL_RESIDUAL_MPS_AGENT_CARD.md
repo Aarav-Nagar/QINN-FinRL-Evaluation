@@ -28,8 +28,19 @@ and the $1,000 ATL allocation, so an artificial 25% cap cannot block every buy.
 
 ATL exposes a changing `top_signals` candidate set, and the offline whole-share
 simulator uses the most recently observed price when a held symbol temporarily
-leaves that subset. A positive validation result may not persist in the frozen
-July-August evaluation. The trend overlay means performance cannot be attributed
-to the MPS alone; MPS-only and trend-only controls are therefore required. This
-is a self-reported research system, not investment advice or validation for real
+leaves that subset. That approximation did not reproduce the hosted ATL orders
+or portfolio accounting in the frozen July-August evaluation, so hosted results
+and offline diagnostics are reported separately. The trend overlay means
+performance cannot be attributed to the MPS alone; MPS-only and trend-only
+controls are therefore required.
+
+## Frozen evaluation
+
+The hosted July 1-August 16, 2026 run returned +1.2936% gross with 11 trades,
+-2.6894% maximum drawdown, and zero timeouts. Subtracting the declared 10 basis
+points from every recorded buy and sell notional gives an estimated +0.9850%
+after-cost return. ATL's DJIA reference returned +4.5710%, so the agent did not
+beat the broad platform reference. A positive historical run does not establish
+alpha, statistical significance, or future profitability. This remains a
+self-reported research system, not investment advice or validation for real
 capital.

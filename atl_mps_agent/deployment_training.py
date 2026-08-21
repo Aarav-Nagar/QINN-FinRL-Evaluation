@@ -175,7 +175,9 @@ def simulate_whole_share_policy(
                 trade_count += 1
 
             equity = cash + sum(quantity * last_prices.get(symbol, 0.0) for symbol, quantity in holdings.items())
-            allocation = equity / max(len(target_symbols), 1)
+            # Match DeploymentMPSPolicy exactly: each selected symbol receives
+            # one slot from the fixed position cap, even when fewer names pass.
+            allocation = equity / max(maximum, 1)
             desired = {symbol: int(allocation // last_prices[symbol]) for symbol in target_symbols}
             # Reduce oversized retained positions before funding new entries.
             for symbol in target_symbols:

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "artifact": "current_hosted_atl_evaluation",
+  "agent_id": "agent_63a8501e0235",
+  "agent_name": "Aarav Residual MPS Ensemble",
+  "model_name": "residual-mps-ensemble",
+  "freeze_commit": "7e2a926663d1a94572084cc9ee77609d39aade9f",
+  "architecture_selected_without_fresh_test": true,
+  "fresh_test_consumed_once": true,
+  "live_trading_enabled": false,
+  "quantum_hardware": false,
+  "run": {
+    "run_id": "ext_20260821_152912_49e74732",
+    "start_date": "2026-07-01",
+    "end_date_exclusive": "2026-08-16",
+    "initial_equity": 1000.0,
+    "final_equity": 1012.9364,
+    "gross_total_return_pct": 1.293640000000005,
+    "maximum_drawdown_pct": -2.689400099157156,
+    "sharpe_ratio": 0.9193696827815544,
+    "trade_count": 11,
+    "decision_count": 224,
+    "timeout_holds": 0
+  },
+  "estimated_cost_adjustment": {
+    "basis_points_per_traded_notional": 10.0,
+    "traded_notional": 3086.6736,
+    "estimated_cost": 3.0866736,
+    "estimated_cost_pct_initial": 0.30866736,
+    "estimated_after_cost_final_equity": 1009.8497264,
+    "estimated_after_cost_return_pct": 0.984972639999993,
+    "note": "ATL reports the hosted run gross of transaction costs; this adjustment subtracts 10 basis points from every recorded buy and sell notional."
+  },
+  "atl_native_references": {
+    "djia": {
+      "run_id": "djia_index_20260821_152919_4046f73b",
+      "total_return_pct": 4.571000000000003,
+      "maximum_drawdown_pct": -2.6502495971070347,
+      "sharpe_ratio": 2.922827159396963
+    },
+    "buy_and_hold": {
+      "run_id": "buyhold_20260821_152916_44dc4547",
+      "total_return_pct": 0.9159999999999969,
+      "maximum_drawdown_pct": -0.7015617983134547,
+      "sharpe_ratio": 2.6822198108150417
+    }
+  },
+  "offline_replay": {
+    "selected_mps_trend_return_pct_after_modeled_cost": -3.549339989999989,
+    "maximum_drawdown_pct": -3.9257588790116094,
+    "trade_count": 21,
+    "trend_only_return_pct_after_modeled_cost": 3.08567900000003,
+    "mps_only_return_pct_after_modeled_cost": -7.096054989999967,
+    "status": "diagnostic_only",
+    "limitation": "The replay cannot mark held symbols with ATL's current-holdings price when they leave the changing top-signals subset, and it did not reproduce hosted orders or accounting."
+  },
+  "claim_boundary": "The run verifies a positive historical ATL backtest, including a positive estimate after the declared cost adjustment. It does not establish alpha, statistical significance, future profitability, or MPS superiority."
+}

@@ -1,14 +1,78 @@
 # ATL residual-MPS ensemble result
 
-## Current deployment upgrade: evaluation pending
+## Current frozen evaluation
 
-The next-session, whole-share deployment policy was frozen before collecting
-its July 1-August 15 evaluation data. It uses 75% uncertainty-adjusted MPS rank,
-25% observable trend rank, a positive-trend gate, three positions, and
-five-session rebalancing. Its June validation simulation returned +3.5011%
-after modeled costs with -1.5668% maximum drawdown. That is development evidence,
-not the final result. The untouched outcome will be added here without selecting
-or revising the policy based on it.
+The next-session, whole-share policy was frozen at commit `7e2a926` before its
+July 1-August 15 snapshots were collected. The first and only hosted evaluation
+of that frozen policy was positive.
+
+| Hosted ATL endpoint | Result |
+|---|---:|
+| Gross return | +1.2936% |
+| Estimated return after 10 bps per traded notional | +0.9850% |
+| Maximum drawdown | -2.6894% |
+| Recorded trades | 11 |
+| Decisions / timeout holds | 224 / 0 |
+| ATL DJIA reference | +4.5710% |
+| ATL buy-and-hold reference | +0.9160% |
+
+The run ID is `ext_20260821_152912_49e74732`. ATL's hosted engine reports gross
+portfolio performance. The after-cost estimate subtracts $3.0867 from the
+$3,086.6736 total recorded buy/sell notional, using the 10-basis-point cost
+declared before evaluation. It is therefore an explicit estimate, not an ATL
+native net-return field.
+
+The architecture remained the validation-selected 75% uncertainty-adjusted MPS
+rank, 25% observable trend rank, positive-trend gate, three whole-share slots,
+and five-session rebalance. June validation was +3.5011% after modeled cost;
+the hosted result above is the untouched evaluation.
+
+## Matched prediction comparison
+
+| Untouched next-session metric | Residual MPS | Matched ANN |
+|---|---:|---:|
+| Parameters per member | 586 | 586 |
+| MSE, squared percentage points | 5.5131 | 5.6828 |
+| MAE, percentage points | 1.6206 | 1.6583 |
+| Directional accuracy | 73.30% | 72.51% |
+| Within-timestamp rank correlation | 0.2028 | 0.2005 |
+
+The MPS was modestly better than the matched ANN on these four predictive
+metrics. However, the approximate offline portfolios selected the same holdings
+for the combined MPS/ANN systems, and the MPS-only control lost 7.0961% after
+modeled cost. The evidence therefore does not support a claim that the MPS
+component created the hosted profit.
+
+## Replay discrepancy and control results
+
+The offline stateful replay returned -3.5493% for the selected system, while the
+hosted ATL engine returned +1.2936% gross. The replay cannot update a held
+symbol's price when it leaves ATL's changing `top_signals` subset; the hosted
+engine retains that information through `current_holdings`. The replay also
+generated 21 trades versus ATL's 11. It is retained as a diagnostic and is not
+silently substituted for the authoritative platform result.
+
+| Approximate offline system | Return after modeled cost |
+|---|---:|
+| Selected 75% MPS + 25% trend | -3.5493% |
+| Matched ANN + trend | -3.5493% |
+| MPS-only rank | -7.0961% |
+| Trend-only | +3.0857% |
+| Fixed initial trend basket | +5.1581% |
+| Cash | 0.0000% |
+
+This is a useful weakness finding: predictive improvements did not reliably
+translate into portfolio ranking value, and the offline evaluator needs a full
+held-symbol price feed before it can serve as an execution-faithful oracle.
+
+## Supported conclusion
+
+The current agent achieved the requested positive historical ATL result and
+remained positive under the prespecified transaction-cost adjustment. It also
+reduced the prototype's 13 trades in one day to 11 trades across 32 trading
+days, with no timeouts. It did not beat ATL's DJIA reference, and this single
+window does not establish alpha, statistical significance, future profitability,
+or MPS superiority.
 
 The sections below preserve the earlier one-hour forecasting experiment and its
 zero-exposure hosted result as historical evidence.

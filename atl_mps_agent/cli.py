@@ -10,6 +10,7 @@ from pathlib import Path
 from .client import ATLClient
 from .benchmark import run_benchmark
 from .deployment_policy import DeploymentMPSPolicy
+from .deployment_benchmark import run_deployment_benchmark
 from .deployment_training import train_deployment_ensemble
 from .policy import MPSPolicy
 from .training import train_from_snapshots
@@ -92,6 +93,19 @@ def parser() -> argparse.ArgumentParser:
     run_deployment.add_argument("--artifact", type=Path, required=True)
     run_deployment.add_argument("--credentials", type=Path, required=True)
     run_deployment.add_argument("--result", type=Path, required=True)
+    benchmark_deployment = sub.add_parser("benchmark-deployment")
+    benchmark_deployment.add_argument(
+        "--development-snapshots", type=Path, nargs="+", required=True
+    )
+    benchmark_deployment.add_argument(
+        "--fresh-snapshots", type=Path, nargs="+", required=True
+    )
+    benchmark_deployment.add_argument("--artifact", type=Path, required=True)
+    benchmark_deployment.add_argument("--output-dir", type=Path, required=True)
+    benchmark_deployment.add_argument("--train-end", required=True)
+    benchmark_deployment.add_argument("--validation-end", required=True)
+    benchmark_deployment.add_argument("--test-start", required=True)
+    benchmark_deployment.add_argument("--test-end", required=True)
     return root
 
 
@@ -186,6 +200,37 @@ def main() -> None:
             validation_end=args.validation_end,
         )
         print(json.dumps(summary, indent=2))
+    elif args.command == "benchmark-deployment":
+        development = []
+        fresh = []
+        for path in args.development_snapshots:
+            development.extend(json.loads(path.read_text(encoding="utf-8")))
+        for path in args.fresh_snapshots:
+            fresh.extend(json.loads(path.read_text(encoding="utf-8")))
+        development = list(
+            {str(item.get("timestamp")): item for item in development}.values()
+        )
+        fresh = list({str(item.get("timestamp")): item for item in fresh}.values())
+        result = run_deployment_benchmark(
+            development,
+            fresh,
+            args.artifact,
+            args.output_dir,
+            test_start=args.test_start,
+            test_end=args.test_end,
+            train_end=args.train_end,
+            validation_end=args.validation_end,
+        )
+        print(
+            json.dumps(
+                {
+                    "split": result["split"],
+                    "prediction_metrics": result["prediction_metrics"],
+                    "systems": result["systems"],
+                },
+                indent=2,
+            )
+        )
     elif args.command == "register":
         owner_session = "aarav-mps-agent-" + secrets.token_hex(12)
         client = ATLClient(session_id=owner_session)
