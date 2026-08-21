@@ -18,6 +18,8 @@ from atl_mps_agent.policy import MPSPolicy
 from atl_mps_agent.benchmark import run_benchmark
 from atl_mps_agent.v3_benchmark import run_v3_benchmark
 from atl_mps_agent.v3_policy import ResidualMPSEnsemblePolicy
+from atl_mps_agent.deployment_policy import DeploymentMPSPolicy
+from atl_mps_agent.deployment_training import POLICY_PROFILES, simulate_whole_share_policy
 
 
 def sample_snapshot(price: float, cash: float = 1000.0) -> dict:
@@ -111,6 +113,84 @@ def test_v3_temporal_features_reset_after_overnight_gap():
     aapl = next(index for index, row in enumerate(rows) if row["symbol"] == "AAPL")
     return_1h_index = FEATURE_NAMES.index("return_1h")
     assert inputs[aapl, return_1h_index] == 0.0
+
+
+def test_next_session_target_uses_seven_snapshot_horizon():
+    snapshots = []
+    start = datetime(2026, 4, 1, 14, tzinfo=timezone.utc)
+    for step in range(8):
+        snapshot = sample_snapshot(200.0 + 2.0 * step)
+        snapshot["timestamp"] = (start + timedelta(hours=step)).isoformat()
+        snapshots.append(snapshot)
+    _, targets, rows = build_supervised_rows(
+        snapshots, horizon_steps=7, max_horizon_hours=8.0
+    )
+    aapl = next(index for index, row in enumerate(rows) if row["symbol"] == "AAPL")
+    assert rows[aapl]["horizon_hours"] == 7.0
+    assert targets[aapl] == np.float32(7.0)
+
+
+def test_deployment_profiles_keep_mps_as_majority_signal():
+    assert POLICY_PROFILES
+    assert min(float(profile["model_weight"]) for profile in POLICY_PROFILES) >= 0.5
+
+
+def test_whole_share_simulator_can_hold_low_turnover_positive_exposure():
+    snapshots = []
+    predictions = {}
+    start = datetime(2026, 6, 1, 14, tzinfo=timezone.utc)
+    for day in range(6):
+        timestamp = (start + timedelta(days=day)).isoformat()
+        snapshot = sample_snapshot(100.0 + day)
+        snapshot["timestamp"] = timestamp
+        snapshots.append(snapshot)
+        predictions[timestamp] = {
+            "AAPL": {"mean_pp": 0.5, "uncertainty_pp": 0.1},
+            "MSFT": {"mean_pp": 0.1, "uncertainty_pp": 0.1},
+        }
+    profile = {
+        "name": "test",
+        "model_weight": 1.0,
+        "uncertainty_z": 0.5,
+        "max_positions": 1,
+        "rebalance_days": 5,
+        "positive_trend_gate": False,
+    }
+    result = simulate_whole_share_policy(
+        snapshots,
+        predictions,
+        profile,
+        start=snapshots[0]["timestamp"],
+        end=snapshots[-1]["timestamp"],
+    )
+    assert result["total_return_pct"] > 0.0
+    assert result["trade_count"] <= 2
+
+
+def test_deployment_policy_buys_affordable_whole_share(tmp_path: Path):
+    models = [ResidualMPSRegressor(seed=seed) for seed in (0, 1)]
+    artifact = {
+        "schema_version": 4,
+        "model_type": "next_session_residual_mps_ensemble",
+        "feature_names": list(FEATURE_NAMES),
+        "seeds": [0, 1],
+        "feature_means": [0.0] * 13,
+        "feature_scales": [1.0] * 13,
+        "state_dicts": [model.state_dict() for model in models],
+        "selected_policy": {
+            "name": "test",
+            "model_weight": 0.75,
+            "uncertainty_z": 0.5,
+            "max_positions": 3,
+            "rebalance_days": 5,
+            "positive_trend_gate": False,
+        },
+    }
+    path = tmp_path / "deployment.pt"
+    torch.save(artifact, path)
+    actions = DeploymentMPSPolicy(path).decide(sample_snapshot(200.0), ["AAPL", "MSFT"])
+    assert any(action["action"] == "buy" for action in actions)
+    assert all(action["position_size"] == int(action["position_size"]) for action in actions)
 
 
 def test_policy_emits_atl_action_contract(tmp_path: Path):

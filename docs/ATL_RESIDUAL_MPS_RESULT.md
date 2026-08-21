@@ -1,5 +1,18 @@
 # ATL residual-MPS ensemble result
 
+## Current deployment upgrade: evaluation pending
+
+The next-session, whole-share deployment policy was frozen before collecting
+its July 1-August 15 evaluation data. It uses 75% uncertainty-adjusted MPS rank,
+25% observable trend rank, a positive-trend gate, three positions, and
+five-session rebalancing. Its June validation simulation returned +3.5011%
+after modeled costs with -1.5668% maximum drawdown. That is development evidence,
+not the final result. The untouched outcome will be added here without selecting
+or revising the policy based on it.
+
+The sections below preserve the earlier one-hour forecasting experiment and its
+zero-exposure hosted result as historical evidence.
+
 ## Published ATL version
 
 - Agent: `Aarav Residual MPS Ensemble` (`agent_63a8501e0235`).

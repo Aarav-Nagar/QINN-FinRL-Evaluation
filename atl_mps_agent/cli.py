@@ -9,6 +9,8 @@ from pathlib import Path
 
 from .client import ATLClient
 from .benchmark import run_benchmark
+from .deployment_policy import DeploymentMPSPolicy
+from .deployment_training import train_deployment_ensemble
 from .policy import MPSPolicy
 from .training import train_from_snapshots
 from .v3_benchmark import run_v3_benchmark
@@ -78,6 +80,18 @@ def parser() -> argparse.ArgumentParser:
     run_v3.add_argument("--artifact", type=Path, required=True)
     run_v3.add_argument("--credentials", type=Path, required=True)
     run_v3.add_argument("--result", type=Path, required=True)
+    train_deployment = sub.add_parser("train-deployment")
+    train_deployment.add_argument("--snapshots", type=Path, nargs="+", required=True)
+    train_deployment.add_argument("--artifact", type=Path, required=True)
+    train_deployment.add_argument("--train-end", required=True)
+    train_deployment.add_argument("--validation-start", required=True)
+    train_deployment.add_argument("--validation-end", required=True)
+    run_deployment = sub.add_parser("run-deployment")
+    run_deployment.add_argument("--start", required=True)
+    run_deployment.add_argument("--end", required=True)
+    run_deployment.add_argument("--artifact", type=Path, required=True)
+    run_deployment.add_argument("--credentials", type=Path, required=True)
+    run_deployment.add_argument("--result", type=Path, required=True)
     return root
 
 
@@ -159,6 +173,19 @@ def main() -> None:
                     indent=2,
                 )
             )
+    elif args.command == "train-deployment":
+        snapshots = []
+        for path in args.snapshots:
+            snapshots.extend(json.loads(path.read_text(encoding="utf-8")))
+        snapshots = list({str(item.get("timestamp")): item for item in snapshots}.values())
+        summary = train_deployment_ensemble(
+            snapshots,
+            args.artifact,
+            train_end=args.train_end,
+            validation_start=args.validation_start,
+            validation_end=args.validation_end,
+        )
+        print(json.dumps(summary, indent=2))
     elif args.command == "register":
         owner_session = "aarav-mps-agent-" + secrets.token_hex(12)
         client = ATLClient(session_id=owner_session)
@@ -211,6 +238,20 @@ def main() -> None:
         credentials = json.loads(args.credentials.read_text(encoding="utf-8"))
         client = ATLClient(api_key=credentials["api_key"])
         policy = ResidualMPSEnsemblePolicy(args.artifact)
+        result = client.run_loop(
+            args.start,
+            args.end,
+            agent_name="Aarav Residual MPS Ensemble",
+            model_name="residual-mps-ensemble",
+            strategy=policy.decide,
+        )
+        args.result.parent.mkdir(parents=True, exist_ok=True)
+        args.result.write_text(json.dumps(result, indent=2), encoding="utf-8")
+        print(json.dumps({"run": result["run"], "metrics": result["metrics"]}, indent=2))
+    elif args.command == "run-deployment":
+        credentials = json.loads(args.credentials.read_text(encoding="utf-8"))
+        client = ATLClient(api_key=credentials["api_key"])
+        policy = DeploymentMPSPolicy(args.artifact)
         result = client.run_loop(
             args.start,
             args.end,

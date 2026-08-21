@@ -18,7 +18,9 @@ and explicit turnover controls. See the [ATL MPS agent runbook](docs/ATL_MPS_AGE
 [hosted integration evidence](docs/ATL_MPS_AGENT_RESULT.md).
 
 The current agent adds an exactly parameter-matched residual-MPS/ANN ensemble
-study, rank-aware training, ensemble uncertainty, and temporal-gap correction.
+study, next-session rank-aware training, ensemble uncertainty, whole-share
+portfolio calibration, a positive-trend exposure gate, and low-turnover weekly
+rebalancing.
 See the [residual-MPS protocol](docs/ATL_RESIDUAL_MPS_PROTOCOL.md),
 [fresh-window result](docs/ATL_RESIDUAL_MPS_RESULT.md), and
 [Agent Card](docs/ATL_RESIDUAL_MPS_AGENT_CARD.md).

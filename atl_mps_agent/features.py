@@ -125,16 +125,23 @@ def build_supervised_rows(
     snapshots: Iterable[dict[str, Any]],
     *,
     reset_history_on_gap: bool = False,
+    horizon_steps: int = 1,
+    max_horizon_hours: float = 2.0,
 ) -> tuple[np.ndarray, np.ndarray, list[dict[str, Any]]]:
-    """Build current-feature/next-hour-return pairs in chronological order."""
+    """Build current-feature/forward-return pairs in chronological order."""
+
+    if horizon_steps < 1:
+        raise ValueError("horizon_steps must be positive")
+    if max_horizon_hours <= 0.0:
+        raise ValueError("max_horizon_hours must be positive")
 
     ordered = sorted(list(snapshots), key=lambda item: str(item.get("timestamp", "")))
     history: dict[str, list[float]] = defaultdict(list)
     features: list[np.ndarray] = []
     targets: list[float] = []
     metadata: list[dict[str, Any]] = []
-    for index, current in enumerate(ordered[:-1]):
-        following = ordered[index + 1]
+    for index, current in enumerate(ordered[:-horizon_steps]):
+        following = ordered[index + horizon_steps]
         if reset_history_on_gap and index > 0:
             try:
                 previous_time = datetime.fromisoformat(
@@ -158,7 +165,7 @@ def build_supervised_rows(
             horizon_hours = (following_time - current_time).total_seconds() / 3600.0
         except (TypeError, ValueError):
             horizon_hours = float("inf")
-        if 0.0 < horizon_hours <= 2.0:
+        if 0.0 < horizon_hours <= max_horizon_hours:
             for symbol in sorted(set(current_signals) & set(next_signals)):
                 current_price = _finite((current_signals.get(symbol) or {}).get("price"))
                 next_price = _finite((next_signals.get(symbol) or {}).get("price"))

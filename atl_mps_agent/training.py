@@ -36,9 +36,14 @@ def prepare_dataset(
     train_end: str | None = None,
     validation_end: str | None = None,
     reset_history_on_gap: bool = False,
+    horizon_steps: int = 1,
+    max_horizon_hours: float = 2.0,
 ) -> dict[str, Any]:
     inputs, targets, rows = build_supervised_rows(
-        snapshots, reset_history_on_gap=reset_history_on_gap
+        snapshots,
+        reset_history_on_gap=reset_history_on_gap,
+        horizon_steps=horizon_steps,
+        max_horizon_hours=max_horizon_hours,
     )
     audit = audit_features(inputs, rows)
     audit["raw_input_coverage"] = audit_raw_inputs(snapshots)
@@ -84,6 +89,8 @@ def prepare_dataset(
         "standardized": standardized,
         "train_end": train_end,
         "validation_end": validation_end,
+        "horizon_steps": horizon_steps,
+        "max_horizon_hours": max_horizon_hours,
     }
 
 

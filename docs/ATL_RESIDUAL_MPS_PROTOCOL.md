@@ -2,54 +2,68 @@
 
 ## Objective
 
-Test whether a higher-capacity, rank-aware residual MPS improves fresh-window
-forecasting and cost-adjusted decisions relative to an exactly parameter-matched
-ANN. Architecture and policy choices were fixed before inspecting the May-June
-2026 test results.
+Test whether aligning the prediction target with execution and maintaining
+risk-gated market exposure can produce a positive after-cost result without
+tuning on the final evaluation window. Positive return is a goal, not a
+guaranteed or selectively reported outcome.
 
 ## Architecture
 
-Each MPS member contains:
+Each of five ensemble members contains:
 
 - a 13-site classical MPS with bond dimension 5;
 - a linear residual path over the same standardized inputs; and
 - learned MPS and residual mixing coefficients.
 
-Each member has exactly 586 trainable parameters. The ANN control is a
-13-39-1 tanh network with exactly 586 parameters. Both use the same inputs,
-rows, normalization, robust-regression loss, ranking loss, optimizer, dates,
-costs, early stopping, and paired seeds.
+Each member has 586 trainable parameters. Training uses seeds 0-4, smooth-L1
+loss, a 0.15-weighted within-timestamp ranking loss, training-only
+normalization, early stopping, and no quantum hardware.
 
-The deployed model is a five-member residual-MPS ensemble using seeds 0-4.
-Its decision score is `ensemble mean - one ensemble standard deviation`.
-Confidence combines validation residual error and member disagreement.
+The target is the return seven ATL observations ahead, approximately the next
+trading session, rather than the old one-hour target. Price history is retained
+across sessions because overnight and weekend changes are valid information for
+this next-session horizon.
 
-## Objective function
+## Portfolio calibration
 
-Training minimizes smooth-L1 next-hour return loss with beta 0.25 plus a 0.10
-weighted pairwise ranking loss within each timestamp. The ranking term rewards
-correct cross-sectional ordering rather than only point prediction.
+Seven profiles were declared before the final test. Every eligible deployment
+profile gives the MPS at least 50% of the combined cross-sectional rank. The
+profiles vary only daily versus five-session rebalancing, 50-100% MPS rank
+weight, and whether a positive market-trend gate is required.
+
+Selection uses June validation return after 10 basis points per traded notional,
+drawdown, turnover, and whole-share feasibility with $1,000. A profile must
+have positive validation return and at least three trades to be eligible.
+
+The selected policy is frozen as:
+
+- 75% uncertainty-adjusted MPS rank and 25% observable trend rank;
+- `ensemble mean - 0.5 * ensemble standard deviation`;
+- positive median market-trend gate;
+- maximum three whole-share positions; and
+- one rebalance every five trading sessions.
+
+Its approximate stateful validation simulation returned +3.5011% after modeled
+cost, with -1.5668% maximum drawdown, 18 trades, and 0.4845% cost relative to
+initial capital. This was selection evidence, not a final result.
 
 ## Frozen periods
 
-- Training: January 5-April 10, 2026.
-- Validation, thresholding, and abstention decision: April 15-May 15, 2026.
-- Fresh one-time test: May 18-June 30, 2026.
+- Training cutoff: May 31, 2026, using observations beginning January 5.
+- Portfolio validation: June 1-30, 2026.
+- Untouched one-time evaluation: July 1-August 15, 2026.
 
-Rows whose target crosses a split, overnight, or weekend boundary are removed.
-The current pipeline also resets lagged-price history whenever observations are more than two
-hours apart, so Friday-to-Monday changes cannot be mislabeled as hourly inputs.
-Normalization is fit on training rows only.
+The architecture, artifact, tests, and this protocol are committed before the
+July-August snapshots are collected. Rows whose forward target crosses a split
+are embargoed. The evaluation result will be reported even if it is negative.
 
 ## Comparisons and endpoints
 
-- Ten paired residual-MPS and ANN members, seeds 0-9.
-- Matched five-member MPS and ANN ensembles, seeds 0-4.
-- Ten basis points of modeled cost per unit portfolio turnover.
-- Prediction: MSE, MAE, directional accuracy, and rank correlation.
-- Portfolio: total return, drawdown, turnover, modeled cost, and activity.
-- Paired-seed bootstrap interval for MPS-minus-ANN total return.
+- Matched 586-parameter ANN ensemble under the same target and dates.
+- MPS-only, trend-only, and cash system controls.
+- ATL-native DJIA and buy-and-hold references from the hosted run.
+- Prediction error, directional accuracy, and within-timestamp rank correlation.
+- Return, drawdown, turnover, modeled cost, trades, and invested-day fraction.
 
-The forecasting model is called better only if the fresh prediction evidence
-supports that statement. A system-level abstention outcome is reported
-separately and is not relabeled as superior prediction.
+The offline simulator approximates whole-share ATL execution; the hosted ATL
+run is authoritative for actual platform orders and portfolio accounting.
