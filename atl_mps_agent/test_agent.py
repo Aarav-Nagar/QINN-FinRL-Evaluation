@@ -252,6 +252,22 @@ def test_deployment_cli_accepts_replication_snapshot_capture():
         ]
     )
     assert args.snapshots == Path("snapshots.json")
+    legacy_args = cli_parser().parse_args(
+        [
+            "run-v3",
+            "--start",
+            "2026-07-01",
+            "--end",
+            "2026-08-16",
+            "--artifact",
+            "model.pt",
+            "--credentials",
+            "credentials.json",
+            "--result",
+            "result.json",
+        ]
+    )
+    assert not hasattr(legacy_args, "snapshots")
 
 
 def test_policy_emits_atl_action_contract(tmp_path: Path):
