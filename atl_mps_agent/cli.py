@@ -214,8 +214,8 @@ def main() -> None:
         result = client.run_loop(
             args.start,
             args.end,
-            agent_name="Aarav Residual MPS Ensemble v3",
-            model_name="residual-mps-ensemble-v3",
+            agent_name="Aarav Residual MPS Ensemble",
+            model_name="residual-mps-ensemble",
             strategy=policy.decide,
         )
         args.result.parent.mkdir(parents=True, exist_ok=True)

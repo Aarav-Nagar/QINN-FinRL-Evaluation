@@ -2,10 +2,10 @@
 
 Verified on August 20, 2026 against the hosted Agentic Trading Lab API.
 
-## Version 3 registered architecture
+## Current registered architecture
 
-- Agent/model label: `Aarav Residual MPS Ensemble v3` /
-  `residual-mps-ensemble-v3`
+- Agent/model label: `Aarav Residual MPS Ensemble` /
+  `residual-mps-ensemble`
 - Registered agent ID: `agent_63a8501e0235`
 - Immutable version ID: `agv_63e931b72e43`
 - Semantic version: `3.0.0`
@@ -19,7 +19,7 @@ Verified on August 20, 2026 against the hosted Agentic Trading Lab API.
 The existing agent was upgraded in place so its earlier v1/v2 runs remain
 traceable. ATL's public agent endpoint confirmed the new name, model label,
 runtime metadata, latest hosted run, and three-version run history after the
-update. Full v3 results and claim boundaries are in
+update. Full residual-MPS results and claim boundaries are in
 `docs/ATL_RESIDUAL_MPS_V3_RESULT.md`.
 
 ## Version 2 hosted verification

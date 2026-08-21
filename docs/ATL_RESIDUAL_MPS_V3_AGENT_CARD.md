@@ -1,4 +1,4 @@
-# Agent Card: Aarav Residual MPS Ensemble v3
+# Agent Card: Aarav Residual MPS Ensemble
 
 ## Model
 

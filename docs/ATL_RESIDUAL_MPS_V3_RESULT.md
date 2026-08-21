@@ -1,17 +1,17 @@
-# ATL residual-MPS ensemble v3 result
+# ATL residual-MPS ensemble result
 
 ## Published ATL version
 
-- Agent: `Aarav Residual MPS Ensemble v3` (`agent_63a8501e0235`).
-- Model label: `residual-mps-ensemble-v3`.
+- Agent: `Aarav Residual MPS Ensemble` (`agent_63a8501e0235`).
+- Model label: `residual-mps-ensemble`.
 - Immutable ATL version: `3.0.0` (`agv_63e931b72e43`).
 - Evidence commit: `8af8e49b535e3609ccc46fd8a6c461fddcc317f4`.
 - ATL configuration hash: `b587aeba5195dc64`.
 - Verification level: `self_reported`.
 - Live trading: disabled.
 
-ATL's public agent endpoint returned the upgraded name, model label, v3 runtime
-metadata, and the 210-decision hosted run after registration. The immutable
+ATL's public agent endpoint returned the upgraded name, model label, current
+runtime metadata, and the 210-decision hosted run after registration. The immutable
 version binds the exact architecture and evidence commit; verification remains
 self-reported rather than maintainer-reviewed.
 

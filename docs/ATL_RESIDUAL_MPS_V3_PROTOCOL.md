@@ -1,4 +1,4 @@
-# ATL residual-MPS ensemble v3 frozen protocol
+# ATL residual-MPS ensemble frozen protocol
 
 ## Objective
 
