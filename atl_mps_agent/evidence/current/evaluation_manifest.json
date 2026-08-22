@@ -5,6 +5,8 @@
   "architecture_selected_without_fresh_test": true,
   "fresh_test_consumed_once": true,
   "quantum_hardware": false,
+  "documentation_rebound_at": "2026-08-22",
+  "documentation_rebound_reason": "README linked the later exploratory stress evidence; no frozen model, policy, or evaluation result changed.",
   "fresh_test": {
     "start": "2026-07-01T00:00:00",
     "end": "2026-08-15T23:59:59",
@@ -26,7 +28,7 @@
     "../../../docs/ATL_RESIDUAL_MPS_PROTOCOL.md": "8be0f75c1c3d171eb7f62ca82fac26610ca5af128fee524e8c65c576609f714f",
     "../../../docs/ATL_RESIDUAL_MPS_AGENT_CARD.md": "156dace277a6e8bdad3544027d276864557228530e6f45fb096a0409a479749f",
     "../../../docs/ATL_RESIDUAL_MPS_RESULT.md": "a6b34e8eda882b2d223a43797eb19e82682914240cbe0143572667ad819b2c53",
-    "../../../README.md": "950c3cf12bcbf476b2212b9cd8f81d3ce812146f0507aa36d90337b8b4593c5d"
+    "../../../README.md": "2618e5745336c0ba6f22358f62f0362be693c77f908d5b1ffc37c3f4ebaa6249"
   },
   "claim_boundary": "One positive hosted historical window, not alpha, statistical significance, future profitability, or MPS superiority."
 }

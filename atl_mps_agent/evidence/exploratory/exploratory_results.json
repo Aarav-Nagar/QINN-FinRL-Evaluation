@@ -1,0 +1,242 @@
+{
+  "artifact": "atl_exploratory_date_market_stress_results",
+  "recorded_at": "2026-08-22",
+  "plan_commit": "c8c4c87ea61ee2332ed22fd9a6d26fb5bda02228",
+  "account_agent_id": "agent_3cc6d5aac07b",
+  "agent_version_id": "agv_1c48b644b71e",
+  "frozen_model_sha256": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
+  "classification": "exploratory historical stress test",
+  "policy_changed": false,
+  "cost_model": "10 basis points per recorded traded notional",
+  "us_windows": [
+    {
+      "label": "US-A",
+      "start": "2026-07-01",
+      "end_exclusive": "2026-07-16",
+      "run_id": "ext_20260822_194954_26881188",
+      "gross_return_pct": 0.0,
+      "after_cost_return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "trades": 0,
+      "traded_notional": 0.0,
+      "decisions": 70,
+      "timeouts": 0,
+      "mean_exposure_pct": 0.0,
+      "peak_exposure_pct": 0.0,
+      "snapshot_count": 70,
+      "trading_days": 10,
+      "distinct_symbols": 30,
+      "snapshot_quality_passed": true,
+      "runtime_replay_exact_batches": 70,
+      "runtime_replay_mismatches": 0,
+      "continuous_run_action_matches": 70,
+      "continuous_run_common_decisions": 70,
+      "continuous_run_contribution_pct_initial": 0.0,
+      "canonical_result_sha256": "91bba0d8e8572c26cd203b0e1099ddfd0bff38ae9c7913f6230094a6c0591094",
+      "canonical_snapshots_sha256": "2564f59542090b2d37030a7ad450b985d6923249cf64f5f6558b9374ea1731dc",
+      "baselines": {
+        "djia_index": {
+          "run_id": "djia_index_20260822_194957_b7092e0c",
+          "return_pct": 0.305,
+          "max_drawdown_pct": -1.6862544711292764,
+          "agent_minus_baseline_pct_points": -0.305
+        },
+        "atl_buy_hold": {
+          "run_id": "buyhold_20260822_194956_d39c6041",
+          "return_pct": -0.06000000000000227,
+          "max_drawdown_pct": -0.3843159176665558,
+          "agent_minus_baseline_pct_points": 0.06000000000000227
+        }
+      }
+    },
+    {
+      "label": "US-B",
+      "start": "2026-07-16",
+      "end_exclusive": "2026-08-01",
+      "run_id": "ext_20260822_195215_767a0bc3",
+      "gross_return_pct": 0.0,
+      "after_cost_return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "trades": 0,
+      "traded_notional": 0.0,
+      "decisions": 84,
+      "timeouts": 0,
+      "mean_exposure_pct": 0.0,
+      "peak_exposure_pct": 0.0,
+      "snapshot_count": 84,
+      "trading_days": 12,
+      "distinct_symbols": 30,
+      "snapshot_quality_passed": true,
+      "runtime_replay_exact_batches": 84,
+      "runtime_replay_mismatches": 0,
+      "continuous_run_action_matches": 21,
+      "continuous_run_common_decisions": 84,
+      "continuous_run_contribution_pct_initial": -0.085,
+      "canonical_result_sha256": "3b189d2173f5f3d46a0a89baa6ac33617843ad9fd329c896745a05056064aa9d",
+      "canonical_snapshots_sha256": "baa5d73d30a0548d0de4c1f1f48b4a518015811a6d3cf0151c132ed9340468a2",
+      "baselines": {
+        "djia_index": {
+          "run_id": "djia_index_20260822_195218_4e42a37b",
+          "return_pct": 1.1,
+          "max_drawdown_pct": -2.2362591306430337,
+          "agent_minus_baseline_pct_points": -1.1
+        },
+        "atl_buy_hold": {
+          "run_id": "buyhold_20260822_195216_cdd98b0b",
+          "return_pct": -0.2100000000000023,
+          "max_drawdown_pct": -0.7020452185028334,
+          "agent_minus_baseline_pct_points": 0.2100000000000023
+        }
+      }
+    },
+    {
+      "label": "US-C",
+      "start": "2026-08-01",
+      "end_exclusive": "2026-08-16",
+      "run_id": "ext_20260822_195417_974b8755",
+      "gross_return_pct": 0.41657999999999973,
+      "after_cost_return_pct": 0.3539289999999973,
+      "max_drawdown_pct": -1.3615142018308653,
+      "trades": 3,
+      "traded_notional": 626.51,
+      "decisions": 70,
+      "timeouts": 0,
+      "mean_exposure_pct": 30.4775330485298,
+      "peak_exposure_pct": 63.0181206060006,
+      "snapshot_count": 70,
+      "trading_days": 10,
+      "distinct_symbols": 30,
+      "snapshot_quality_passed": true,
+      "runtime_replay_exact_batches": 70,
+      "runtime_replay_mismatches": 0,
+      "continuous_run_action_matches": 5,
+      "continuous_run_common_decisions": 70,
+      "continuous_run_contribution_pct_initial": 1.37864,
+      "canonical_result_sha256": "8db94a4e075eb93f244970212d146d3fb7891467bf0c0d1863be7158107af83a",
+      "canonical_snapshots_sha256": "7202eb20621c73a606787e4c0359abffecaca3444e4095f21fd267ec1f02b559",
+      "baselines": {
+        "djia_index": {
+          "run_id": "djia_index_20260822_195420_4c00cce8",
+          "return_pct": 1.357000000000005,
+          "max_drawdown_pct": -1.2582056892778989,
+          "agent_minus_baseline_pct_points": -0.9404200000000053
+        },
+        "atl_buy_hold": {
+          "run_id": "buyhold_20260822_195418_c6b1a3c7",
+          "return_pct": 0.9110000000000014,
+          "max_drawdown_pct": -0.21937443543343055,
+          "agent_minus_baseline_pct_points": -0.4944200000000017
+        }
+      }
+    },
+    {
+      "label": "US-D",
+      "start": "2026-08-17",
+      "end_exclusive": "2026-08-21",
+      "run_id": "ext_20260822_195526_acc7dc04",
+      "gross_return_pct": 0.0,
+      "after_cost_return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "trades": 0,
+      "traded_notional": 0.0,
+      "decisions": 28,
+      "timeouts": 0,
+      "mean_exposure_pct": 0.0,
+      "peak_exposure_pct": 0.0,
+      "snapshot_count": 28,
+      "trading_days": 4,
+      "distinct_symbols": 30,
+      "snapshot_quality_passed": true,
+      "runtime_replay_exact_batches": 28,
+      "runtime_replay_mismatches": 0,
+      "continuous_run_action_matches": 0,
+      "continuous_run_common_decisions": 0,
+      "continuous_run_contribution_pct_initial": null,
+      "canonical_result_sha256": "dea785d995772d69f0bb70eca791dded038802af5a020532458df326ed12b82e",
+      "canonical_snapshots_sha256": "ca3eb972573e36b4791c0efd778b7477f366b1f26b7b124b1576f46d8028187f",
+      "baselines": {
+        "djia_index": {
+          "run_id": "djia_index_20260822_195528_6d26498a",
+          "return_pct": -0.4370000000000005,
+          "max_drawdown_pct": -1.86512356936544,
+          "agent_minus_baseline_pct_points": 0.4370000000000005
+        },
+        "atl_buy_hold": {
+          "run_id": "buyhold_20260822_195527_e969b4db",
+          "return_pct": 0.0,
+          "max_drawdown_pct": 0.0,
+          "agent_minus_baseline_pct_points": 0.0
+        }
+      }
+    }
+  ],
+  "us_c_exact_repeat": {
+    "run_ids": [
+      "ext_20260822_195417_974b8755",
+      "ext_20260822_201659_0542cce5"
+    ],
+    "metrics_exact": true,
+    "equity_curve_exact": true,
+    "trade_ledger_exact": true,
+    "decision_ledger_exact": true,
+    "snapshots_exact": true,
+    "canonical_snapshot_sha256": "7202eb20621c73a606787e4c0359abffecaca3444e4095f21fd267ec1f02b559",
+    "canonical_repeat_result_sha256": "71670d7c6f7abe24e62a2b35fbcf924ca4f2b527e230c1f246cd79255b28c0ba"
+  },
+  "aggregate_us": {
+    "window_count": 4,
+    "positive_window_count": 1,
+    "flat_window_count": 3,
+    "gross_return_pct_mean": 0.10414499999999993,
+    "gross_return_pct_median": 0.0,
+    "fresh_state_sum_gross_return_pct": 0.41657999999999973,
+    "fresh_state_sum_after_cost_return_pct": 0.3539289999999973,
+    "continuous_reference_return_pct_through_us_c": 1.29364,
+    "fresh_state_minus_continuous_pct_points": -0.8770600000000003,
+    "continuous_overlap_action_matches": 96,
+    "continuous_overlap_decisions": 224,
+    "continuous_overlap_action_match_pct": 42.857142857142854,
+    "strict_wins_vs_djia_index": 1,
+    "strict_losses_vs_djia_index": 3,
+    "strict_wins_vs_atl_buy_hold": 2,
+    "ties_vs_atl_buy_hold": 1,
+    "strict_losses_vs_atl_buy_hold": 1
+  },
+  "china_controls": [
+    {
+      "universe": "a_share_demo_6",
+      "symbols": 6,
+      "data_source": "iFinD A-Share",
+      "timeframe": "60m",
+      "decision_source": "rule_based",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-05-01",
+      "status": "failed_before_start",
+      "ui_started_at": "2026-08-22T15:58:55-04:00",
+      "ui_error_summary": "The iFinD backtest failed. Check the backend log for the sanitized error summary.",
+      "return_is_observed": false
+    },
+    {
+      "universe": "csi300_sample_20_2026h2",
+      "symbols": 20,
+      "data_source": "iFinD A-Share",
+      "timeframe": "60m",
+      "decision_source": "rule_based",
+      "start": "2026-04-01",
+      "end_exclusive": "2026-05-01",
+      "status": "failed_before_run_record",
+      "ui_error_surface": "blocking alert after launch; no completed run or result record",
+      "return_is_observed": false
+    }
+  ],
+  "china_mps_transfer": {
+    "status": "not_run",
+    "reason": "The iFinD controls returned no decision, trade, chart, OHLCV, FX, lot-size, or feature data, so the frozen 13-feature pre-decision contract could not be reconstructed without synthetic imputation.",
+    "platform_controls_are_mps_results": false
+  },
+  "finding": {
+    "performance_claim": "No groundbreaking or superior performance was found.",
+    "notable_diagnostic": "The frozen policy and hosted inputs replay exactly, and the US-C run reproduced exactly, but fresh-start partitions diverge sharply from the continuous run because policy history and rebalance state carry across dates.",
+    "interpretation": "This is a reproducible path-state sensitivity finding and an ATL China-data integration blocker, not alpha evidence or proof of MPS value."
+  }
+}

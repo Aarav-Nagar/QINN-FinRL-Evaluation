@@ -30,6 +30,14 @@ controls, cost stress, and ATL input-lineage drift. The next untouched
 [prospective multi-week protocol](docs/ATL_PROSPECTIVE_REPLICATION_PROTOCOL.md)
 was registered before its August 24-September 18 window begins.
 
+The later [exploratory date and China-market stress](docs/ATL_EXPLORATORY_STRESS_RESULTS.md)
+keeps the artifact frozen across four fresh-start U.S. partitions, an exact
+August repeat, and both visible ATL A-share universes. It finds deterministic
+execution but strong start-state sensitivity: the fresh partitions sum to
++0.4166% gross versus +1.2936% for the continuous run, while ATL's iFinD China
+path fails before producing usable market or decision data. This is a design
+and platform diagnostic, not a new performance claim.
+
 Its first frozen July-August hosted ATL evaluation returned +1.2936% gross and
 +0.9850% after the prespecified 10-basis-point estimate on each recorded trade
 notional, with 11 trades and zero timeouts. It underperformed ATL's +4.5710%

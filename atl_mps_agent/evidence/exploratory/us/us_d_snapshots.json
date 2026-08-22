@@ -1,0 +1,3166 @@
+[
+  {
+    "timestamp": "2026-08-17T14:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 230.44,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MMM": {
+        "price": 180.57,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 351.82,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "GOOGL": {
+        "price": 342.91,
+        "rsi": 1.5182856617065563,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "PG": {
+        "price": 143.025,
+        "rsi": 2.0945533645067393,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 39.55,
+        "rsi": 2.2948819049136087,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 361.47,
+        "rsi": 3.982991678458856,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "WMT": {
+        "price": 114.77,
+        "rsi": 7.068956638984792,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MRK": {
+        "price": 135.65,
+        "rsi": 91.22257442291614,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 229.78,
+        "rsi": 9.657859129384175,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-17T15:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 229.69,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MMM": {
+        "price": 180.345,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 349.77,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "PG": {
+        "price": 142.72,
+        "rsi": 1.8063052592456716,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 39.195,
+        "rsi": 1.894864823260221,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 360.25,
+        "rsi": 3.217629115367482,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "WMT": {
+        "price": 114.4399,
+        "rsi": 6.291106354032542,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MRK": {
+        "price": 136.4,
+        "rsi": 92.36555473913799,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AAPL": {
+        "price": 303.18,
+        "rsi": 8.386856164252508,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 229.35,
+        "rsi": 8.949493314205547,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-17T16:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 228.78,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MMM": {
+        "price": 180.34,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 38.995,
+        "rsi": 1.7136375743611454,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 350.98,
+        "rsi": 5.107614032893737,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 360.37,
+        "rsi": 5.148303427933032,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MRK": {
+        "price": 136.71,
+        "rsi": 92.78383117106858,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 228.06,
+        "rsi": 7.2350465767315475,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AAPL": {
+        "price": 303.04,
+        "rsi": 8.162929905007042,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CVX": {
+        "price": 202.04,
+        "rsi": 90.5660378053558,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "PG": {
+        "price": 142.935,
+        "rsi": 11.094415802123615,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-17T17:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 228.63,
+        "rsi": 0.0,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 38.915,
+        "rsi": 1.6458304941956445,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MMM": {
+        "price": 180.485,
+        "rsi": 3.1769214049785273,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 350.22,
+        "rsi": 4.937045806531395,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 227.925,
+        "rsi": 7.0821425388253125,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CVX": {
+        "price": 203.15,
+        "rsi": 92.8941901901548,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "PG": {
+        "price": 142.87,
+        "rsi": 10.762952999717267,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "GOOGL": {
+        "price": 342.91,
+        "rsi": 11.21267966972571,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 360.81,
+        "rsi": 12.074336035808216,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AXP": {
+        "price": 338.33,
+        "rsi": 12.874040466578517,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-17T18:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 228.8,
+        "rsi": 1.5979967196476657,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MMM": {
+        "price": 180.3,
+        "rsi": 3.044045563153908,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 38.96,
+        "rsi": 3.9481676988851513,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 349.56,
+        "rsi": 4.787523493472481,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CVX": {
+        "price": 203.615,
+        "rsi": 93.60605986770899,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "PG": {
+        "price": 142.75,
+        "rsi": 10.159484501659325,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AXP": {
+        "price": 336.94,
+        "rsi": 11.188880854875766,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 228.2,
+        "rsi": 11.19912010895982,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 360.67,
+        "rsi": 11.779602134237335,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CRM": {
+        "price": 190.88,
+        "rsi": 15.615414807863628,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-17T19:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "MMM": {
+        "price": 180.23,
+        "rsi": 2.993034742408706,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 349.91,
+        "rsi": 6.406326988882189,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "HON": {
+        "price": 229.53,
+        "rsi": 8.3693470986578,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 358.91,
+        "rsi": 8.853694142359872,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 39.08,
+        "rsi": 9.998501191159182,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AXP": {
+        "price": 336.31,
+        "rsi": 10.516947339483133,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "TRV": {
+        "price": 364.5,
+        "rsi": 15.000258165263467,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 366.2163800000001,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "MCD": {
+        "price": 265.56,
+        "rsi": 16.949414939523976,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CRM": {
+        "price": 191.02,
+        "rsi": 17.15694257085008,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 228.83,
+        "rsi": 19.949663354611804,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-17T20:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "MMM": {
+        "price": 179.0028,
+        "rsi": 2.2736807762628444,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 180.72180222222224,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 349.97,
+        "rsi": 6.699182640657605,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "HON": {
+        "price": 229.45,
+        "rsi": 8.301925046839768,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "V": {
+        "price": 358.84,
+        "rsi": 8.760491426484787,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AXP": {
+        "price": 336.26,
+        "rsi": 10.463241680534026,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NKE": {
+        "price": 39.14,
+        "rsi": 12.951015797708381,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CRM": {
+        "price": 190.6637,
+        "rsi": 16.338886347615226,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "IBM": {
+        "price": 228.5,
+        "rsi": 18.89911215614338,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "TRV": {
+        "price": 365.26,
+        "rsi": 19.40372331024164,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 366.2163800000001,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CVX": {
+        "price": 203.34,
+        "rsi": 79.86934737103869,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T14:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 229.07,
+        "rsi": 12.238144118345629,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NVDA": {
+        "price": 219.06,
+        "rsi": 15.478784819558324,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 223.94033,
+        "sma50": 0.0,
+        "bb_upper": 229.64268754647054,
+        "bb_lower": 218.23797245352944
+      },
+      "KO": {
+        "price": 88.755,
+        "rsi": 82.24170996872313,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 87.41044,
+        "sma50": 0.0,
+        "bb_upper": 88.4184917935733,
+        "bb_lower": 86.40238820642669
+      },
+      "CAT": {
+        "price": 840.85,
+        "rsi": 21.467102019217464,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 872.2752399999999,
+        "sma50": 0.0,
+        "bb_upper": 897.6640841682479,
+        "bb_lower": 846.886395831752
+      },
+      "SHW": {
+        "price": 352.14,
+        "rsi": 25.35349778473171,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "JNJ": {
+        "price": 270.21,
+        "rsi": 72.20035839137913,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AAPL": {
+        "price": 310.395,
+        "rsi": 70.88820389260992,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 306.0295,
+        "sma50": 0.0,
+        "bb_upper": 309.59030254111934,
+        "bb_lower": 302.4686974588806
+      },
+      "MRK": {
+        "price": 136.63,
+        "rsi": 69.77263513254441,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CSCO": {
+        "price": 110.6699,
+        "rsi": 30.444721075138972,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 112.306695,
+        "sma50": 0.0,
+        "bb_upper": 113.79771468284513,
+        "bb_lower": 110.81567531715488
+      },
+      "GOOGL": {
+        "price": 342.845,
+        "rsi": 31.187020394777598,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 343.53225999999995,
+        "sma50": 0.0,
+        "bb_upper": 346.4070817573306,
+        "bb_lower": 340.6574382426693
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T15:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 228.15,
+        "rsi": 10.987237476652473,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "KO": {
+        "price": 88.7,
+        "rsi": 80.02999003499477,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 87.47794,
+        "sma50": 0.0,
+        "bb_upper": 88.63824730847708,
+        "bb_lower": 86.31763269152293
+      },
+      "CAT": {
+        "price": 839.8814,
+        "rsi": 21.08800124490077,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 871.19381,
+        "sma50": 0.0,
+        "bb_upper": 900.1107485790915,
+        "bb_lower": 842.2768714209085
+      },
+      "SHW": {
+        "price": 350.265,
+        "rsi": 23.03653654941746,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "JNJ": {
+        "price": 270.93,
+        "rsi": 73.61335289659942,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "NVDA": {
+        "price": 220.06,
+        "rsi": 26.666737720651522,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 223.61133000000007,
+        "sma50": 0.0,
+        "bb_upper": 229.41621198061281,
+        "bb_lower": 217.80644801938732
+      },
+      "CVX": {
+        "price": 204.3,
+        "rsi": 69.5288348815385,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 202.89923000000002,
+        "sma50": 0.0,
+        "bb_upper": 205.89341613498684,
+        "bb_lower": 199.9050438650132
+      },
+      "AXP": {
+        "price": 338.05,
+        "rsi": 31.56160893784134,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "AMGN": {
+        "price": 424.02,
+        "rsi": 65.39989652310572,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 418.4949000000001,
+        "sma50": 0.0,
+        "bb_upper": 426.3378931692328,
+        "bb_lower": 410.65190683076736
+      },
+      "GOOGL": {
+        "price": 343.28,
+        "rsi": 35.45768960730376,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 343.32275999999996,
+        "sma50": 0.0,
+        "bb_upper": 345.52021711642504,
+        "bb_lower": 341.1253028835749
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T16:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 228.265,
+        "rsi": 12.195388859879719,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CAT": {
+        "price": 838.23,
+        "rsi": 20.425707196766332,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 870.1707,
+        "sma50": 0.0,
+        "bb_upper": 902.2275139908868,
+        "bb_lower": 838.1138860091132
+      },
+      "KO": {
+        "price": 88.66,
+        "rsi": 78.37909213717677,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 87.53944000000001,
+        "sma50": 0.0,
+        "bb_upper": 88.81382815767455,
+        "bb_lower": 86.26505184232548
+      },
+      "SHW": {
+        "price": 349.75,
+        "rsi": 22.430212339298745,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "JNJ": {
+        "price": 270.84,
+        "rsi": 73.1130982167422,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CVX": {
+        "price": 204.83,
+        "rsi": 72.33735955856945,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 203.15323,
+        "sma50": 0.0,
+        "bb_upper": 205.87175779825674,
+        "bb_lower": 200.43470220174328
+      },
+      "NVDA": {
+        "price": 220.2,
+        "rsi": 28.10162145449359,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 223.30823000000004,
+        "sma50": 0.0,
+        "bb_upper": 229.1631935094733,
+        "bb_lower": 217.45326649052677
+      },
+      "AXP": {
+        "price": 337.58,
+        "rsi": 30.14080861242135,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 0.0,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "BA": {
+        "price": 224.705,
+        "rsi": 30.48486044875469,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 226.41064,
+        "sma50": 0.0,
+        "bb_upper": 229.09800909685606,
+        "bb_lower": 223.72327090314394
+      },
+      "AAPL": {
+        "price": 310.75,
+        "rsi": 68.69172310635875,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 306.35999999999996,
+        "sma50": 0.0,
+        "bb_upper": 310.7380853782158,
+        "bb_lower": 301.9819146217841
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T17:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 227.815,
+        "rsi": 11.53559476560933,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "KO": {
+        "price": 88.89,
+        "rsi": 80.82807477525569,
+        "macd": 0.5942421836536766,
+        "macd_signal": 0.0,
+        "sma20": 87.60394000000002,
+        "sma50": 0.0,
+        "bb_upper": 89.01453520009338,
+        "bb_lower": 86.19334479990667
+      },
+      "CAT": {
+        "price": 836.9,
+        "rsi": 19.884074517235632,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 868.3302,
+        "sma50": 0.0,
+        "bb_upper": 903.5974527825072,
+        "bb_lower": 833.0629472174928
+      },
+      "SHW": {
+        "price": 348.71,
+        "rsi": 21.215821795238334,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CVX": {
+        "price": 205.18,
+        "rsi": 74.03907229555578,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 203.39573000000001,
+        "sma50": 0.0,
+        "bb_upper": 205.9115917902797,
+        "bb_lower": 200.87986820972034
+      },
+      "BA": {
+        "price": 223.855,
+        "rsi": 26.574756510124594,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 226.07839,
+        "sma50": 0.0,
+        "bb_upper": 228.2258440371529,
+        "bb_lower": 223.93093596284712
+      },
+      "NVDA": {
+        "price": 219.95,
+        "rsi": 27.082556150042638,
+        "macd": -2.5978530311683414,
+        "macd_signal": 0.0,
+        "sma20": 222.99803000000003,
+        "sma50": 0.0,
+        "bb_upper": 228.87550994873573,
+        "bb_lower": 217.12055005126433
+      },
+      "AMGN": {
+        "price": 426.5,
+        "rsi": 70.41986526190244,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 419.8359000000001,
+        "sma50": 0.0,
+        "bb_upper": 427.66453458955925,
+        "bb_lower": 412.00726541044094
+      },
+      "AXP": {
+        "price": 337.515,
+        "rsi": 29.9400718415435,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 338.90747999999996,
+        "sma50": 0.0,
+        "bb_upper": 342.80050650908265,
+        "bb_lower": 335.0144534909173
+      },
+      "JNJ": {
+        "price": 270.19,
+        "rsi": 69.44267186793749,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 264.265755,
+        "sma50": 0.0,
+        "bb_upper": 272.33841942168607,
+        "bb_lower": 256.19309057831396
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T18:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 228.065,
+        "rsi": 14.30928969305271,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "KO": {
+        "price": 88.91,
+        "rsi": 81.02929979749405,
+        "macd": 0.609519147728875,
+        "macd_signal": 0.0,
+        "sma20": 87.68518999999999,
+        "sma50": 0.0,
+        "bb_upper": 89.20166014915007,
+        "bb_lower": 86.16871985084991
+      },
+      "SHW": {
+        "price": 347.89,
+        "rsi": 20.283361970003778,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "CAT": {
+        "price": 837.535,
+        "rsi": 20.961710436636967,
+        "macd": -14.871749649608546,
+        "macd_signal": 0.0,
+        "sma20": 866.3392,
+        "sma50": 0.0,
+        "bb_upper": 903.8837462362834,
+        "bb_lower": 828.7946537637166
+      },
+      "CVX": {
+        "price": 205.325,
+        "rsi": 74.73255959060955,
+        "macd": 1.4126253090099965,
+        "macd_signal": 0.0,
+        "sma20": 203.615475,
+        "sma50": 0.0,
+        "bb_upper": 205.98823296612068,
+        "bb_lower": 201.24271703387933
+      },
+      "BA": {
+        "price": 223.7586,
+        "rsi": 26.16486829188163,
+        "macd": -1.6279914523487093,
+        "macd_signal": 0.0,
+        "sma20": 225.87582500000002,
+        "sma50": 0.0,
+        "bb_upper": 228.0985569215918,
+        "bb_lower": 223.65309307840823
+      },
+      "NVDA": {
+        "price": 219.815,
+        "rsi": 26.523216924411148,
+        "macd": -2.5128123938945635,
+        "macd_signal": 0.0,
+        "sma20": 222.67678,
+        "sma50": 0.0,
+        "bb_upper": 228.5103478231928,
+        "bb_lower": 216.8432121768072
+      },
+      "JNJ": {
+        "price": 270.595,
+        "rsi": 70.43847726811065,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 264.821005,
+        "sma50": 0.0,
+        "bb_upper": 273.0369462672719,
+        "bb_lower": 256.6050637327281
+      },
+      "AMGN": {
+        "price": 426.48,
+        "rsi": 70.32821270843,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 420.4849000000001,
+        "sma50": 0.0,
+        "bb_upper": 428.2538277699524,
+        "bb_lower": 412.7159722300478
+      },
+      "GOOGL": {
+        "price": 342.57,
+        "rsi": 33.553943098437536,
+        "macd": -0.8328148036872562,
+        "macd_signal": 0.0,
+        "sma20": 343.09776,
+        "sma50": 0.0,
+        "bb_upper": 344.4590925088236,
+        "bb_lower": 341.7364274911764
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T19:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 227.73,
+        "rsi": 13.689878286141067,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 225.33116458333333,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "SHW": {
+        "price": 345.26,
+        "rsi": 17.610008335254836,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 0.0,
+        "sma50": 350.13394999999997,
+        "bb_upper": 0.0,
+        "bb_lower": 0.0
+      },
+      "KO": {
+        "price": 88.82,
+        "rsi": 77.10728810720126,
+        "macd": 0.6073627047937293,
+        "macd_signal": 0.0,
+        "sma20": 87.77694000000001,
+        "sma50": 0.0,
+        "bb_upper": 89.33647127830132,
+        "bb_lower": 86.2174087216987
+      },
+      "BA": {
+        "price": 223.02,
+        "rsi": 23.21090455416436,
+        "macd": -1.6886619762258022,
+        "macd_signal": 0.0,
+        "sma20": 225.633825,
+        "sma50": 0.0,
+        "bb_upper": 227.9964755043678,
+        "bb_lower": 223.2711744956322
+      },
+      "CVX": {
+        "price": 205.73,
+        "rsi": 76.6118178719945,
+        "macd": 1.4260249656120152,
+        "macd_signal": 0.0,
+        "sma20": 203.85197500000004,
+        "sma50": 0.0,
+        "bb_upper": 206.06458328399896,
+        "bb_lower": 201.63936671600112
+      },
+      "NVDA": {
+        "price": 219.8,
+        "rsi": 26.457831335136852,
+        "macd": -2.4187456564989134,
+        "macd_signal": 0.0,
+        "sma20": 222.28178000000003,
+        "sma50": 0.0,
+        "bb_upper": 227.7410562842515,
+        "bb_lower": 216.82250371574855
+      },
+      "CAT": {
+        "price": 840.84,
+        "rsi": 26.502933486941558,
+        "macd": -14.614114003317695,
+        "macd_signal": 0.0,
+        "sma20": 864.3666950000002,
+        "sma50": 0.0,
+        "bb_upper": 902.9558469873807,
+        "bb_lower": 825.7775430126196
+      },
+      "JNJ": {
+        "price": 271.13,
+        "rsi": 71.74822680215796,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 265.42100500000004,
+        "sma50": 0.0,
+        "bb_upper": 273.63971167004934,
+        "bb_lower": 257.20229832995074
+      },
+      "AMGN": {
+        "price": 425.32,
+        "rsi": 65.04074685410677,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 420.9794000000001,
+        "sma50": 0.0,
+        "bb_upper": 428.65201304284693,
+        "bb_lower": 413.3067869571533
+      },
+      "AAPL": {
+        "price": 310.21,
+        "rsi": 63.91542622184291,
+        "macd": 1.7990397211411846,
+        "macd_signal": 0.0,
+        "sma20": 307.2585,
+        "sma50": 0.0,
+        "bb_upper": 311.9413759719239,
+        "bb_lower": 302.57562402807616
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-18T20:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 227.31,
+        "rsi": 12.933948568076206,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 229.47575,
+        "sma50": 225.33116458333333,
+        "bb_upper": 232.93334922032923,
+        "bb_lower": 226.01815077967078
+      },
+      "SHW": {
+        "price": 345.17,
+        "rsi": 17.524886080580405,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 350.367005,
+        "sma50": 350.13394999999997,
+        "bb_upper": 357.20541673633795,
+        "bb_lower": 343.52859326366206
+      },
+      "KO": {
+        "price": 88.82,
+        "rsi": 77.10728810720126,
+        "macd": 0.5987516716702572,
+        "macd_signal": 0.0,
+        "sma20": 87.86431500000002,
+        "sma50": 0.0,
+        "bb_upper": 89.45320439865496,
+        "bb_lower": 86.27542560134508
+      },
+      "BA": {
+        "price": 223.1,
+        "rsi": 24.208994413339838,
+        "macd": -1.7105700849474772,
+        "macd_signal": 0.0,
+        "sma20": 225.416825,
+        "sma50": 0.0,
+        "bb_upper": 227.876233515862,
+        "bb_lower": 222.95741648413798
+      },
+      "CVX": {
+        "price": 205.67,
+        "rsi": 75.71339897854551,
+        "macd": 1.4154859505211448,
+        "macd_signal": 0.0,
+        "sma20": 204.05672500000003,
+        "sma50": 0.0,
+        "bb_upper": 206.13601722459535,
+        "bb_lower": 201.9774327754047
+      },
+      "NVDA": {
+        "price": 219.63,
+        "rsi": 25.685012027041154,
+        "macd": -2.3310438462146124,
+        "macd_signal": 0.0,
+        "sma20": 221.91028000000003,
+        "sma50": 0.0,
+        "bb_upper": 226.99912991974472,
+        "bb_lower": 216.82143008025534
+      },
+      "CAT": {
+        "price": 841.5,
+        "rsi": 27.594615409132377,
+        "macd": -14.1930705311147,
+        "macd_signal": 0.0,
+        "sma20": 862.2116950000002,
+        "sma50": 0.0,
+        "bb_upper": 900.8570493248686,
+        "bb_lower": 823.5663406751318
+      },
+      "JNJ": {
+        "price": 271.0,
+        "rsi": 70.92590727159708,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 265.995005,
+        "sma50": 0.0,
+        "bb_upper": 274.08089546633545,
+        "bb_lower": 257.90911453366454
+      },
+      "MMM": {
+        "price": 179.6552,
+        "rsi": 31.57771742073406,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 180.63073000000006,
+        "sma50": 180.72180222222224,
+        "bb_upper": 182.12910032749448,
+        "bb_lower": 179.13235967250563
+      },
+      "AMGN": {
+        "price": 425.44,
+        "rsi": 65.33112616474816,
+        "macd": 0.0,
+        "macd_signal": 0.0,
+        "sma20": 421.39240000000007,
+        "sma50": 0.0,
+        "bb_upper": 429.09308812783024,
+        "bb_lower": 413.6917118721699
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T14:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "AMGN": {
+        "price": 440.425,
+        "rsi": 84.43940570650527,
+        "macd": 5.279052324689076,
+        "macd_signal": 0.0,
+        "sma20": 426.3400000000001,
+        "sma50": 0.0,
+        "bb_upper": 437.0628869836047,
+        "bb_lower": 415.6171130163955
+      },
+      "CRM": {
+        "price": 206.735,
+        "rsi": 78.77351747241028,
+        "macd": 2.004154979049389,
+        "macd_signal": 1.469880526341842,
+        "sma20": 196.70654000000005,
+        "sma50": 0.0,
+        "bb_upper": 202.74827253659808,
+        "bb_lower": 190.664807463402
+      },
+      "AAPL": {
+        "price": 317.8689,
+        "rsi": 78.70768803028069,
+        "macd": 2.067284323196077,
+        "macd_signal": 1.5812699145001499,
+        "sma20": 310.29679,
+        "sma50": 0.0,
+        "bb_upper": 315.4122612162023,
+        "bb_lower": 305.1813187837977
+      },
+      "HON": {
+        "price": 225.005,
+        "rsi": 21.621941242117273,
+        "macd": -1.4485200714721884,
+        "macd_signal": 0.0,
+        "sma20": 228.21642000000003,
+        "sma50": 225.33116458333333,
+        "bb_upper": 230.79430939503877,
+        "bb_lower": 225.6385306049613
+      },
+      "DIS": {
+        "price": 106.8,
+        "rsi": 76.4813345632942,
+        "macd": 0.16279301530653356,
+        "macd_signal": -0.09387581512080546,
+        "sma20": 104.43167500000001,
+        "sma50": 0.0,
+        "bb_upper": 105.94604243768345,
+        "bb_lower": 102.91730756231658
+      },
+      "MRK": {
+        "price": 149.24,
+        "rsi": 76.09112540823011,
+        "macd": 2.798165895315492,
+        "macd_signal": 0.0,
+        "sma20": 138.59992,
+        "sma50": 0.0,
+        "bb_upper": 148.8831321278171,
+        "bb_lower": 128.3167078721829
+      },
+      "IBM": {
+        "price": 238.38,
+        "rsi": 74.97781270051081,
+        "macd": 1.1821258394682843,
+        "macd_signal": 0.8267173170167217,
+        "sma20": 232.28095,
+        "sma50": 0.0,
+        "bb_upper": 236.24320056913757,
+        "bb_lower": 228.3186994308624
+      },
+      "V": {
+        "price": 369.77,
+        "rsi": 74.82048932585603,
+        "macd": 1.6770210494834714,
+        "macd_signal": 1.4444303643797143,
+        "sma20": 364.461975,
+        "sma50": 0.0,
+        "bb_upper": 368.72690684341165,
+        "bb_lower": 360.19704315658834
+      },
+      "NKE": {
+        "price": 41.1301,
+        "rsi": 73.30228456135684,
+        "macd": 0.290459475764159,
+        "macd_signal": 0.21358415475345022,
+        "sma20": 40.17334500000001,
+        "sma50": 0.0,
+        "bb_upper": 41.054386956047395,
+        "bb_lower": 39.29230304395263
+      },
+      "KO": {
+        "price": 89.79,
+        "rsi": 72.23773251210183,
+        "macd": 0.5085650678203422,
+        "macd_signal": 0.5022267668584564,
+        "sma20": 88.76658,
+        "sma50": 0.0,
+        "bb_upper": 89.74371150674529,
+        "bb_lower": 87.78944849325472
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T15:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 224.075,
+        "rsi": 19.74210827002872,
+        "macd": -1.6127139153964833,
+        "macd_signal": 0.0,
+        "sma20": 227.98867,
+        "sma50": 225.33116458333333,
+        "bb_upper": 231.15125056463233,
+        "bb_lower": 224.8260894353677
+      },
+      "CRM": {
+        "price": 207.65,
+        "rsi": 79.8180859849165,
+        "macd": 2.631604163496604,
+        "macd_signal": 1.7022252537727947,
+        "sma20": 197.42704000000003,
+        "sma50": 0.0,
+        "bb_upper": 204.97683315726408,
+        "bb_lower": 189.87724684273599
+      },
+      "MRK": {
+        "price": 150.0,
+        "rsi": 76.94881048264864,
+        "macd": 3.212242280584036,
+        "macd_signal": 0.0,
+        "sma20": 139.30142,
+        "sma50": 0.0,
+        "bb_upper": 150.68459729405066,
+        "bb_lower": 127.91824270594935
+      },
+      "AMGN": {
+        "price": 437.865,
+        "rsi": 75.46300507579537,
+        "macd": 5.507719981682158,
+        "macd_signal": 0.0,
+        "sma20": 427.28925000000015,
+        "sma50": 0.0,
+        "bb_upper": 438.57789323347293,
+        "bb_lower": 416.00060676652737
+      },
+      "CAT": {
+        "price": 809.84,
+        "rsi": 27.170571622254528,
+        "macd": -13.106741260294825,
+        "macd_signal": -11.772038069529556,
+        "sma20": 839.1828199999999,
+        "sma50": 0.0,
+        "bb_upper": 865.4272051755875,
+        "bb_lower": 812.9384348244123
+      },
+      "V": {
+        "price": 369.17,
+        "rsi": 70.77169991780616,
+        "macd": 1.83652436107036,
+        "macd_signal": 1.5228491637178436,
+        "sma20": 364.903475,
+        "sma50": 0.0,
+        "bb_upper": 369.1997937115311,
+        "bb_lower": 360.60715628846896
+      },
+      "AAPL": {
+        "price": 316.295,
+        "rsi": 70.59153716340265,
+        "macd": 2.2751807442455174,
+        "macd_signal": 1.7200520804492234,
+        "sma20": 310.73654,
+        "sma50": 0.0,
+        "bb_upper": 316.3295263038786,
+        "bb_lower": 305.1435536961214
+      },
+      "IBM": {
+        "price": 237.5711,
+        "rsi": 70.19778383036792,
+        "macd": 1.4345666528774075,
+        "macd_signal": 0.9482871841888589,
+        "sma20": 232.67200500000004,
+        "sma50": 0.0,
+        "bb_upper": 237.09904605361817,
+        "bb_lower": 228.24496394638192
+      },
+      "MSFT": {
+        "price": 488.645,
+        "rsi": 68.97483536632467,
+        "macd": -0.04577636247006467,
+        "macd_signal": -0.8847767420683059,
+        "sma20": 481.61504499999995,
+        "sma50": 0.0,
+        "bb_upper": 485.9670819524722,
+        "bb_lower": 477.2630080475277
+      },
+      "DIS": {
+        "price": 106.27,
+        "rsi": 68.41947199074335,
+        "macd": 0.2711470377549574,
+        "macd_signal": -0.020871244545652895,
+        "sma20": 104.545175,
+        "sma50": 0.0,
+        "bb_upper": 106.25142771143031,
+        "bb_lower": 102.83892228856969
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T16:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 223.86,
+        "rsi": 19.323836900853127,
+        "macd": -1.7401283068996065,
+        "macd_signal": 0.0,
+        "sma20": 227.74167000000003,
+        "sma50": 225.33116458333333,
+        "bb_upper": 231.37417181387295,
+        "bb_lower": 224.1091681861271
+      },
+      "MRK": {
+        "price": 150.145,
+        "rsi": 77.11747038512445,
+        "macd": 3.5116213028817924,
+        "macd_signal": 0.0,
+        "sma20": 140.0174,
+        "sma50": 0.0,
+        "bb_upper": 152.24969040118606,
+        "bb_lower": 127.78510959881396
+      },
+      "CRM": {
+        "price": 206.465,
+        "rsi": 74.69167924621497,
+        "macd": 2.998675699305693,
+        "macd_signal": 1.9615153428793743,
+        "sma20": 198.09779000000003,
+        "sma50": 0.0,
+        "bb_upper": 206.3602628037834,
+        "bb_lower": 189.83531719621666
+      },
+      "CAT": {
+        "price": 809.4323,
+        "rsi": 27.026889315888646,
+        "macd": -13.974911103983573,
+        "macd_signal": -12.21261267642036,
+        "sma20": 836.5544349999998,
+        "sma50": 0.0,
+        "bb_upper": 863.691313813915,
+        "bb_lower": 809.4175561860845
+      },
+      "AMGN": {
+        "price": 437.04,
+        "rsi": 72.77793601137908,
+        "macd": 5.558297547911081,
+        "macd_signal": 4.385144895832038,
+        "sma20": 427.9782500000001,
+        "sma50": 0.0,
+        "bb_upper": 439.89601041968683,
+        "bb_lower": 416.0604895803134
+      },
+      "V": {
+        "price": 369.24,
+        "rsi": 70.9690771066771,
+        "macd": 1.9461463361191704,
+        "macd_signal": 1.607508598198109,
+        "sma20": 365.325475,
+        "sma50": 0.0,
+        "bb_upper": 369.5825420837165,
+        "bb_lower": 361.0684079162835
+      },
+      "UNH": {
+        "price": 388.69,
+        "rsi": 29.20289862897122,
+        "macd": -1.0764765294264862,
+        "macd_signal": -0.6707336834374731,
+        "sma20": 394.20875,
+        "sma50": 0.0,
+        "bb_upper": 398.02051416540047,
+        "bb_lower": 390.39698583459955
+      },
+      "KO": {
+        "price": 89.93,
+        "rsi": 69.83367721915009,
+        "macd": 0.5407620769634889,
+        "macd_signal": 0.5111731430090631,
+        "sma20": 88.96183,
+        "sma50": 0.0,
+        "bb_upper": 89.83141155236373,
+        "bb_lower": 88.09224844763628
+      },
+      "JPM": {
+        "price": 357.4,
+        "rsi": 34.17430580750013,
+        "macd": -0.8319904969549157,
+        "macd_signal": -0.30363031417679165,
+        "sma20": 361.49896,
+        "sma50": 0.0,
+        "bb_upper": 365.5979589794171,
+        "bb_lower": 357.3999610205829
+      },
+      "BA": {
+        "price": 221.3,
+        "rsi": 34.69080114607454,
+        "macd": -1.4952749812514412,
+        "macd_signal": -1.5412117569872765,
+        "sma20": 223.81659999999997,
+        "sma50": 0.0,
+        "bb_upper": 226.61196671617415,
+        "bb_lower": 221.02123328382578
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T17:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 223.78,
+        "rsi": 19.161161215910397,
+        "macd": -1.826505641474398,
+        "macd_signal": 0.0,
+        "sma20": 227.45417000000003,
+        "sma50": 225.33116458333333,
+        "bb_upper": 231.38836983925052,
+        "bb_lower": 223.51997016074955
+      },
+      "MRK": {
+        "price": 150.575,
+        "rsi": 77.63995829966476,
+        "macd": 3.740461034848636,
+        "macd_signal": 2.031786206955262,
+        "sma20": 140.74215,
+        "sma50": 0.0,
+        "bb_upper": 153.68893954661007,
+        "bb_lower": 127.79536045338995
+      },
+      "AMGN": {
+        "price": 439.16,
+        "rsi": 75.21811814638995,
+        "macd": 5.70369823315707,
+        "macd_signal": 4.648855563297045,
+        "sma20": 428.8362500000001,
+        "sma50": 0.0,
+        "bb_upper": 441.39537831160544,
+        "bb_lower": 416.2771216883948
+      },
+      "CRM": {
+        "price": 206.18,
+        "rsi": 73.46951349671835,
+        "macd": 3.229359373238111,
+        "macd_signal": 2.2150841489511217,
+        "sma20": 198.59029,
+        "sma50": 0.0,
+        "bb_upper": 207.55361976143394,
+        "bb_lower": 189.62696023856608
+      },
+      "CAT": {
+        "price": 809.25,
+        "rsi": 26.958241501389264,
+        "macd": -14.510385356400889,
+        "macd_signal": -12.672167212416467,
+        "sma20": 834.1699349999999,
+        "sma50": 0.0,
+        "bb_upper": 862.133040452741,
+        "bb_lower": 806.2068295472587
+      },
+      "KO": {
+        "price": 90.2,
+        "rsi": 72.22895700693903,
+        "macd": 0.5802609111822363,
+        "macd_signal": 0.5249906966436978,
+        "sma20": 89.05383000000002,
+        "sma50": 0.0,
+        "bb_upper": 90.03720795507485,
+        "bb_lower": 88.07045204492519
+      },
+      "V": {
+        "price": 369.15,
+        "rsi": 70.31164664434205,
+        "macd": 2.002674705902507,
+        "macd_signal": 1.6865418197389888,
+        "sma20": 365.73297499999995,
+        "sma50": 0.0,
+        "bb_upper": 369.8028535249555,
+        "bb_lower": 361.6630964750444
+      },
+      "JPM": {
+        "price": 356.23,
+        "rsi": 31.235108193759036,
+        "macd": -1.1165692557645457,
+        "macd_signal": -0.4662181024943425,
+        "sma20": 361.17046000000005,
+        "sma50": 0.0,
+        "bb_upper": 365.84332690785493,
+        "bb_lower": 356.49759309214517
+      },
+      "DIS": {
+        "price": 106.68,
+        "rsi": 68.05333256165744,
+        "macd": 0.41677711599183453,
+        "macd_signal": 0.12047093359480744,
+        "sma20": 104.76367500000002,
+        "sma50": 0.0,
+        "bb_upper": 106.7382125206682,
+        "bb_lower": 102.78913747933184
+      },
+      "NKE": {
+        "price": 40.91,
+        "rsi": 65.37654221847488,
+        "macd": 0.31745931772173464,
+        "macd_signal": 0.2619382673918137,
+        "sma20": 40.40074499999999,
+        "sma50": 0.0,
+        "bb_upper": 41.09620404408528,
+        "bb_lower": 39.705285955914704
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T18:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 222.55,
+        "rsi": 16.817046725981147,
+        "macd": -1.9714849703694597,
+        "macd_signal": 0.0,
+        "sma20": 227.10917,
+        "sma50": 225.33116458333333,
+        "bb_upper": 231.49112356054096,
+        "bb_lower": 222.72721643945906
+      },
+      "MRK": {
+        "price": 152.55,
+        "rsi": 79.90906863562294,
+        "macd": 4.034674944112112,
+        "macd_signal": 2.4323639543866324,
+        "sma20": 141.526885,
+        "sma50": 0.0,
+        "bb_upper": 155.35434430329636,
+        "bb_lower": 127.69942569670363
+      },
+      "AMGN": {
+        "price": 441.78,
+        "rsi": 77.85954097600032,
+        "macd": 5.961619587886446,
+        "macd_signal": 4.911408368214925,
+        "sma20": 429.8307500000001,
+        "sma50": 0.0,
+        "bb_upper": 443.19791530001385,
+        "bb_lower": 416.4635846999863
+      },
+      "KO": {
+        "price": 90.71,
+        "rsi": 76.09076480806434,
+        "macd": 0.6452783919954186,
+        "macd_signal": 0.549048235714042,
+        "sma20": 89.15158000000001,
+        "sma50": 0.0,
+        "bb_upper": 90.37037158548254,
+        "bb_lower": 87.93278841451747
+      },
+      "CRM": {
+        "price": 207.03,
+        "rsi": 74.7942116169501,
+        "macd": 3.4410988969944185,
+        "macd_signal": 2.4602870985597813,
+        "sma20": 199.08329000000003,
+        "sma50": 0.0,
+        "bb_upper": 208.77291096002983,
+        "bb_lower": 189.39366903997023
+      },
+      "CAT": {
+        "price": 810.56,
+        "rsi": 28.366289342713944,
+        "macd": -14.660054524461088,
+        "macd_signal": -13.069744674825392,
+        "sma20": 832.655435,
+        "sma50": 0.0,
+        "bb_upper": 862.3242173653977,
+        "bb_lower": 802.9866526346024
+      },
+      "DIS": {
+        "price": 106.73,
+        "rsi": 68.35482416224559,
+        "macd": 0.4953980445949355,
+        "macd_signal": 0.19545635579483306,
+        "sma20": 104.89267500000001,
+        "sma50": 0.0,
+        "bb_upper": 107.02889445933026,
+        "bb_lower": 102.75645554066976
+      },
+      "UNH": {
+        "price": 388.465,
+        "rsi": 31.876612979339193,
+        "macd": -1.4996844114349983,
+        "macd_signal": -0.9302097256049052,
+        "sma20": 393.4482500000001,
+        "sma50": 0.0,
+        "bb_upper": 397.91511782409043,
+        "bb_lower": 388.98138217590974
+      },
+      "NKE": {
+        "price": 41.045,
+        "rsi": 67.87374351548004,
+        "macd": 0.3282216952916599,
+        "macd_signal": 0.275194952971783,
+        "sma20": 40.44824499999999,
+        "sma50": 0.0,
+        "bb_upper": 41.184359992375526,
+        "bb_lower": 39.71213000762446
+      },
+      "JNJ": {
+        "price": 274.63,
+        "rsi": 67.74670654281054,
+        "macd": 2.8590859223330654,
+        "macd_signal": 3.257975429498287,
+        "sma20": 271.97828499999997,
+        "sma50": 0.0,
+        "bb_upper": 275.0172985749142,
+        "bb_lower": 268.93927142508574
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T19:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 221.79,
+        "rsi": 15.55111120555984,
+        "macd": -2.1232324791007215,
+        "macd_signal": 0.0,
+        "sma20": 226.70817,
+        "sma50": 225.33116458333333,
+        "bb_upper": 231.49829740368975,
+        "bb_lower": 221.91804259631024
+      },
+      "AMGN": {
+        "price": 442.39,
+        "rsi": 78.43584198185627,
+        "macd": 6.144417007256891,
+        "macd_signal": 5.158010096023318,
+        "sma20": 430.80325000000016,
+        "sma50": 0.0,
+        "bb_upper": 444.87129863399406,
+        "bb_lower": 416.73520136600627
+      },
+      "MRK": {
+        "price": 152.21,
+        "rsi": 78.43342768037247,
+        "macd": 4.19208270841699,
+        "macd_signal": 2.7843077051927043,
+        "sma20": 142.277295,
+        "sma50": 0.0,
+        "bb_upper": 156.73124203849005,
+        "bb_lower": 127.82334796150995
+      },
+      "CRM": {
+        "price": 206.16,
+        "rsi": 70.89248431850213,
+        "macd": 3.498375174615518,
+        "macd_signal": 2.6679047137709286,
+        "sma20": 199.51628999999997,
+        "sma50": 0.0,
+        "bb_upper": 209.67083080806867,
+        "bb_lower": 189.36174919193127
+      },
+      "DIS": {
+        "price": 106.94,
+        "rsi": 69.65032493415134,
+        "macd": 0.5681022132202003,
+        "macd_signal": 0.26998552727990655,
+        "sma20": 104.98317500000002,
+        "sma50": 0.0,
+        "bb_upper": 107.30686177106021,
+        "bb_lower": 102.65948822893982
+      },
+      "KO": {
+        "price": 90.37,
+        "rsi": 69.18366901405656,
+        "macd": 0.6617419066838579,
+        "macd_signal": 0.5715869699080053,
+        "sma20": 89.23508000000001,
+        "sma50": 0.0,
+        "bb_upper": 90.54873934957958,
+        "bb_lower": 87.92142065042044
+      },
+      "AAPL": {
+        "price": 316.9,
+        "rsi": 68.74614255219544,
+        "macd": 2.3922971814897664,
+        "macd_signal": 2.0848132639526584,
+        "sma20": 312.1081750000001,
+        "sma50": 0.0,
+        "bb_upper": 318.2723000565807,
+        "bb_lower": 305.94404994341943
+      },
+      "NKE": {
+        "price": 41.05,
+        "rsi": 67.96589802391898,
+        "macd": 0.3333121997092192,
+        "macd_signal": 0.28681840231927025,
+        "sma20": 40.49075,
+        "sma50": 0.0,
+        "bb_upper": 41.26373606646394,
+        "bb_lower": 39.717763933536055
+      },
+      "UNH": {
+        "price": 388.55,
+        "rsi": 32.304342868245946,
+        "macd": -1.6665222400031894,
+        "macd_signal": -1.0774722284845621,
+        "sma20": 393.10275000000007,
+        "sma50": 0.0,
+        "bb_upper": 397.965814309022,
+        "bb_lower": 388.23968569097815
+      },
+      "AMZN": {
+        "price": 265.89,
+        "rsi": 67.26895242242925,
+        "macd": 0.9173763070660357,
+        "macd_signal": 0.2745510694848867,
+        "sma20": 261.48724000000004,
+        "sma50": 0.0,
+        "bb_upper": 265.79688363621364,
+        "bb_lower": 257.17759636378645
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-19T20:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 221.83,
+        "rsi": 15.909899124214077,
+        "macd": -2.214735712675349,
+        "macd_signal": 0.0,
+        "sma20": 226.29967,
+        "sma50": 225.33116458333333,
+        "bb_upper": 231.29678970474788,
+        "bb_lower": 221.3025502952521
+      },
+      "MRK": {
+        "price": 152.61,
+        "rsi": 78.92647386140483,
+        "macd": 4.299543689471619,
+        "macd_signal": 3.0873549020484874,
+        "sma20": 143.034545,
+        "sma50": 0.0,
+        "bb_upper": 158.0046333301512,
+        "bb_lower": 128.06445666984882
+      },
+      "AMGN": {
+        "price": 441.0,
+        "rsi": 73.72654287222568,
+        "macd": 6.106729321495777,
+        "macd_signal": 5.34775394111781,
+        "sma20": 431.6362500000001,
+        "sma50": 0.0,
+        "bb_upper": 446.0613362899909,
+        "bb_lower": 417.21116371000926
+      },
+      "CRM": {
+        "price": 206.09,
+        "rsi": 70.57348192678201,
+        "macd": 3.4977981821578226,
+        "macd_signal": 2.8338834074483077,
+        "sma20": 199.93103999999997,
+        "sma50": 0.0,
+        "bb_upper": 210.46025042681762,
+        "bb_lower": 189.4018295731823
+      },
+      "AMZN": {
+        "price": 266.49,
+        "rsi": 68.88329027052596,
+        "macd": 1.123514517021249,
+        "macd_signal": 0.44434375899215917,
+        "sma20": 261.71623999999997,
+        "sma50": 0.0,
+        "bb_upper": 266.5725315434894,
+        "bb_lower": 256.85994845651055
+      },
+      "KO": {
+        "price": 90.34,
+        "rsi": 68.59202000184496,
+        "macd": 0.6647062910502228,
+        "macd_signal": 0.5902108341364488,
+        "sma20": 89.31908,
+        "sma50": 0.0,
+        "bb_upper": 90.69144564193329,
+        "bb_lower": 87.94671435806671
+      },
+      "UNH": {
+        "price": 388.3,
+        "rsi": 31.674419389903967,
+        "macd": -1.7981869519583142,
+        "macd_signal": -1.2216151731793126,
+        "sma20": 392.7325000000001,
+        "sma50": 0.0,
+        "bb_upper": 397.8805732215787,
+        "bb_lower": 387.58442677842146
+      },
+      "DIS": {
+        "price": 106.8,
+        "rsi": 67.66163944971787,
+        "macd": 0.6074219782317982,
+        "macd_signal": 0.3374728174702849,
+        "sma20": 105.08817500000002,
+        "sma50": 0.0,
+        "bb_upper": 107.5440116994185,
+        "bb_lower": 102.63233830058154
+      },
+      "NKE": {
+        "price": 41.03,
+        "rsi": 67.13631729662157,
+        "macd": 0.33190661542428757,
+        "macd_signal": 0.2958360449402737,
+        "sma20": 40.52428499999999,
+        "sma50": 0.0,
+        "bb_upper": 41.33073008613259,
+        "bb_lower": 39.717839913867394
+      },
+      "AAPL": {
+        "price": 316.38,
+        "rsi": 66.22998070209509,
+        "macd": 2.4043624036478946,
+        "macd_signal": 2.1487230918917057,
+        "sma20": 312.38967500000007,
+        "sma50": 0.0,
+        "bb_upper": 318.8018687068541,
+        "bb_lower": 305.977481293146
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T14:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "WMT": {
+        "price": 103.32,
+        "rsi": 15.23934907684763,
+        "macd": -2.32337213061831,
+        "macd_signal": -0.983367550411413,
+        "sma20": 113.292855,
+        "sma50": 114.38225000000001,
+        "bb_upper": 121.68560623587393,
+        "bb_lower": 104.90010376412607
+      },
+      "BA": {
+        "price": 217.99,
+        "rsi": 25.86479504874852,
+        "macd": -1.359523367371935,
+        "macd_signal": -1.1628272653838723,
+        "sma20": 221.97923500000002,
+        "sma50": 224.62963399999998,
+        "bb_upper": 224.90391507806865,
+        "bb_lower": 219.05455492193138
+      },
+      "KO": {
+        "price": 91.095,
+        "rsi": 73.83428541274995,
+        "macd": 0.5288169637422158,
+        "macd_signal": 0.526446068732669,
+        "sma20": 90.07440000000001,
+        "sma50": 88.81101200000002,
+        "bb_upper": 91.27982228285424,
+        "bb_lower": 88.86897771714578
+      },
+      "HON": {
+        "price": 221.75,
+        "rsi": 30.377582517831474,
+        "macd": -2.056932481820411,
+        "macd_signal": -2.1085283072122,
+        "sma20": 223.62867000000003,
+        "sma50": 225.33116458333333,
+        "bb_upper": 228.87521268481453,
+        "bb_lower": 218.38212731518553
+      },
+      "AXP": {
+        "price": 334.8575,
+        "rsi": 30.67325683278597,
+        "macd": -0.7523439007824209,
+        "macd_signal": -0.11783110479416936,
+        "sma20": 339.8161500000001,
+        "sma50": 0.0,
+        "bb_upper": 344.52749341261404,
+        "bb_lower": 335.1048065873862
+      },
+      "CRM": {
+        "price": 207.22,
+        "rsi": 67.0210978619576,
+        "macd": 2.360884945525015,
+        "macd_signal": 2.633210511536479,
+        "sma20": 204.73574000000002,
+        "sma50": 198.19714999999997,
+        "bb_upper": 211.85250778923447,
+        "bb_lower": 197.61897221076558
+      },
+      "AAPL": {
+        "price": 317.42,
+        "rsi": 66.75859600768389,
+        "macd": 1.8234185438094528,
+        "macd_signal": 2.001042074874358,
+        "sma20": 315.7911,
+        "sma50": 310.83217799999994,
+        "bb_upper": 319.9657036574572,
+        "bb_lower": 311.61649634254275
+      },
+      "NKE": {
+        "price": 40.035,
+        "rsi": 34.915756523155416,
+        "macd": 0.06713578674416709,
+        "macd_signal": 0.20298853392685484,
+        "sma20": 40.824290000000005,
+        "sma50": 40.133729999999986,
+        "bb_upper": 41.431503327292965,
+        "bb_lower": 40.217076672707044
+      },
+      "V": {
+        "price": 368.715,
+        "rsi": 64.51671776811597,
+        "macd": 0.7058190666815563,
+        "macd_signal": 0.761106913694262,
+        "sma20": 366.72375,
+        "sma50": 363.9844899999999,
+        "bb_upper": 370.075396688766,
+        "bb_lower": 363.372103311234
+      },
+      "SHW": {
+        "price": 346.86,
+        "rsi": 35.779600066167674,
+        "macd": -0.48002440430269644,
+        "macd_signal": 0.0,
+        "sma20": 350.1790000000001,
+        "sma50": 350.13394999999997,
+        "bb_upper": 357.4650519957116,
+        "bb_lower": 342.8929480042886
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T15:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "WMT": {
+        "price": 102.99,
+        "rsi": 14.875634677089735,
+        "macd": -2.727370180361021,
+        "macd_signal": -1.3321680764013348,
+        "sma20": 112.66685499999998,
+        "sma50": 114.14375,
+        "bb_upper": 122.15898323354173,
+        "bb_lower": 103.17472676645824
+      },
+      "BA": {
+        "price": 216.5276,
+        "rsi": 22.341263559329374,
+        "macd": -1.6233409308889293,
+        "macd_signal": -1.2549299984848836,
+        "sma20": 221.67593000000005,
+        "sma50": 224.33718599999997,
+        "bb_upper": 225.4632553409649,
+        "bb_lower": 217.8886046590352
+      },
+      "KO": {
+        "price": 91.42,
+        "rsi": 76.60457445739546,
+        "macd": 0.5765038035272312,
+        "macd_signal": 0.5364576156915815,
+        "sma20": 90.19726000000001,
+        "sma50": 88.88741200000001,
+        "bb_upper": 91.42629872475563,
+        "bb_lower": 88.9682212752444
+      },
+      "HON": {
+        "price": 220.55,
+        "rsi": 26.496186951265074,
+        "macd": -2.0386128116145414,
+        "macd_signal": -2.094545208092668,
+        "sma20": 223.27417,
+        "sma50": 225.33116458333333,
+        "bb_upper": 228.3343038401689,
+        "bb_lower": 218.2140361598311
+      },
+      "AXP": {
+        "price": 333.755,
+        "rsi": 28.02579246322275,
+        "macd": -1.0592255569431472,
+        "macd_signal": -0.306109995223965,
+        "sma20": 339.5922800000001,
+        "sma50": 0.0,
+        "bb_upper": 344.995232687715,
+        "bb_lower": 334.1893273122852
+      },
+      "GOOGL": {
+        "price": 339.555,
+        "rsi": 30.387001651818586,
+        "macd": -0.5900920599564756,
+        "macd_signal": -0.17509458413426127,
+        "sma20": 343.58048500000007,
+        "sma50": 343.3104420000001,
+        "bb_upper": 346.4667967045628,
+        "bb_lower": 340.69417329543734
+      },
+      "GS": {
+        "price": 1007.98,
+        "rsi": 32.494497300004724,
+        "macd": -6.46514817955449,
+        "macd_signal": -5.958800702671165,
+        "sma20": 1023.303005,
+        "sma50": 0.0,
+        "bb_upper": 1043.7456593719319,
+        "bb_lower": 1002.8603506280681
+      },
+      "CRM": {
+        "price": 207.285,
+        "rsi": 67.19610387359779,
+        "macd": 2.3385928856883424,
+        "macd_signal": 2.5742869863668516,
+        "sma20": 205.32998999999998,
+        "sma50": 198.53174599999997,
+        "bb_upper": 211.00282177848035,
+        "bb_lower": 199.6571582215196
+      },
+      "NVDA": {
+        "price": 216.285,
+        "rsi": 33.51005892331577,
+        "macd": -0.993226896994372,
+        "macd_signal": -0.9947813737854614,
+        "sma20": 218.50948500000004,
+        "sma50": 220.56052000000008,
+        "bb_upper": 220.60009473958957,
+        "bb_lower": 216.41887526041052
+      },
+      "MRK": {
+        "price": 151.7,
+        "rsi": 66.47985259165908,
+        "macd": 2.550475126378558,
+        "macd_signal": 3.0562587820121347,
+        "sma20": 150.67971500000002,
+        "sma50": 0.0,
+        "bb_upper": 154.26106937084685,
+        "bb_lower": 147.09836062915318
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T16:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "BA": {
+        "price": 215.9,
+        "rsi": 21.017955310034054,
+        "macd": -1.8616009486770224,
+        "macd_signal": -1.3762641885233113,
+        "sma20": 221.28343,
+        "sma50": 224.030586,
+        "bb_upper": 225.7346080553489,
+        "bb_lower": 216.83225194465112
+      },
+      "KO": {
+        "price": 91.63,
+        "rsi": 78.20993170572217,
+        "macd": 0.6240475805265788,
+        "macd_signal": 0.553975608658581,
+        "sma20": 90.35126000000001,
+        "sma50": 88.97431200000001,
+        "bb_upper": 91.47890358759017,
+        "bb_lower": 89.22361641240985
+      },
+      "WMT": {
+        "price": 104.2699,
+        "rsi": 22.59222501842256,
+        "macd": -2.9107114423490685,
+        "macd_signal": -1.6478767495908817,
+        "sma20": 112.12034999999999,
+        "sma50": 113.933748,
+        "bb_upper": 122.23647618586884,
+        "bb_lower": 102.00422381413114
+      },
+      "HON": {
+        "price": 220.61,
+        "rsi": 26.998438786067453,
+        "macd": -1.9962414140274802,
+        "macd_signal": -2.074884449279631,
+        "sma20": 222.91916999999998,
+        "sma50": 225.33116458333333,
+        "bb_upper": 227.65479640289445,
+        "bb_lower": 218.1835435971055
+      },
+      "AXP": {
+        "price": 334.225,
+        "rsi": 30.769097915168224,
+        "macd": -1.2500960789272426,
+        "macd_signal": -0.49490721196462056,
+        "sma20": 339.37753000000004,
+        "sma50": 0.0,
+        "bb_upper": 345.2784143804977,
+        "bb_lower": 333.4766456195024
+      },
+      "CRM": {
+        "price": 207.515,
+        "rsi": 67.8463036888686,
+        "macd": 2.312824543814145,
+        "macd_signal": 2.5219944978563102,
+        "sma20": 205.96573999999998,
+        "sma50": 198.84588599999995,
+        "bb_upper": 208.81898800655955,
+        "bb_lower": 203.11249199344041
+      },
+      "MRK": {
+        "price": 151.66,
+        "rsi": 66.26970393994606,
+        "macd": 2.4554131317146073,
+        "macd_signal": 2.9360896519526296,
+        "sma20": 151.037715,
+        "sma50": 0.0,
+        "bb_upper": 153.14698137610645,
+        "bb_lower": 148.92844862389353
+      },
+      "JPM": {
+        "price": 354.12,
+        "rsi": 34.81612783690086,
+        "macd": -1.5605120022822234,
+        "macd_signal": -1.369474865008909,
+        "sma20": 357.3590400000001,
+        "sma50": 360.20661199999995,
+        "bb_upper": 361.9025744578977,
+        "bb_lower": 352.8155055421025
+      },
+      "CAT": {
+        "price": 807.49,
+        "rsi": 35.4110239576194,
+        "macd": -8.528649173389113,
+        "macd_signal": -9.59572310397068,
+        "sma20": 813.284615,
+        "sma50": 840.4865259999999,
+        "bb_upper": 821.5950113972234,
+        "bb_lower": 804.9742186027767
+      },
+      "HD": {
+        "price": 335.98,
+        "rsi": 35.55876509858632,
+        "macd": -0.992941806222575,
+        "macd_signal": 0.06946082551061111,
+        "sma20": 342.13995,
+        "sma50": 340.28041599999995,
+        "bb_upper": 349.5883289963781,
+        "bb_lower": 334.6915710036219
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T17:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "BA": {
+        "price": 214.45,
+        "rsi": 18.318300604230597,
+        "macd": -2.142726592828069,
+        "macd_signal": -1.529556669384263,
+        "sma20": 220.758225,
+        "sma50": 223.699386,
+        "bb_upper": 225.82237818130116,
+        "bb_lower": 215.69407181869886
+      },
+      "WMT": {
+        "price": 103.9735,
+        "rsi": 22.092756288697696,
+        "macd": -3.0448288249055224,
+        "macd_signal": -1.9272671646538102,
+        "sma20": 111.49552499999999,
+        "sma50": 113.72442000000001,
+        "bb_upper": 122.01607758682286,
+        "bb_lower": 100.97497241317711
+      },
+      "HON": {
+        "price": 220.05,
+        "rsi": 25.263341181168542,
+        "macd": -1.984967624874912,
+        "macd_signal": -2.056901084398687,
+        "sma20": 222.54424999999998,
+        "sma50": 225.33116458333333,
+        "bb_upper": 226.90955130991176,
+        "bb_lower": 218.1789486900882
+      },
+      "KO": {
+        "price": 91.401,
+        "rsi": 72.3775555407273,
+        "macd": 0.6359175188533754,
+        "macd_signal": 0.5703639906975398,
+        "sma20": 90.43281,
+        "sma50": 89.06263200000001,
+        "bb_upper": 91.61790054666346,
+        "bb_lower": 89.24771945333654
+      },
+      "AXP": {
+        "price": 334.16,
+        "rsi": 30.595416310153894,
+        "macd": -1.390577586704751,
+        "macd_signal": -0.6740412869126466,
+        "sma20": 339.07153000000005,
+        "sma50": 0.0,
+        "bb_upper": 345.3949621200804,
+        "bb_lower": 332.7480978799197
+      },
+      "UNH": {
+        "price": 385.7,
+        "rsi": 31.0004213487915,
+        "macd": -1.5859220610710167,
+        "macd_signal": -1.5835891013464967,
+        "sma20": 388.71783500000004,
+        "sma50": 392.51263600000004,
+        "bb_upper": 392.0898358786125,
+        "bb_lower": 385.34583412138755
+      },
+      "HD": {
+        "price": 334.3,
+        "rsi": 31.976550432438945,
+        "macd": -1.3133153028163065,
+        "macd_signal": -0.20709440015477243,
+        "sma20": 341.75494999999995,
+        "sma50": 340.22261599999996,
+        "bb_upper": 349.98842328320586,
+        "bb_lower": 333.52147671679404
+      },
+      "MRK": {
+        "price": 151.85,
+        "rsi": 66.8064496229521,
+        "macd": 2.36810914009223,
+        "macd_signal": 2.8224935495805497,
+        "sma20": 151.130215,
+        "sma50": 142.77554800000001,
+        "bb_upper": 153.20992153625753,
+        "bb_lower": 149.05050846374246
+      },
+      "JPM": {
+        "price": 353.52,
+        "rsi": 33.24494867916625,
+        "macd": -1.6714577590560111,
+        "macd_signal": -1.4298714438183295,
+        "sma20": 356.79558000000003,
+        "sma50": 359.98361199999994,
+        "bb_upper": 360.079954732514,
+        "bb_lower": 353.51120526748605
+      },
+      "CAT": {
+        "price": 804.78,
+        "rsi": 33.56845137019376,
+        "macd": -8.562018293002097,
+        "macd_signal": -9.388982141776964,
+        "sma20": 812.7241150000001,
+        "sma50": 838.9763239999999,
+        "bb_upper": 821.7477556776303,
+        "bb_lower": 803.7004743223699
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T18:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "WMT": {
+        "price": 103.255,
+        "rsi": 20.887264854475436,
+        "macd": -3.17252388161036,
+        "macd_signal": -2.1763185080451204,
+        "sma20": 110.82577499999998,
+        "sma50": 113.49042,
+        "bb_upper": 121.66533185127881,
+        "bb_lower": 99.98621814872115
+      },
+      "HON": {
+        "price": 218.95,
+        "rsi": 22.239863801522183,
+        "macd": -2.0412634581613815,
+        "macd_signal": -2.053773559151226,
+        "sma20": 222.03525,
+        "sma50": 225.33116458333333,
+        "bb_upper": 225.43432800966542,
+        "bb_lower": 218.63617199033456
+      },
+      "AXP": {
+        "price": 332.33,
+        "rsi": 26.124386400535517,
+        "macd": -1.630777314032457,
+        "macd_signal": -0.8653884923366088,
+        "sma20": 338.56753000000003,
+        "sma50": 338.74655199999995,
+        "bb_upper": 345.36001881202424,
+        "bb_lower": 331.77504118797583
+      },
+      "BA": {
+        "price": 216.05,
+        "rsi": 29.134815264187097,
+        "macd": -2.2109278628287257,
+        "macd_signal": -1.6658309080731557,
+        "sma20": 220.47272500000005,
+        "sma50": 223.40618600000002,
+        "bb_upper": 225.92781339925466,
+        "bb_lower": 215.01763660074545
+      },
+      "UNH": {
+        "price": 385.515,
+        "rsi": 30.474366540078936,
+        "macd": -1.6802497827763432,
+        "macd_signal": -1.602921237632466,
+        "sma20": 388.27958500000005,
+        "sma50": 392.31213600000007,
+        "bb_upper": 390.7711946444067,
+        "bb_lower": 385.7879753555934
+      },
+      "HD": {
+        "price": 333.87,
+        "rsi": 31.112607212258393,
+        "macd": -1.5836556172095584,
+        "macd_signal": -0.4824066435657296,
+        "sma20": 341.11095,
+        "sma50": 340.17851599999995,
+        "bb_upper": 349.7062985946272,
+        "bb_lower": 332.5156014053728
+      },
+      "GS": {
+        "price": 1004.28,
+        "rsi": 31.42832622332958,
+        "macd": -7.338201663341351,
+        "macd_signal": -6.476845721770408,
+        "sma20": 1017.7807500000001,
+        "sma50": 1033.0932980000002,
+        "bb_upper": 1030.2519151736826,
+        "bb_lower": 1005.3095848263176
+      },
+      "CAT": {
+        "price": 801.53,
+        "rsi": 31.454624660180652,
+        "macd": -8.74984859135418,
+        "macd_signal": -9.261155431692409,
+        "sma20": 812.1186150000001,
+        "sma50": 837.3149239999999,
+        "bb_upper": 822.4184432349007,
+        "bb_lower": 801.8187867650995
+      },
+      "JPM": {
+        "price": 352.94,
+        "rsi": 31.753204906369206,
+        "macd": -1.7856009273652944,
+        "macd_signal": -1.5010173405277225,
+        "sma20": 356.41983,
+        "sma50": 359.776412,
+        "bb_upper": 359.6606612358661,
+        "bb_lower": 353.1789987641339
+      },
+      "KO": {
+        "price": 91.18,
+        "rsi": 67.1714850470335,
+        "macd": 0.6203407751623757,
+        "macd_signal": 0.5803593475905071,
+        "sma20": 90.50230999999998,
+        "sma50": 89.14478200000002,
+        "bb_upper": 91.69169916812992,
+        "bb_lower": 89.31292083187004
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T19:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 218.39,
+        "rsi": 20.87047049293716,
+        "macd": -2.1067799832927676,
+        "macd_signal": -2.064374843979534,
+        "sma20": 221.67725,
+        "sma50": 225.33116458333333,
+        "bb_upper": 225.0255040226216,
+        "bb_lower": 218.32899597737838
+      },
+      "AXP": {
+        "price": 331.41,
+        "rsi": 24.20902828163049,
+        "macd": -1.873773940126398,
+        "macd_signal": -1.0670655818945667,
+        "sma20": 337.95303,
+        "sma50": 338.5339519999999,
+        "bb_upper": 345.0090588166555,
+        "bb_lower": 330.8970011833445
+      },
+      "WMT": {
+        "price": 103.83,
+        "rsi": 24.440539921950222,
+        "macd": -3.1905468020302834,
+        "macd_signal": -2.3791641668421533,
+        "sma20": 110.229275,
+        "sma50": 113.28421999999999,
+        "bb_upper": 121.23725308268838,
+        "bb_lower": 99.22129691731162
+      },
+      "BA": {
+        "price": 215.2,
+        "rsi": 27.082979278185896,
+        "macd": -2.306972414962246,
+        "macd_signal": -1.794059209450974,
+        "sma20": 220.07022500000002,
+        "sma50": 223.100186,
+        "bb_upper": 225.84127247141856,
+        "bb_lower": 214.29917752858148
+      },
+      "UNH": {
+        "price": 384.89,
+        "rsi": 28.702326729967865,
+        "macd": -1.7848626726278098,
+        "macd_signal": -1.639309524631535,
+        "sma20": 387.9853350000001,
+        "sma50": 392.13713600000005,
+        "bb_upper": 390.6218834872014,
+        "bb_lower": 385.34878651279877
+      },
+      "JPM": {
+        "price": 352.04,
+        "rsi": 29.538308644976123,
+        "macd": -1.9264754788627556,
+        "macd_signal": -1.5861089681947294,
+        "sma20": 356.08133000000004,
+        "sma50": 359.543612,
+        "bb_upper": 359.6669017277939,
+        "bb_lower": 352.49575827220616
+      },
+      "GS": {
+        "price": 1002.29,
+        "rsi": 30.11888467536034,
+        "macd": -7.741392402318866,
+        "macd_signal": -6.7297550578801,
+        "sma20": 1016.56425,
+        "sma50": 1032.379098,
+        "bb_upper": 1030.105616359955,
+        "bb_lower": 1003.0228836400448
+      },
+      "HD": {
+        "price": 334.56,
+        "rsi": 34.18545326467069,
+        "macd": -1.7223706143300888,
+        "macd_signal": -0.7303994377186014,
+        "sma20": 340.40695,
+        "sma50": 340.11531599999995,
+        "bb_upper": 348.7071860771754,
+        "bb_lower": 332.1067139228246
+      },
+      "JNJ": {
+        "price": 267.76,
+        "rsi": 35.35371256299701,
+        "macd": 0.002029126395768799,
+        "macd_signal": 0.9026187343782835,
+        "sma20": 272.22200000000004,
+        "sma50": 269.218402,
+        "bb_upper": 275.7869916211589,
+        "bb_lower": 268.65700837884117
+      },
+      "MMM": {
+        "price": 178.19,
+        "rsi": 35.4123669949274,
+        "macd": -0.4505229214361748,
+        "macd_signal": -0.17194816723719786,
+        "sma20": 180.813825,
+        "sma50": 180.72180222222224,
+        "bb_upper": 183.28510634833566,
+        "bb_lower": 178.34254365166436
+      }
+    }
+  },
+  {
+    "timestamp": "2026-08-20T20:00:00+00:00",
+    "portfolio": {
+      "cash": 1000.0,
+      "positions_value": 0,
+      "total_equity": 1000.0,
+      "num_positions": 0
+    },
+    "current_holdings": {},
+    "recent_trades": [],
+    "top_signals": {
+      "HON": {
+        "price": 218.32,
+        "rsi": 20.69890178590432,
+        "macd": -2.139685751036268,
+        "macd_signal": -2.079437025390881,
+        "sma20": 221.343,
+        "sma50": 225.33116458333333,
+        "bb_upper": 224.62658180554192,
+        "bb_lower": 218.05941819445806
+      },
+      "AXP": {
+        "price": 331.15,
+        "rsi": 23.68062292130744,
+        "macd": -2.063543103702841,
+        "macd_signal": -1.2663610862562216,
+        "sma20": 337.33453000000003,
+        "sma50": 338.3285519999999,
+        "bb_upper": 344.50361633747036,
+        "bb_lower": 330.1654436625297
+      },
+      "WMT": {
+        "price": 104.04,
+        "rsi": 25.75214317352333,
+        "macd": -3.151555679259218,
+        "macd_signal": -2.5336424693255664,
+        "sma20": 109.65578,
+        "sma50": 113.08442,
+        "bb_upper": 120.7004567965101,
+        "bb_lower": 98.61110320348989
+      },
+      "BA": {
+        "price": 215.31,
+        "rsi": 27.791701302586883,
+        "macd": -2.347155782987471,
+        "macd_signal": -1.9046785241582735,
+        "sma20": 219.740725,
+        "sma50": 222.85018799999997,
+        "bb_upper": 225.81637021776106,
+        "bb_lower": 213.66507978223893
+      },
+      "UNH": {
+        "price": 384.85,
+        "rsi": 28.587753416703087,
+        "macd": -1.8496749062991285,
+        "macd_signal": -1.6813826009650539,
+        "sma20": 387.79333500000007,
+        "sma50": 391.95253599999995,
+        "bb_upper": 390.7532633577915,
+        "bb_lower": 384.8334066422086
+      },
+      "JPM": {
+        "price": 352.1789,
+        "rsi": 30.34583615611972,
+        "macd": -2.003812800077469,
+        "macd_signal": -1.6696497345712773,
+        "sma20": 355.830025,
+        "sma50": 359.29959,
+        "bb_upper": 359.7709248036778,
+        "bb_lower": 351.88912519632214
+      },
+      "GS": {
+        "price": 1002.56,
+        "rsi": 30.54173257863303,
+        "macd": -7.9475231248532054,
+        "macd_signal": -6.973308671274721,
+        "sma20": 1015.6822500000001,
+        "sma50": 1031.676612,
+        "bb_upper": 1030.4673258590437,
+        "bb_lower": 1000.8971741409564
+      },
+      "HD": {
+        "price": 334.2479,
+        "rsi": 33.458450208202564,
+        "macd": -1.836319166326689,
+        "macd_signal": -0.951583383440219,
+        "sma20": 339.95484500000003,
+        "sma50": 340.075874,
+        "bb_upper": 348.5728195566371,
+        "bb_lower": 331.33687044336295
+      },
+      "MMM": {
+        "price": 178.0,
+        "rsi": 34.67631884702611,
+        "macd": -0.5840544539026666,
+        "macd_signal": -0.25436942457029166,
+        "sma20": 180.63800000000003,
+        "sma50": 180.72180222222224,
+        "bb_upper": 183.38390297678103,
+        "bb_lower": 177.89209702321904
+      },
+      "SHW": {
+        "price": 346.91,
+        "rsi": 38.20292173077994,
+        "macd": -1.0777593035508062,
+        "macd_signal": -0.5425490046613424,
+        "sma20": 349.40900000000005,
+        "sma50": 350.13394999999997,
+        "bb_upper": 357.20551649608245,
+        "bb_lower": 341.61248350391764
+      }
+    }
+  }
+]
