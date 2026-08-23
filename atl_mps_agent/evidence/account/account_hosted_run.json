@@ -1,0 +1,5827 @@
+{
+  "run": {
+    "run_id": "ext_20260822_193243_03d90180",
+    "session_id": "81c97cb0-5e13-44ae-a3ce-eb44551b52e9",
+    "agent_name": "Aarav Residual MPS Ensemble",
+    "mode": "backtest",
+    "start_date": "2026-07-01",
+    "end_date": "2026-08-16",
+    "initial_equity": 1000.0,
+    "final_equity": 1012.9364,
+    "total_return": 0.01293640000000005,
+    "sharpe_ratio": 0.9193696827815544,
+    "max_drawdown": -0.026894000991571562,
+    "num_trades": 11,
+    "llm_model": "residual-mps-ensemble",
+    "llm_calls": 224,
+    "input_tokens": 165906,
+    "output_tokens": 18762,
+    "est_cost_usd": 0.259716,
+    "metadata": {
+      "decision_timeout_seconds": 60,
+      "timeout_holds": 0
+    },
+    "created_at": "2026-08-22 19:32:44",
+    "updated_at": "2026-08-22 19:32:44",
+    "baseline_djia_run_id": null,
+    "baseline_buyhold_run_id": null
+  },
+  "equity_curve": [
+    {
+      "timestamp": "2026-07-01T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-01T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-01T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-01T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-01T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-01T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-01T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-02T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-06T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-07T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-08T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-09T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-10T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-13T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-14T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T15:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T16:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T17:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T18:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T19:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-15T20:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 1000.0,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T14:00:00+00:00",
+      "equity": 1000.0,
+      "cash": 109.63499999999999,
+      "positions_value": 890.365,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T15:00:00+00:00",
+      "equity": 999.0408,
+      "cash": 109.63499999999999,
+      "positions_value": 889.4058,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T16:00:00+00:00",
+      "equity": 999.52,
+      "cash": 109.63499999999999,
+      "positions_value": 889.885,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T17:00:00+00:00",
+      "equity": 998.325,
+      "cash": 109.63499999999999,
+      "positions_value": 888.69,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T18:00:00+00:00",
+      "equity": 1000.0313000000001,
+      "cash": 109.63499999999999,
+      "positions_value": 890.3963000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T19:00:00+00:00",
+      "equity": 1000.385,
+      "cash": 109.63499999999999,
+      "positions_value": 890.75,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-16T20:00:00+00:00",
+      "equity": 995.6949999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 886.06,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T14:00:00+00:00",
+      "equity": 1008.5,
+      "cash": 109.63499999999999,
+      "positions_value": 898.865,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T15:00:00+00:00",
+      "equity": 1000.0557,
+      "cash": 109.63499999999999,
+      "positions_value": 890.4207,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T16:00:00+00:00",
+      "equity": 993.6949999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 884.06,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T17:00:00+00:00",
+      "equity": 990.865,
+      "cash": 109.63499999999999,
+      "positions_value": 881.23,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T18:00:00+00:00",
+      "equity": 992.435,
+      "cash": 109.63499999999999,
+      "positions_value": 882.8,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T19:00:00+00:00",
+      "equity": 990.5800000000002,
+      "cash": 109.63499999999999,
+      "positions_value": 880.9450000000002,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-17T20:00:00+00:00",
+      "equity": 991.195,
+      "cash": 109.63499999999999,
+      "positions_value": 881.5600000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T14:00:00+00:00",
+      "equity": 984.26,
+      "cash": 109.63499999999999,
+      "positions_value": 874.625,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T15:00:00+00:00",
+      "equity": 986.1019999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 876.4669999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T16:00:00+00:00",
+      "equity": 985.6950000000002,
+      "cash": 109.63499999999999,
+      "positions_value": 876.0600000000002,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T17:00:00+00:00",
+      "equity": 983.9,
+      "cash": 109.63499999999999,
+      "positions_value": 874.265,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T18:00:00+00:00",
+      "equity": 982.655,
+      "cash": 109.63499999999999,
+      "positions_value": 873.02,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T19:00:00+00:00",
+      "equity": 981.4649999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 871.8299999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-20T20:00:00+00:00",
+      "equity": 981.3774000000001,
+      "cash": 109.63499999999999,
+      "positions_value": 871.7424000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T14:00:00+00:00",
+      "equity": 1008.1700000000001,
+      "cash": 109.63499999999999,
+      "positions_value": 898.5350000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T15:00:00+00:00",
+      "equity": 1009.0212,
+      "cash": 109.63499999999999,
+      "positions_value": 899.3862,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T16:00:00+00:00",
+      "equity": 1007.605,
+      "cash": 109.63499999999999,
+      "positions_value": 897.97,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T17:00:00+00:00",
+      "equity": 1004.3299999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 894.6949999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T18:00:00+00:00",
+      "equity": 1004.1656999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 894.5306999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T19:00:00+00:00",
+      "equity": 1004.4499999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 894.8149999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-21T20:00:00+00:00",
+      "equity": 1003.4197999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 893.7847999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T14:00:00+00:00",
+      "equity": 1006.505,
+      "cash": 109.63499999999999,
+      "positions_value": 896.87,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T15:00:00+00:00",
+      "equity": 1006.035,
+      "cash": 109.63499999999999,
+      "positions_value": 896.4,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T16:00:00+00:00",
+      "equity": 1002.31,
+      "cash": 109.63499999999999,
+      "positions_value": 892.675,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T17:00:00+00:00",
+      "equity": 1000.04,
+      "cash": 109.63499999999999,
+      "positions_value": 890.405,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T18:00:00+00:00",
+      "equity": 1000.8299999999999,
+      "cash": 109.63499999999999,
+      "positions_value": 891.1949999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T19:00:00+00:00",
+      "equity": 1001.76,
+      "cash": 109.63499999999999,
+      "positions_value": 892.125,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-22T20:00:00+00:00",
+      "equity": 1001.1378,
+      "cash": 109.63499999999999,
+      "positions_value": 891.5028,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-23T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-24T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-27T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-28T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-29T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-30T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-07-31T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-03T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-04T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T15:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T16:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T17:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T18:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T19:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-05T20:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 999.1500000000001,
+      "positions_value": 0.0,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T14:00:00+00:00",
+      "equity": 999.1500000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 806.7786,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T15:00:00+00:00",
+      "equity": 996.9114000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 804.54,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T16:00:00+00:00",
+      "equity": 998.8339000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 806.4625,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T17:00:00+00:00",
+      "equity": 1001.4064000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 809.0350000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T18:00:00+00:00",
+      "equity": 1002.2413,
+      "cash": 192.37140000000008,
+      "positions_value": 809.8698999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T19:00:00+00:00",
+      "equity": 1005.6914,
+      "cash": 192.37140000000008,
+      "positions_value": 813.3199999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-06T20:00:00+00:00",
+      "equity": 1006.8253000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 814.4539,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T14:00:00+00:00",
+      "equity": 1015.2014000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 822.83,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T15:00:00+00:00",
+      "equity": 1009.5614,
+      "cash": 192.37140000000008,
+      "positions_value": 817.1899999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T16:00:00+00:00",
+      "equity": 1009.5164000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 817.145,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T17:00:00+00:00",
+      "equity": 1011.7464000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 819.3750000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T18:00:00+00:00",
+      "equity": 1011.4714000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 819.1000000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T19:00:00+00:00",
+      "equity": 1013.0664000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 820.695,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-07T20:00:00+00:00",
+      "equity": 1012.2514000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 819.88,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T14:00:00+00:00",
+      "equity": 1004.3864000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 812.0150000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T15:00:00+00:00",
+      "equity": 1004.0916000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 811.7202,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T16:00:00+00:00",
+      "equity": 1005.6613000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 813.2899,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T17:00:00+00:00",
+      "equity": 1006.1991000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 813.8277,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T18:00:00+00:00",
+      "equity": 1006.5814000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 814.21,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T19:00:00+00:00",
+      "equity": 1007.6914,
+      "cash": 192.37140000000008,
+      "positions_value": 815.3199999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-10T20:00:00+00:00",
+      "equity": 1005.6499000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 813.2785,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T14:00:00+00:00",
+      "equity": 1009.8364,
+      "cash": 192.37140000000008,
+      "positions_value": 817.4649999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T15:00:00+00:00",
+      "equity": 1007.9314,
+      "cash": 192.37140000000008,
+      "positions_value": 815.56,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T16:00:00+00:00",
+      "equity": 1005.2305,
+      "cash": 192.37140000000008,
+      "positions_value": 812.8590999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T17:00:00+00:00",
+      "equity": 1004.6614000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 812.29,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T18:00:00+00:00",
+      "equity": 1003.4914000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 811.12,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T19:00:00+00:00",
+      "equity": 1005.3214000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 812.95,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-11T20:00:00+00:00",
+      "equity": 1005.868,
+      "cash": 192.37140000000008,
+      "positions_value": 813.4966,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T14:00:00+00:00",
+      "equity": 996.9964000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 804.6250000000001,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T15:00:00+00:00",
+      "equity": 994.8614,
+      "cash": 192.37140000000008,
+      "positions_value": 802.4899999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T16:00:00+00:00",
+      "equity": 996.1664000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 803.795,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T17:00:00+00:00",
+      "equity": 995.5914000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 803.22,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T18:00:00+00:00",
+      "equity": 996.2064000000001,
+      "cash": 192.37140000000008,
+      "positions_value": 803.835,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T19:00:00+00:00",
+      "equity": 997.5614000000002,
+      "cash": 192.37140000000008,
+      "positions_value": 805.19,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-12T20:00:00+00:00",
+      "equity": 997.7123,
+      "cash": 192.37140000000008,
+      "positions_value": 805.3408999999999,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T14:00:00+00:00",
+      "equity": 1006.7264000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 314.34000000000003,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T15:00:00+00:00",
+      "equity": 1004.2064,
+      "cash": 692.3864000000001,
+      "positions_value": 311.82,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T16:00:00+00:00",
+      "equity": 1004.5064000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 312.12,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T17:00:00+00:00",
+      "equity": 1004.4764000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 312.09000000000003,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T18:00:00+00:00",
+      "equity": 1005.3464000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 312.96,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T19:00:00+00:00",
+      "equity": 1006.7714000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 314.385,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-13T20:00:00+00:00",
+      "equity": 1006.6598000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 314.27340000000004,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T14:00:00+00:00",
+      "equity": 1012.2164,
+      "cash": 692.3864000000001,
+      "positions_value": 319.83,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T15:00:00+00:00",
+      "equity": 1011.7964000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 319.40999999999997,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T16:00:00+00:00",
+      "equity": 1010.8814000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 318.495,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T17:00:00+00:00",
+      "equity": 1011.2264000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 318.84000000000003,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T18:00:00+00:00",
+      "equity": 1012.7114000000001,
+      "cash": 692.3864000000001,
+      "positions_value": 320.32500000000005,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T19:00:00+00:00",
+      "equity": 1012.9664,
+      "cash": 692.3864000000001,
+      "positions_value": 320.58,
+      "daily_return": null
+    },
+    {
+      "timestamp": "2026-08-14T20:00:00+00:00",
+      "equity": 1012.9364,
+      "cash": 692.3864000000001,
+      "positions_value": 320.54999999999995,
+      "daily_return": null
+    }
+  ],
+  "trades": [
+    {
+      "timestamp": "2026-07-16T14:00:00+00:00",
+      "symbol": "MRK",
+      "quantity": 2,
+      "side": "BUY",
+      "price": 127.755,
+      "value": 255.51,
+      "reason": "[External] Validation-selected MPS and trend rank established exposure; combined rank=0.9722, next-session MPS mean=2.08522pp, ensemble uncertainty=0.30095pp, policy=gated_mps_trend_weekly (confidence: 92%)"
+    },
+    {
+      "timestamp": "2026-07-16T14:00:00+00:00",
+      "symbol": "MMM",
+      "quantity": 2,
+      "side": "BUY",
+      "price": 162.78,
+      "value": 325.56,
+      "reason": "[External] Validation-selected MPS and trend rank established exposure; combined rank=0.6944, next-session MPS mean=1.49489pp, ensemble uncertainty=0.16550pp, policy=gated_mps_trend_weekly (confidence: 68%)"
+    },
+    {
+      "timestamp": "2026-07-16T14:00:00+00:00",
+      "symbol": "NKE",
+      "quantity": 7,
+      "side": "BUY",
+      "price": 44.185,
+      "value": 309.295,
+      "reason": "[External] Validation-selected MPS and trend rank established exposure; combined rank=0.6667, next-session MPS mean=1.63965pp, ensemble uncertainty=0.24552pp, policy=gated_mps_trend_weekly (confidence: 65%)"
+    },
+    {
+      "timestamp": "2026-07-23T14:00:00+00:00",
+      "symbol": "MRK",
+      "quantity": 2,
+      "side": "SELL",
+      "price": 130.86,
+      "value": 261.72,
+      "reason": "[External] Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly (confidence: 50%)"
+    },
+    {
+      "timestamp": "2026-07-23T14:00:00+00:00",
+      "symbol": "MMM",
+      "quantity": 2,
+      "side": "SELL",
+      "price": 169.89,
+      "value": 339.78,
+      "reason": "[External] Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly (confidence: 50%)"
+    },
+    {
+      "timestamp": "2026-07-23T14:00:00+00:00",
+      "symbol": "NKE",
+      "quantity": 7,
+      "side": "SELL",
+      "price": 41.145,
+      "value": 288.01500000000004,
+      "reason": "[External] Scheduled whole-share rebalance reduced exposure; combined rank=0.5278, next-session MPS mean=-1.47103pp, ensemble uncertainty=0.26605pp, policy=gated_mps_trend_weekly (confidence: 52%)"
+    },
+    {
+      "timestamp": "2026-08-06T14:00:00+00:00",
+      "symbol": "DIS",
+      "quantity": 3,
+      "side": "BUY",
+      "price": 103.035,
+      "value": 309.105,
+      "reason": "[External] Validation-selected MPS and trend rank established exposure; combined rank=0.9722, next-session MPS mean=1.30428pp, ensemble uncertainty=0.08085pp, policy=gated_mps_trend_weekly (confidence: 92%)"
+    },
+    {
+      "timestamp": "2026-08-06T14:00:00+00:00",
+      "symbol": "AAPL",
+      "quantity": 1,
+      "side": "BUY",
+      "price": 313.3436,
+      "value": 313.3436,
+      "reason": "[External] Validation-selected MPS and trend rank established exposure; combined rank=0.7778, next-session MPS mean=1.22067pp, ensemble uncertainty=0.27032pp, policy=gated_mps_trend_weekly (confidence: 75%)"
+    },
+    {
+      "timestamp": "2026-08-06T14:00:00+00:00",
+      "symbol": "CRM",
+      "quantity": 1,
+      "side": "BUY",
+      "price": 184.33,
+      "value": 184.33,
+      "reason": "[External] Validation-selected MPS and trend rank established exposure; combined rank=0.1944, next-session MPS mean=-0.89589pp, ensemble uncertainty=0.49045pp, policy=gated_mps_trend_weekly (confidence: 78%)"
+    },
+    {
+      "timestamp": "2026-08-13T14:00:00+00:00",
+      "symbol": "AAPL",
+      "quantity": 1,
+      "side": "SELL",
+      "price": 305.105,
+      "value": 305.105,
+      "reason": "[External] Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly (confidence: 50%)"
+    },
+    {
+      "timestamp": "2026-08-13T14:00:00+00:00",
+      "symbol": "CRM",
+      "quantity": 1,
+      "side": "SELL",
+      "price": 194.91,
+      "value": 194.91,
+      "reason": "[External] Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly (confidence: 50%)"
+    }
+  ],
+  "decisions": [
+    {
+      "step_index": 0,
+      "timestamp": "2026-07-01T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.9,
+          "reasoning": "Positive-trend gate moved the portfolio to cash; combined rank=0.9444, next-session MPS mean=0.71227pp, ensemble uncertainty=0.24378pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 1,
+      "timestamp": "2026-07-01T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=0.84605pp, ensemble uncertainty=0.26964pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 2,
+      "timestamp": "2026-07-01T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "UNH",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=0.78558pp, ensemble uncertainty=0.25277pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 3,
+      "timestamp": "2026-07-01T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "UNH",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=0.85630pp, ensemble uncertainty=0.24832pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 4,
+      "timestamp": "2026-07-01T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "UNH",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.86793pp, ensemble uncertainty=0.26043pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 5,
+      "timestamp": "2026-07-01T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.75,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7778, next-session MPS mean=0.64915pp, ensemble uncertainty=0.25020pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 6,
+      "timestamp": "2026-07-01T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=0.61445pp, ensemble uncertainty=0.21301pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 7,
+      "timestamp": "2026-07-02T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.49656pp, ensemble uncertainty=0.14130pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 8,
+      "timestamp": "2026-07-02T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.775,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8056, next-session MPS mean=1.25395pp, ensemble uncertainty=0.16771pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 9,
+      "timestamp": "2026-07-02T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.63712pp, ensemble uncertainty=0.20861pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 10,
+      "timestamp": "2026-07-02T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MCD",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.49002pp, ensemble uncertainty=0.31486pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 11,
+      "timestamp": "2026-07-02T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.82456pp, ensemble uncertainty=0.39732pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 12,
+      "timestamp": "2026-07-02T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.75,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7778, next-session MPS mean=1.66407pp, ensemble uncertainty=0.17213pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 13,
+      "timestamp": "2026-07-02T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "V",
+          "confidence": 0.8,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8333, next-session MPS mean=1.64974pp, ensemble uncertainty=0.51261pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 14,
+      "timestamp": "2026-07-06T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.26048pp, ensemble uncertainty=0.09595pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 15,
+      "timestamp": "2026-07-06T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.64743pp, ensemble uncertainty=0.21785pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 16,
+      "timestamp": "2026-07-06T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.75,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7778, next-session MPS mean=1.72270pp, ensemble uncertainty=0.31010pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 17,
+      "timestamp": "2026-07-06T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.75,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7778, next-session MPS mean=1.38419pp, ensemble uncertainty=0.14726pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 18,
+      "timestamp": "2026-07-06T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.75,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7778, next-session MPS mean=1.66805pp, ensemble uncertainty=0.17491pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 19,
+      "timestamp": "2026-07-06T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.75,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7778, next-session MPS mean=1.62790pp, ensemble uncertainty=0.19093pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 20,
+      "timestamp": "2026-07-06T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.725,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.7500, next-session MPS mean=1.43423pp, ensemble uncertainty=0.34046pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 21,
+      "timestamp": "2026-07-07T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.51744pp, ensemble uncertainty=0.16011pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 22,
+      "timestamp": "2026-07-07T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.68606pp, ensemble uncertainty=0.17747pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 23,
+      "timestamp": "2026-07-07T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.72898pp, ensemble uncertainty=0.20299pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 24,
+      "timestamp": "2026-07-07T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.56419pp, ensemble uncertainty=0.15373pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 25,
+      "timestamp": "2026-07-07T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.63330pp, ensemble uncertainty=0.10844pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 26,
+      "timestamp": "2026-07-07T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.60756pp, ensemble uncertainty=0.15567pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 27,
+      "timestamp": "2026-07-07T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.63303pp, ensemble uncertainty=0.15033pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 28,
+      "timestamp": "2026-07-08T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.43006pp, ensemble uncertainty=0.12736pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 29,
+      "timestamp": "2026-07-08T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "WMT",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.39122pp, ensemble uncertainty=0.16344pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 30,
+      "timestamp": "2026-07-08T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.61935pp, ensemble uncertainty=0.14742pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 31,
+      "timestamp": "2026-07-08T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.73486pp, ensemble uncertainty=0.19544pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 32,
+      "timestamp": "2026-07-08T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.97778pp, ensemble uncertainty=0.29232pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 33,
+      "timestamp": "2026-07-08T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.88301pp, ensemble uncertainty=0.22213pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 34,
+      "timestamp": "2026-07-08T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.45394pp, ensemble uncertainty=0.20123pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 35,
+      "timestamp": "2026-07-09T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Positive-trend gate moved the portfolio to cash; combined rank=1.0000, next-session MPS mean=1.85642pp, ensemble uncertainty=0.29634pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 36,
+      "timestamp": "2026-07-09T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.00187pp, ensemble uncertainty=0.38747pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 37,
+      "timestamp": "2026-07-09T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.81678pp, ensemble uncertainty=0.13749pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 38,
+      "timestamp": "2026-07-09T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.99249pp, ensemble uncertainty=0.18656pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 39,
+      "timestamp": "2026-07-09T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.89824pp, ensemble uncertainty=0.30393pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 40,
+      "timestamp": "2026-07-09T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.42166pp, ensemble uncertainty=0.08798pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 41,
+      "timestamp": "2026-07-09T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.43951pp, ensemble uncertainty=0.21807pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 42,
+      "timestamp": "2026-07-10T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NKE",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.90179pp, ensemble uncertainty=0.33339pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 43,
+      "timestamp": "2026-07-10T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NKE",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.49883pp, ensemble uncertainty=0.20568pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 44,
+      "timestamp": "2026-07-10T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NKE",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.89867pp, ensemble uncertainty=0.34289pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 45,
+      "timestamp": "2026-07-10T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NKE",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.85895pp, ensemble uncertainty=0.10268pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 46,
+      "timestamp": "2026-07-10T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.58867pp, ensemble uncertainty=0.16299pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 47,
+      "timestamp": "2026-07-10T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.83207pp, ensemble uncertainty=0.14149pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 48,
+      "timestamp": "2026-07-10T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.51950pp, ensemble uncertainty=0.13229pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 49,
+      "timestamp": "2026-07-13T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.63571pp, ensemble uncertainty=0.45693pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 50,
+      "timestamp": "2026-07-13T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.87190pp, ensemble uncertainty=0.31110pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 51,
+      "timestamp": "2026-07-13T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.00429pp, ensemble uncertainty=0.23735pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 52,
+      "timestamp": "2026-07-13T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.76740pp, ensemble uncertainty=0.11059pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 53,
+      "timestamp": "2026-07-13T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.65568pp, ensemble uncertainty=0.09627pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 54,
+      "timestamp": "2026-07-13T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.79492pp, ensemble uncertainty=0.13492pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 55,
+      "timestamp": "2026-07-13T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.59802pp, ensemble uncertainty=0.03364pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 56,
+      "timestamp": "2026-07-14T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.37166pp, ensemble uncertainty=0.44283pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 57,
+      "timestamp": "2026-07-14T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.53713pp, ensemble uncertainty=0.51026pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 58,
+      "timestamp": "2026-07-14T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.60358pp, ensemble uncertainty=0.44129pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 59,
+      "timestamp": "2026-07-14T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.19986pp, ensemble uncertainty=0.37990pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 60,
+      "timestamp": "2026-07-14T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.34944pp, ensemble uncertainty=0.41699pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 61,
+      "timestamp": "2026-07-14T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.48756pp, ensemble uncertainty=0.40840pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 62,
+      "timestamp": "2026-07-14T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.05591pp, ensemble uncertainty=0.39918pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 63,
+      "timestamp": "2026-07-15T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.73764pp, ensemble uncertainty=0.24741pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 64,
+      "timestamp": "2026-07-15T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.85639pp, ensemble uncertainty=0.12570pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 65,
+      "timestamp": "2026-07-15T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=2.00775pp, ensemble uncertainty=0.31879pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 66,
+      "timestamp": "2026-07-15T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GOOGL",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.82038pp, ensemble uncertainty=0.26689pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 67,
+      "timestamp": "2026-07-15T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.67333pp, ensemble uncertainty=0.20094pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 68,
+      "timestamp": "2026-07-15T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.53335pp, ensemble uncertainty=0.11959pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 69,
+      "timestamp": "2026-07-15T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.55102pp, ensemble uncertainty=0.11849pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 70,
+      "timestamp": "2026-07-16T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "buy",
+          "symbol": "MRK",
+          "confidence": 0.925,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.9722, next-session MPS mean=2.08522pp, ensemble uncertainty=0.30095pp, policy=gated_mps_trend_weekly",
+          "position_size": 2,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "buy",
+          "symbol": "MMM",
+          "confidence": 0.675,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.6944, next-session MPS mean=1.49489pp, ensemble uncertainty=0.16550pp, policy=gated_mps_trend_weekly",
+          "position_size": 2,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "buy",
+          "symbol": "NKE",
+          "confidence": 0.65,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.6667, next-session MPS mean=1.63965pp, ensemble uncertainty=0.24552pp, policy=gated_mps_trend_weekly",
+          "position_size": 7,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 3,
+      "context_ref": null
+    },
+    {
+      "step_index": 71,
+      "timestamp": "2026-07-16T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.87412pp, ensemble uncertainty=0.27656pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 72,
+      "timestamp": "2026-07-16T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.91035pp, ensemble uncertainty=0.26272pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 73,
+      "timestamp": "2026-07-16T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.84695pp, ensemble uncertainty=0.24538pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 74,
+      "timestamp": "2026-07-16T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NKE",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.80082pp, ensemble uncertainty=0.06845pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 75,
+      "timestamp": "2026-07-16T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.84583pp, ensemble uncertainty=0.07984pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 76,
+      "timestamp": "2026-07-16T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.44779pp, ensemble uncertainty=0.18555pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 77,
+      "timestamp": "2026-07-17T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=3.02630pp, ensemble uncertainty=0.38682pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 78,
+      "timestamp": "2026-07-17T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.74064pp, ensemble uncertainty=0.58461pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 79,
+      "timestamp": "2026-07-17T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.61466pp, ensemble uncertainty=0.59755pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 80,
+      "timestamp": "2026-07-17T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.24221pp, ensemble uncertainty=0.41727pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 81,
+      "timestamp": "2026-07-17T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.30135pp, ensemble uncertainty=0.38234pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 82,
+      "timestamp": "2026-07-17T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.50132pp, ensemble uncertainty=0.38797pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 83,
+      "timestamp": "2026-07-17T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.13889pp, ensemble uncertainty=0.35034pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 84,
+      "timestamp": "2026-07-20T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.34832pp, ensemble uncertainty=0.27256pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 85,
+      "timestamp": "2026-07-20T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "TRV",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.39245pp, ensemble uncertainty=0.23191pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 86,
+      "timestamp": "2026-07-20T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.47192pp, ensemble uncertainty=0.13695pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 87,
+      "timestamp": "2026-07-20T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.48738pp, ensemble uncertainty=0.13623pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 88,
+      "timestamp": "2026-07-20T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.70525pp, ensemble uncertainty=0.11191pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 89,
+      "timestamp": "2026-07-20T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.46048pp, ensemble uncertainty=0.10604pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 90,
+      "timestamp": "2026-07-20T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.80766pp, ensemble uncertainty=0.10642pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 91,
+      "timestamp": "2026-07-21T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.94968pp, ensemble uncertainty=0.48701pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 92,
+      "timestamp": "2026-07-21T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.51346pp, ensemble uncertainty=0.48342pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 93,
+      "timestamp": "2026-07-21T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.15160pp, ensemble uncertainty=0.44202pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 94,
+      "timestamp": "2026-07-21T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.59984pp, ensemble uncertainty=0.26394pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 95,
+      "timestamp": "2026-07-21T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.60290pp, ensemble uncertainty=0.38539pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 96,
+      "timestamp": "2026-07-21T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "UNH",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.70949pp, ensemble uncertainty=0.11752pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 97,
+      "timestamp": "2026-07-21T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "UNH",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.67219pp, ensemble uncertainty=0.10032pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 98,
+      "timestamp": "2026-07-22T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=1.39066pp, ensemble uncertainty=0.12642pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 99,
+      "timestamp": "2026-07-22T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.99958pp, ensemble uncertainty=0.40598pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 100,
+      "timestamp": "2026-07-22T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.81399pp, ensemble uncertainty=0.46173pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 101,
+      "timestamp": "2026-07-22T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.78306pp, ensemble uncertainty=0.38819pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 102,
+      "timestamp": "2026-07-22T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.72423pp, ensemble uncertainty=0.13397pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 103,
+      "timestamp": "2026-07-22T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JNJ",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.29230pp, ensemble uncertainty=0.09074pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 104,
+      "timestamp": "2026-07-22T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.46351pp, ensemble uncertainty=0.04458pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 105,
+      "timestamp": "2026-07-23T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "sell",
+          "symbol": "MRK",
+          "confidence": 0.5,
+          "reasoning": "Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly",
+          "position_size": 2,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "sell",
+          "symbol": "MMM",
+          "confidence": 0.5,
+          "reasoning": "Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly",
+          "position_size": 2,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "sell",
+          "symbol": "NKE",
+          "confidence": 0.525,
+          "reasoning": "Scheduled whole-share rebalance reduced exposure; combined rank=0.5278, next-session MPS mean=-1.47103pp, ensemble uncertainty=0.26605pp, policy=gated_mps_trend_weekly",
+          "position_size": 7,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 3,
+      "context_ref": null
+    },
+    {
+      "step_index": 106,
+      "timestamp": "2026-07-23T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "HON",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.25570pp, ensemble uncertainty=0.39541pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 107,
+      "timestamp": "2026-07-23T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "KO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=-1.03040pp, ensemble uncertainty=0.20522pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 108,
+      "timestamp": "2026-07-23T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JNJ",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.92110pp, ensemble uncertainty=0.15565pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 109,
+      "timestamp": "2026-07-23T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JNJ",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.10329pp, ensemble uncertainty=0.07376pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 110,
+      "timestamp": "2026-07-23T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "HON",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.80576pp, ensemble uncertainty=0.35178pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 111,
+      "timestamp": "2026-07-23T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JNJ",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.88248pp, ensemble uncertainty=0.13757pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 112,
+      "timestamp": "2026-07-24T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.75588pp, ensemble uncertainty=0.18849pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 113,
+      "timestamp": "2026-07-24T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=2.05098pp, ensemble uncertainty=0.21290pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 114,
+      "timestamp": "2026-07-24T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.99906pp, ensemble uncertainty=0.22534pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 115,
+      "timestamp": "2026-07-24T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.98215pp, ensemble uncertainty=0.18801pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 116,
+      "timestamp": "2026-07-24T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.825,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8611, next-session MPS mean=1.68767pp, ensemble uncertainty=0.08425pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 117,
+      "timestamp": "2026-07-24T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "HD",
+          "confidence": 0.825,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8611, next-session MPS mean=1.62889pp, ensemble uncertainty=0.10828pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 118,
+      "timestamp": "2026-07-24T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AAPL",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.71260pp, ensemble uncertainty=0.20366pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 119,
+      "timestamp": "2026-07-27T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.75847pp, ensemble uncertainty=0.34269pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 120,
+      "timestamp": "2026-07-27T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.48325pp, ensemble uncertainty=0.43710pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 121,
+      "timestamp": "2026-07-27T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.74334pp, ensemble uncertainty=0.46067pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 122,
+      "timestamp": "2026-07-27T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.37575pp, ensemble uncertainty=0.32676pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 123,
+      "timestamp": "2026-07-27T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.01039pp, ensemble uncertainty=0.26067pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 124,
+      "timestamp": "2026-07-27T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=2.00186pp, ensemble uncertainty=0.18101pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 125,
+      "timestamp": "2026-07-27T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.79116pp, ensemble uncertainty=0.26147pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 126,
+      "timestamp": "2026-07-28T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=3.03505pp, ensemble uncertainty=0.37605pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 127,
+      "timestamp": "2026-07-28T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=2.53970pp, ensemble uncertainty=0.37705pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 128,
+      "timestamp": "2026-07-28T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=2.45368pp, ensemble uncertainty=0.37755pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 129,
+      "timestamp": "2026-07-28T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=2.31997pp, ensemble uncertainty=0.33689pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 130,
+      "timestamp": "2026-07-28T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=2.18594pp, ensemble uncertainty=0.30459pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 131,
+      "timestamp": "2026-07-28T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.96195pp, ensemble uncertainty=0.30553pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 132,
+      "timestamp": "2026-07-28T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "SHW",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.64664pp, ensemble uncertainty=0.29366pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 133,
+      "timestamp": "2026-07-29T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "KO",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.08998pp, ensemble uncertainty=0.35628pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 134,
+      "timestamp": "2026-07-29T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "KO",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.20598pp, ensemble uncertainty=0.39487pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 135,
+      "timestamp": "2026-07-29T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.44254pp, ensemble uncertainty=0.57734pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 136,
+      "timestamp": "2026-07-29T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.49376pp, ensemble uncertainty=0.55445pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 137,
+      "timestamp": "2026-07-29T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NKE",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.60259pp, ensemble uncertainty=0.21578pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 138,
+      "timestamp": "2026-07-29T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.16592pp, ensemble uncertainty=0.23587pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 139,
+      "timestamp": "2026-07-29T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.46665pp, ensemble uncertainty=0.17428pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 140,
+      "timestamp": "2026-07-30T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.95,
+          "reasoning": "Positive-trend gate moved the portfolio to cash; combined rank=1.0000, next-session MPS mean=3.47012pp, ensemble uncertainty=0.65875pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 141,
+      "timestamp": "2026-07-30T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=3.18594pp, ensemble uncertainty=0.45051pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 142,
+      "timestamp": "2026-07-30T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=3.47427pp, ensemble uncertainty=0.53508pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 143,
+      "timestamp": "2026-07-30T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.72362pp, ensemble uncertainty=0.37839pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 144,
+      "timestamp": "2026-07-30T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.46475pp, ensemble uncertainty=0.33410pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 145,
+      "timestamp": "2026-07-30T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MSFT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.97770pp, ensemble uncertainty=0.25622pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 146,
+      "timestamp": "2026-07-30T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=2.82990pp, ensemble uncertainty=0.40926pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 147,
+      "timestamp": "2026-07-31T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=3.30627pp, ensemble uncertainty=0.51744pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 148,
+      "timestamp": "2026-07-31T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.69690pp, ensemble uncertainty=0.43900pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 149,
+      "timestamp": "2026-07-31T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.71553pp, ensemble uncertainty=0.39518pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 150,
+      "timestamp": "2026-07-31T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.17879pp, ensemble uncertainty=0.29599pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 151,
+      "timestamp": "2026-07-31T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.32263pp, ensemble uncertainty=0.26044pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 152,
+      "timestamp": "2026-07-31T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GOOGL",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=2.03562pp, ensemble uncertainty=0.15991pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 153,
+      "timestamp": "2026-07-31T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.80624pp, ensemble uncertainty=0.21525pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 154,
+      "timestamp": "2026-08-03T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMZN",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=2.12065pp, ensemble uncertainty=0.69633pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 155,
+      "timestamp": "2026-08-03T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=1.99452pp, ensemble uncertainty=0.23391pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 156,
+      "timestamp": "2026-08-03T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=2.42994pp, ensemble uncertainty=0.32238pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 157,
+      "timestamp": "2026-08-03T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=2.37106pp, ensemble uncertainty=0.26836pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 158,
+      "timestamp": "2026-08-03T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=2.33456pp, ensemble uncertainty=0.21959pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 159,
+      "timestamp": "2026-08-03T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=2.40151pp, ensemble uncertainty=0.36569pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 160,
+      "timestamp": "2026-08-03T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "BA",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=2.15822pp, ensemble uncertainty=0.43950pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 161,
+      "timestamp": "2026-08-04T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "GS",
+          "confidence": 0.825,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8611, next-session MPS mean=2.34868pp, ensemble uncertainty=0.35907pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 162,
+      "timestamp": "2026-08-04T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=2.12013pp, ensemble uncertainty=0.23040pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 163,
+      "timestamp": "2026-08-04T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=1.99599pp, ensemble uncertainty=0.23916pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 164,
+      "timestamp": "2026-08-04T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=1.87901pp, ensemble uncertainty=0.18556pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 165,
+      "timestamp": "2026-08-04T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=1.79711pp, ensemble uncertainty=0.14664pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 166,
+      "timestamp": "2026-08-04T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.90951pp, ensemble uncertainty=0.13198pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 167,
+      "timestamp": "2026-08-04T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CSCO",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=2.43830pp, ensemble uncertainty=0.47083pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 168,
+      "timestamp": "2026-08-05T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=2.75863pp, ensemble uncertainty=0.37197pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 169,
+      "timestamp": "2026-08-05T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.91862pp, ensemble uncertainty=0.41836pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 170,
+      "timestamp": "2026-08-05T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.83644pp, ensemble uncertainty=0.21737pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 171,
+      "timestamp": "2026-08-05T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.8,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8333, next-session MPS mean=1.51015pp, ensemble uncertainty=0.05149pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 172,
+      "timestamp": "2026-08-05T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.40144pp, ensemble uncertainty=0.32522pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 173,
+      "timestamp": "2026-08-05T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.72251pp, ensemble uncertainty=0.11834pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 174,
+      "timestamp": "2026-08-05T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "AMGN",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.78205pp, ensemble uncertainty=0.17660pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 175,
+      "timestamp": "2026-08-06T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "buy",
+          "symbol": "DIS",
+          "confidence": 0.925,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.9722, next-session MPS mean=1.30428pp, ensemble uncertainty=0.08085pp, policy=gated_mps_trend_weekly",
+          "position_size": 3,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "buy",
+          "symbol": "AAPL",
+          "confidence": 0.75,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.7778, next-session MPS mean=1.22067pp, ensemble uncertainty=0.27032pp, policy=gated_mps_trend_weekly",
+          "position_size": 1,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "buy",
+          "symbol": "CRM",
+          "confidence": 0.775,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.1944, next-session MPS mean=-0.89589pp, ensemble uncertainty=0.49045pp, policy=gated_mps_trend_weekly",
+          "position_size": 1,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 3,
+      "context_ref": null
+    },
+    {
+      "step_index": 176,
+      "timestamp": "2026-08-06T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.22805pp, ensemble uncertainty=0.07782pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 177,
+      "timestamp": "2026-08-06T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.29080pp, ensemble uncertainty=0.06952pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 178,
+      "timestamp": "2026-08-06T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.30935pp, ensemble uncertainty=0.11327pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 179,
+      "timestamp": "2026-08-06T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.47976pp, ensemble uncertainty=0.17422pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 180,
+      "timestamp": "2026-08-06T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.15840pp, ensemble uncertainty=0.30937pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 181,
+      "timestamp": "2026-08-06T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.25436pp, ensemble uncertainty=0.16288pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 182,
+      "timestamp": "2026-08-07T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.85,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.8889, next-session MPS mean=1.84272pp, ensemble uncertainty=0.12403pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 183,
+      "timestamp": "2026-08-07T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.27778pp, ensemble uncertainty=0.09641pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 184,
+      "timestamp": "2026-08-07T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.59733pp, ensemble uncertainty=0.13762pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 185,
+      "timestamp": "2026-08-07T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.16651pp, ensemble uncertainty=0.16261pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 186,
+      "timestamp": "2026-08-07T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MMM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=0.93748pp, ensemble uncertainty=0.11611pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 187,
+      "timestamp": "2026-08-07T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.24794pp, ensemble uncertainty=0.08354pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 188,
+      "timestamp": "2026-08-07T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "HD",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=0.94059pp, ensemble uncertainty=0.14956pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 189,
+      "timestamp": "2026-08-10T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.83588pp, ensemble uncertainty=0.19647pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 190,
+      "timestamp": "2026-08-10T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.875,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9167, next-session MPS mean=1.70997pp, ensemble uncertainty=0.15859pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 191,
+      "timestamp": "2026-08-10T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.87329pp, ensemble uncertainty=0.24171pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 192,
+      "timestamp": "2026-08-10T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.87302pp, ensemble uncertainty=0.12392pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 193,
+      "timestamp": "2026-08-10T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.81803pp, ensemble uncertainty=0.19067pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 194,
+      "timestamp": "2026-08-10T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.82936pp, ensemble uncertainty=0.10843pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 195,
+      "timestamp": "2026-08-10T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.48969pp, ensemble uncertainty=0.17931pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 196,
+      "timestamp": "2026-08-11T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "IBM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.48041pp, ensemble uncertainty=0.15487pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 197,
+      "timestamp": "2026-08-11T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.22429pp, ensemble uncertainty=0.07238pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 198,
+      "timestamp": "2026-08-11T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.11447pp, ensemble uncertainty=0.08968pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 199,
+      "timestamp": "2026-08-11T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.00180pp, ensemble uncertainty=0.08057pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 200,
+      "timestamp": "2026-08-11T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=0.83101pp, ensemble uncertainty=0.14720pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 201,
+      "timestamp": "2026-08-11T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "WMT",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.09834pp, ensemble uncertainty=0.10046pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 202,
+      "timestamp": "2026-08-11T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "JPM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=0.88959pp, ensemble uncertainty=0.10646pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 203,
+      "timestamp": "2026-08-12T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "NVDA",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.50986pp, ensemble uncertainty=0.10270pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 204,
+      "timestamp": "2026-08-12T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.56010pp, ensemble uncertainty=0.21246pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 205,
+      "timestamp": "2026-08-12T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CAT",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.60098pp, ensemble uncertainty=0.10026pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 206,
+      "timestamp": "2026-08-12T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CAT",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.44957pp, ensemble uncertainty=0.14861pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 207,
+      "timestamp": "2026-08-12T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "WMT",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.52944pp, ensemble uncertainty=0.06789pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 208,
+      "timestamp": "2026-08-12T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "WMT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.54651pp, ensemble uncertainty=0.11935pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 209,
+      "timestamp": "2026-08-12T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "WMT",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.35603pp, ensemble uncertainty=0.15551pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 210,
+      "timestamp": "2026-08-13T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "sell",
+          "symbol": "AAPL",
+          "confidence": 0.5,
+          "reasoning": "Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly",
+          "position_size": 1,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "sell",
+          "symbol": "CRM",
+          "confidence": 0.5,
+          "reasoning": "Scheduled whole-share rebalance reduced exposure; combined rank=0.5000, next-session MPS mean=0.00000pp, ensemble uncertainty=0.00000pp, policy=gated_mps_trend_weekly",
+          "position_size": 1,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "buy",
+          "symbol": "MRK",
+          "confidence": 0.8,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.8333, next-session MPS mean=1.15872pp, ensemble uncertainty=0.11794pp, policy=gated_mps_trend_weekly",
+          "position_size": 2,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        },
+        {
+          "action": "buy",
+          "symbol": "KO",
+          "confidence": 0.775,
+          "reasoning": "Validation-selected MPS and trend rank established exposure; combined rank=0.8056, next-session MPS mean=1.15830pp, ensemble uncertainty=0.08879pp, policy=gated_mps_trend_weekly",
+          "position_size": 3,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 2,
+      "context_ref": null
+    },
+    {
+      "step_index": 211,
+      "timestamp": "2026-08-13T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.03622pp, ensemble uncertainty=0.06518pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 212,
+      "timestamp": "2026-08-13T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.16223pp, ensemble uncertainty=0.05739pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 213,
+      "timestamp": "2026-08-13T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "MRK",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=0.95336pp, ensemble uncertainty=0.04638pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 214,
+      "timestamp": "2026-08-13T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.55648pp, ensemble uncertainty=0.26279pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 215,
+      "timestamp": "2026-08-13T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.88559pp, ensemble uncertainty=0.25386pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 216,
+      "timestamp": "2026-08-13T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CRM",
+          "confidence": 0.9,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9444, next-session MPS mean=1.19653pp, ensemble uncertainty=0.24731pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 217,
+      "timestamp": "2026-08-14T14:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.54465pp, ensemble uncertainty=0.12255pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 218,
+      "timestamp": "2026-08-14T15:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.47734pp, ensemble uncertainty=0.05846pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 219,
+      "timestamp": "2026-08-14T16:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "CVX",
+          "confidence": 0.925,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=0.9722, next-session MPS mean=1.49693pp, ensemble uncertainty=0.06570pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 220,
+      "timestamp": "2026-08-14T17:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.10944pp, ensemble uncertainty=0.07555pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 221,
+      "timestamp": "2026-08-14T18:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.37056pp, ensemble uncertainty=0.11296pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 222,
+      "timestamp": "2026-08-14T19:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.31088pp, ensemble uncertainty=0.03870pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    },
+    {
+      "step_index": 223,
+      "timestamp": "2026-08-14T20:00:00+00:00",
+      "decision_source": "external_agent",
+      "actions_submitted": [
+        {
+          "action": "hold",
+          "symbol": "DIS",
+          "confidence": 0.95,
+          "reasoning": "Between scheduled low-turnover rebalances; combined rank=1.0000, next-session MPS mean=1.18035pp, ensemble uncertainty=0.05121pp, policy=gated_mps_trend_weekly",
+          "position_size": 0,
+          "stop_loss_price": null,
+          "take_profit_price": null
+        }
+      ],
+      "actions_executed": 0,
+      "context_ref": null
+    }
+  ],
+  "metrics": {
+    "total_return": 0.01293640000000005,
+    "sharpe_ratio": 0.9193696827815544,
+    "max_drawdown": -0.026894000991571562,
+    "num_trades": 11,
+    "final_equity": 1012.9364,
+    "llm_calls": 224,
+    "input_tokens": 165906,
+    "output_tokens": 18762,
+    "est_cost_usd": 0.259716,
+    "timeout_holds": 0
+  }
+}

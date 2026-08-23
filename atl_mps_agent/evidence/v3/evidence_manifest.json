@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "artifact": "atl_residual_mps_v3_evidence",
+  "created_date": "2026-08-20",
+  "architecture_selected_without_fresh_test": true,
+  "quantum_hardware": false,
+  "verification_level": "self_reported",
+  "files_sha256": {
+    "v3_benchmark_results.json": "ac7cc5b306968ea6040cf13b70c2c606aa38748fbc66dea530825226005a3a34",
+    "v3_member_results.csv": "28aefee7a719b022adbdbd9be1c78642737b05b5e41e68a2a5619def1fc03786",
+    "v3_hosted_run_summary.json": "b100525767be882710db5554b9ff0be2dba13c04653b3cb0dcc3732b8e3d2454",
+    "../../artifacts/atl_residual_mps_v3.pt": "d30ae7fa0b580ce527eb2ab84c4fd3160fd795cdc10adc61462d36fd20b6566e",
+    "../../artifacts/atl_residual_mps_v3.json": "15ef7f5dc4480caaff867ca3ec9d5db7b39d7f5c1e769956f50ccbc19a8a0ff2"
+  }
+}

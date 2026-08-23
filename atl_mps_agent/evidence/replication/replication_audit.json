@@ -1,0 +1,550 @@
+{
+  "schema_version": 1,
+  "artifact": "atl_replication_audit",
+  "protocol_commit": "673b4c7064c1725cbdfb79848c7eaef5fa209273",
+  "snapshot_capture_fix_commit": "97d9a33ea3d1b1b4c1e35d662f085daf7028d9f9",
+  "policy_changed_after_original_freeze": false,
+  "same_window_replication": {
+    "run_ids": [
+      "ext_20260821_152912_49e74732",
+      "ext_20260821_154414_5f333614",
+      "ext_20260821_154958_09af96ad"
+    ],
+    "run_count": 3,
+    "metrics_exact": true,
+    "equity_curve_exact": true,
+    "trade_ledger_exact": true,
+    "decision_ledger_exact": true,
+    "reference_metrics": {
+      "total_return": 0.01293640000000005,
+      "sharpe_ratio": 0.9193696827815544,
+      "max_drawdown": -0.026894000991571562,
+      "num_trades": 11,
+      "final_equity": 1012.9364,
+      "timeout_holds": 0
+    },
+    "exact_replication": true
+  },
+  "same_window_snapshot_profile": {
+    "snapshot_count": 224,
+    "unique_timestamp_count": 224,
+    "duplicate_timestamp_count": 0,
+    "chronologically_sorted": true,
+    "first_timestamp": "2026-07-01T14:00:00+00:00",
+    "last_timestamp": "2026-08-14T20:00:00+00:00",
+    "trading_day_count": 32,
+    "observations_per_day": {
+      "2026-07-01": 7,
+      "2026-07-02": 7,
+      "2026-07-06": 7,
+      "2026-07-07": 7,
+      "2026-07-08": 7,
+      "2026-07-09": 7,
+      "2026-07-10": 7,
+      "2026-07-13": 7,
+      "2026-07-14": 7,
+      "2026-07-15": 7,
+      "2026-07-16": 7,
+      "2026-07-17": 7,
+      "2026-07-20": 7,
+      "2026-07-21": 7,
+      "2026-07-22": 7,
+      "2026-07-23": 7,
+      "2026-07-24": 7,
+      "2026-07-27": 7,
+      "2026-07-28": 7,
+      "2026-07-29": 7,
+      "2026-07-30": 7,
+      "2026-07-31": 7,
+      "2026-08-03": 7,
+      "2026-08-04": 7,
+      "2026-08-05": 7,
+      "2026-08-06": 7,
+      "2026-08-07": 7,
+      "2026-08-10": 7,
+      "2026-08-11": 7,
+      "2026-08-12": 7,
+      "2026-08-13": 7,
+      "2026-08-14": 7
+    },
+    "all_days_have_seven_observations": true,
+    "timezone_offsets": [
+      "0:00:00"
+    ],
+    "distinct_symbol_count": 30,
+    "signals_per_snapshot_min": 10,
+    "signals_per_snapshot_max": 10,
+    "signal_price_row_count": 2240,
+    "invalid_or_nonpositive_price_count": 0,
+    "nonfinite_signal_field_count": 0,
+    "portfolio_state_present_count": 224,
+    "nonempty_holdings_snapshot_count": 83,
+    "canonical_sha256": "90719862ba5697ee5dcd63916458014bb773aad1d98d426a12b21e953f2b8860"
+  },
+  "same_window_runtime_replay": {
+    "status": "complete",
+    "snapshot_count": 224,
+    "recorded_decision_count": 224,
+    "replayed_decision_count": 224,
+    "valid_symbol_count": 30,
+    "exact_action_batch_count": 224,
+    "mismatch_count": 0,
+    "first_mismatch_indices": [],
+    "all_action_batches_exact": true
+  },
+  "collection_context_comparison": {
+    "collected_snapshot_count": 224,
+    "hosted_snapshot_count": 224,
+    "common_timestamp_count": 224,
+    "symbol_set_exact_match_count": 51,
+    "symbol_set_exact_match_fraction": 0.22767857142857142,
+    "top_signals_payload_exact_match_count": 0,
+    "top_signals_payload_exact_match_fraction": 0.0,
+    "raw_field_consistency": {
+      "price": {
+        "comparisons": 1641,
+        "exact_matches": 1641,
+        "exact_match_fraction": 1.0,
+        "mean_absolute_difference": 0.0,
+        "maximum_absolute_difference": 0.0
+      },
+      "rsi": {
+        "comparisons": 1641,
+        "exact_matches": 280,
+        "exact_match_fraction": 0.17062766605728213,
+        "mean_absolute_difference": 4.120796890432238,
+        "maximum_absolute_difference": 62.67070024877856
+      },
+      "macd": {
+        "comparisons": 1641,
+        "exact_matches": 280,
+        "exact_match_fraction": 0.17062766605728213,
+        "mean_absolute_difference": 0.6167872118724435,
+        "maximum_absolute_difference": 18.750943739924878
+      },
+      "macd_signal": {
+        "comparisons": 1641,
+        "exact_matches": 280,
+        "exact_match_fraction": 0.17062766605728213,
+        "mean_absolute_difference": 0.6325093686657886,
+        "maximum_absolute_difference": 17.538677616646503
+      },
+      "sma20": {
+        "comparisons": 1641,
+        "exact_matches": 1454,
+        "exact_match_fraction": 0.8860450944546009,
+        "mean_absolute_difference": 36.31478857404022,
+        "maximum_absolute_difference": 1140.15001
+      },
+      "sma50": {
+        "comparisons": 1641,
+        "exact_matches": 791,
+        "exact_match_fraction": 0.48202315661182205,
+        "mean_absolute_difference": 132.02647942845272,
+        "maximum_absolute_difference": 1123.1710779999999
+      },
+      "bb_upper": {
+        "comparisons": 1641,
+        "exact_matches": 300,
+        "exact_match_fraction": 0.18281535648994515,
+        "mean_absolute_difference": 37.13509975123445,
+        "maximum_absolute_difference": 1152.8947314760592
+      },
+      "bb_lower": {
+        "comparisons": 1641,
+        "exact_matches": 300,
+        "exact_match_fraction": 0.18281535648994515,
+        "mean_absolute_difference": 35.494477396849874,
+        "maximum_absolute_difference": 1127.405288523941
+      }
+    },
+    "model_feature_consistency": [
+      {
+        "feature": "rsi_centered",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.17062766605728213,
+        "mean_absolute_difference": 0.08241593748748775,
+        "maximum_absolute_difference": 1.2534140348434448
+      },
+      {
+        "feature": "macd_to_price",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.17062766605728213,
+        "mean_absolute_difference": 0.0019342789286370475,
+        "maximum_absolute_difference": 0.02388807386159897
+      },
+      {
+        "feature": "macd_gap_to_price",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.17062766605728213,
+        "mean_absolute_difference": 0.001293740355176157,
+        "maximum_absolute_difference": 0.04154532868415117
+      },
+      {
+        "feature": "price_to_sma20",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.8860450944546009,
+        "mean_absolute_difference": 0.002262918773535151,
+        "maximum_absolute_difference": 0.0559002049267292
+      },
+      {
+        "feature": "price_to_sma50",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.48202315661182205,
+        "mean_absolute_difference": 0.013492613605418402,
+        "maximum_absolute_difference": 0.13548220694065094
+      },
+      {
+        "feature": "sma20_to_sma50",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.48202315661182205,
+        "mean_absolute_difference": 0.011757057622884003,
+        "maximum_absolute_difference": 0.1253710873425007
+      },
+      {
+        "feature": "bollinger_position",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.8860450944546009,
+        "mean_absolute_difference": 0.1063736256675671,
+        "maximum_absolute_difference": 2.003863573074341
+      },
+      {
+        "feature": "bollinger_width",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.8860450944546009,
+        "mean_absolute_difference": 0.005052573139518772,
+        "maximum_absolute_difference": 0.11959299445152283
+      },
+      {
+        "feature": "return_1h",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.8409506398537477,
+        "mean_absolute_difference": 0.0024725747703081566,
+        "maximum_absolute_difference": 0.16017639124765992
+      },
+      {
+        "feature": "return_3h",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.6404631322364412,
+        "mean_absolute_difference": 0.005965990803722546,
+        "maximum_absolute_difference": 0.154458437114954
+      },
+      {
+        "feature": "relative_return_rank_1h",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.5703839122486288,
+        "mean_absolute_difference": 0.17221883792001108,
+        "maximum_absolute_difference": 2.0
+      },
+      {
+        "feature": "cross_sectional_volatility_1h",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.21937842778793418,
+        "mean_absolute_difference": 0.0028588436600694854,
+        "maximum_absolute_difference": 0.0433336547575891
+      },
+      {
+        "feature": "market_breadth_1h",
+        "comparisons": 1641,
+        "exact_match_fraction": 0.5118829981718465,
+        "mean_absolute_difference": 0.13476877516086766,
+        "maximum_absolute_difference": 0.8000000268220901
+      }
+    ]
+  },
+  "temporal_extension": {
+    "run_ids": [
+      "ext_20260821_154520_e1507a25",
+      "ext_20260821_155038_5a68570f"
+    ],
+    "run_count": 2,
+    "metrics_exact": true,
+    "equity_curve_exact": true,
+    "trade_ledger_exact": true,
+    "decision_ledger_exact": true,
+    "reference_metrics": {
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "num_trades": 0,
+      "final_equity": 1000.0,
+      "timeout_holds": 0
+    },
+    "exact_replication": true,
+    "classification": "flat",
+    "snapshot_profile": {
+      "snapshot_count": 28,
+      "unique_timestamp_count": 28,
+      "duplicate_timestamp_count": 0,
+      "chronologically_sorted": true,
+      "first_timestamp": "2026-08-17T14:00:00+00:00",
+      "last_timestamp": "2026-08-20T20:00:00+00:00",
+      "trading_day_count": 4,
+      "observations_per_day": {
+        "2026-08-17": 7,
+        "2026-08-18": 7,
+        "2026-08-19": 7,
+        "2026-08-20": 7
+      },
+      "all_days_have_seven_observations": true,
+      "timezone_offsets": [
+        "0:00:00"
+      ],
+      "distinct_symbol_count": 30,
+      "signals_per_snapshot_min": 10,
+      "signals_per_snapshot_max": 10,
+      "signal_price_row_count": 280,
+      "invalid_or_nonpositive_price_count": 0,
+      "nonfinite_signal_field_count": 0,
+      "portfolio_state_present_count": 28,
+      "nonempty_holdings_snapshot_count": 0,
+      "canonical_sha256": "ca3eb972573e36b4791c0efd778b7477f366b1f26b7b124b1576f46d8028187f"
+    },
+    "runtime_replay": {
+      "status": "complete",
+      "snapshot_count": 28,
+      "recorded_decision_count": 28,
+      "replayed_decision_count": 28,
+      "valid_symbol_count": 30,
+      "exact_action_batch_count": 28,
+      "mismatch_count": 0,
+      "first_mismatch_indices": [],
+      "all_action_batches_exact": true
+    },
+    "atl_djia_return_pct": -0.437,
+    "atl_buyhold_return_pct": 0.0
+  },
+  "cost_sensitivity": [
+    {
+      "basis_points_per_traded_notional": 0,
+      "traded_notional": 3086.6736,
+      "estimated_cost": 0.0,
+      "estimated_final_equity": 1012.9364,
+      "estimated_return_pct": 1.293640000000007
+    },
+    {
+      "basis_points_per_traded_notional": 10,
+      "traded_notional": 3086.6736,
+      "estimated_cost": 3.0866736,
+      "estimated_final_equity": 1009.8497264,
+      "estimated_return_pct": 0.9849726399999925
+    },
+    {
+      "basis_points_per_traded_notional": 25,
+      "traded_notional": 3086.6736,
+      "estimated_cost": 7.716684,
+      "estimated_final_equity": 1005.2197160000001,
+      "estimated_return_pct": 0.5219716000000041
+    },
+    {
+      "basis_points_per_traded_notional": 50,
+      "traded_notional": 3086.6736,
+      "estimated_cost": 15.433368,
+      "estimated_final_equity": 997.5030320000001,
+      "estimated_return_pct": -0.24969679999998773
+    },
+    {
+      "basis_points_per_traded_notional": 100,
+      "traded_notional": 3086.6736,
+      "estimated_cost": 30.866736,
+      "estimated_final_equity": 982.0696640000001,
+      "estimated_return_pct": -1.7930335999999936
+    },
+    {
+      "basis_points_per_traded_notional": "break_even",
+      "traded_notional": 3086.6736,
+      "estimated_cost": 12.936400000000049,
+      "estimated_final_equity": 1000.0,
+      "estimated_return_pct": 0.0,
+      "break_even_basis_points": 41.910489013156585,
+      "gross_return_pct": 1.293640000000007
+    }
+  ],
+  "weekly_decomposition": [
+    {
+      "week": "2026-W27",
+      "start_reference_equity": 1000.0,
+      "ending_equity": 1000.0,
+      "dollar_change": 0.0,
+      "return_pct_from_prior_week_end": 0.0,
+      "contribution_pct_initial": 0.0,
+      "trade_count": 0
+    },
+    {
+      "week": "2026-W28",
+      "start_reference_equity": 1000.0,
+      "ending_equity": 1000.0,
+      "dollar_change": 0.0,
+      "return_pct_from_prior_week_end": 0.0,
+      "contribution_pct_initial": 0.0,
+      "trade_count": 0
+    },
+    {
+      "week": "2026-W29",
+      "start_reference_equity": 1000.0,
+      "ending_equity": 991.195,
+      "dollar_change": -8.80499999999995,
+      "return_pct_from_prior_week_end": -0.8804999999999952,
+      "contribution_pct_initial": -0.880499999999995,
+      "trade_count": 3
+    },
+    {
+      "week": "2026-W30",
+      "start_reference_equity": 991.195,
+      "ending_equity": 999.1500000000001,
+      "dollar_change": 7.955000000000041,
+      "return_pct_from_prior_week_end": 0.8025665989033426,
+      "contribution_pct_initial": 0.7955000000000041,
+      "trade_count": 3
+    },
+    {
+      "week": "2026-W31",
+      "start_reference_equity": 999.1500000000001,
+      "ending_equity": 999.1500000000001,
+      "dollar_change": 0.0,
+      "return_pct_from_prior_week_end": 0.0,
+      "contribution_pct_initial": 0.0,
+      "trade_count": 0
+    },
+    {
+      "week": "2026-W32",
+      "start_reference_equity": 999.1500000000001,
+      "ending_equity": 1012.2514000000001,
+      "dollar_change": 13.101400000000012,
+      "return_pct_from_prior_week_end": 1.3112545663814146,
+      "contribution_pct_initial": 1.3101400000000012,
+      "trade_count": 3
+    },
+    {
+      "week": "2026-W33",
+      "start_reference_equity": 1012.2514000000001,
+      "ending_equity": 1012.9364,
+      "dollar_change": 0.6849999999999454,
+      "return_pct_from_prior_week_end": 0.06767093629111987,
+      "contribution_pct_initial": 0.06849999999999454,
+      "trade_count": 2
+    }
+  ],
+  "hosted_context_benchmark": {
+    "status": "complete",
+    "split": {
+      "test_start": "2026-07-01T00:00:00",
+      "test_end": "2026-08-15T23:59:59",
+      "snapshot_count": 224,
+      "decision_days": 32,
+      "prediction_rows": 824
+    },
+    "prediction_metrics": {
+      "residual_mps": {
+        "mse_pp2": 6.203028203621129,
+        "mae_pp": 1.6378221265828685,
+        "directional_accuracy": 0.816747572815534,
+        "mean_within_timestamp_rank_ic": 0.3187203791469194
+      },
+      "matched_ann": {
+        "mse_pp2": 6.205104373176738,
+        "mae_pp": 1.6375711598674862,
+        "directional_accuracy": 0.8143203883495146,
+        "mean_within_timestamp_rank_ic": 0.31712931618144885
+      },
+      "mps_mean_uncertainty_pp": 0.21610192954540253,
+      "ann_mean_uncertainty_pp": 0.07853440195322037
+    },
+    "systems": {
+      "selected_mps_trend": {
+        "initial_equity": 1000.0,
+        "final_equity": 1012.8343613999999,
+        "total_return_pct": 1.2834361399999938,
+        "maximum_drawdown_pct": -1.8664294254641556,
+        "trade_count": 13,
+        "cumulative_turnover_multiple": 3.6234386,
+        "modeled_cost_pct_initial": 0.36234386000000013,
+        "invested_day_fraction": 0.34375,
+        "decision_days": 32,
+        "ending_holdings": {
+          "DIS": 3,
+          "MRK": 2,
+          "KO": 3
+        }
+      },
+      "matched_ann_trend": {
+        "initial_equity": 1000.0,
+        "final_equity": 1012.8343613999999,
+        "total_return_pct": 1.2834361399999938,
+        "maximum_drawdown_pct": -1.8664294254641556,
+        "trade_count": 13,
+        "cumulative_turnover_multiple": 3.6234386,
+        "modeled_cost_pct_initial": 0.36234386000000013,
+        "invested_day_fraction": 0.34375,
+        "decision_days": 32,
+        "ending_holdings": {
+          "DIS": 3,
+          "MRK": 2,
+          "KO": 3
+        }
+      },
+      "mps_only_rank": {
+        "initial_equity": 1000.0,
+        "final_equity": 1002.2715165999999,
+        "total_return_pct": 0.2271516600000023,
+        "maximum_drawdown_pct": -2.693040320761164,
+        "trade_count": 35,
+        "cumulative_turnover_multiple": 9.511283400000002,
+        "modeled_cost_pct_initial": 0.9511283399999999,
+        "invested_day_fraction": 0.96875,
+        "decision_days": 32,
+        "ending_holdings": {
+          "DIS": 3,
+          "KO": 3,
+          "MRK": 2
+        }
+      },
+      "trend_only": {
+        "initial_equity": 1000.0,
+        "final_equity": 1002.8776795000001,
+        "total_return_pct": 0.2877679500000063,
+        "maximum_drawdown_pct": -2.661535725249764,
+        "trade_count": 13,
+        "cumulative_turnover_multiple": 3.7356205,
+        "modeled_cost_pct_initial": 0.3735620500000001,
+        "invested_day_fraction": 0.34375,
+        "decision_days": 32,
+        "ending_holdings": {
+          "DIS": 3,
+          "MRK": 2,
+          "NVDA": 1
+        }
+      },
+      "fixed_initial_trend_basket": {
+        "initial_equity": 1000.0,
+        "final_equity": 1060.0830999999998,
+        "total_return_pct": 6.008309999999972,
+        "maximum_drawdown_pct": -1.6308687366705987,
+        "trade_count": 3,
+        "cumulative_turnover_multiple": 0.8787999999999999,
+        "modeled_cost_pct_initial": 0.08788,
+        "invested_day_fraction": 0.96875,
+        "decision_days": 32,
+        "ending_holdings": {
+          "WMT": 3,
+          "JPM": 1,
+          "HON": 1
+        }
+      },
+      "cash": {
+        "initial_equity": 1000.0,
+        "final_equity": 1000.0,
+        "total_return_pct": 0.0,
+        "maximum_drawdown_pct": 0.0,
+        "trade_count": 0,
+        "cumulative_turnover_multiple": 0.0,
+        "modeled_cost_pct_initial": 0.0,
+        "invested_day_fraction": 0.0,
+        "decision_days": 32,
+        "ending_holdings": {}
+      }
+    }
+  },
+  "overall_assessment": "share_with_caveats",
+  "supported_conclusion": "The hosted same-window result is exactly deterministic across complete reruns. The immediately following four-day window is flat because the frozen trend gate keeps the fresh policy in cash. Separately collected ATL indicator payloads differ from hosted-run payloads at the same timestamps, so the earlier offline replay is not execution-faithful. The corrected-context controls reproduce a positive combined-system result, but the matched ANN system produces the same portfolio outcome, so incremental MPS value is not established."
+}

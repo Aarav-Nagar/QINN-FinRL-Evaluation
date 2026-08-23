@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "artifact": "current_deployment_evaluation_manifest",
+  "freeze_commit": "7e2a926663d1a94572084cc9ee77609d39aade9f",
+  "architecture_selected_without_fresh_test": true,
+  "fresh_test_consumed_once": true,
+  "quantum_hardware": false,
+  "documentation_rebound_at": "2026-08-22",
+  "documentation_rebound_reason": "README linked the later exploratory stress evidence; no frozen model, policy, or evaluation result changed.",
+  "fresh_test": {
+    "start": "2026-07-01T00:00:00",
+    "end": "2026-08-15T23:59:59",
+    "snapshot_count": 224,
+    "decision_days": 32,
+    "canonical_dataset_sha256": "1d1883bf4986578e7ad2d0e0810e332531316b59ed3aba9a866cec737d86a530"
+  },
+  "hosted_atl_run_id": "ext_20260821_152912_49e74732",
+  "hosted_gross_return_pct": 1.293640000000005,
+  "estimated_after_cost_return_pct": 0.984972639999993,
+  "offline_replay_return_pct_after_modeled_cost": -3.549339989999989,
+  "files_sha256": {
+    "freeze_manifest.json": "12bba45d5b751ecdc36a21c4b5830faef2ab14469970ff274a8e1a5c216b29da",
+    "current_benchmark_results.json": "d251267a08754ad96fffa401ccae1d2ed054c4763502b7e6792e49a056985cfe",
+    "current_system_results.csv": "5934c4e3b9136d3f8a5029fa32f9a67101708619d4f4a140f1aadb94505bb076",
+    "current_hosted_run_summary.json": "1d3fe649418f5e70654ee38b71af2247bfb3ad4bf6fc52627c4161684da91193",
+    "../../artifacts/atl_residual_mps_current.pt": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
+    "../../artifacts/atl_residual_mps_current.json": "ff2c7739aab8bfc9f1e452d3aea8d2c972314e2d2e417e12b6de9a7c96b337a4",
+    "../../../docs/ATL_RESIDUAL_MPS_PROTOCOL.md": "8be0f75c1c3d171eb7f62ca82fac26610ca5af128fee524e8c65c576609f714f",
+    "../../../docs/ATL_RESIDUAL_MPS_AGENT_CARD.md": "156dace277a6e8bdad3544027d276864557228530e6f45fb096a0409a479749f",
+    "../../../docs/ATL_RESIDUAL_MPS_RESULT.md": "a6b34e8eda882b2d223a43797eb19e82682914240cbe0143572667ad819b2c53",
+    "../../../README.md": "2618e5745336c0ba6f22358f62f0362be693c77f908d5b1ffc37c3f4ebaa6249"
+  },
+  "claim_boundary": "One positive hosted historical window, not alpha, statistical significance, future profitability, or MPS superiority."
+}

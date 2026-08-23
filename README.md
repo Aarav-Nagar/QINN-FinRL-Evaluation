@@ -8,6 +8,46 @@ The experiment was developed as a follow-up to Dr. Xiao-Yang Liu's
 suggestion to test quantum-inspired representations inside a FinRL benchmark,
 rather than evaluating them only as prediction models.
 
+## Agentic Trading Lab integration
+
+The [`atl_mps_agent`](atl_mps_agent) package adapts the classical MPS
+formulation to Agentic Trading Lab's hourly external-agent contract. Version 2
+uses market-only features, validation-calibrated abstention, signal persistence,
+and explicit turnover controls. See the [ATL MPS agent runbook](docs/ATL_MPS_AGENT.md),
+[v2 protocol](docs/ATL_MPS_AGENT_V2_PROTOCOL.md), and
+[hosted integration evidence](docs/ATL_MPS_AGENT_RESULT.md).
+
+The current agent adds an exactly parameter-matched residual-MPS/ANN ensemble
+study, next-session rank-aware training, ensemble uncertainty, whole-share
+portfolio calibration, a positive-trend exposure gate, and low-turnover weekly
+rebalancing.
+See the [residual-MPS protocol](docs/ATL_RESIDUAL_MPS_PROTOCOL.md),
+[frozen evaluation result](docs/ATL_RESIDUAL_MPS_RESULT.md), and
+[Agent Card](docs/ATL_RESIDUAL_MPS_AGENT_CARD.md). The later
+[replication audit](docs/ATL_REPLICATION_RESULT.md) records three exact
+same-window hosted runs, a flat four-day temporal extension, corrected-context
+controls, cost stress, and ATL input-lineage drift. The next untouched
+[prospective multi-week protocol](docs/ATL_PROSPECTIVE_REPLICATION_PROTOCOL.md)
+was registered before its August 24-September 18 window begins.
+
+The later [exploratory date and China-market stress](docs/ATL_EXPLORATORY_STRESS_RESULTS.md)
+keeps the artifact frozen across four fresh-start U.S. partitions, an exact
+August repeat, and both visible ATL A-share universes. It finds deterministic
+execution but strong start-state sensitivity: the fresh partitions sum to
++0.4166% gross versus +1.2936% for the continuous run, while ATL's iFinD China
+path fails before producing usable market or decision data. This is a design
+and platform diagnostic, not a new performance claim.
+
+Its first frozen July-August hosted ATL evaluation returned +1.2936% gross and
++0.9850% after the prespecified 10-basis-point estimate on each recorded trade
+notional, with 11 trades and zero timeouts. It underperformed ATL's +4.5710%
+DJIA reference; the result demonstrates a working positive historical agent,
+not alpha or expected future profit.
+
+This is an ATL-specific research prototype, not the paper's daily FinRL PPO
+policy. The two systems share the MPS feature map and tensor contraction, but
+their data, universe, decision policy, and results are separate.
+
 ## Development history
 
 The initial commit imports an experiment developed before this standalone
