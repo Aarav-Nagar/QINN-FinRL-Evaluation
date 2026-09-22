@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "artifact": "atl_mps_agent_v2_evidence",
+  "created_date": "2026-08-20",
+  "quantum_hardware": false,
+  "verification_level": "self_reported",
+  "files_sha256": {
+    "benchmark_results.json": "4cd7beb4a7adf911120048e92c2eebe327b4b9669b9d1533d107b6b979642b2d",
+    "feature_audit.json": "ead70f581625441f6ed40f2d2cc4df44d5440f183a9aeab7b0845debbeb618c8",
+    "benchmark_seed_results.csv": "8e55917fa11c70e15a1f37ec052e089b6b86ed9d960847b0af391212dc15e302",
+    "hosted_run_summary.json": "23a4a4a77a34b5d9cf5faba94f960fcb4a4bbb19f54264ea80e11b5f4f2a123b",
+    "../../artifacts/atl_mps_v2.pt": "3e6fab9bbd2693458b4587238e8e31ca039389e7c17a36e7a9ab5312dfd0ac88",
+    "../../artifacts/atl_mps_v2.json": "99494f05182c70916c63d43459bedee51c59ec6bded6fcb526b0e7da0a5e1d1b"
+  }
+}

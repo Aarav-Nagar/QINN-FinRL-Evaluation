@@ -1,0 +1,23 @@
+{
+  "artifact": "atl_exploratory_date_market_stress_plan",
+  "registered_at": "2026-08-22",
+  "outcomes_observed_for_declared_subwindow_runs": false,
+  "aggregate_us_evaluation_outcome_previously_observed": true,
+  "account_agent_id": "agent_3cc6d5aac07b",
+  "agent_version_id": "agv_1c48b644b71e",
+  "code_commit_before_plan": "c8c28f7c7fc2b0d6c9bf02518a52cd0e5c015b7f",
+  "artifact_sha256": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
+  "policy_changed": false,
+  "us_windows": [
+    {"label": "US-A", "start": "2026-07-01", "end_exclusive": "2026-07-16"},
+    {"label": "US-B", "start": "2026-07-16", "end_exclusive": "2026-08-01"},
+    {"label": "US-C", "start": "2026-08-01", "end_exclusive": "2026-08-16"},
+    {"label": "US-D", "start": "2026-08-17", "end_exclusive": "2026-08-21"}
+  ],
+  "china_runs": [
+    {"universe": "a_share_demo_6", "start": "2026-04-01", "end_exclusive": "2026-05-01", "decision_source": "rule_based"},
+    {"universe": "csi300_sample_20_2026h2", "start": "2026-04-01", "end_exclusive": "2026-05-01", "decision_source": "rule_based"}
+  ],
+  "china_mps_transfer_gate": "Run only if the frozen 13-feature contract is reconstructable from complete pre-decision data without synthetic imputation.",
+  "claim_boundary": "Exploratory historical stress test; not independent replication, alpha evidence, or proof of MPS superiority."
+}

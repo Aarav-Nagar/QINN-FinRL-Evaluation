@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "verified_date": "2026-08-20",
+  "agent_id": "agent_63a8501e0235",
+  "agent_run": {
+    "run_id": "ext_20260820_234121_d91eafa4",
+    "start_date": "2026-04-15",
+    "exclusive_end_date": "2026-05-16",
+    "initial_equity": 1000.0,
+    "final_equity": 1000.0,
+    "total_return": 0.0,
+    "maximum_drawdown": 0.0,
+    "trades": 0,
+    "decisions": 161,
+    "decision_timeouts": 0,
+    "live_trading": false
+  },
+  "atl_native_djia_reference": {
+    "run_id": "djia_index_20260820_232622_d23baa42",
+    "total_return": 0.02699000000000001,
+    "maximum_drawdown": -0.016560906902165027,
+    "final_equity": 1026.99
+  },
+  "atl_native_buy_hold_reference": {
+    "run_id": "buyhold_20260820_232620_1b722c58",
+    "total_return": 0.0,
+    "symbols_requested": 10,
+    "symbols_priced": 10,
+    "symbols_bought": 0,
+    "invested_ratio": 0.0,
+    "interpretation": "Not an invested comparison because whole-share sizing bought no symbols."
+  }
+}

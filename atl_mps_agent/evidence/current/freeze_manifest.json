@@ -1,0 +1,16 @@
+{
+  "artifact": "current_deployment_freeze",
+  "architecture_selected_without_fresh_test": true,
+  "fresh_data_collected": false,
+  "quantum_hardware": false,
+  "frozen_test_start": "2026-07-01T00:00:00",
+  "frozen_test_end": "2026-08-15T23:59:59",
+  "selected_policy": "gated_mps_trend_weekly",
+  "minimum_mps_rank_weight": 0.5,
+  "selected_mps_rank_weight": 0.75,
+  "files_sha256": {
+    "../../artifacts/atl_residual_mps_current.pt": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
+    "../../artifacts/atl_residual_mps_current.json": "ff2c7739aab8bfc9f1e452d3aea8d2c972314e2d2e417e12b6de9a7c96b337a4",
+    "../../../docs/ATL_RESIDUAL_MPS_PROTOCOL.md": "8be0f75c1c3d171eb7f62ca82fac26610ca5af128fee524e8c65c576609f714f"
+  }
+}

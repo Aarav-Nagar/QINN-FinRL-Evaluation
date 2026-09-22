@@ -1,0 +1,304 @@
+{
+  "schema_version": 3,
+  "model_type": "residual_mps_deep_ensemble",
+  "feature_names": [
+    "rsi_centered",
+    "macd_to_price",
+    "macd_gap_to_price",
+    "price_to_sma20",
+    "price_to_sma50",
+    "sma20_to_sma50",
+    "bollinger_position",
+    "bollinger_width",
+    "return_1h",
+    "return_3h",
+    "relative_return_rank_1h",
+    "cross_sectional_volatility_1h",
+    "market_breadth_1h"
+  ],
+  "bond_dimension": 5,
+  "parameter_count_per_member": 586,
+  "member_count": 5,
+  "ensemble_parameter_count": 2930,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "feature_means": [
+    0.02327757142484188,
+    -0.0007467412506230175,
+    4.315299065638101e-06,
+    -0.0008542164578102529,
+    -0.0024273120798170567,
+    -0.0016743167070671916,
+    0.01976882480084896,
+    0.04139254614710808,
+    -7.676572568016127e-05,
+    -0.00011338214972056448,
+    -0.0009760462562553585,
+    0.002779589267447591,
+    -0.014738384634256363
+  ],
+  "feature_scales": [
+    0.4669078290462494,
+    0.008680084720253944,
+    0.003191487630829215,
+    0.021593978628516197,
+    0.030156373977661133,
+    0.01588999666273594,
+    0.9111679196357727,
+    0.030902311205863953,
+    0.0038271923549473286,
+    0.004670741967856884,
+    0.5680310130119324,
+    0.0020054089836776257,
+    0.44136661291122437
+  ],
+  "training_rows": 3233,
+  "validation_rows": 1110,
+  "train_end": "2026-04-10T23:59:59",
+  "validation_end": "2026-05-15T23:59:59",
+  "calibration": {
+    "residual_rmse_pp": 0.5554796715612664,
+    "trade_threshold_pp": 0.12858517630195618,
+    "validation_net_edge_pp": -0.027009800645464575,
+    "validation_coverage": 0.0,
+    "validation_directional_accuracy": 0.5558558558558558,
+    "validation_rank_ic": 0.20066825974386973,
+    "transaction_cost_bps": 10.0,
+    "abstain_without_positive_validation_edge": true,
+    "uncertainty_penalty_z": 1.0,
+    "validation_mean_uncertainty_pp": 0.012477881275117397
+  },
+  "feature_audit": {
+    "row_count": 4343,
+    "timestamp_count": 540,
+    "first_timestamp": "2026-01-05T15:00:00+00:00",
+    "last_timestamp": "2026-05-15T19:00:00+00:00",
+    "symbol_count": 30,
+    "symbols": [
+      "AAPL",
+      "AMGN",
+      "AMZN",
+      "AXP",
+      "BA",
+      "CAT",
+      "CRM",
+      "CSCO",
+      "CVX",
+      "DIS",
+      "GOOGL",
+      "GS",
+      "HD",
+      "HON",
+      "IBM",
+      "JNJ",
+      "JPM",
+      "KO",
+      "MCD",
+      "MMM",
+      "MRK",
+      "MSFT",
+      "NKE",
+      "NVDA",
+      "PG",
+      "SHW",
+      "TRV",
+      "UNH",
+      "V",
+      "WMT"
+    ],
+    "nonfinite_total": 0,
+    "degenerate_features": [],
+    "features": [
+      {
+        "name": "rsi_centered",
+        "mean": 0.01128019206225872,
+        "standard_deviation": 0.4693715274333954,
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "zero_fraction": 0.0,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "macd_to_price",
+        "mean": -0.0004759300500154495,
+        "standard_deviation": 0.008566486649215221,
+        "minimum": -0.0633174255490303,
+        "maximum": 0.04105740040540695,
+        "zero_fraction": 0.07828689845728759,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "macd_gap_to_price",
+        "mean": 3.3765763873816468e-06,
+        "standard_deviation": 0.0030732310842722654,
+        "minimum": -0.03483209013938904,
+        "maximum": 0.01733865588903427,
+        "zero_fraction": 0.07828689845728759,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "price_to_sma20",
+        "mean": -0.000571895856410265,
+        "standard_deviation": 0.02130531147122383,
+        "minimum": -0.13187456130981445,
+        "maximum": 0.07363405078649521,
+        "zero_fraction": 0.05480082892010131,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "price_to_sma50",
+        "mean": -0.0017390939174219966,
+        "standard_deviation": 0.030081922188401222,
+        "minimum": -0.173647940158844,
+        "maximum": 0.12673848867416382,
+        "zero_fraction": 0.14874510706884642,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "sma20_to_sma50",
+        "mean": -0.0012739843223243952,
+        "standard_deviation": 0.015643276274204254,
+        "minimum": -0.0790957510471344,
+        "maximum": 0.08635198324918747,
+        "zero_fraction": 0.05480082892010131,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "bollinger_position",
+        "mean": 0.010345996357500553,
+        "standard_deviation": 0.9196733832359314,
+        "minimum": -1.7880905866622925,
+        "maximum": 1.938670039176941,
+        "zero_fraction": 0.05480082892010131,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "bollinger_width",
+        "mean": 0.04110844433307648,
+        "standard_deviation": 0.03124123252928257,
+        "minimum": 0.0,
+        "maximum": 0.380112886428833,
+        "zero_fraction": 0.05480082892010131,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "return_1h",
+        "mean": -8.067683666013181e-05,
+        "standard_deviation": 0.0037432480603456497,
+        "minimum": -0.04662975296378136,
+        "maximum": 0.03178756684064865,
+        "zero_fraction": 0.24821551922634125,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "return_3h",
+        "mean": -7.99579793238081e-05,
+        "standard_deviation": 0.004511053208261728,
+        "minimum": -0.09027226269245148,
+        "maximum": 0.03334452956914902,
+        "zero_fraction": 0.6433341008519456,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "relative_return_rank_1h",
+        "mean": -0.0013840914471074939,
+        "standard_deviation": 0.5674050450325012,
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "zero_fraction": 0.28666820170389135,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "cross_sectional_volatility_1h",
+        "mean": 0.0028058509342372417,
+        "standard_deviation": 0.001947948825545609,
+        "minimum": 0.0,
+        "maximum": 0.014682293869554996,
+        "zero_fraction": 0.1577250748330647,
+        "nonfinite_count": 0,
+        "degenerate": false
+      },
+      {
+        "name": "market_breadth_1h",
+        "mean": -0.015045742504298687,
+        "standard_deviation": 0.42562559247016907,
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "zero_fraction": 0.23877504029472715,
+        "nonfinite_count": 0,
+        "degenerate": false
+      }
+    ],
+    "raw_input_coverage": {
+      "signal_row_count": 6300,
+      "fields": {
+        "price": {
+          "observed_count": 6300,
+          "usable_count": 6300,
+          "usable_fraction": 1.0
+        },
+        "rsi": {
+          "observed_count": 6300,
+          "usable_count": 6300,
+          "usable_fraction": 1.0
+        },
+        "macd": {
+          "observed_count": 6300,
+          "usable_count": 5836,
+          "usable_fraction": 0.9263492063492064
+        },
+        "macd_signal": {
+          "observed_count": 6300,
+          "usable_count": 5694,
+          "usable_fraction": 0.9038095238095238
+        },
+        "sma20": {
+          "observed_count": 6300,
+          "usable_count": 5977,
+          "usable_fraction": 0.9487301587301588
+        },
+        "sma50": {
+          "observed_count": 6300,
+          "usable_count": 5377,
+          "usable_fraction": 0.8534920634920635
+        },
+        "bb_upper": {
+          "observed_count": 6300,
+          "usable_count": 5977,
+          "usable_fraction": 0.9487301587301588
+        },
+        "bb_lower": {
+          "observed_count": 6300,
+          "usable_count": 5977,
+          "usable_fraction": 0.9487301587301588
+        }
+      },
+      "note": "Nonzero is an availability proxy for MACD fields because ATL uses zero placeholders."
+    }
+  },
+  "dataset_sha256": "c20d222fdc650500540e54277442b345bb461abe650839f5cbf1928cfbb0667a",
+  "epochs_completed_by_seed": {
+    "0": 50,
+    "1": 54,
+    "2": 55,
+    "3": 55,
+    "4": 40
+  },
+  "artifact_sha256": "d30ae7fa0b580ce527eb2ab84c4fd3160fd795cdc10adc61462d36fd20b6566e"
+}

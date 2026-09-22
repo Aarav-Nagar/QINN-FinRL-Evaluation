@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "artifact": "atl_prospective_four_week_replication_result",
+  "generated_at_utc": "2026-09-22T00:30:00Z",
+  "status": "complete",
+  "classification_after_10_bps": "negative",
+  "protocol": {
+    "registered_commit": "4ea061a55fb45c61c0adeb8cacd3ef0f0b122e76",
+    "registration_binding_commit": "3f759c2df9c4d32c9a5c5d1580ca7761930c6e79",
+    "account_binding_commit": "c8c28f7c7fc2b0d6c9bf02518a52cd0e5c015b7f",
+    "start_date": "2026-08-24",
+    "exclusive_end_date": "2026-09-19",
+    "executed_after_earliest_time": true,
+    "policy_changed": false,
+    "retrained_or_tuned": false
+  },
+  "deployment": {
+    "account_agent_id": "agent_3cc6d5aac07b",
+    "account_immutable_version_id": "agv_1c48b644b71e",
+    "legacy_anonymous_agent_id": "agent_63a8501e0235",
+    "legacy_anonymous_version_id": "agv_c23fdf3230ad",
+    "account_migration_only": true,
+    "live_trading_enabled": false,
+    "artifact_sha256": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6"
+  },
+  "hosted_primary": {
+    "run_id": "ext_20260922_001740_4f36e194",
+    "initial_equity": 1000.0,
+    "gross_final_equity": 975.25,
+    "gross_return_pct": -2.475,
+    "maximum_drawdown_pct": -3.3654870369544563,
+    "trade_count": 6,
+    "decision_count": 133,
+    "timeout_holds": 0,
+    "traded_notional": 1674.32,
+    "estimated_10_bps_cost": 1.67432,
+    "estimated_final_equity_after_10_bps": 973.57568,
+    "estimated_return_pct_after_10_bps": -2.6424319999999946
+  },
+  "exact_rerun": {
+    "run_ids": [
+      "ext_20260922_001740_4f36e194",
+      "ext_20260922_002036_d6ad5c88"
+    ],
+    "run_count": 2,
+    "metrics_exact": true,
+    "equity_curve_exact": true,
+    "trade_ledger_exact": true,
+    "decision_ledger_exact": true,
+    "reference_metrics": {
+      "total_return": -0.02475,
+      "sharpe_ratio": -3.0638461213040213,
+      "max_drawdown": -0.033654870369544565,
+      "num_trades": 6,
+      "final_equity": 975.25,
+      "timeout_holds": 0
+    },
+    "exact_replication": true,
+    "snapshot_payload_exact": true,
+    "snapshot_hash_exact": true
+  },
+  "local_action_replay": {
+    "primary": {
+      "status": "complete",
+      "snapshot_count": 133,
+      "recorded_decision_count": 133,
+      "replayed_decision_count": 133,
+      "valid_symbol_count": 30,
+      "exact_action_batch_count": 133,
+      "mismatch_count": 0,
+      "first_mismatch_indices": [],
+      "all_action_batches_exact": true
+    },
+    "rerun": {
+      "status": "complete",
+      "snapshot_count": 133,
+      "recorded_decision_count": 133,
+      "replayed_decision_count": 133,
+      "valid_symbol_count": 30,
+      "exact_action_batch_count": 133,
+      "mismatch_count": 0,
+      "first_mismatch_indices": [],
+      "all_action_batches_exact": true
+    }
+  },
+  "data_quality": {
+    "primary_snapshot_profile": {
+      "snapshot_count": 133,
+      "unique_timestamp_count": 133,
+      "duplicate_timestamp_count": 0,
+      "chronologically_sorted": true,
+      "first_timestamp": "2026-08-24T14:30:00+00:00",
+      "last_timestamp": "2026-09-18T20:00:00+00:00",
+      "trading_day_count": 19,
+      "observations_per_day": {
+        "2026-08-24": 7,
+        "2026-08-25": 7,
+        "2026-08-26": 7,
+        "2026-08-27": 7,
+        "2026-08-28": 7,
+        "2026-08-31": 7,
+        "2026-09-01": 7,
+        "2026-09-02": 7,
+        "2026-09-03": 7,
+        "2026-09-04": 7,
+        "2026-09-08": 7,
+        "2026-09-09": 7,
+        "2026-09-10": 7,
+        "2026-09-11": 7,
+        "2026-09-14": 7,
+        "2026-09-15": 7,
+        "2026-09-16": 7,
+        "2026-09-17": 7,
+        "2026-09-18": 7
+      },
+      "all_days_have_seven_observations": true,
+      "timezone_offsets": [
+        "0:00:00"
+      ],
+      "distinct_symbol_count": 30,
+      "signals_per_snapshot_min": 10,
+      "signals_per_snapshot_max": 10,
+      "signal_price_row_count": 1330,
+      "invalid_or_nonpositive_price_count": 0,
+      "nonfinite_signal_field_count": 0,
+      "portfolio_state_present_count": 133,
+      "nonempty_holdings_snapshot_count": 35,
+      "canonical_sha256": "81bdd92308521a8630f1107df3c1ca6a07bed76f99f5726ce9a360ae9e065ea2"
+    },
+    "rerun_snapshot_profile": {
+      "snapshot_count": 133,
+      "unique_timestamp_count": 133,
+      "duplicate_timestamp_count": 0,
+      "chronologically_sorted": true,
+      "first_timestamp": "2026-08-24T14:30:00+00:00",
+      "last_timestamp": "2026-09-18T20:00:00+00:00",
+      "trading_day_count": 19,
+      "observations_per_day": {
+        "2026-08-24": 7,
+        "2026-08-25": 7,
+        "2026-08-26": 7,
+        "2026-08-27": 7,
+        "2026-08-28": 7,
+        "2026-08-31": 7,
+        "2026-09-01": 7,
+        "2026-09-02": 7,
+        "2026-09-03": 7,
+        "2026-09-04": 7,
+        "2026-09-08": 7,
+        "2026-09-09": 7,
+        "2026-09-10": 7,
+        "2026-09-11": 7,
+        "2026-09-14": 7,
+        "2026-09-15": 7,
+        "2026-09-16": 7,
+        "2026-09-17": 7,
+        "2026-09-18": 7
+      },
+      "all_days_have_seven_observations": true,
+      "timezone_offsets": [
+        "0:00:00"
+      ],
+      "distinct_symbol_count": 30,
+      "signals_per_snapshot_min": 10,
+      "signals_per_snapshot_max": 10,
+      "signal_price_row_count": 1330,
+      "invalid_or_nonpositive_price_count": 0,
+      "nonfinite_signal_field_count": 0,
+      "portfolio_state_present_count": 133,
+      "nonempty_holdings_snapshot_count": 35,
+      "canonical_sha256": "81bdd92308521a8630f1107df3c1ca6a07bed76f99f5726ce9a360ae9e065ea2"
+    },
+    "atl_market_data_quality": {
+      "policy": "drop_incomplete_decision_bars",
+      "decision_timestamp_min_symbol_coverage": 0.8,
+      "total_decision_bars": 3990,
+      "usable_decision_bars": 3990,
+      "dropped_decision_bars": 0,
+      "missing_source_bars": 0,
+      "duplicate_source_bars": 0,
+      "off_grid_source_bars": 0,
+      "invalid_source_bars": 0,
+      "symbols": {
+        "AAPL": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "AMGN": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "AMZN": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "AXP": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "BA": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "CAT": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "CRM": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "CSCO": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "CVX": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "DIS": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "GOOGL": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "GS": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "HD": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "HON": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "IBM": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "JNJ": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "JPM": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "KO": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "MCD": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "MMM": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "MRK": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "MSFT": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "NKE": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "NVDA": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "PG": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "SHW": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "TRV": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "UNH": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "V": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        },
+        "WMT": {
+          "total_decision_bars": 133,
+          "usable_decision_bars": 133,
+          "dropped_decision_bars": 0,
+          "missing_source_bars": 0,
+          "duplicate_source_bars": 0,
+          "off_grid_source_bars": 0,
+          "invalid_source_bars": 0
+        }
+      }
+    },
+    "all_market_quality_error_counts_zero": true
+  },
+  "cost_sensitivity": [
+    {
+      "basis_points_per_traded_notional": 0,
+      "traded_notional": 1674.32,
+      "estimated_cost": 0.0,
+      "estimated_final_equity": 975.25,
+      "estimated_return_pct": -2.475000000000005
+    },
+    {
+      "basis_points_per_traded_notional": 10,
+      "traded_notional": 1674.32,
+      "estimated_cost": 1.67432,
+      "estimated_final_equity": 973.57568,
+      "estimated_return_pct": -2.6424319999999946
+    },
+    {
+      "basis_points_per_traded_notional": 25,
+      "traded_notional": 1674.32,
+      "estimated_cost": 4.1858,
+      "estimated_final_equity": 971.0642,
+      "estimated_return_pct": -2.8935799999999956
+    },
+    {
+      "basis_points_per_traded_notional": 50,
+      "traded_notional": 1674.32,
+      "estimated_cost": 8.3716,
+      "estimated_final_equity": 966.8784,
+      "estimated_return_pct": -3.3121599999999973
+    },
+    {
+      "basis_points_per_traded_notional": 100,
+      "traded_notional": 1674.32,
+      "estimated_cost": 16.7432,
+      "estimated_final_equity": 958.5068,
+      "estimated_return_pct": -4.149320000000001
+    },
+    {
+      "basis_points_per_traded_notional": "break_even",
+      "traded_notional": 1674.32,
+      "estimated_cost": -24.75,
+      "estimated_final_equity": 1000.0,
+      "estimated_return_pct": 0.0,
+      "break_even_basis_points": -147.82120502651824,
+      "gross_return_pct": -2.475000000000005
+    }
+  ],
+  "weekly_decomposition": [
+    {
+      "week": "2026-W35",
+      "start_reference_equity": 1000.0,
+      "ending_equity": 1000.0,
+      "dollar_change": 0.0,
+      "return_pct_from_prior_week_end": 0.0,
+      "contribution_pct_initial": 0.0,
+      "trade_count": 0
+    },
+    {
+      "week": "2026-W36",
+      "start_reference_equity": 1000.0,
+      "ending_equity": 989.6949999999999,
+      "dollar_change": -10.305000000000064,
+      "return_pct_from_prior_week_end": -1.0305000000000009,
+      "contribution_pct_initial": -1.0305000000000064,
+      "trade_count": 3
+    },
+    {
+      "week": "2026-W37",
+      "start_reference_equity": 989.6949999999999,
+      "ending_equity": 975.25,
+      "dollar_change": -14.444999999999936,
+      "return_pct_from_prior_week_end": -1.4595405655277616,
+      "contribution_pct_initial": -1.4444999999999937,
+      "trade_count": 3
+    },
+    {
+      "week": "2026-W38",
+      "start_reference_equity": 975.25,
+      "ending_equity": 975.25,
+      "dollar_change": 0.0,
+      "return_pct_from_prior_week_end": 0.0,
+      "contribution_pct_initial": 0.0,
+      "trade_count": 0
+    }
+  ],
+  "weekly_concentration": {
+    "full_window_dollar_change": -24.75,
+    "largest_absolute_week": "2026-W37",
+    "largest_absolute_week_dollar_change": -14.444999999999936,
+    "largest_absolute_week_fraction_of_full_window_change": 0.5836363636363611,
+    "one_week_exceeds_full_window_change": false
+  },
+  "matched_controls_after_10_bps": {
+    "selected_mps_trend": {
+      "initial_equity": 1000.0,
+      "final_equity": 973.205049,
+      "total_return_pct": -2.6794950999999956,
+      "maximum_drawdown_pct": -2.8766035366800335,
+      "trade_count": 6,
+      "cumulative_turnover_multiple": 1.673951,
+      "modeled_cost_pct_initial": 0.1673951,
+      "invested_day_fraction": 0.2631578947368421,
+      "decision_days": 19,
+      "ending_holdings": {}
+    },
+    "matched_ann_trend": {
+      "initial_equity": 1000.0,
+      "final_equity": 973.205049,
+      "total_return_pct": -2.6794950999999956,
+      "maximum_drawdown_pct": -2.8766035366800335,
+      "trade_count": 6,
+      "cumulative_turnover_multiple": 1.673951,
+      "modeled_cost_pct_initial": 0.1673951,
+      "invested_day_fraction": 0.2631578947368421,
+      "decision_days": 19,
+      "ending_holdings": {}
+    },
+    "mps_only_rank": {
+      "initial_equity": 1000.0,
+      "final_equity": 949.5218114999999,
+      "total_return_pct": -5.047818850000008,
+      "maximum_drawdown_pct": -5.047818850000008,
+      "trade_count": 17,
+      "cumulative_turnover_multiple": 4.2696885,
+      "modeled_cost_pct_initial": 0.42696884999999996,
+      "invested_day_fraction": 0.9473684210526315,
+      "decision_days": 19,
+      "ending_holdings": {
+        "IBM": 1,
+        "WMT": 2,
+        "MRK": 2
+      }
+    },
+    "trend_only": {
+      "initial_equity": 1000.0,
+      "final_equity": 975.655935,
+      "total_return_pct": -2.434406499999997,
+      "maximum_drawdown_pct": -2.434406499999997,
+      "trade_count": 6,
+      "cumulative_turnover_multiple": 1.6390649999999998,
+      "modeled_cost_pct_initial": 0.1639065,
+      "invested_day_fraction": 0.2631578947368421,
+      "decision_days": 19,
+      "ending_holdings": {}
+    },
+    "fixed_initial_trend_basket": {
+      "initial_equity": 1000.0,
+      "final_equity": 990.923065,
+      "total_return_pct": -0.9076935000000064,
+      "maximum_drawdown_pct": -1.6202643202115286,
+      "trade_count": 3,
+      "cumulative_turnover_multiple": 0.8669349999999999,
+      "modeled_cost_pct_initial": 0.0866935,
+      "invested_day_fraction": 0.9473684210526315,
+      "decision_days": 19,
+      "ending_holdings": {
+        "DIS": 3,
+        "CVX": 1,
+        "CSCO": 3
+      }
+    },
+    "cash": {
+      "initial_equity": 1000.0,
+      "final_equity": 1000.0,
+      "total_return_pct": 0.0,
+      "maximum_drawdown_pct": 0.0,
+      "trade_count": 0,
+      "cumulative_turnover_multiple": 0.0,
+      "modeled_cost_pct_initial": 0.0,
+      "invested_day_fraction": 0.0,
+      "decision_days": 19,
+      "ending_holdings": {}
+    }
+  },
+  "matched_model_comparison": {
+    "selected_mps_trend_return_pct": -2.6794950999999956,
+    "matched_ann_trend_return_pct": -2.6794950999999956,
+    "return_difference_percentage_points": 0.0,
+    "same_trade_count": true,
+    "supports_unique_mps_value": false,
+    "note": "The frozen MPS and matched ANN produced identical portfolio results in this window."
+  },
+  "atl_native_references": {
+    "djia_index": {
+      "run_id": "djia_index_20260922_001744_5e523c32",
+      "final_equity": 971.46,
+      "return_pct": -2.854,
+      "maximum_drawdown_pct": -3.773828691832153,
+      "note": "ATL-native DJIA reference."
+    },
+    "buy_and_hold": {
+      "run_id": "buyhold_20260922_001743_be1f21a2",
+      "final_equity": 1000.0,
+      "return_pct": 0.0,
+      "maximum_drawdown_pct": 0.0,
+      "invested_ratio": 0.0,
+      "symbols_requested": 10,
+      "symbols_bought": 0,
+      "note": "Not an invested benchmark: ATL skipped all ten whole-share purchases."
+    }
+  },
+  "limitations": [
+    "One four-week window is not evidence of alpha, significance, or future profitability.",
+    "The exact rerun tests determinism on one fixed sample, not independent replication.",
+    "The ATL buy-and-hold reference remained entirely in cash because all ten requested whole-share purchases were skipped.",
+    "The local matched-control simulator is comparable within its table but is not the hosted execution ledger used for the primary endpoint."
+  ],
+  "source_file_sha256": {
+    "primary_result": "b359847ce17e4f12474970c7b0c8b28959d887a19af0da62d053ec9917731e5c",
+    "primary_snapshots": "81bdd92308521a8630f1107df3c1ca6a07bed76f99f5726ce9a360ae9e065ea2",
+    "rerun_result": "471b9e5ca350b39321191373aab6afaae4d0d3d78d20a9b0b6f410c21953d3da",
+    "rerun_snapshots": "81bdd92308521a8630f1107df3c1ca6a07bed76f99f5726ce9a360ae9e065ea2",
+    "benchmark": "8ffbe04c90ba51636fcb27cee7c44a862bb66a9fc26134509d7f5ca0ff42f042",
+    "frozen_artifact": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6"
+  }
+}
