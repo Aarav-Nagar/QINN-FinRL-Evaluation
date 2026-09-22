@@ -41,6 +41,12 @@ matched. Offline comparisons must therefore use snapshots captured inside the
 same hosted run context. Under that correction the selected system was positive,
 but the matched ANN combination produced the same portfolio result.
 
+The preregistered four-week prospective run was negative at -2.4750% gross and
+-2.6424% after the declared cost estimate. Its exact rerun and local replay
+were deterministic, but the matched ANN again produced the same portfolio
+result, the MPS-only control lost more, and cash outperformed every tested
+system. These findings further limit any MPS-specific or performance claim.
+
 ## Frozen evaluation
 
 The hosted July 1-August 16, 2026 run returned +1.2936% gross with 11 trades,
@@ -51,3 +57,8 @@ beat the broad platform reference. A positive historical run does not establish
 alpha, statistical significance, or future profitability. This remains a
 self-reported research system, not investment advice or validation for real
 capital.
+
+The later August 24-September 18, 2026 prospective result supersedes the
+positive run as the most recent untouched temporal test. See
+`docs/ATL_PROSPECTIVE_REPLICATION_RESULT.md` for its complete negative result,
+controls, exact-rerun checks, and evidence hashes.

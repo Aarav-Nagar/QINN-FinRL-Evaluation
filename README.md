@@ -28,7 +28,12 @@ See the [residual-MPS protocol](docs/ATL_RESIDUAL_MPS_PROTOCOL.md),
 same-window hosted runs, a flat four-day temporal extension, corrected-context
 controls, cost stress, and ATL input-lineage drift. The next untouched
 [prospective multi-week protocol](docs/ATL_PROSPECTIVE_REPLICATION_PROTOCOL.md)
-was registered before its August 24-September 18 window begins.
+was registered before its August 24-September 18 window began. Its
+[published result](docs/ATL_PROSPECTIVE_REPLICATION_RESULT.md) is negative:
+-2.4750% gross and -2.6424% after the prespecified 10-basis-point estimate,
+with an exact hosted rerun and zero local action-replay mismatches. The matched
+ANN produced the same portfolio result, so this window does not support unique
+MPS value, alpha, significance, or future-profitability claims.
 
 The later [exploratory date and China-market stress](docs/ATL_EXPLORATORY_STRESS_RESULTS.md)
 keeps the artifact frozen across four fresh-start U.S. partitions, an exact
