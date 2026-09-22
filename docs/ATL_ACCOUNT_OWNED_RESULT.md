@@ -46,3 +46,18 @@ of alpha, MPS superiority, or future profitability.
 The original anonymous agent remains in the replication audit so its
 preregistered run history is not rewritten. New prospective tests should use
 the account-owned agent.
+
+## Latest prospective record
+
+The account-owned agent's preregistered August 24-September 18 test returned
+-2.4750% gross and -2.6424% after the declared cost estimate. The exact rerun
+and all 133 local action batches matched, but the matched ANN produced the same
+portfolio result. The result is therefore classified negative and does not
+support unique MPS value. See `docs/ATL_PROSPECTIVE_REPLICATION_RESULT.md`.
+
+On September 21 the live ATL API still resolved agent
+`agent_3cc6d5aac07b` and immutable version `agv_1c48b644b71e`. An attempt to
+add the result summary to the public profile was rejected by ATL with HTTP 403
+`Not your agent`, despite those credentials resolving the record. The failure
+is recorded rather than silently treating the profile as updated. The version
+and live-trading setting were not changed.

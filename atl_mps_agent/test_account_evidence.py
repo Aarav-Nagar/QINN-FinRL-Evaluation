@@ -18,6 +18,11 @@ def test_account_owned_agent_evidence_is_bound_and_safe() -> None:
     assert manifest["agent_version_id"] == "agv_1c48b644b71e"
     assert manifest["live_trading_enabled"] is False
     assert manifest["policy_changed_for_account_migration"] is False
+    assert manifest["latest_prospective_result"]["classification"] == "negative"
+    assert manifest["atl_profile_publication"]["status"] == "blocked"
+    assert manifest["atl_profile_publication"]["agent_and_version_still_resolve"] is True
+    assert manifest["atl_profile_publication"]["immutable_version_changed"] is False
+    assert manifest["atl_profile_publication"]["live_trading_setting_changed"] is False
     assert manifest["account_linked_run"]["run_id"] == hosted["run"]["run_id"]
     assert hosted["run"]["final_equity"] == 1012.9364
     assert hosted["run"]["num_trades"] == 11

@@ -12,6 +12,24 @@
   "artifact_sha256": "a2be3a5286cf7bb72116dac8a2f23b82173ddecdb44c7c81153edbe123d999b6",
   "live_trading_enabled": false,
   "verification_level": "self_reported",
+  "last_live_resolution_check": "2026-09-21",
+  "latest_prospective_result": {
+    "run_id": "ext_20260922_001740_4f36e194",
+    "window_start": "2026-08-24",
+    "window_end_exclusive": "2026-09-19",
+    "gross_return_pct": -2.475,
+    "estimated_after_cost_return_pct": -2.642432,
+    "classification": "negative",
+    "result_manifest_canonical_sha256": "15dfe9b34599d8701bfa1ba44cf4800ca1db803deb53510a1bea1d25035e2069"
+  },
+  "atl_profile_publication": {
+    "status": "blocked",
+    "attempted_at": "2026-09-21",
+    "error": "ATL HTTP 403: Not your agent",
+    "agent_and_version_still_resolve": true,
+    "immutable_version_changed": false,
+    "live_trading_setting_changed": false
+  },
   "account_linked_run": {
     "run_id": "ext_20260822_193243_03d90180",
     "start_date": "2026-07-01",
@@ -30,5 +48,5 @@
   },
   "legacy_anonymous_agent_id": "agent_63a8501e0235",
   "policy_changed_for_account_migration": false,
-  "interpretation": "Exact same-window deterministic reproduction under authenticated account ownership; not an independent performance sample."
+  "interpretation": "The latest preregistered account-owned temporal test was negative and exactly reproducible; it did not support unique MPS value."
 }
